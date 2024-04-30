@@ -6,10 +6,12 @@ import { EnergyBar } from "@/components/touchswap/EnergyBar";
 export default function Home() {
   return (
     <main className="relative h-screen">
-      <div className="container mx-auto px-6 h-full">
+      <div className="h-full">
         <Header />
         <HomeScreen />
-        <Menubar />
+        <div className="container mx-auto px-6">
+          <Menubar />
+        </div>
       </div>
     </main>
   );
