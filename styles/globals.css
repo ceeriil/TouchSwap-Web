@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontrealMono-Thin.otf") format("opentype");
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontrealMono-Book.otf") format("opentype");
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontrealMono-Medium.otf") format("opentype");
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontrealMono-Bold.otf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -24,6 +52,30 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  font-family: "PP Neue Montreal", sans-serif;
+}
+
+.gold-gradient {
+  background: linear-gradient(
+    91.67deg,
+    #fde991 0.3%,
+    #b07464 11.58%,
+    #7b6a72 28.32%,
+    #565966 58.53%,
+    #fde991 83.87%,
+    #5f6166 96.47%,
+    #baaf7f 114.38%,
+    #fde991 127.64%
+  );
+}
+
+.purple-gradient {
+  background: radial-gradient(#9181f0, #6752ef);
+  background: radial-gradient(
+    40.91% 67.55% at 28.81% 50%,
+    #9181f0 0%,
+    #6752ef 100%
+  );
 }
 
 @layer utilities {
