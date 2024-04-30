@@ -46,7 +46,7 @@ export const Menubar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="gold-gradient p-[1px] my-6 rounded-3xl mt-16">
+    <div className="gold-gradient p-[1px] my-6 rounded-3xl mt-16 absolute bottom-6">
       <div className="bg-[#030810] py-3 px-3 md:px-6 rounded-3xl flex gap-x-2 md:gap-x-3">
         {menuLinks.map(({ label, href, icon }) => {
           const isActive = pathname === href;
