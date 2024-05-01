@@ -47,8 +47,8 @@ export const StatsScreen = () => {
         </p>
         <div className="mt-8">
           <div className="grid grid-cols-2 gap-4">
-            {statsCardLists.map(({ title, icon }) => {
-              return <StatsCard title={title} key={title} icon={icon} />;
+            {statsCardLists.map(({ title, icon }, index) => {
+              return <StatsCard title={title} key={index} icon={icon} />;
             })}
           </div>
         </div>
