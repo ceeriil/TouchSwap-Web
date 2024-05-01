@@ -1,12 +1,7 @@
 import React from "react";
+import { IconProps } from "@/types/icontypes";
 
-type EnergBarProps = {
-  width: string;
-  height: string;
-  className?: string;
-};
-
-export const EnergyBarHead: React.FC<EnergBarProps> = ({
+export const EnergyBarHead: React.FC<IconProps> = ({
   width,
   height,
   className,

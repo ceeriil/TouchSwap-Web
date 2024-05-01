@@ -112,8 +112,17 @@ body {
   height: 0;
 }
 
+.light-green-gradient {
+  background: linear-gradient(
+    51.99deg,
+    rgba(34, 99, 105, 0.2) 8.22%,
+    rgba(129, 219, 226, 0.2) 125.1%
+  );
+}
+
 p {
   line-height: 1.5;
+  color: #b0aeb5;
 }
 
 @layer utilities {
