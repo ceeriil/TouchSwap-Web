@@ -16,7 +16,7 @@ export const CoinIcon = () => {
         width="37.9136"
         height="32"
         fill="url(#pattern0_310_10662)"
-        fill-opacity="0.5"
+        fillOpacity="0.5"
       />
       <defs>
         <pattern

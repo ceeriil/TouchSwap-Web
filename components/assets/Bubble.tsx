@@ -19,16 +19,16 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
         >
           <g filter="url(#filter0_d_100_436)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M28 51.6492C40.9596 51.6492 51.4655 41.1434 51.4655 28.1838C51.4655 15.2241 40.9596 4.71829 28 4.71829C15.0404 4.71829 4.53455 15.2241 4.53455 28.1838C4.53455 41.1434 15.0404 51.6492 28 51.6492ZM28 47.9827C38.9347 47.9827 47.799 39.1184 47.799 28.1838C47.799 17.2491 38.9347 8.38477 28 8.38477C17.0653 8.38477 8.20103 17.2491 8.20103 28.1838C8.20103 39.1184 17.0653 47.9827 28 47.9827Z"
               fill="url(#paint0_radial_100_436)"
             />
           </g>
           <g filter="url(#filter1_d_100_436)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M28 47.9827C38.9347 47.9827 47.799 39.1184 47.799 28.1838C47.799 17.2491 38.9347 8.38477 28 8.38477C17.0654 8.38477 8.20105 17.2491 8.20105 28.1838C8.20105 39.1184 17.0654 47.9827 28 47.9827Z"
               fill="#0D2A28"
             />
@@ -39,8 +39,8 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
           </g>
           <g opacity="0.9" filter="url(#filter2_i_100_436)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M28 47.9827C38.9347 47.9827 47.799 39.1184 47.799 28.1838C47.799 17.2491 38.9347 8.38477 28 8.38477C17.0654 8.38477 8.20105 17.2491 8.20105 28.1838C8.20105 39.1184 17.0654 47.9827 28 47.9827Z"
               fill="#0D2A28"
             />
@@ -51,8 +51,8 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
           </g>
           <g opacity="0.7" filter="url(#filter3_i_100_436)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M28 47.9827C38.9347 47.9827 47.799 39.1184 47.799 28.1838C47.799 17.2491 38.9347 8.38477 28 8.38477C17.0654 8.38477 8.20105 17.2491 8.20105 28.1838C8.20105 39.1184 17.0654 47.9827 28 47.9827Z"
               fill="#0D2A28"
             />
@@ -72,16 +72,16 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
           >
             <g opacity="0.7">
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M28 47.9827C38.9347 47.9827 47.799 39.1184 47.799 28.1838C47.799 17.2491 38.9347 8.38477 28 8.38477C17.0654 8.38477 8.20105 17.2491 8.20105 28.1838C8.20105 39.1184 17.0654 47.9827 28 47.9827Z"
                 fill="#FFB34F"
-                fill-opacity="0.2"
+                fillOpacity="0.2"
               />
               <path
                 d="M47.799 28.1838C47.799 39.1184 38.9347 47.9827 28 47.9827C17.0654 47.9827 8.20105 39.1184 8.20105 28.1838C8.20105 17.2491 17.0654 8.38477 28 8.38477C38.9347 8.38477 47.799 17.2491 47.799 28.1838Z"
                 fill="#FFB34F"
-                fill-opacity="0.2"
+                fillOpacity="0.2"
               />
             </g>
           </mask>
@@ -94,19 +94,19 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               <path
                 d="M47.799 21.2174C32.9023 15.3309 24.7246 15.5456 10.4009 21.2174V6.18487L47.799 5.08493V21.2174Z"
                 stroke="#0D2A28"
-                stroke-width="0.733296"
+                strokeWidth="0.733296"
               />
             </g>
           </g>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M28 47.9827C38.9347 47.9827 47.799 39.1184 47.799 28.1838C47.799 17.2491 38.9347 8.38477 28 8.38477C17.0654 8.38477 8.20105 17.2491 8.20105 28.1838C8.20105 39.1184 17.0654 47.9827 28 47.9827ZM28 46.3557C37.2262 46.3557 46.172 37.4099 46.172 28.1838C46.172 18.9576 37.2262 10.0118 28 10.0118C18.7739 10.0118 9.82805 18.9576 9.82805 28.1838C9.82805 37.4099 18.7739 46.3557 28 46.3557Z"
             fill="#0D2A28"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M14 14.1838C6.26801 21.9158 6.26801 34.4518 14 42.1838C21.732 49.9158 34.268 49.9158 42 42.1838C49.732 34.4518 49.732 21.9158 42 14.1838C34.268 6.45179 21.732 6.45179 14 14.1838ZM15.1505 15.3342C8.6266 21.8581 8.6266 34.5094 15.1505 41.0333C21.6743 47.5572 34.3257 47.5572 40.8495 41.0333C47.3734 34.5095 47.3734 21.8581 40.8495 15.3342C34.3257 8.81038 21.6743 8.81038 15.1505 15.3342Z"
             fill="#0D2A28"
           />
@@ -230,7 +230,7 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               filterUnits="userSpaceOnUse"
               color-interpolation-filters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -361,8 +361,8 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
           >
             <g opacity="0.7">
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M27.9999 47.9827C38.9346 47.9827 47.7989 39.1184 47.7989 28.1838C47.7989 17.2491 38.9346 8.38477 27.9999 8.38477C17.0652 8.38477 8.20093 17.2491 8.20093 28.1838C8.20093 39.1184 17.0652 47.9827 27.9999 47.9827Z"
                 fill="#FFB34F"
                 fill-opacity="0.2"

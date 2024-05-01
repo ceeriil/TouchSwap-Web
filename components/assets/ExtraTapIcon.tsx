@@ -9,11 +9,11 @@ export const ExtraTapIcon = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_319_3426)">
+      <g clipPath="url(#clip0_319_3426)">
         <g filter="url(#filter0_i_319_3426)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M-39.6251 7.9451C-39.8651 8.18514 -40 8.51072 -40 8.85019V55.1498C-40 55.4893 -39.8651 55.8149 -39.6251 56.0549L-32.0549 63.6251C-31.8149 63.8651 -31.4893 64 -31.1498 64H55.1498C55.4893 64 55.8148 63.8651 56.0549 63.6251L63.6251 56.0549C63.8651 55.8149 64 55.4893 64 55.1498V8.85019C64 8.51072 63.8651 8.18514 63.6251 7.9451L56.0549 0.374903C55.8148 0.134857 55.4893 0 55.1498 0H-31.1498C-31.4893 0 -31.8149 0.134856 -32.0549 0.374903L-39.6251 7.9451ZM-38.3451 8.8923C-38.5851 9.13234 -38.72 9.45792 -38.72 9.79739V54.2026C-38.72 54.5421 -38.5851 54.8677 -38.3451 55.1077L-31.1077 62.3451C-30.8677 62.5851 -30.5421 62.72 -30.2026 62.72H54.2026C54.5421 62.72 54.8676 62.5851 55.1077 62.3451L62.3451 55.1077C62.5851 54.8677 62.72 54.5421 62.72 54.2026V9.79739C62.72 9.45792 62.5851 9.13234 62.3451 8.8923L55.1077 1.6549C54.8676 1.41486 54.5421 1.28 54.2026 1.28H-30.2026C-30.5421 1.28 -30.8677 1.41486 -31.1077 1.6549L-38.3451 8.8923Z"
             fill="#110202"
           />
@@ -93,15 +93,15 @@ export const ExtraTapIcon = () => {
           <path
             d="M-38.72 9.79742C-38.72 9.45794 -38.5851 9.13237 -38.3451 8.89233L-31.1077 1.65493C-30.8677 1.41489 -30.5421 1.28003 -30.2026 1.28003H54.2026C54.5421 1.28003 54.8677 1.41489 55.1077 1.65493L62.3451 8.89233C62.5851 9.13237 62.72 9.45795 62.72 9.79742V54.2026C62.72 54.5421 62.5851 54.8677 62.3451 55.1077L55.1077 62.3451C54.8677 62.5852 54.5421 62.72 54.2026 62.72H-30.2026C-30.5421 62.72 -30.8677 62.5852 -31.1077 62.3451L-38.3451 55.1077C-38.5851 54.8677 -38.72 54.5421 -38.72 54.2026V9.79742Z"
             fill="#D9D9D9"
-            fill-opacity="0.01"
+            fillOpacity="0.01"
           />
         </g>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M-35.7851 10.7867C-36.0251 11.0267 -36.16 11.3523 -36.16 11.6918V52.3082C-36.16 52.6476 -36.0251 52.9732 -35.7851 53.2133L-29.2133 59.7851C-28.9733 60.0251 -28.6477 60.16 -28.3082 60.16H52.3082C52.6477 60.16 52.9733 60.0251 53.2133 59.7851L59.7851 53.2133C60.0251 52.9732 60.16 52.6476 60.16 52.3082V11.6918C60.16 11.3523 60.0251 11.0267 59.7851 10.7867L53.2133 4.21487C52.9733 3.97482 52.6477 3.83997 52.3082 3.83997H-28.3082C-28.6477 3.83997 -28.9733 3.97482 -29.2133 4.21487L-35.7851 10.7867ZM-34.6587 11.6202C-34.8987 11.8602 -35.0336 12.1858 -35.0336 12.5253V51.4746C-35.0336 51.8141 -34.8987 52.1397 -34.6587 52.3797L-28.3798 58.6587C-28.1397 58.8987 -27.8141 59.0336 -27.4747 59.0336H51.4747C51.8141 59.0336 52.1397 58.8987 52.3798 58.6587L58.6587 52.3797C58.8987 52.1397 59.0336 51.8141 59.0336 51.4746V12.5253C59.0336 12.1858 58.8987 11.8602 58.6587 11.6202L52.3798 5.34127C52.1397 5.10122 51.8141 4.96636 51.4747 4.96636H-27.4747C-27.8141 4.96636 -28.1397 5.10122 -28.3798 5.34127L-34.6587 11.6202Z"
           fill="#0047FF"
-          fill-opacity="0.4"
+          fillOpacity="0.4"
         />
         <g opacity="0.2">
           <path
@@ -153,12 +153,12 @@ export const ExtraTapIcon = () => {
           opacity="0.5"
           d="M21.1863 32.811L34.666 48.4335L12.6024 36.4196L19.157 12.1672L21.1413 32.7056L21.1471 32.7655L21.1863 32.811Z"
           stroke="#1B0054"
-          stroke-width="0.378281"
+          strokeWidth="0.378281"
         />
         <path
           d="M12.6087 36.4169L19.3689 11.404L42.1244 23.7946L35.3643 48.8075L12.6087 36.4169Z"
           stroke="#1B0054"
-          stroke-width="0.389089"
+          strokeWidth="0.389089"
         />
       </g>
       <defs>
@@ -251,8 +251,8 @@ export const ExtraTapIcon = () => {
           y2="25"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#D9D9D9" />
-          <stop offset="1" stop-color="#737373" />
+          <stop stopColor="#D9D9D9" />
+          <stop offset="1" stopColor="#737373" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_319_3426"
@@ -262,7 +262,7 @@ export const ExtraTapIcon = () => {
           y2="42"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#D9D9D9" />
+          <stop stopColor="#D9D9D9" />
           <stop offset="1" stop-color="#737373" />
         </linearGradient>
         <linearGradient
@@ -273,8 +273,8 @@ export const ExtraTapIcon = () => {
           y2="54"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#D9D9D9" />
-          <stop offset="1" stop-color="#737373" />
+          <stop stopColor="#D9D9D9" />
+          <stop offset="1" stopColor="#737373" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_319_3426"
@@ -285,7 +285,7 @@ export const ExtraTapIcon = () => {
           gradientUnits="userSpaceOnUse"
         >
           <stop stop-color="#D9D9D9" />
-          <stop offset="1" stop-color="#737373" />
+          <stop offset="1" stopColor="#737373" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_319_3426"
@@ -295,8 +295,8 @@ export const ExtraTapIcon = () => {
           y2="11.9999"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#D9D9D9" />
-          <stop offset="1" stop-color="#737373" />
+          <stop stopColor="#D9D9D9" />
+          <stop offset="1" stopColor="#737373" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_319_3426"
@@ -306,8 +306,8 @@ export const ExtraTapIcon = () => {
           y2="58"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#D9D9D9" />
-          <stop offset="1" stop-color="#737373" />
+          <stop stopColor="#D9D9D9" />
+          <stop offset="1" stopColor="#737373" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_319_3426"
@@ -318,7 +318,7 @@ export const ExtraTapIcon = () => {
           gradientUnits="userSpaceOnUse"
         >
           <stop stop-color="#D9D9D9" />
-          <stop offset="1" stop-color="#737373" />
+          <stop offset="1" stopColor="#737373" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_319_3426"
@@ -329,7 +329,7 @@ export const ExtraTapIcon = () => {
           gradientUnits="userSpaceOnUse"
         >
           <stop stop-color="#619BBA" />
-          <stop offset="1" stop-color="#81BBE2" />
+          <stop offset="1" stopColor="#81BBE2" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_319_3426"
@@ -340,7 +340,7 @@ export const ExtraTapIcon = () => {
           gradientUnits="userSpaceOnUse"
         >
           <stop stop-color="#B9E8EA" />
-          <stop offset="1" stop-color="#D2F8F9" />
+          <stop offset="1" stopColor="#D2F8F9" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_319_3426"
@@ -351,7 +351,7 @@ export const ExtraTapIcon = () => {
           gradientUnits="userSpaceOnUse"
         >
           <stop stop-color="#B9E6EA" />
-          <stop offset="1" stop-color="#81DBE2" />
+          <stop offset="1" stopColor="#81DBE2" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_319_3426"
@@ -361,8 +361,8 @@ export const ExtraTapIcon = () => {
           y2="37.8809"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#61AABA" />
-          <stop offset="1" stop-color="#297E91" />
+          <stop stopColor="#61AABA" />
+          <stop offset="1" stopColor="#297E91" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_319_3426"
@@ -372,8 +372,8 @@ export const ExtraTapIcon = () => {
           y2="26.4369"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#B9DEEA" />
-          <stop offset="1" stop-color="#81CBE2" />
+          <stop stopColor="#B9DEEA" />
+          <stop offset="1" stopColor="#81CBE2" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_319_3426"
@@ -383,8 +383,8 @@ export const ExtraTapIcon = () => {
           y2="36.1716"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#619BBA" />
-          <stop offset="1" stop-color="#81BBE2" />
+          <stop stopColor="#619BBA" />
+          <stop offset="1" stopColor="#81BBE2" />
         </linearGradient>
         <clipPath id="clip0_319_3426">
           <rect

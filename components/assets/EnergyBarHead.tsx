@@ -22,7 +22,7 @@ export const EnergyBarHead: React.FC<EnergBarProps> = ({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_577_5058)">
+      <g clipPath="url(#clip0_577_5058)">
         <path
           d="M32.0657 20.4343C33.6863 12.3899 28.4787 4.55485 20.4343 2.93428C12.3899 1.3137 4.55489 6.52123 2.93432 14.5656C1.31374 22.61 6.52128 30.4451 14.5657 32.0657C22.6101 33.6862 30.4451 28.4787 32.0657 20.4343Z"
           fill="url(#paint0_linear_577_5058)"
@@ -45,8 +45,8 @@ export const EnergyBarHead: React.FC<EnergBarProps> = ({
           y2="28.0223"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_577_5058"
@@ -56,8 +56,8 @@ export const EnergyBarHead: React.FC<EnergBarProps> = ({
           y2="17.4867"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_577_5058"
@@ -67,8 +67,8 @@ export const EnergyBarHead: React.FC<EnergBarProps> = ({
           y2="23.5155"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <clipPath id="clip0_577_5058">
           <rect width="35" height="35" fill="white" />
