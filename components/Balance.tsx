@@ -5,5 +5,5 @@ type BalanceProps = {
 };
 
 export const Balance: React.FC<BalanceProps> = ({ size = "2xl" }) => {
-  return <div className={`text-${size} mb-5 font-bold`}>12,394</div>;
+  return <div className={`text-${size} font-bold`}>12,394</div>;
 };

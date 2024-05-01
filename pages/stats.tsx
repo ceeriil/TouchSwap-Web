@@ -1,11 +1,11 @@
 import { Menubar } from "@/components/Menubar";
-import { BoostScreen } from "@/components/screens/Boost";
+import { StatsScreen } from "@/components/screens/Stats";
 
-export default function Boost() {
+export default function Stats() {
   return (
     <main className="relative h-screen">
       <div className="h-full">
-        <BoostScreen />
+        <StatsScreen />
         <div className="container mx-auto px-6">
           <Menubar />
         </div>
