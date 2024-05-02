@@ -16,7 +16,7 @@ export const Modal: React.FC<ModalProps> = ({
   children,
 }) => {
   return (
-    <div className="fixed z-[20]  overflow-y-scroll bottom-0 h-[60%] w-full bg-[#18131FE5] px-3 py-6 text-center flex flex-col items-center justify-between ">
+    <div className="fixed z-[20]  overflow-y-scroll bottom-0 min-h-[65%] w-full bg-[#18131FE5] px-3 py-6 text-center flex flex-col items-center justify-between  left-0">
       <div className="flex flex-col items-center">
         <Image
           src={"/img/extratap.svg"}
@@ -24,7 +24,7 @@ export const Modal: React.FC<ModalProps> = ({
           width={240}
           height={240}
         />
-        <h3 className="text-2xl mb-6 font-semibold">{title}</h3>
+        <h3 className="text-2xl mb-2 font-semibold">{title}</h3>
         <p className="text-[#B0AEB5] text-[13px] pb-3">{text}</p>
         <div className="font-bold my-3">Free</div>
         <div className="text-[#B0AEB5] text-[0.8rem]">3/3 remaining</div>

@@ -5,8 +5,8 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
     <div>
       {!isActive ? (
         <svg
-          width="66"
-          height="67"
+          width="56"
+          height="57"
           viewBox="0 0 56 57"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -298,8 +298,8 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
         </svg>
       ) : (
         <svg
-          width="66"
-          height="67"
+          width="56"
+          height="57"
           viewBox="0 0 56 57"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

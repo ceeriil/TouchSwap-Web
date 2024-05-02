@@ -125,6 +125,25 @@ p {
   color: #b0aeb5;
 }
 
+.tab-active {
+  position: relative;
+}
+
+.tab-active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: radial-gradient(
+    40.91% 67.55% at 28.81% 50%,
+    #9181f0 0%,
+    #6752ef 100%
+  );
+  border-radius: 4px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

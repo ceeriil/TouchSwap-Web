@@ -1,19 +1,7 @@
 import React, { useState } from "react";
-import { QuestCard } from "../touchswap/QuestCard";
-import { QuestTab } from "../touchswap/QuestTab";
-
-type OpenQuestsList = {
-  title: string;
-};
-
-export const openQuestsLists: OpenQuestsList[] = [
-  {
-    title: "Social Media Madness!",
-  },
-  {
-    title: "Wallet Connect Fun",
-  },
-];
+import { QuestTab } from "../touchswap/quests/QuestTab";
+import { OpenQuests } from "../touchswap/quests/OpenQuests";
+import { ReferralQuests } from "../touchswap/quests/ReferralQuest";
 
 export const QuestDetails = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
@@ -21,8 +9,6 @@ export const QuestDetails = () => {
   const handleTabClick = (tab: number) => {
     setActiveTab(tab);
   };
-
-  const filteredQuests = activeTab === 0 ? openQuestsLists : [];
 
   return (
     <section>
@@ -34,11 +20,7 @@ export const QuestDetails = () => {
         </p>
         <div className="mt-8">
           <QuestTab activeTab={activeTab} setActiveTab={handleTabClick} />
-          <div className="grid gap-4">
-            {filteredQuests.map(({ title }, index) => {
-              return <QuestCard title={title} key={index} />;
-            })}
-          </div>
+          <ReferralQuests />
         </div>
       </div>
     </section>

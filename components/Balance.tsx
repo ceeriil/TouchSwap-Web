@@ -1,7 +1,7 @@
 import React from "react";
 
 type BalanceProps = {
-  size?: "sm" | "base" | "lg" | "xl" | "2xl";
+  size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl";
 };
 
 export const Balance: React.FC<BalanceProps> = ({ size = "2xl" }) => {

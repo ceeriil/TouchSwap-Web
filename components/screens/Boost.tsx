@@ -8,24 +8,29 @@ import { AutoSwipeIcon } from "../assets/AutoSwipeIcon";
 
 type BoostCardList = {
   title: string;
+  desc: string;
   icon?: React.ReactNode;
 };
 
 export const boostCardLists: BoostCardList[] = [
   {
     title: "Recharge Speed boost",
+    desc: "Increases the speed at which your energy regenerates by +1 every second.",
     icon: <SpeedBoostIcon width={"35"} height={"32"} />,
   },
   {
     title: "Multi Tap",
+    desc: "Increases the amount gained +5",
     icon: <MultiTapIcon width={"48"} height={"32"} />,
   },
   {
     title: "Increase Energy Limit",
+    desc: "Increases the speed at which your energy regenerates by +1 every second.",
     icon: <EnergyLimitIcon width={"31"} height={"32"} />,
   },
   {
     title: "Auto swipe",
+    desc: "Perform actions on your behalf without your direct input when your energy is full. Works for 12 hours.",
     icon: <AutoSwipeIcon width={"36"} height={"32"} />,
   },
 ];
@@ -43,8 +48,10 @@ export const BoostScreen = () => {
           <h3 className="text-sm mb-2 font-[500]">Balance</h3>
           <Balance />
           <div className="grid grid-cols-2 gap-4 my-6">
-            {boostCardLists.map(({ title, icon }) => {
-              return <BoostCard title={title} key={title} icon={icon} />;
+            {boostCardLists.map(({ title, icon, desc }) => {
+              return (
+                <BoostCard title={title} key={title} icon={icon} desc={desc} />
+              );
             })}
           </div>
         </div>

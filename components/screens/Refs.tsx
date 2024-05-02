@@ -46,7 +46,7 @@ export const RefsScreen = () => {
         <h2 className="text-2xl font-[500] mb-3">Referrals</h2>
         <p className="text-[0.8rem] text-white">Refer a friend</p>
         <p className="text-[#AFAFAF] text-[0.8rem] my-3">
-          {(refsLists.length = 0)} referrals
+          {refsLists.length} referrals
         </p>
         {!refsLists || refsLists.length === 0 ? (
           <div className="flex flex-col text-center items-center my-6 h-full justify-center mt-16">

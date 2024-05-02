@@ -23,7 +23,7 @@ export const MenuBtn: React.FC<MenuLink> = ({ label, icon, isActive }) => {
           isActive
             ? "text-white purple-gradient"
             : "text-[#AFAFAF] bg-[#262433]"
-        }     " py-[3px] px-3 rounded-full mt-[-0.8rem] text-[0.8rem] border border-black font-[500] z-10 relative"`}
+        }     " py-[2px] px-2 rounded-full mt-[-0.8rem] text-[0.8rem] border border-black font-[500] z-10 relative"`}
         style={{
           boxShadow: `0.88px 2.63px 1.32px 0px #FFFFFF47 inset;
             `,
