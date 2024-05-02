@@ -42,7 +42,7 @@ export const BoostScreen = () => {
         <div className="mt-8">
           <h3 className="text-sm mb-2 font-[500]">Balance</h3>
           <Balance />
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 my-6">
             {boostCardLists.map(({ title, icon }) => {
               return <BoostCard title={title} key={title} icon={icon} />;
             })}
