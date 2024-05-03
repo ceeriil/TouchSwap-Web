@@ -14,7 +14,7 @@ type StatsCardList = {
 export const statsCardLists: StatsCardList[] = [
   {
     title: "Total Share Balance",
-    icon: <DoubleCoinIcon />,
+    icon: <DoubleCoinIcon width="17" height="16" />,
     count: "2.490T",
   },
   {

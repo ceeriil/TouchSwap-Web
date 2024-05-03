@@ -1,5 +1,7 @@
 import React from "react";
 import { SpeakerIcon } from "../../assets/SpeakerIcon";
+import Image from "next/image";
+import { DoubleCoinIcon } from "@/components/assets/DoubleCoinIcon";
 
 type ReferralQuestsList = {
   count: number;
@@ -46,16 +48,24 @@ export const ReferralQuests = () => {
       {referralQuestsLists.map(({ count, reward }, index) => {
         return (
           <div
-            className="bg-[#293641] py-3 px-6 rounded-lg h-full flex items-center justify-between"
+            className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between"
             key={index}
           >
             <div className="flex items-center">
-              <SpeakerIcon active />
+              <Image
+                src={"/img/ref.svg"}
+                width={40}
+                height={40}
+                alt="Referal Icon"
+              />
               <div className="ml-3">
                 <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">
                   {count} Invite
                 </h3>
-                <div className="text-[0.75rem] font-medium">1200</div>
+                <div className="text-[0.75rem] font-medium flex items-center">
+                  <DoubleCoinIcon width="14" height="14" />
+                  <span className="ml-1">{reward}</span>
+                </div>
               </div>
             </div>
             <button className="text-sm bg-[#A7A7A7] text-black py-2 px-2 rounded-lg font-medium">
