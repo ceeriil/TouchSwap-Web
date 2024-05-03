@@ -1,13 +1,11 @@
-import { Header } from "@/components/Header";
 import { Menubar } from "@/components/Menubar";
-import { HomeScreen } from "@/components/screens/Home";
+import { StatsScreen } from "@/components/screens/Stats";
 
-export default function Home() {
+export default function Stats() {
   return (
     <main className="relative h-screen">
       <div className="h-full">
-        <Header />
-        <HomeScreen />
+        <StatsScreen />
         <div className="container mx-auto px-6">
           <Menubar />
         </div>

@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontrealMono-Thin.otf") format("opentype");
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontrealMono-Book.otf") format("opentype");
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontrealMono-Medium.otf") format("opentype");
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontrealMono-Bold.otf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -24,6 +52,96 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  font-family: "PP Neue Montreal", sans-serif;
+  background: #08030d;
+}
+
+.gold-gradient {
+  background: linear-gradient(
+    91.67deg,
+    #fde991 0.3%,
+    #b07464 11.58%,
+    #7b6a72 28.32%,
+    #565966 58.53%,
+    #fde991 83.87%,
+    #5f6166 96.47%,
+    #baaf7f 114.38%,
+    #fde991 127.64%
+  );
+}
+
+.purple-gradient {
+  background: radial-gradient(#9181f0, #6752ef);
+  background: radial-gradient(
+    40.91% 67.55% at 28.81% 50%,
+    #9181f0 0%,
+    #6752ef 100%
+  );
+}
+
+.green-gradient {
+  background: linear-gradient(
+    0deg,
+    #657500 27.19%,
+    #b7d300 66.51%,
+    #bbd305 72.33%,
+    #b9d312 78.88%,
+    #bad329 85.44%,
+    #c0d348 92.72%,
+    #c8d372 100%
+  );
+  position: relative;
+}
+
+.green-gradient::after {
+  content: "";
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    #76821c 1.44%,
+    #626a17 28.48%,
+    #2c310b 94.38%,
+    #0c0d03 143.39%,
+    #000000 170.43%
+  );
+  background-blend-mode: screen;
+  z-index: 10;
+  top: 0;
+  height: 0;
+}
+
+.light-green-gradient {
+  background: linear-gradient(
+    51.99deg,
+    rgba(34, 99, 105, 0.2) 8.22%,
+    rgba(129, 219, 226, 0.2) 125.1%
+  );
+}
+
+p {
+  line-height: 1.5;
+  color: #b0aeb5;
+}
+
+.tab-active {
+  position: relative;
+}
+
+.tab-active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: radial-gradient(
+    40.91% 67.55% at 28.81% 50%,
+    #9181f0 0%,
+    #6752ef 100%
+  );
+  border-radius: 4px;
 }
 
 @layer utilities {

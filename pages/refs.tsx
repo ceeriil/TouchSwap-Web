@@ -1,13 +1,11 @@
-import { Header } from "@/components/Header";
 import { Menubar } from "@/components/Menubar";
-import { HomeScreen } from "@/components/screens/Home";
+import { RefsScreen } from "@/components/screens/Refs";
 
-export default function Home() {
+export default function Refs() {
   return (
     <main className="relative h-screen">
       <div className="h-full">
-        <Header />
-        <HomeScreen />
+        <RefsScreen />
         <div className="container mx-auto px-6">
           <Menubar />
         </div>
