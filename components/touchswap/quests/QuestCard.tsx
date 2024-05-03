@@ -1,8 +1,8 @@
 import React from "react";
 import { Balance } from "../../Balance";
-import { TaskIcon } from "../../assets/TaskIcon";
 import Link from "next/link";
 import { ArrowRight } from "@/components/assets/ArrowRight";
+import Image from "next/image";
 
 type QuestCardProps = {
   title: string;
@@ -17,7 +17,12 @@ export const QuestCard: React.FC<QuestCardProps> = ({ title, link }) => {
       className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between"
     >
       <div className="flex items-center">
-        <TaskIcon active />
+        <Image
+          src={"/img/task-icon.svg"}
+          width={25}
+          height={26}
+          alt="Task Icon"
+        />
         <div className="ml-3">
           <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">
             {title}
