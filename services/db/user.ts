@@ -29,6 +29,10 @@ export async function findAllUsers(): Promise<UserResult[]> {
   const users = usersSnaphot.map(user => toResult<User>(user));
   return users; 
 }
+export async function findUser(id:string): Promise<UserResult> {
+  const user = await db.users.get(db.users.id(id));
+  return toResult<User>(user); 
+}
 
 export async function createUser(username:string, id:number, first: string|"" , last:string|"", lang:string|"en" ): Promise<UserResult> {
   let userId = db.users.id(`${id}`);
