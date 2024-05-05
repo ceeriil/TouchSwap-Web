@@ -29,6 +29,23 @@
     "eslint-plugin-jsdoc": "^48.2.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "~5.1.6"
+    "typescript": "~5.1.6",
+    "@types/telegram-web-app": "^7.2.1",
+    "firebase-admin": "^12.1.0",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "typesaurus": "^10.7.0",
+    "zod": "^3.23.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }
