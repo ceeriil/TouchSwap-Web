@@ -1,20 +1,13 @@
-# Next.js w/ Tailwind for Telegram Web Apps
+# Touch Swap Web App
 
-This is a template for quickly create Telegram Web Apps using [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/).
+This is the Telegram Web Apps for touch swap   using [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/).
 
 ### Why Next.js?
 
-Next.js is easy and powerful, it also allows creating API routes without the need of another server and any troubles, example, it's ideal for validating the incoming web app's request hash.
+Next.js is easy and powerful, it also allows creating API routes without the need for another server and any troubles, For example, it's ideal for validating the incoming web app's request hash.
 
-## How to use
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io) to create a new project:
-
-```bash
-pnpm create next-app --example https://github.com/mauriciobraz/next.js-telegram-webapp your-app-name
-```
-
-Now, clone the [`.env.example`](.env.example) file and rename it to `.env.local` and fill the variables with your own data.
+Now, clone the [`.env.example`](.env.example) file and rename it to `.env.local` and fill the variables with your data.
 
 - `BOT_TOKEN`: Your Telegram Bot Token (used for validating the incoming requests, see [Request Validation](#request-validation) for more info)
 
@@ -92,36 +85,4 @@ export default function InitData() {
     </div>
   );
 }
-```
-
-## Telegram's Native Colors w/ Tailwind
-
-Telegram's colors are already defined in the `tailwind.config.js` file. You can use them in your components with the following directives (see [Tailwind's documentation](https://tailwindcss.com/docs/customizing-colors#using-custom-colors) for more info):
-
-| Tailwind Directive's Name  | Telegram's Color Variable            | Fallback Color |
-| -------------------------- | ------------------------------------ | -------------- |
-| `telegram-white`           | `var(--tg-theme-bg-color)`           | `#ffffff`      |
-| `telegram-black`           | `var(--tg-theme-text-color)`         | `#000000`      |
-| `telegram-hint`            | `var(--tg-theme-hint-color)`         | `#707579`      |
-| `telegram-link`            | `var(--tg-theme-link-color)`         | `#3390ec`      |
-| `telegram-primary`         | `var(--tg-theme-button-color)`       | `#3390ec`      |
-| `telegram-primary-text`    | `var(--tg-theme-button-text-color)`  | `#ffffff`      |
-| `telegram-secondary-white` | `var(--tg-theme-secondary-bg-color)` | `#f4f4f5`      |
-
-### Component Example
-
-```tsx
-// src/components/Example.tsx
-import type { FC } from 'react';
-
-const Example: FC = () => {
-  return (
-    <div className="bg-telegram-white text-telegram-black flex w-full flex-1 flex-col items-center justify-center px-4 text-center">
-      <h1 className="text-2xl">Example</h1>
-      <p className="text-sm">This is an example component.</p>
-    </div>
-  );
-};
-
-export default Example;
 ```
