@@ -1,11 +1,11 @@
 import { Menubar } from "@/components/Menubar";
-import { QuestScreen } from "@/components/screens/Quest";
+import { QuestDetailScreen } from "@/components/screens/QuestDetails";
 
-export default function Refs() {
+export default function QuestDetails() {
   return (
     <main className="relative h-screen">
       <div className="h-full">
-        <QuestScreen />
+        <QuestDetailScreen />
         <div className="container mx-auto px-6">
           <Menubar />
         </div>

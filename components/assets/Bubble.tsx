@@ -5,8 +5,8 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
     <div>
       {!isActive ? (
         <svg
-          width="56"
-          height="57"
+          width="64"
+          height="64"
           viewBox="0 0 56 57"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -130,21 +130,9 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               <feOffset dy="1.09994" />
               <feGaussianBlur stdDeviation="0.549972" />
               <feComposite in2="hardAlpha" operator="out" />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-              />
-              <feBlend
-                mode="normal"
-                in2="BackgroundImageFix"
-                result="effect1_dropShadow_100_436"
-              />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="effect1_dropShadow_100_436"
-                result="shape"
-              />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_100_436" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_100_436" result="shape" />
             </filter>
             <filter
               id="filter1_d_100_436"
@@ -165,21 +153,9 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               <feOffset />
               <feGaussianBlur stdDeviation="1.46659" />
               <feComposite in2="hardAlpha" operator="out" />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-              />
-              <feBlend
-                mode="normal"
-                in2="BackgroundImageFix"
-                result="effect1_dropShadow_100_436"
-              />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="effect1_dropShadow_100_436"
-                result="shape"
-              />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_100_436" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_100_436" result="shape" />
             </filter>
             <filter
               id="filter2_i_100_436"
@@ -191,12 +167,7 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               color-interpolation-filters="sRGB"
             >
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="BackgroundImageFix"
-                result="shape"
-              />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
@@ -205,21 +176,9 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               />
               <feOffset dy="7.69961" />
               <feGaussianBlur stdDeviation="1.46659" />
-              <feComposite
-                in2="hardAlpha"
-                operator="arithmetic"
-                k2="-1"
-                k3="1"
-              />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0.2 0 0 0 0 0.138824 0 0 0 0 0.0627451 0 0 0 0.6 0"
-              />
-              <feBlend
-                mode="normal"
-                in2="shape"
-                result="effect1_innerShadow_100_436"
-              />
+              <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0.2 0 0 0 0 0.138824 0 0 0 0 0.0627451 0 0 0 0.6 0" />
+              <feBlend mode="normal" in2="shape" result="effect1_innerShadow_100_436" />
             </filter>
             <filter
               id="filter3_i_100_436"
@@ -231,12 +190,7 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               color-interpolation-filters="sRGB"
             >
               <feFlood floodOpacity="0" result="BackgroundImageFix" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="BackgroundImageFix"
-                result="shape"
-              />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
@@ -245,21 +199,9 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               />
               <feOffset dx="-0.733296" dy="4.03313" />
               <feGaussianBlur stdDeviation="1.46659" />
-              <feComposite
-                in2="hardAlpha"
-                operator="arithmetic"
-                k2="-1"
-                k3="1"
-              />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0.2 0 0 0 0 0.138824 0 0 0 0 0.0627451 0 0 0 0.3 0"
-              />
-              <feBlend
-                mode="normal"
-                in2="shape"
-                result="effect1_innerShadow_100_436"
-              />
+              <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0.2 0 0 0 0 0.138824 0 0 0 0 0.0627451 0 0 0 0.3 0" />
+              <feBlend mode="normal" in2="shape" result="effect1_innerShadow_100_436" />
             </filter>
             <filter
               id="filter4_f_100_436"
@@ -271,16 +213,8 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               color-interpolation-filters="sRGB"
             >
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="BackgroundImageFix"
-                result="shape"
-              />
-              <feGaussianBlur
-                stdDeviation="0.733296"
-                result="effect1_foregroundBlur_100_436"
-              />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="0.733296" result="effect1_foregroundBlur_100_436" />
             </filter>
             <radialGradient
               id="paint0_radial_100_436"
@@ -297,13 +231,7 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
           </defs>
         </svg>
       ) : (
-        <svg
-          width="56"
-          height="57"
-          viewBox="0 0 56 57"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="64" height="64" viewBox="0 0 56 57" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_100_416)">
             <path
               fill-rule="evenodd"
@@ -419,21 +347,9 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               <feOffset dy="1.09994" />
               <feGaussianBlur stdDeviation="0.549972" />
               <feComposite in2="hardAlpha" operator="out" />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-              />
-              <feBlend
-                mode="normal"
-                in2="BackgroundImageFix"
-                result="effect1_dropShadow_100_416"
-              />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="effect1_dropShadow_100_416"
-                result="shape"
-              />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_100_416" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_100_416" result="shape" />
             </filter>
             <filter
               id="filter1_d_100_416"
@@ -454,21 +370,9 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               <feOffset />
               <feGaussianBlur stdDeviation="1.46659" />
               <feComposite in2="hardAlpha" operator="out" />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-              />
-              <feBlend
-                mode="normal"
-                in2="BackgroundImageFix"
-                result="effect1_dropShadow_100_416"
-              />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="effect1_dropShadow_100_416"
-                result="shape"
-              />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_100_416" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_100_416" result="shape" />
             </filter>
             <filter
               id="filter2_i_100_416"
@@ -480,12 +384,7 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               color-interpolation-filters="sRGB"
             >
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="BackgroundImageFix"
-                result="shape"
-              />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
@@ -494,21 +393,9 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               />
               <feOffset dy="7.69961" />
               <feGaussianBlur stdDeviation="1.46659" />
-              <feComposite
-                in2="hardAlpha"
-                operator="arithmetic"
-                k2="-1"
-                k3="1"
-              />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0.2 0 0 0 0 0.138824 0 0 0 0 0.0627451 0 0 0 0.6 0"
-              />
-              <feBlend
-                mode="normal"
-                in2="shape"
-                result="effect1_innerShadow_100_416"
-              />
+              <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0.2 0 0 0 0 0.138824 0 0 0 0 0.0627451 0 0 0 0.6 0" />
+              <feBlend mode="normal" in2="shape" result="effect1_innerShadow_100_416" />
             </filter>
             <filter
               id="filter3_i_100_416"
@@ -520,12 +407,7 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               color-interpolation-filters="sRGB"
             >
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="BackgroundImageFix"
-                result="shape"
-              />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
@@ -534,21 +416,9 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               />
               <feOffset dx="-0.733296" dy="4.03313" />
               <feGaussianBlur stdDeviation="1.46659" />
-              <feComposite
-                in2="hardAlpha"
-                operator="arithmetic"
-                k2="-1"
-                k3="1"
-              />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0.2 0 0 0 0 0.138824 0 0 0 0 0.0627451 0 0 0 0.3 0"
-              />
-              <feBlend
-                mode="normal"
-                in2="shape"
-                result="effect1_innerShadow_100_416"
-              />
+              <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0.2 0 0 0 0 0.138824 0 0 0 0 0.0627451 0 0 0 0.3 0" />
+              <feBlend mode="normal" in2="shape" result="effect1_innerShadow_100_416" />
             </filter>
             <filter
               id="filter4_f_100_416"
@@ -560,16 +430,8 @@ export const Bubble = ({ isActive }: { isActive: boolean }) => {
               color-interpolation-filters="sRGB"
             >
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="BackgroundImageFix"
-                result="shape"
-              />
-              <feGaussianBlur
-                stdDeviation="0.733296"
-                result="effect1_foregroundBlur_100_416"
-              />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="0.733296" result="effect1_foregroundBlur_100_416" />
             </filter>
             <radialGradient
               id="paint0_radial_100_416"

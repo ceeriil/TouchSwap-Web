@@ -1,10 +1,15 @@
 import React from "react";
+import { IconProps } from "@/types/icontypes";
 
-export const DoubleCoinIcon = () => {
+export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
   return (
     <svg
       width="18"
       height="16"
+      style={{
+        width,
+        height,
+      }}
       viewBox="0 0 18 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
