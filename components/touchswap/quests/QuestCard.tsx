@@ -1,7 +1,7 @@
 import React from "react";
-import { Balance } from "../../Balance";
-import { TaskIcon } from "../../assets/TaskIcon";
+import Image from "next/image";
 import Link from "next/link";
+import { Balance } from "../../Balance";
 import { ArrowRight } from "@/components/assets/ArrowRight";
 
 type QuestCardProps = {
@@ -12,17 +12,12 @@ type QuestCardProps = {
 
 export const QuestCard: React.FC<QuestCardProps> = ({ title, link }) => {
   return (
-    <Link
-      href={link}
-      className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between"
-    >
+    <Link href={link} className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between">
       <div className="flex items-center">
-        <TaskIcon active />
+        <Image src={"/img/task-icon.svg"} width={25} height={26} alt="Task Icon" />
         <div className="ml-3">
-          <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">
-            {title}
-          </h3>
-          <Balance size="sm" />
+          <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title}</h3>
+          <Balance size="sm" count={12394} />
         </div>
       </div>
 

@@ -9,11 +9,11 @@ type OpenQuestsList = {
 export const openQuestsLists: OpenQuestsList[] = [
   {
     title: "Social Media Madness!",
-    link: "/",
+    link: "/quests/social",
   },
   {
     title: "Wallet Connect Fun",
-    link: "/",
+    link: "/quests/wallet",
   },
 ];
 
