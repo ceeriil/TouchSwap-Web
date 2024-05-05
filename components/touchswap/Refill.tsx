@@ -4,7 +4,7 @@ import { RefillIcon } from "../assets/Refill-Icon";
 export const Refill = () => {
   return (
     <div>
-      <p className="text-sm mb-1 text-left">
+      <p className="text-[0.8rem] mb-1 text-white pl-2 text-left">
         Daily
         <br />
         Refill

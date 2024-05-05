@@ -4,7 +4,10 @@ import { HomeScreen } from "@/components/screens/Home";
 
 export default function Home() {
   return (
-    <main className="relative h-screen">
+    <main
+      className="relative h-screen bg-cover"
+      style={{ background: `url('/img/stars.png')` }}
+    >
       <div className="h-full">
         <Header />
         <HomeScreen />

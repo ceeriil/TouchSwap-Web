@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Balance } from "../Balance";
-import { ExtraTap } from "../touchswap/ExtraTap";
 import { Modal } from "../ModalBase";
+import { ExtraTap } from "../touchswap/ExtraTap";
 import { Refill } from "../touchswap/Refill";
 
 export const HomeScreen = () => {
@@ -19,8 +19,8 @@ export const HomeScreen = () => {
   return (
     <section className="h-[65%]">
       <div className="h-full flex flex-col items-center justify-center">
-        <Balance />
-        <Image src={"/img/coin.png"} alt="Coin" width={335} height={300} />
+        <Balance count={12394} />
+        <Image src={"/img/coin.png"} alt="Coin" width={335} height={300} className="coin-glow mt-6" />
         <div className="w-full flex justify-between mt-10">
           <ExtraTap />
           <Refill />
@@ -28,24 +28,20 @@ export const HomeScreen = () => {
       </div>
 
       {/* --Extra Tap Modal */}
-      {showModal && (
-        <Modal
-          title="Extra Tap"
-          onClose={handleCloseModal}
-          text={
-            "   Increases the amount of coins gained by 5x for 30 seconds. Does not consume energy while in effect."
-          }
-        ></Modal>
-      )}
-
+      <Modal
+        title="Extra Tap"
+        isOpen={showModal}
+        onClose={handleCloseModal}
+        text={"   Increases the amount of coins gained by 5x for 30 seconds. Does not consume energy while in effect."}
+      ></Modal>
       {/*  */}
-      {showModal && (
-        <Modal
-          title="Daily Refill"
-          onClose={handleCloseModal}
-          text={"Refill your energy bar quickly."}
-        ></Modal>
-      )}
+
+      <Modal
+        title="Daily Refill"
+        onClose={handleCloseModal}
+        text={"Refill your energy bar quickly."}
+        isOpen={showModal}
+      ></Modal>
     </section>
   );
 };
