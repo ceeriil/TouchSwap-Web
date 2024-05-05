@@ -43,7 +43,7 @@ export const boostCardLists: BoostCardList[] = [
 export const BoostScreen = () => {
   return (
     <section>
-      <div className="container mx-auto px-5 my-8">
+      <div className="container mx-auto px-3 my-8">
         <h2 className="text-2xl font-[500] mb-3">Boosters</h2>
         <p className="text-sm">Use these powerups to increase your ranking and the amount of coins you gain!</p>
         <div className="mt-8">

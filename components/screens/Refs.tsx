@@ -42,17 +42,13 @@ export const refsLists: RefsList[] = [
 export const RefsScreen = () => {
   return (
     <section>
-      <div className="container mx-auto px-5 my-8">
+      <div className="container mx-auto px-3 my-8">
         <h2 className="text-2xl font-[500] mb-3">Referrals</h2>
         <p className="text-[0.8rem] text-white">Refer a friend</p>
-        <p className="text-[#AFAFAF] text-[0.8rem] my-3">
-          {refsLists.length} referrals
-        </p>
+        <p className="text-[#AFAFAF] text-[0.8rem] my-3">{refsLists.length} referrals</p>
         {!refsLists || refsLists.length === 0 ? (
           <div className="flex flex-col text-center items-center my-6 h-full justify-center mt-16">
-            <p className="text-[0.8rem]">
-              You currently have zero referrals, Damn
-            </p>
+            <p className="text-[0.8rem]">You currently have zero referrals, Damn</p>
             <div className="my-8">
               <RefsIcon />
             </div>
@@ -69,12 +65,7 @@ export const RefsScreen = () => {
                   className="light-green-gradient py-4 px-5 rounded-sm text-sm font-[500] flex items-center"
                 >
                   <span className="mr-3">{index + 1}.</span>
-                  <Image
-                    src={"/img/defaultImg.png"}
-                    alt="default Profile Image"
-                    width={20}
-                    height={20}
-                  />
+                  <Image src={"/img/defaultImg.png"} alt="default Profile Image" width={20} height={20} />
                   <span className="ml-3"> @{name}</span>
                 </div>
               );

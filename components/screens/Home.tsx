@@ -22,7 +22,10 @@ export const HomeScreen = () => {
         <Balance count={12394} />
         <Image src={"/img/coin.png"} alt="Coin" width={335} height={300} className="coin-glow mt-6" />
         <div className="w-full flex justify-between mt-10">
-          <ExtraTap />
+          <button onClick={handleOpenModal}>
+            <ExtraTap />
+          </button>
+
           <Refill />
         </div>
       </div>

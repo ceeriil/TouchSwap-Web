@@ -1,17 +1,18 @@
 import React from "react";
-import { MenuBtn } from "./MenuBtn";
 import Link from "next/link";
-import { StatsIcon } from "./assets/StatsIcon";
-import { SpeakerIcon } from "./assets/SpeakerIcon";
-import { CoinIcon } from "./assets/CoinIcon";
-import { BoostIcon } from "./assets/BoostIcon";
-import { TaskIcon } from "./assets/TaskIcon";
 import { usePathname } from "next/navigation";
+import { MenuBtn } from "./MenuBtn";
+import { BoostIcon } from "./assets/BoostIcon";
+import { CoinIcon } from "./assets/CoinIcon";
+import { SpeakerIcon } from "./assets/SpeakerIcon";
+import { StatsIcon } from "./assets/StatsIcon";
+import { TaskIcon } from "./assets/TaskIcon";
 
 type MenuLink = {
   label: string;
   href: string;
   icon?: React.ReactNode;
+  activeIcon?: React.ReactNode;
 };
 
 export const menuLinks: MenuLink[] = [
@@ -19,26 +20,31 @@ export const menuLinks: MenuLink[] = [
     label: "Stats",
     href: "/stats",
     icon: <StatsIcon active={false} />,
+    activeIcon: <StatsIcon active />,
   },
   {
     label: "Refs",
     href: "/refs",
     icon: <SpeakerIcon active={false} />,
+    activeIcon: <SpeakerIcon active />,
   },
   {
     label: "Home",
     href: "/",
     icon: <CoinIcon />,
+    activeIcon: <CoinIcon />,
   },
   {
     label: "Boost",
     href: "/boost",
     icon: <BoostIcon active={false} />,
+    activeIcon: <BoostIcon active />,
   },
   {
     label: "Quests",
     href: "/quests",
     icon: <TaskIcon active={false} />,
+    activeIcon: <TaskIcon active />,
   },
 ];
 
@@ -47,13 +53,13 @@ export const Menubar = () => {
 
   return (
     <div className="gold-gradient p-[1px] my-3 rounded-3xl mt-16 fixed bottom-6 left-[50%] translate-x-[-50%]">
-      <div className="bg-[#0D2A28] py-2 px-3 md:px-6 rounded-3xl flex gap-x-2 md:gap-x-3">
-        {menuLinks.map(({ label, href, icon }) => {
+      <div className="bg-[#0D2A28] py-2 px-3 md:px-6 rounded-3xl flex gap-x-[1px] md:gap-x-1">
+        {menuLinks.map(({ label, href, icon, activeIcon }) => {
           const isActive = pathname === href;
           return (
             <div key={href}>
               <Link href={href}>
-                <MenuBtn label={label} icon={icon} isActive={isActive} />
+                <MenuBtn label={label} icon={icon} activeIcon={activeIcon} isActive={isActive} />
               </Link>
             </div>
           );
