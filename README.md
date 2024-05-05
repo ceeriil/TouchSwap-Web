@@ -27,7 +27,7 @@ ngrok http 3000
 
 ### Bundle Analyzer
 
-This template is already configured to use [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer), that is a plugin for Next.js that analyzes the bundle size of your application (useful when you want to replace a library with another one that is smaller). The following command will generate a report in the `.next/analyze` folder and open it in your browser.
+This template is already configured to use [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer), which is a plugin for Next.js that analyzes the bundle size of your application (useful when you want to replace a library with another smaller one). The following command will generate a report in the `.next/analyze` folder and open it in your browser.
 
 ```bash
 pnpm analyze
@@ -39,7 +39,7 @@ All the requests are validated using an API route that checks if the request is 
 
 ### Disabling the validation
 
-To disable this feature, delete the [`pages/api/validate-hash.ts`](src/pages/api/validate-hash.ts) file and remove the `useEffect` hook from [`pages/_app.tsx`](src/pages/_app.tsx) and it's dependencies.
+To disable this feature, delete the [`pages/api/validate-hash.ts`](pages/api/validate-hash.ts) file and remove the `useEffect` hook from [`pages/_app.tsx`](pages/_app.tsx) and it's dependencies.
 
 ```diff
 # src/pages/_app.tsx
@@ -69,7 +69,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 ### Using [`initData`](https://core.telegram.org/bots/webapps#webappinitdata)
 
-You can use in the `window.Telegram.WebApp.initDataUnsafe` but it's not recommended by Telegram. There's the hook [`useTelegramInitData`](src/hooks/useTelegramInitData.ts) that parses the data and returns an object.
+You can use it in the `window.Telegram.WebApp.initDataUnsafe` but it's not recommended by Telegram. There's the hook [`useTelegramInitData`](src/hooks/useTelegramInitData.ts) that parses the data and returns an object.
 
 ```tsx
 // src/pages/init-data.tsx
