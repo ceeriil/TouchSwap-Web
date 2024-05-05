@@ -170,6 +170,13 @@
     teeny-request "^9.0.0"
     uuid "^8.0.0"
 
+"@grammyjs/web-app@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@grammyjs/web-app/-/web-app-1.3.0.tgz#1114ea96336b40590123adf62bfdee4febe35705"
+  integrity sha512-wQgKFNVcgBPiJLu6LoPM3OGy61JY16qo7v9X7/E4DImob0MFh/873GaZ/7yFHP7PpxCTBXEUwiJ6DlSuYbzyCA==
+  dependencies:
+    "@types/telegram-web-app" "^6.4.0"
+
 "@grpc/grpc-js@~1.10.3":
   version "1.10.7"
   resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.10.7.tgz#1abce1a8c4c90b79dbbe57d7e4310f3b0ce72899"
@@ -545,6 +552,11 @@
     "@types/http-errors" "*"
     "@types/node" "*"
     "@types/send" "*"
+
+"@types/telegram-web-app@^6.4.0":
+  version "6.9.4"
+  resolved "https://registry.yarnpkg.com/@types/telegram-web-app/-/telegram-web-app-6.9.4.tgz#885d00946177824b2f24ad3bbbceeeae43c70307"
+  integrity sha512-Zc1CKYw0D869oz6Z6nGEy+TptJT0In9pATcPgzp25wiUBc+E8UVwbpdO1+BD6mhHTZH+hCu0DLg6Qt6zWYYl0w==
 
 "@types/telegram-web-app@^7.2.1":
   version "7.2.1"
@@ -1021,6 +1033,11 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+crypto@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/crypto/-/crypto-1.0.1.tgz#2af1b7cad8175d24c8a1b0778255794a21803037"
+  integrity sha512-VxBKmeNcqQdiUQUW2Tzq0t377b54N2bMtXO/qiLa+6eRRmmC4qT3D4OnTGoT/U6O9aklQ/jTwbOtRMTTY8G0Ig==
 
 cssesc@^3.0.0:
   version "3.0.0"
@@ -3484,6 +3501,11 @@ teeny-request@^9.0.0:
     node-fetch "^2.6.9"
     stream-events "^1.0.5"
     uuid "^9.0.0"
+
+telegram-webapps-types@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/telegram-webapps-types/-/telegram-webapps-types-1.0.5.tgz#35eee9b690cc8a8127b4d68ec6e8b2b40b33847b"
+  integrity sha512-QLBBjEgdGdJZmnSshq2jVUrqwolRBiM7e0YPsUpHOFxA2W9nkUYI5yBFd3vGyCqFlNoJw8S6k2Q7lxVffzUwlw==
 
 text-table@^0.2.0:
   version "0.2.0"
