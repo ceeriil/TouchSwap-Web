@@ -34,7 +34,7 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, cost })
         </div>
       </div>
 
-      <Modal title={title} text={desc} onClose={closeModal} isOpen={isModalOpen}></Modal>
+      <Modal title={title} text={desc} onClose={closeModal} isOpen={isModalOpen} icon={icon}></Modal>
     </div>
   );
 };

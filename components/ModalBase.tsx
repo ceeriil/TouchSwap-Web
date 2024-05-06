@@ -9,9 +9,10 @@ type ModalProps = {
   text: string;
   children?: React.ReactNode;
   isOpen: boolean;
+  icon?: React.ReactNode;
 };
 
-export const Modal: React.FC<ModalProps> = ({ title, text, onClose, children, isOpen }) => {
+export const Modal: React.FC<ModalProps> = ({ title, text, onClose, children, isOpen, icon }) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -28,8 +29,14 @@ export const Modal: React.FC<ModalProps> = ({ title, text, onClose, children, is
             className="fixed z-[20]  overflow-y-scroll bottom-0 min-h-[65%] w-full bg-[#18131FE5] px-3 py-6 text-center flex flex-col items-center justify-between  left-0"
           >
             <div className="flex flex-col items-center">
-              <Image src={"/img/extratap.svg"} alt="diamond" width={240} height={240} />
-              <h3 className="text-2xl mb-2 font-semibold">{title}</h3>
+              <div className="relative overflow-hidden ">
+                <Image src={"/img/shine.svg"} alt="diamond" width={240} height={240} />
+                <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] scale-[2.5]">
+                  {icon}
+                </div>
+              </div>
+
+              <h3 className="text-2xl mb-2 mt-[-1.5rem] font-semibold">{title}</h3>
               <p className="text-[#B0AEB5] text-[13px] pb-3">{text}</p>
               <div className="font-bold my-3">Free</div>
               <div className="text-[#B0AEB5] text-[0.8rem]">3/3 remaining</div>
