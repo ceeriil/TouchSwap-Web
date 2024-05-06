@@ -34,7 +34,7 @@ export async function findUser(id:string): Promise<UserResult> {
   return toResult<User>(user); 
 }
 
-export async function createUser(username:string, id:number, first: string|"" , last:string|"", lang:string|"en" ): Promise<UserResult> {
+export async function createUser(username:string|"", id:number, first: string|"" , last:string|"", lang:string|"en" ): Promise<UserResult> {
   let userId = db.users.id(`${id}`);
   const ref =    await db.users.set(userId,($) => ({ 
     creationTimestamp: $.serverDate(),
