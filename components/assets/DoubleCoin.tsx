@@ -2,13 +2,7 @@ import React from "react";
 
 export const DoubleCoin = () => {
   return (
-    <svg
-      width="18"
-      height="16"
-      viewBox="0 0 18 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M11.3858 10.0554C10.452 9.21781 9.43046 8.48348 8.33897 7.86521C7.25798 7.22871 6.11122 6.71118 4.91876 6.32169L2.5044 4.92775L1.63112 6.44032C1.04617 7.45349 3.10407 9.73863 6.22981 11.5433C9.35555 13.3479 12.3671 13.9896 12.952 12.9765L13.8253 11.4639L11.3858 10.0554Z"
         fill="url(#paint0_linear_372_8017)"
@@ -104,11 +98,11 @@ export const DoubleCoin = () => {
           y2="7.87143"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_372_8017"
@@ -118,11 +112,11 @@ export const DoubleCoin = () => {
           y2="9.25682"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_372_8017"
@@ -132,11 +126,11 @@ export const DoubleCoin = () => {
           y2="10.545"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_372_8017"
@@ -146,11 +140,11 @@ export const DoubleCoin = () => {
           y2="7.13274"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_372_8017"
@@ -160,11 +154,11 @@ export const DoubleCoin = () => {
           y2="9.90193"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_372_8017"
@@ -174,11 +168,11 @@ export const DoubleCoin = () => {
           y2="6.4897"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_372_8017"
@@ -188,11 +182,11 @@ export const DoubleCoin = () => {
           y2="5.84458"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_372_8017"
@@ -202,11 +196,11 @@ export const DoubleCoin = () => {
           y2="6.35886"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_372_8017"
@@ -216,11 +210,11 @@ export const DoubleCoin = () => {
           y2="6.97325"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_372_8017"
@@ -230,11 +224,11 @@ export const DoubleCoin = () => {
           y2="6.97325"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_372_8017"
@@ -244,11 +238,11 @@ export const DoubleCoin = () => {
           y2="7.69964"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_372_8017"
@@ -258,11 +252,11 @@ export const DoubleCoin = () => {
           y2="5.4182"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_372_8017"
@@ -272,11 +266,11 @@ export const DoubleCoin = () => {
           y2="2.54436"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_372_8017"
@@ -286,11 +280,11 @@ export const DoubleCoin = () => {
           y2="10.1571"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_372_8017"
@@ -300,11 +294,11 @@ export const DoubleCoin = () => {
           y2="3.98359"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint15_linear_372_8017"
@@ -314,11 +308,11 @@ export const DoubleCoin = () => {
           y2="11.5963"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_372_8017"
@@ -328,11 +322,11 @@ export const DoubleCoin = () => {
           y2="13.0309"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint17_linear_372_8017"
@@ -342,11 +336,11 @@ export const DoubleCoin = () => {
           y2="7.29248"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint18_linear_372_8017"
@@ -356,11 +350,11 @@ export const DoubleCoin = () => {
           y2="7.45786"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint19_linear_372_8017"
@@ -370,11 +364,11 @@ export const DoubleCoin = () => {
           y2="7.45786"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
       </defs>
     </svg>

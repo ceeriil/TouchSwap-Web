@@ -2,13 +2,7 @@ import React from "react";
 
 export const TimerIcon = () => {
   return (
-    <svg
-      width="14"
-      height="16"
-      viewBox="0 0 14 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M13.6106 3.23732L5.93114 0.123726C5.7626 0.0553934 5.57058 0.136626 5.50225 0.305164L5.23983 0.952379C5.1715 1.12092 5.25273 1.31294 5.42127 1.38127L13.1008 4.49487C13.2693 4.5632 13.4613 4.48197 13.5297 4.31343L13.7921 3.66622C13.8604 3.49768 13.7792 3.30566 13.6106 3.23732Z"
         fill="url(#paint0_linear_372_8153)"
@@ -52,8 +46,8 @@ export const TimerIcon = () => {
           y2="2.3161"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9963D" />
-          <stop offset="1" stop-color="#FF6C22" />
+          <stop stopColor="#F9963D" />
+          <stop offset="1" stopColor="#FF6C22" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_372_8153"
@@ -63,8 +57,8 @@ export const TimerIcon = () => {
           y2="13.6949"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9963D" />
-          <stop offset="1" stop-color="#FF6C22" />
+          <stop stopColor="#F9963D" />
+          <stop offset="1" stopColor="#FF6C22" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_372_8153"
@@ -74,8 +68,8 @@ export const TimerIcon = () => {
           y2="18.331"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#B9E6EA" />
-          <stop offset="1" stop-color="#81DBE2" />
+          <stop stopColor="#B9E6EA" />
+          <stop offset="1" stopColor="#81DBE2" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_372_8153"
@@ -85,8 +79,8 @@ export const TimerIcon = () => {
           y2="14.5857"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="#298F91" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="#298F91" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_372_8153"
@@ -96,8 +90,8 @@ export const TimerIcon = () => {
           y2="11.7034"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_372_8153"
@@ -107,8 +101,8 @@ export const TimerIcon = () => {
           y2="5.93721"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_372_8153"
@@ -118,8 +112,8 @@ export const TimerIcon = () => {
           y2="11.7251"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_372_8153"
@@ -129,8 +123,8 @@ export const TimerIcon = () => {
           y2="6.78213"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
       </defs>
     </svg>

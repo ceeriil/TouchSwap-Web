@@ -2,13 +2,7 @@ import React from "react";
 
 export const RefsIcon = () => {
   return (
-    <svg
-      width="265"
-      height="267"
-      viewBox="0 0 265 267"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="265" height="267" viewBox="0 0 265 267" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f_402_8586)">
         <path
           d="M149.099 144.517L187.572 204.842L165.701 217.469L132.695 153.988L149.099 144.517Z"
@@ -65,14 +59,8 @@ export const RefsIcon = () => {
         d="M150.426 128.2L209.312 158.817L197.599 179.105L141.641 143.416L150.426 128.2Z"
         fill="url(#paint12_linear_402_8586)"
       />
-      <path
-        d="M140.642 144.594L143.57 210.899H120.144L123.072 144.594H140.642Z"
-        fill="url(#paint13_linear_402_8586)"
-      />
-      <path
-        d="M122.616 109.306L119.688 43H143.114L140.186 109.306H122.616Z"
-        fill="url(#paint14_linear_402_8586)"
-      />
+      <path d="M140.642 144.594L143.57 210.899H120.144L123.072 144.594H140.642Z" fill="url(#paint13_linear_402_8586)" />
+      <path d="M122.616 109.306L119.688 43H143.114L140.186 109.306H122.616Z" fill="url(#paint14_linear_402_8586)" />
       <path
         d="M121.671 143.626L65.7129 179.315L53.9996 159.027L112.886 128.41L121.671 143.626Z"
         fill="url(#paint15_linear_402_8586)"
@@ -278,22 +266,13 @@ export const RefsIcon = () => {
         d="M123.043 122.945C125.081 124.037 126.55 125.408 126.71 126.282C126.847 126.228 126.962 126.129 127.037 126.002C127.457 125.218 125.84 123.531 123.423 122.236C121.006 120.942 118.705 120.53 118.286 121.313C118.219 121.445 118.2 121.597 118.233 121.741C119.047 121.394 121.005 121.853 123.043 122.945Z"
         fill="url(#paint57_linear_402_8586)"
       />
-      <path
-        d="M172.445 108.97H87.3086V174H172.445V108.97Z"
-        fill="url(#paint58_linear_402_8586)"
-      />
-      <path
-        d="M172.445 108.97H87.3086V116.111H172.445V108.97Z"
-        fill="#A52713"
-      />
+      <path d="M172.445 108.97H87.3086V174H172.445V108.97Z" fill="url(#paint58_linear_402_8586)" />
+      <path d="M172.445 108.97H87.3086V116.111H172.445V108.97Z" fill="#A52713" />
       <path
         d="M177.497 69.7052L103.059 49.7595L99.4994 63.0426L173.938 82.9883L177.497 69.7052Z"
         fill="url(#paint59_linear_402_8586)"
       />
-      <path
-        d="M139.5 116H119.5V174H139.5V116Z"
-        fill="url(#paint60_linear_402_8586)"
-      />
+      <path d="M139.5 116H119.5V174H139.5V116Z" fill="url(#paint60_linear_402_8586)" />
       <path
         d="M141.736 61.287L119.52 81.0792L117 73.4473L110.007 70.3969L132.224 50.6047L141.736 61.287Z"
         fill="url(#paint61_linear_402_8586)"
@@ -330,19 +309,11 @@ export const RefsIcon = () => {
           width="263.843"
           height="254.023"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="21.1"
-            result="effect1_foregroundBlur_402_8586"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="21.1" result="effect1_foregroundBlur_402_8586" />
         </filter>
         <filter
           id="filter1_f_402_8586"
@@ -351,19 +322,11 @@ export const RefsIcon = () => {
           width="263.955"
           height="265.896"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="21.1"
-            result="effect1_foregroundBlur_402_8586"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="21.1" result="effect1_foregroundBlur_402_8586" />
         </filter>
         <filter
           id="filter2_f_402_8586"
@@ -372,19 +335,11 @@ export const RefsIcon = () => {
           width="16.9812"
           height="16.9817"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="3.08758"
-            result="effect1_foregroundBlur_402_8586"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="3.08758" result="effect1_foregroundBlur_402_8586" />
         </filter>
         <filter
           id="filter3_f_402_8586"
@@ -393,19 +348,11 @@ export const RefsIcon = () => {
           width="2.57216"
           height="2.57299"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="0.257299"
-            result="effect1_foregroundBlur_402_8586"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="0.257299" result="effect1_foregroundBlur_402_8586" />
         </filter>
         <filter
           id="filter4_f_402_8586"
@@ -414,19 +361,11 @@ export const RefsIcon = () => {
           width="6.40872"
           height="6.40954"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="1.21644"
-            result="effect1_foregroundBlur_402_8586"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="1.21644" result="effect1_foregroundBlur_402_8586" />
         </filter>
         <filter
           id="filter5_f_402_8586"
@@ -435,19 +374,11 @@ export const RefsIcon = () => {
           width="5.19228"
           height="5.1931"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="0.912328"
-            result="effect1_foregroundBlur_402_8586"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="0.912328" result="effect1_foregroundBlur_402_8586" />
         </filter>
         <filter
           id="filter6_f_402_8586"
@@ -456,19 +387,11 @@ export const RefsIcon = () => {
           width="17.3109"
           height="17.3104"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="3.04109"
-            result="effect1_foregroundBlur_402_8586"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="3.04109" result="effect1_foregroundBlur_402_8586" />
         </filter>
         <filter
           id="filter7_f_402_8586"
@@ -477,19 +400,11 @@ export const RefsIcon = () => {
           width="14.4091"
           height="14.4087"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="2.57299"
-            result="effect1_foregroundBlur_402_8586"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="2.57299" result="effect1_foregroundBlur_402_8586" />
         </filter>
         <filter
           id="filter8_f_402_8586"
@@ -498,19 +413,11 @@ export const RefsIcon = () => {
           width="14.4091"
           height="14.4087"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="2.57299"
-            result="effect1_foregroundBlur_402_8586"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="2.57299" result="effect1_foregroundBlur_402_8586" />
         </filter>
         <linearGradient
           id="paint0_linear_402_8586"
@@ -520,8 +427,8 @@ export const RefsIcon = () => {
           y2="149.253"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_402_8586"
@@ -531,8 +438,8 @@ export const RefsIcon = () => {
           y2="149.813"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_402_8586"
@@ -542,8 +449,8 @@ export const RefsIcon = () => {
           y2="116.623"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_402_8586"
@@ -553,8 +460,8 @@ export const RefsIcon = () => {
           y2="133.95"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_402_8586"
@@ -564,8 +471,8 @@ export const RefsIcon = () => {
           y2="132.753"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_402_8586"
@@ -575,8 +482,8 @@ export const RefsIcon = () => {
           y2="117.057"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_402_8586"
@@ -586,8 +493,8 @@ export const RefsIcon = () => {
           y2="146.469"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_402_8586"
@@ -597,8 +504,8 @@ export const RefsIcon = () => {
           y2="151.662"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_402_8586"
@@ -608,8 +515,8 @@ export const RefsIcon = () => {
           y2="114.789"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_402_8586"
@@ -619,8 +526,8 @@ export const RefsIcon = () => {
           y2="138.665"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_402_8586"
@@ -630,8 +537,8 @@ export const RefsIcon = () => {
           y2="128.065"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_402_8586"
@@ -641,8 +548,8 @@ export const RefsIcon = () => {
           y2="119.823"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_402_8586"
@@ -652,8 +559,8 @@ export const RefsIcon = () => {
           y2="135.808"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_402_8586"
@@ -663,8 +570,8 @@ export const RefsIcon = () => {
           y2="144.594"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_402_8586"
@@ -674,8 +581,8 @@ export const RefsIcon = () => {
           y2="109.306"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint15_linear_402_8586"
@@ -685,8 +592,8 @@ export const RefsIcon = () => {
           y2="136.018"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_402_8586"
@@ -696,8 +603,8 @@ export const RefsIcon = () => {
           y2="118.135"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint17_linear_402_8586"
@@ -707,8 +614,8 @@ export const RefsIcon = () => {
           y2="117.924"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF6D6" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFEFC5" stop-opacity="0.4" />
+          <stop stopColor="#FFF6D6" stopOpacity="0" />
+          <stop offset="1" stopColor="#FFEFC5" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient
           id="paint18_linear_402_8586"
@@ -718,11 +625,11 @@ export const RefsIcon = () => {
           y2="91.6725"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint19_linear_402_8586"
@@ -732,11 +639,11 @@ export const RefsIcon = () => {
           y2="90.2656"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint20_linear_402_8586"
@@ -746,11 +653,11 @@ export const RefsIcon = () => {
           y2="88.1896"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint21_linear_402_8586"
@@ -760,11 +667,11 @@ export const RefsIcon = () => {
           y2="93.6885"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint22_linear_402_8586"
@@ -774,11 +681,11 @@ export const RefsIcon = () => {
           y2="89.2289"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint23_linear_402_8586"
@@ -788,11 +695,11 @@ export const RefsIcon = () => {
           y2="94.7282"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint24_linear_402_8586"
@@ -802,11 +709,11 @@ export const RefsIcon = () => {
           y2="95.7647"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint25_linear_402_8586"
@@ -816,11 +723,11 @@ export const RefsIcon = () => {
           y2="90.2654"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint26_linear_402_8586"
@@ -830,11 +737,11 @@ export const RefsIcon = () => {
           y2="90.8372"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint27_linear_402_8586"
@@ -844,11 +751,11 @@ export const RefsIcon = () => {
           y2="90.8372"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint28_linear_402_8586"
@@ -858,11 +765,11 @@ export const RefsIcon = () => {
           y2="123.457"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint29_linear_402_8586"
@@ -872,11 +779,11 @@ export const RefsIcon = () => {
           y2="121.131"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint30_linear_402_8586"
@@ -886,11 +793,11 @@ export const RefsIcon = () => {
           y2="118.231"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint31_linear_402_8586"
@@ -900,11 +807,11 @@ export const RefsIcon = () => {
           y2="125.915"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint32_linear_402_8586"
@@ -914,11 +821,11 @@ export const RefsIcon = () => {
           y2="119.683"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint33_linear_402_8586"
@@ -928,11 +835,11 @@ export const RefsIcon = () => {
           y2="127.367"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint34_linear_402_8586"
@@ -942,11 +849,11 @@ export const RefsIcon = () => {
           y2="128.816"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint35_linear_402_8586"
@@ -956,11 +863,11 @@ export const RefsIcon = () => {
           y2="123.15"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint36_linear_402_8586"
@@ -970,11 +877,11 @@ export const RefsIcon = () => {
           y2="123.274"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint37_linear_402_8586"
@@ -984,11 +891,11 @@ export const RefsIcon = () => {
           y2="123.274"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint38_linear_402_8586"
@@ -998,11 +905,11 @@ export const RefsIcon = () => {
           y2="123.277"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint39_linear_402_8586"
@@ -1012,11 +919,11 @@ export const RefsIcon = () => {
           y2="124.801"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint40_linear_402_8586"
@@ -1026,11 +933,11 @@ export const RefsIcon = () => {
           y2="126.187"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint41_linear_402_8586"
@@ -1040,11 +947,11 @@ export const RefsIcon = () => {
           y2="122.514"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint42_linear_402_8586"
@@ -1054,11 +961,11 @@ export const RefsIcon = () => {
           y2="125.492"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint43_linear_402_8586"
@@ -1068,11 +975,11 @@ export const RefsIcon = () => {
           y2="121.82"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint44_linear_402_8586"
@@ -1082,11 +989,11 @@ export const RefsIcon = () => {
           y2="121.128"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint45_linear_402_8586"
@@ -1096,11 +1003,11 @@ export const RefsIcon = () => {
           y2="121.524"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint46_linear_402_8586"
@@ -1110,11 +1017,11 @@ export const RefsIcon = () => {
           y2="122.236"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint47_linear_402_8586"
@@ -1124,11 +1031,11 @@ export const RefsIcon = () => {
           y2="122.236"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint48_linear_402_8586"
@@ -1138,11 +1045,11 @@ export const RefsIcon = () => {
           y2="123.277"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint49_linear_402_8586"
@@ -1152,11 +1059,11 @@ export const RefsIcon = () => {
           y2="124.801"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint50_linear_402_8586"
@@ -1166,11 +1073,11 @@ export const RefsIcon = () => {
           y2="126.187"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint51_linear_402_8586"
@@ -1180,11 +1087,11 @@ export const RefsIcon = () => {
           y2="122.514"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint52_linear_402_8586"
@@ -1194,11 +1101,11 @@ export const RefsIcon = () => {
           y2="125.492"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint53_linear_402_8586"
@@ -1208,11 +1115,11 @@ export const RefsIcon = () => {
           y2="121.82"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint54_linear_402_8586"
@@ -1222,11 +1129,11 @@ export const RefsIcon = () => {
           y2="121.128"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint55_linear_402_8586"
@@ -1236,11 +1143,11 @@ export const RefsIcon = () => {
           y2="121.524"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint56_linear_402_8586"
@@ -1250,11 +1157,11 @@ export const RefsIcon = () => {
           y2="122.236"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint57_linear_402_8586"
@@ -1264,11 +1171,11 @@ export const RefsIcon = () => {
           y2="122.236"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint58_linear_402_8586"
@@ -1278,8 +1185,8 @@ export const RefsIcon = () => {
           y2="179.019"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#DD4747" />
-          <stop offset="1" stop-color="#C42626" />
+          <stop stopColor="#DD4747" />
+          <stop offset="1" stopColor="#C42626" />
         </linearGradient>
         <linearGradient
           id="paint59_linear_402_8586"
@@ -1289,8 +1196,8 @@ export const RefsIcon = () => {
           y2="94.1783"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#DD4747" />
-          <stop offset="1" stop-color="#C42626" />
+          <stop stopColor="#DD4747" />
+          <stop offset="1" stopColor="#C42626" />
         </linearGradient>
         <linearGradient
           id="paint60_linear_402_8586"
@@ -1300,8 +1207,8 @@ export const RefsIcon = () => {
           y2="145.011"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <linearGradient
           id="paint61_linear_402_8586"
@@ -1311,8 +1218,8 @@ export const RefsIcon = () => {
           y2="55.5434"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint62_linear_402_8586"
@@ -1322,8 +1229,8 @@ export const RefsIcon = () => {
           y2="62.4729"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint63_linear_402_8586"
@@ -1333,8 +1240,8 @@ export const RefsIcon = () => {
           y2="47.1861"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <linearGradient
           id="paint64_linear_402_8586"
@@ -1344,8 +1251,8 @@ export const RefsIcon = () => {
           y2="48.2227"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint65_linear_402_8586"
@@ -1355,8 +1262,8 @@ export const RefsIcon = () => {
           y2="57.0589"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <linearGradient
           id="paint66_linear_402_8586"
@@ -1366,8 +1273,8 @@ export const RefsIcon = () => {
           y2="69.6408"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint67_linear_402_8586"
@@ -1377,8 +1284,8 @@ export const RefsIcon = () => {
           y2="57.1027"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
       </defs>
     </svg>

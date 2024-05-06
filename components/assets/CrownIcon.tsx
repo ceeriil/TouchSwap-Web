@@ -2,13 +2,7 @@ import React from "react";
 
 export const CrownIcon = () => {
   return (
-    <svg
-      width="21"
-      height="16"
-      viewBox="0 0 21 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M3.17969 6.60731L5.59383 1.24433C5.61993 1.16422 5.66707 1.09259 5.73032 1.03693C5.79357 0.981264 5.87061 0.94361 5.95339 0.927899C6.03617 0.912187 6.12165 0.918995 6.2009 0.947613C6.28015 0.97623 6.35025 1.02561 6.4039 1.09058L10.3418 5.60218V9.85218H3.85665L3.17969 6.60731Z"
         fill="url(#paint0_linear_372_8071)"
@@ -78,8 +72,8 @@ export const CrownIcon = () => {
           y2="5.58841"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_372_8071"
@@ -89,8 +83,8 @@ export const CrownIcon = () => {
           y2="5.58841"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_372_8071"
@@ -100,8 +94,8 @@ export const CrownIcon = () => {
           y2="15.4699"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_372_8071"
@@ -111,8 +105,8 @@ export const CrownIcon = () => {
           y2="9.52408"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#DD4747" />
-          <stop offset="1" stop-color="#C42626" />
+          <stop stopColor="#DD4747" />
+          <stop offset="1" stopColor="#C42626" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_372_8071"
@@ -122,8 +116,8 @@ export const CrownIcon = () => {
           y2="4.41121"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_372_8071"
@@ -133,8 +127,8 @@ export const CrownIcon = () => {
           y2="4.32168"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_372_8071"
@@ -144,8 +138,8 @@ export const CrownIcon = () => {
           y2="13.0856"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_372_8071"
@@ -155,8 +149,8 @@ export const CrownIcon = () => {
           y2="20.2133"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_372_8071"
@@ -166,8 +160,8 @@ export const CrownIcon = () => {
           y2="14.7195"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_372_8071"
@@ -177,8 +171,8 @@ export const CrownIcon = () => {
           y2="14.7195"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_372_8071"
@@ -188,8 +182,8 @@ export const CrownIcon = () => {
           y2="14.7195"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_372_8071"
@@ -199,8 +193,8 @@ export const CrownIcon = () => {
           y2="14.7195"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_372_8071"
@@ -210,8 +204,8 @@ export const CrownIcon = () => {
           y2="14.7195"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
       </defs>
     </svg>

@@ -109,11 +109,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="7.87143"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_372_8017"
@@ -123,11 +123,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="9.25682"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_372_8017"
@@ -137,11 +137,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="10.545"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_372_8017"
@@ -151,11 +151,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="7.13274"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_372_8017"
@@ -165,11 +165,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="9.90193"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_372_8017"
@@ -179,11 +179,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="6.4897"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_372_8017"
@@ -193,11 +193,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="5.84458"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_372_8017"
@@ -207,11 +207,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="6.35886"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_372_8017"
@@ -221,11 +221,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="6.97325"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_372_8017"
@@ -235,11 +235,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="6.97325"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_372_8017"
@@ -249,11 +249,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="7.69964"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_372_8017"
@@ -263,11 +263,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="5.4182"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_372_8017"
@@ -277,11 +277,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="2.54436"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_372_8017"
@@ -291,11 +291,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="10.1571"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_372_8017"
@@ -305,11 +305,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="3.98359"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint15_linear_372_8017"
@@ -319,11 +319,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="11.5963"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_372_8017"
@@ -333,11 +333,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="13.0309"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
         <linearGradient
           id="paint17_linear_372_8017"
@@ -347,11 +347,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="7.29248"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint18_linear_372_8017"
@@ -361,11 +361,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="7.45786"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.16" stop-color="#FEB534" />
-          <stop offset="0.46" stop-color="#FECC34" />
-          <stop offset="0.75" stop-color="#FED934" />
-          <stop offset="1" stop-color="#FEDE34" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.16" stopColor="#FEB534" />
+          <stop offset="0.46" stopColor="#FECC34" />
+          <stop offset="0.75" stopColor="#FED934" />
+          <stop offset="1" stopColor="#FEDE34" />
         </linearGradient>
         <linearGradient
           id="paint19_linear_372_8017"
@@ -375,11 +375,11 @@ export const DoubleCoinIcon: React.FC<IconProps> = ({ width, height }) => {
           y2="7.45786"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA634" />
-          <stop offset="0.19" stop-color="#EB9A27" />
-          <stop offset="0.48" stop-color="#D48D17" />
-          <stop offset="0.76" stop-color="#C7850E" />
-          <stop offset="1" stop-color="#C2820B" />
+          <stop stopColor="#FEA634" />
+          <stop offset="0.19" stopColor="#EB9A27" />
+          <stop offset="0.48" stopColor="#D48D17" />
+          <stop offset="0.76" stopColor="#C7850E" />
+          <stop offset="1" stopColor="#C2820B" />
         </linearGradient>
       </defs>
     </svg>

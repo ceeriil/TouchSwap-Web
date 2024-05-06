@@ -13,13 +13,13 @@ export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
               cy="42.5"
               r="27.625"
               fill="url(#paint2_linear_251_2004)"
-              fill-opacity="0.2"
+              fillOpacity="0.2"
               style={{ mixBlendMode: "multiply" }}
             />
           </g>
-          <circle cx="42.5" cy="42.5" r="30.2812" stroke="url(#paint3_linear_251_2004)" stroke-width="5.3125" />
+          <circle cx="42.5" cy="42.5" r="30.2812" stroke="url(#paint3_linear_251_2004)" strokeWidth="5.3125" />
           <g style={{ mixBlendMode: "overlay" }} opacity="0.25">
-            <circle cx="42.5" cy="42.5" r="33.2031" stroke="white" stroke-width="0.53125" />
+            <circle cx="42.5" cy="42.5" r="33.2031" stroke="white" strokeWidth="0.53125" />
           </g>
           <defs>
             <filter
@@ -29,9 +29,9 @@ export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
               width="65.875"
               height="65.875"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
               <feColorMatrix
                 in="SourceAlpha"
@@ -53,8 +53,8 @@ export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
               y2="85"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#524234" />
-              <stop offset="1" stop-color="#715041" />
+              <stop stopColor="#524234" />
+              <stop offset="1" stopColor="#715041" />
             </linearGradient>
             <radialGradient
               id="paint1_radial_251_2004"
@@ -64,8 +64,8 @@ export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(42.5 42.5) rotate(90) scale(43.0313)"
             >
-              <stop stop-color="#4C392D" />
-              <stop offset="1" stop-color="#452D1F" />
+              <stop stopColor="#4C392D" />
+              <stop offset="1" stopColor="#452D1F" />
             </radialGradient>
             <linearGradient
               id="paint2_linear_251_2004"
@@ -75,7 +75,7 @@ export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
               y2="70.125"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-opacity="0" />
+              <stop stopOpacity="0" />
               <stop offset="1" />
             </linearGradient>
             <linearGradient
@@ -86,8 +86,8 @@ export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
               y2="70.125"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#463111" />
-              <stop offset="1" stop-color="#564936" />
+              <stop stopColor="#463111" />
+              <stop offset="1" stopColor="#564936" />
             </linearGradient>
           </defs>
         </svg>
@@ -101,13 +101,13 @@ export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
               cy="42.5"
               r="27.625"
               fill="url(#paint2_linear_251_2004)"
-              fill-opacity="0.2"
+              fillOpacity="0.2"
               style={{ mixBlendMode: "multiply" }}
             />
           </g>
-          <circle cx="42.5" cy="42.5" r="30.2812" stroke="url(#paint3_linear_251_2004)" stroke-width="5.3125" />
+          <circle cx="42.5" cy="42.5" r="30.2812" stroke="url(#paint3_linear_251_2004)" strokeWidth="5.3125" />
           <g style={{ mixBlendMode: "overlay" }} opacity="0.25">
-            <circle cx="42.5" cy="42.5" r="33.2031" stroke="white" stroke-width="0.53125" />
+            <circle cx="42.5" cy="42.5" r="33.2031" stroke="white" strokeWidth="0.53125" />
           </g>
           <defs>
             <filter
@@ -117,9 +117,9 @@ export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
               width="65.875"
               height="65.875"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
               <feColorMatrix
                 in="SourceAlpha"
@@ -141,8 +141,8 @@ export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
               y2="85"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#524234" />
-              <stop offset="1" stop-color="#715041" />
+              <stop stopColor="#524234" />
+              <stop offset="1" stopColor="#715041" />
             </linearGradient>
             <radialGradient
               id="paint1_radial_251_2004"
@@ -152,8 +152,8 @@ export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(42.5 42.5) rotate(90) scale(43.0313)"
             >
-              <stop stop-color="#4C392D" />
-              <stop offset="1" stop-color="#452D1F" />
+              <stop stopColor="#4C392D" />
+              <stop offset="1" stopColor="#452D1F" />
             </radialGradient>
             <linearGradient
               id="paint2_linear_251_2004"
@@ -163,7 +163,7 @@ export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
               y2="70.125"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-opacity="0" />
+              <stop stopOpacity="0" />
               <stop offset="1" />
             </linearGradient>
             <linearGradient
@@ -174,8 +174,8 @@ export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
               y2="70.125"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#463111" />
-              <stop offset="1" stop-color="#564936" />
+              <stop stopColor="#463111" />
+              <stop offset="1" stopColor="#564936" />
             </linearGradient>
           </defs>
         </svg>

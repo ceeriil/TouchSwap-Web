@@ -1,11 +1,7 @@
 import React from "react";
 import { IconProps } from "@/types/icontypes";
 
-export const MultiTapIcon: React.FC<IconProps> = ({
-  width,
-  height,
-  className,
-}) => {
+export const MultiTapIcon: React.FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       style={{
@@ -106,8 +102,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="11.6166"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_255_3050"
@@ -117,8 +113,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="25.1367"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_255_3050"
@@ -128,8 +124,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="27.4178"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#A0A0A0" />
-          <stop offset="1" stop-color="#B5B2AE" />
+          <stop stopColor="#A0A0A0" />
+          <stop offset="1" stopColor="#B5B2AE" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_255_3050"
@@ -139,8 +135,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="11.9886"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#CECAC6" />
-          <stop offset="1" stop-color="#B5B2AE" />
+          <stop stopColor="#CECAC6" />
+          <stop offset="1" stopColor="#B5B2AE" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_255_3050"
@@ -150,8 +146,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="18.0549"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#A0A0A0" />
-          <stop offset="1" stop-color="#888C8C" />
+          <stop stopColor="#A0A0A0" />
+          <stop offset="1" stopColor="#888C8C" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_255_3050"
@@ -161,8 +157,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="19.2499"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#A0A0A0" />
-          <stop offset="1" stop-color="#888C8C" />
+          <stop stopColor="#A0A0A0" />
+          <stop offset="1" stopColor="#888C8C" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_255_3050"
@@ -172,8 +168,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="5.12"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#A0A0A0" />
-          <stop offset="1" stop-color="#888C8C" />
+          <stop stopColor="#A0A0A0" />
+          <stop offset="1" stopColor="#888C8C" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_255_3050"
@@ -183,8 +179,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="-5.93476"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" stop-opacity="0" />
-          <stop offset="1" stop-color="white" />
+          <stop stopColor="white" stopOpacity="0" />
+          <stop offset="1" stopColor="white" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_255_3050"
@@ -194,8 +190,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="-0.115855"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" stop-opacity="0" />
-          <stop offset="1" stop-color="white" />
+          <stop stopColor="white" stopOpacity="0" />
+          <stop offset="1" stopColor="white" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_255_3050"
@@ -205,8 +201,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="11.6166"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_255_3050"
@@ -216,8 +212,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="25.1367"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E88725" />
-          <stop offset="1" stop-color="#CC6119" />
+          <stop stopColor="#E88725" />
+          <stop offset="1" stopColor="#CC6119" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_255_3050"
@@ -227,8 +223,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="27.4178"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#A0A0A0" />
-          <stop offset="1" stop-color="#B5B2AE" />
+          <stop stopColor="#A0A0A0" />
+          <stop offset="1" stopColor="#B5B2AE" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_255_3050"
@@ -238,8 +234,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="11.9886"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#CECAC6" />
-          <stop offset="1" stop-color="#B5B2AE" />
+          <stop stopColor="#CECAC6" />
+          <stop offset="1" stopColor="#B5B2AE" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_255_3050"
@@ -249,8 +245,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="18.0549"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#A0A0A0" />
-          <stop offset="1" stop-color="#888C8C" />
+          <stop stopColor="#A0A0A0" />
+          <stop offset="1" stopColor="#888C8C" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_255_3050"
@@ -260,8 +256,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="19.2499"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#A0A0A0" />
-          <stop offset="1" stop-color="#888C8C" />
+          <stop stopColor="#A0A0A0" />
+          <stop offset="1" stopColor="#888C8C" />
         </linearGradient>
         <linearGradient
           id="paint15_linear_255_3050"
@@ -271,8 +267,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="5.12"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#A0A0A0" />
-          <stop offset="1" stop-color="#888C8C" />
+          <stop stopColor="#A0A0A0" />
+          <stop offset="1" stopColor="#888C8C" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_255_3050"
@@ -282,8 +278,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="-5.93476"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" stop-opacity="0" />
-          <stop offset="1" stop-color="white" />
+          <stop stopColor="white" stopOpacity="0" />
+          <stop offset="1" stopColor="white" />
         </linearGradient>
         <linearGradient
           id="paint17_linear_255_3050"
@@ -293,8 +289,8 @@ export const MultiTapIcon: React.FC<IconProps> = ({
           y2="-0.115855"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" stop-opacity="0" />
-          <stop offset="1" stop-color="white" />
+          <stop stopColor="white" stopOpacity="0" />
+          <stop offset="1" stopColor="white" />
         </linearGradient>
       </defs>
     </svg>

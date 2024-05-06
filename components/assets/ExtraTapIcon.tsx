@@ -2,13 +2,7 @@ import React from "react";
 
 export const ExtraTapIcon = () => {
   return (
-    <svg
-      width="64"
-      height="64"
-      viewBox="0 0 64 64"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0_319_3426)">
         <g filter="url(#filter0_i_319_3426)">
           <path
@@ -24,31 +18,13 @@ export const ExtraTapIcon = () => {
         />
         <g opacity="0.2">
           <g style={{ mixBlendMode: "overlay" }}>
-            <ellipse
-              cx="16.5"
-              cy="22"
-              rx="4.5"
-              ry="3"
-              fill="url(#paint1_linear_319_3426)"
-            />
+            <ellipse cx="16.5" cy="22" rx="4.5" ry="3" fill="url(#paint1_linear_319_3426)" />
           </g>
           <g style={{ mixBlendMode: "overlay" }} opacity="0.46">
-            <ellipse
-              cx="54.5"
-              cy="39"
-              rx="4.5"
-              ry="3"
-              fill="url(#paint2_linear_319_3426)"
-            />
+            <ellipse cx="54.5" cy="39" rx="4.5" ry="3" fill="url(#paint2_linear_319_3426)" />
           </g>
           <g style={{ mixBlendMode: "overlay" }}>
-            <ellipse
-              cx="44.5"
-              cy="51"
-              rx="4.5"
-              ry="3"
-              fill="url(#paint3_linear_319_3426)"
-            />
+            <ellipse cx="44.5" cy="51" rx="4.5" ry="3" fill="url(#paint3_linear_319_3426)" />
           </g>
           <g style={{ mixBlendMode: "overlay" }} opacity="0.4">
             <ellipse
@@ -71,22 +47,10 @@ export const ExtraTapIcon = () => {
             />
           </g>
           <g style={{ mixBlendMode: "overlay" }}>
-            <ellipse
-              cx="10.5"
-              cy="55"
-              rx="4.5"
-              ry="3"
-              fill="url(#paint6_linear_319_3426)"
-            />
+            <ellipse cx="10.5" cy="55" rx="4.5" ry="3" fill="url(#paint6_linear_319_3426)" />
           </g>
           <g style={{ mixBlendMode: "overlay" }} opacity="0.76">
-            <ellipse
-              cx="6.5"
-              cy="45.5"
-              rx="4.5"
-              ry="2.5"
-              fill="url(#paint7_linear_319_3426)"
-            />
+            <ellipse cx="6.5" cy="45.5" rx="4.5" ry="2.5" fill="url(#paint7_linear_319_3426)" />
           </g>
         </g>
         <g filter="url(#filter1_i_319_3426)">
@@ -169,15 +133,10 @@ export const ExtraTapIcon = () => {
           width="106.56"
           height="66.56"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -187,15 +146,8 @@ export const ExtraTapIcon = () => {
           <feOffset dx="-7.04" dy="2.56" />
           <feGaussianBlur stdDeviation="1.28" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_319_3426"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_319_3426" />
         </filter>
         <filter
           id="filter1_i_319_3426"
@@ -204,15 +156,10 @@ export const ExtraTapIcon = () => {
           width="101.76"
           height="62.3999"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -222,15 +169,8 @@ export const ExtraTapIcon = () => {
           <feOffset dx="-0.32" dy="0.96" />
           <feGaussianBlur stdDeviation="0.48" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.75 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_319_3426"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.75 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_319_3426" />
         </filter>
         <radialGradient
           id="paint0_radial_319_3426"
@@ -240,51 +180,23 @@ export const ExtraTapIcon = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(36 32) rotate(136.061) scale(38.1903 38.1903)"
         >
-          <stop stop-color="#9181F0" />
-          <stop offset="1" stop-color="#6752EF" />
+          <stop stopColor="#9181F0" />
+          <stop offset="1" stopColor="#6752EF" />
         </radialGradient>
-        <linearGradient
-          id="paint1_linear_319_3426"
-          x1="16.5"
-          y1="19"
-          x2="16.5"
-          y2="25"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="paint1_linear_319_3426" x1="16.5" y1="19" x2="16.5" y2="25" gradientUnits="userSpaceOnUse">
           <stop stopColor="#D9D9D9" />
           <stop offset="1" stopColor="#737373" />
         </linearGradient>
-        <linearGradient
-          id="paint2_linear_319_3426"
-          x1="54.5"
-          y1="36"
-          x2="54.5"
-          y2="42"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#D9D9D9" />
-          <stop offset="1" stop-color="#737373" />
-        </linearGradient>
-        <linearGradient
-          id="paint3_linear_319_3426"
-          x1="44.5"
-          y1="48"
-          x2="44.5"
-          y2="54"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="paint2_linear_319_3426" x1="54.5" y1="36" x2="54.5" y2="42" gradientUnits="userSpaceOnUse">
           <stop stopColor="#D9D9D9" />
           <stop offset="1" stopColor="#737373" />
         </linearGradient>
-        <linearGradient
-          id="paint4_linear_319_3426"
-          x1="39.5"
-          y1="21"
-          x2="39.5"
-          y2="27"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stop-color="#D9D9D9" />
+        <linearGradient id="paint3_linear_319_3426" x1="44.5" y1="48" x2="44.5" y2="54" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#D9D9D9" />
+          <stop offset="1" stopColor="#737373" />
+        </linearGradient>
+        <linearGradient id="paint4_linear_319_3426" x1="39.5" y1="21" x2="39.5" y2="27" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#D9D9D9" />
           <stop offset="1" stopColor="#737373" />
         </linearGradient>
         <linearGradient
@@ -298,26 +210,12 @@ export const ExtraTapIcon = () => {
           <stop stopColor="#D9D9D9" />
           <stop offset="1" stopColor="#737373" />
         </linearGradient>
-        <linearGradient
-          id="paint6_linear_319_3426"
-          x1="10.5"
-          y1="52"
-          x2="10.5"
-          y2="58"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="paint6_linear_319_3426" x1="10.5" y1="52" x2="10.5" y2="58" gradientUnits="userSpaceOnUse">
           <stop stopColor="#D9D9D9" />
           <stop offset="1" stopColor="#737373" />
         </linearGradient>
-        <linearGradient
-          id="paint7_linear_319_3426"
-          x1="6.5"
-          y1="43"
-          x2="6.5"
-          y2="48"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stop-color="#D9D9D9" />
+        <linearGradient id="paint7_linear_319_3426" x1="6.5" y1="43" x2="6.5" y2="48" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#D9D9D9" />
           <stop offset="1" stopColor="#737373" />
         </linearGradient>
         <linearGradient
@@ -328,7 +226,7 @@ export const ExtraTapIcon = () => {
           y2="12.0515"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#619BBA" />
+          <stop stopColor="#619BBA" />
           <stop offset="1" stopColor="#81BBE2" />
         </linearGradient>
         <linearGradient
@@ -339,7 +237,7 @@ export const ExtraTapIcon = () => {
           y2="20.6105"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#B9E8EA" />
+          <stop stopColor="#B9E8EA" />
           <stop offset="1" stopColor="#D2F8F9" />
         </linearGradient>
         <linearGradient
@@ -350,7 +248,7 @@ export const ExtraTapIcon = () => {
           y2="39.6446"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#B9E6EA" />
+          <stop stopColor="#B9E6EA" />
           <stop offset="1" stopColor="#81DBE2" />
         </linearGradient>
         <linearGradient
@@ -387,12 +285,7 @@ export const ExtraTapIcon = () => {
           <stop offset="1" stopColor="#81BBE2" />
         </linearGradient>
         <clipPath id="clip0_319_3426">
-          <rect
-            width="104"
-            height="64"
-            fill="white"
-            transform="translate(-40)"
-          />
+          <rect width="104" height="64" fill="white" transform="translate(-40)" />
         </clipPath>
       </defs>
     </svg>

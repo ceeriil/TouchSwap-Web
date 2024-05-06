@@ -1,11 +1,7 @@
 import React from "react";
 import { IconProps } from "@/types/icontypes";
 
-export const SpeedBoostIcon: React.FC<IconProps> = ({
-  width,
-  height,
-  className,
-}) => {
+export const SpeedBoostIcon: React.FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       style={{
@@ -21,10 +17,7 @@ export const SpeedBoostIcon: React.FC<IconProps> = ({
         d="M30.5253 6.25117H4.75197C2.12753 6.25117 0 8.3787 0 11.0031V27.248C0 29.8725 2.12753 32 4.75197 32H30.5253C33.1497 32 35.2773 29.8725 35.2773 27.248V11.0031C35.2773 8.3787 33.1497 6.25117 30.5253 6.25117Z"
         fill="url(#paint0_linear_255_2809)"
       />
-      <path
-        d="M35.2773 11.9926H0V13.1977H35.2773V11.9926Z"
-        fill="url(#paint1_linear_255_2809)"
-      />
+      <path d="M35.2773 11.9926H0V13.1977H35.2773V11.9926Z" fill="url(#paint1_linear_255_2809)" />
       <path
         d="M22.8925 19.2284H19.767V16.1029H15.5098V19.2284H12.3843V23.4856H15.5098V26.6111H19.767V23.4856H22.8925V19.2284Z"
         fill="url(#paint2_linear_255_2809)"
@@ -42,8 +35,8 @@ export const SpeedBoostIcon: React.FC<IconProps> = ({
           y2="35.3362"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#DD4747" />
-          <stop offset="1" stop-color="#C42626" />
+          <stop stopColor="#DD4747" />
+          <stop offset="1" stopColor="#C42626" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_255_2809"
@@ -53,9 +46,9 @@ export const SpeedBoostIcon: React.FC<IconProps> = ({
           y2="12.5903"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#843317" />
-          <stop offset="0.67" stop-color="#782B13" />
-          <stop offset="1" stop-color="#702511" />
+          <stop stopColor="#843317" />
+          <stop offset="0.67" stopColor="#782B13" />
+          <stop offset="1" stopColor="#702511" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_255_2809"
@@ -65,8 +58,8 @@ export const SpeedBoostIcon: React.FC<IconProps> = ({
           y2="25.0483"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_255_2809"
@@ -76,9 +69,9 @@ export const SpeedBoostIcon: React.FC<IconProps> = ({
           y2="3.13532"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#843317" />
-          <stop offset="0.67" stop-color="#782B13" />
-          <stop offset="1" stop-color="#702511" />
+          <stop stopColor="#843317" />
+          <stop offset="0.67" stopColor="#782B13" />
+          <stop offset="1" stopColor="#702511" />
         </linearGradient>
       </defs>
     </svg>

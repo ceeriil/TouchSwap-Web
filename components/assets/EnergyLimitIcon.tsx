@@ -1,11 +1,7 @@
 import React from "react";
 import { IconProps } from "@/types/icontypes";
 
-export const EnergyLimitIcon: React.FC<IconProps> = ({
-  width,
-  height,
-  className,
-}) => {
+export const EnergyLimitIcon: React.FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       style={{
@@ -41,10 +37,7 @@ export const EnergyLimitIcon: React.FC<IconProps> = ({
         d="M25.9641 2.74151L11.7119 0.65274L11.1375 2.58858L25.6843 4.67735C25.8776 4.70282 26.063 4.76984 26.2279 4.87379C26.3928 4.97774 26.5333 5.11616 26.6396 5.27954C26.7459 5.44293 26.8156 5.62739 26.8439 5.82026C26.8721 6.01314 26.8583 6.20984 26.8033 6.39685L21.4657 24.3752C21.3814 24.6533 21.2102 24.8971 20.9773 25.0709C20.7444 25.2447 20.4621 25.3394 20.1715 25.3412C20.1056 25.3448 20.0396 25.3448 19.9738 25.3412L5.05399 23.1965L4.50195 25.0615L19.6978 27.2995C20.4849 27.4141 21.2871 27.2417 21.9575 26.8137C22.628 26.3856 23.1221 25.7306 23.3494 24.9682L28.6869 6.99365C28.8289 6.53435 28.869 6.0496 28.8044 5.57322C28.7397 5.09684 28.5719 4.6403 28.3127 4.23544C28.0534 3.83059 27.709 3.48717 27.3033 3.22914C26.8977 2.97112 26.4406 2.80471 25.9641 2.74151Z"
         fill="url(#paint4_linear_255_3293)"
       />
-      <path
-        d="M4.73689 25.8298L0.428804 25.2106L0.00732422 24.3826L4.47207 25.0391L4.73689 25.8298Z"
-        fill="#87340F"
-      />
+      <path d="M4.73689 25.8298L0.428804 25.2106L0.00732422 24.3826L4.47207 25.0391L4.73689 25.8298Z" fill="#87340F" />
       <path
         d="M15.6247 6.78839L10.8354 13.1741L16.4639 14.1886C16.4639 14.1886 11.3539 21.6149 11.615 21.4508C11.8761 21.2867 21.6374 12.5773 21.6374 12.5773L17.3293 11.8835L21.0891 7.78056L15.6247 6.78839Z"
         fill="url(#paint5_linear_255_3293)"
@@ -63,8 +56,8 @@ export const EnergyLimitIcon: React.FC<IconProps> = ({
           y2="27.9485"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#994013" />
-          <stop offset="1" stop-color="#B45520" />
+          <stop stopColor="#994013" />
+          <stop offset="1" stopColor="#B45520" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_255_3293"
@@ -74,8 +67,8 @@ export const EnergyLimitIcon: React.FC<IconProps> = ({
           y2="14.461"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#994013" />
-          <stop offset="1" stop-color="#B45520" />
+          <stop stopColor="#994013" />
+          <stop offset="1" stopColor="#B45520" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_255_3293"
@@ -85,8 +78,8 @@ export const EnergyLimitIcon: React.FC<IconProps> = ({
           y2="22.5438"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#994013" />
-          <stop offset="1" stop-color="#B45520" />
+          <stop stopColor="#994013" />
+          <stop offset="1" stopColor="#B45520" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_255_3293"
@@ -96,8 +89,8 @@ export const EnergyLimitIcon: React.FC<IconProps> = ({
           y2="2.65563"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#994013" />
-          <stop offset="1" stop-color="#B45520" />
+          <stop stopColor="#994013" />
+          <stop offset="1" stopColor="#B45520" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_255_3293"
@@ -107,8 +100,8 @@ export const EnergyLimitIcon: React.FC<IconProps> = ({
           y2="23.5098"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_255_3293"
@@ -118,8 +111,8 @@ export const EnergyLimitIcon: React.FC<IconProps> = ({
           y2="16.2363"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FCB44C" />
-          <stop offset="1" stop-color="#EA8124" />
+          <stop stopColor="#FCB44C" />
+          <stop offset="1" stopColor="#EA8124" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_255_3293"
@@ -129,8 +122,8 @@ export const EnergyLimitIcon: React.FC<IconProps> = ({
           y2="13.1779"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#994013" />
-          <stop offset="1" stop-color="white" />
+          <stop stopColor="#994013" />
+          <stop offset="1" stopColor="white" />
         </linearGradient>
       </defs>
     </svg>

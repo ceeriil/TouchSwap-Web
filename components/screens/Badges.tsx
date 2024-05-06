@@ -2,8 +2,16 @@ import React from "react";
 import { AutoSwipeIcon } from "../assets/AutoSwipeIcon";
 import { EnergyLimitIcon } from "../assets/EnergyLimitIcon";
 import { MultiTapIcon } from "../assets/MultiTapIcon";
+import { DolphinBadge } from "../assets/badges/DolphinBadge";
+import { KrakenBadge } from "../assets/badges/KrakenBadge";
+import { LeviathanBadge } from "../assets/badges/LeviathanBadge";
+import { MegalodonBadge } from "../assets/badges/MegalodonBadge";
 import { MinnowBadge } from "../assets/badges/MinnowBadge";
+import { OrcaBadge } from "../assets/badges/OrcaBadge";
 import { PlanktonBadge } from "../assets/badges/PlanktonBadge";
+import { SharkBadge } from "../assets/badges/SharkBadge";
+import { WhaleBadge } from "../assets/badges/WhaleBadge";
+import { BadgeCard } from "../touchswap/BadgeCard";
 import { BoostCard } from "../touchswap/BoostCard";
 
 type BadgesList = {
@@ -16,36 +24,51 @@ type BadgesList = {
 
 export const badgesLists: BadgesList[] = [
   {
-    title: "Recharge Speed boost",
+    title: "Plankton",
     isUnlocked: true,
     unlockedIcon: <PlanktonBadge unlocked />,
     lockedIcon: <PlanktonBadge unlocked={false} />,
   },
   {
-    title: "Recharge Speed boost",
+    title: "Minnow",
     isUnlocked: true,
     unlockedIcon: <MinnowBadge unlocked />,
     lockedIcon: <PlanktonBadge unlocked={false} />,
   },
   {
-    title: "Recharge Speed boost",
-    isUnlocked: false,
-    icon: <PlanktonBadge unlocked />,
+    title: "Dolphin",
+    isUnlocked: true,
+    unlockedIcon: <DolphinBadge unlocked />,
   },
   {
-    title: "Recharge Speed boost",
-    isUnlocked: false,
-    icon: <PlanktonBadge unlocked />,
+    title: "Shark",
+    isUnlocked: true,
+    unlockedIcon: <SharkBadge unlocked />,
   },
   {
-    title: "Recharge Speed boost",
-    isUnlocked: false,
-    icon: <PlanktonBadge unlocked />,
+    title: "Orca",
+    isUnlocked: true,
+    unlockedIcon: <OrcaBadge unlocked />,
   },
   {
-    title: "Recharge Speed boost",
-    isUnlocked: false,
-    icon: <PlanktonBadge unlocked />,
+    title: "Whale",
+    isUnlocked: true,
+    unlockedIcon: <WhaleBadge unlocked />,
+  },
+  {
+    title: "Megalodon",
+    isUnlocked: true,
+    unlockedIcon: <MegalodonBadge unlocked />,
+  },
+  {
+    title: "Levaithan",
+    isUnlocked: true,
+    unlockedIcon: <LeviathanBadge unlocked />,
+  },
+  {
+    title: "Kraken",
+    isUnlocked: true,
+    unlockedIcon: <KrakenBadge unlocked />,
   },
 ];
 
@@ -59,9 +82,11 @@ export const BadgesScreen = () => {
           you are in.
         </p>
         <div className="mt-8">
-          <div className="grid grid-cols-3 gap-4 gap-y-8 my-6">
+          <div className="grid grid-cols-3 gap-x-1 gap-y-6 my-6">
             {badgesLists.map(({ title, unlockedIcon, lockedIcon, isUnlocked }) => {
-              return <div key={title}>{isUnlocked ? unlockedIcon : lockedIcon} </div>;
+              return (
+                <BadgeCard title={title} unlockedIcon={unlockedIcon} lockedIcon={lockedIcon} isUnlocked={isUnlocked} />
+              );
             })}
           </div>
         </div>

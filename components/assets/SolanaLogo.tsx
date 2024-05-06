@@ -2,22 +2,9 @@ import React from "react";
 
 export const SolanaLogo = () => {
   return (
-    <svg
-      width="81"
-      height="12"
-      viewBox="0 0 81 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="81" height="12" viewBox="0 0 81 12" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_323_9108)">
-        <mask
-          id="mask0_323_9108"
-          maskUnits="userSpaceOnUse"
-          x="0"
-          y="0"
-          width="81"
-          height="12"
-        >
+        <mask id="mask0_323_9108" maskUnits="userSpaceOnUse" x="0" y="0" width="81" height="12">
           <path d="M80.75 0H0V12H80.75V0Z" fill="white" />
         </mask>
         <g mask="url(#mask0_323_9108)">
@@ -60,12 +47,12 @@ export const SolanaLogo = () => {
           y2="-0.126256"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.08" stop-color="#9945FF" />
-          <stop offset="0.3" stop-color="#8752F3" />
-          <stop offset="0.5" stop-color="#5497D5" />
-          <stop offset="0.6" stop-color="#43B4CA" />
-          <stop offset="0.72" stop-color="#28E0B9" />
-          <stop offset="0.97" stop-color="#19FB9B" />
+          <stop offset="0.08" stopColor="#9945FF" />
+          <stop offset="0.3" stopColor="#8752F3" />
+          <stop offset="0.5" stopColor="#5497D5" />
+          <stop offset="0.6" stopColor="#43B4CA" />
+          <stop offset="0.72" stopColor="#28E0B9" />
+          <stop offset="0.97" stopColor="#19FB9B" />
         </linearGradient>
         <clipPath id="clip0_323_9108">
           <rect width="80.75" height="12" fill="white" />
