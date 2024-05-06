@@ -1,7 +1,8 @@
 import fs from "fs";
 import { db } from "@/services/db";
-import { User } from "@/services/db/user";
+import { createUser, User } from "@/services/db/user";
 import "@/services/firebase";
+
 
 export async function seedDatabase() {
   const existingUsers = await db.users.all();
@@ -11,11 +12,11 @@ export async function seedDatabase() {
   }
 
   const USER_SEED_DATA = "./local_database/users.json";
-  const seedUsers = JSON.parse(fs.readFileSync(USER_SEED_DATA, "utf8"));
-
-//   Object.entries(seedUsers.users).forEach(async ([userId, userData]) => {
-//     const { role, ens, function: functionTitle, status, socialLinks, skills } = userData as User;
-//     await createUser(role, ens, functionTitle, userId, status, socialLinks, skills);
-//   });
+  const seedUsers = JSON.parse(fs.readFileSync(USER_SEED_DATA, "utf8")) as User[];
+  
+   seedUsers.forEach(async (userData)=> {
+        const { username,id, first,last, lang } = userData as User;
+         await createUser(id,username,first,last,lang);
+   })
 
 }

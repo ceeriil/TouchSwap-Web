@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return;
     }
 
-    const newUser = await createUser(username, id,first,last, lang);
+    const newUser = await createUser(id,username,first,last, lang);
     // Respond with the new  user
     res.status(201).json(newUser);
   } catch (error: any) {
