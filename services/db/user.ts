@@ -2,6 +2,7 @@ import { Result, Schema, db, toResult } from "@/services/db";
 import { Typesaurus } from "typesaurus";
 
 export interface User {
+  id:number,
   creationTimestamp:Typesaurus.ServerDate;
   username:string,
   rank:number,
@@ -12,8 +13,8 @@ export interface User {
   online:boolean;
   lastOnline:Typesaurus.ServerDate
   lang:string,
-  first?: string
-  last?:string
+  first: string
+  last:string
 }
 
 export interface SocialLinks {
@@ -34,9 +35,10 @@ export async function findUser(id:string): Promise<UserResult> {
   return toResult<User>(user); 
 }
 
-export async function createUser(username:string|"", id:number, first: string|"" , last:string|"", lang:string|"en" ): Promise<UserResult> {
+export async function createUser(id:number, username:string|"", first: string|"" , last:string|"", lang:string|"en" ): Promise<UserResult> {
   let userId = db.users.id(`${id}`);
-  const ref =    await db.users.set(userId,($) => ({ 
+  const ref =    await db.users.add(($) => ({ 
+    id:id,
     creationTimestamp: $.serverDate(),
     username,
     first, 
