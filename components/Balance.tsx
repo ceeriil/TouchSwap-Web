@@ -18,7 +18,7 @@ const coinSizeMap = {
 
 export const Balance: React.FC<BalanceProps> = ({ size = "2xl", count }) => {
   return (
-    <div className={`text-${size} font-[600] flex items-center`}>
+    <div className={`text-${size} font-[700] flex items-center`}>
       <span>
         <DoubleCoinIcon width={coinSizeMap[size]} height="29" />
       </span>

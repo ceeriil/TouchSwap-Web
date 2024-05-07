@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Balance } from "../Balance";
 import { Modal } from "../ModalBase";
+import { BgGlow } from "../assets/BgGlow";
 import { ExtraTap } from "../touchswap/ExtraTap";
 import { Refill } from "../touchswap/Refill";
+import { useUserBalance } from "@/context/userContext";
 
 export const HomeScreen = () => {
   const [showModal, setShowModal] = useState(false);
+  const { balance, updateBalance } = useUserBalance();
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -16,11 +19,20 @@ export const HomeScreen = () => {
     setShowModal(true);
   };
 
+  const handleCoinTap = () => {
+    const currentTap: number = 1;
+    updateBalance(balance + currentTap);
+  };
+
   return (
     <section className="h-[65%]">
       <div className="h-full flex flex-col items-center justify-center">
-        <Balance count={12394} />
-        <Image src={"/img/coin.png"} alt="Coin" width={335} height={300} className="coin-glow mt-6" />
+        <Balance count={balance} />
+        <div className="relative mt-6 flex items-center justify-center">
+          <Image src={"/img/coin.png"} alt="Coin" width={335} height={300} className="" onClick={handleCoinTap} />
+          <BgGlow className="absolute w-full top-0 left-0 right-0 bottom-0 z-[-1]" />
+        </div>
+
         <div className="w-full flex justify-between mt-10">
           <button onClick={handleOpenModal}>
             <ExtraTap />

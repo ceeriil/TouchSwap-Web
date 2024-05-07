@@ -75,7 +75,7 @@ export const badgesLists: BadgesList[] = [
 export const BadgesScreen = () => {
   return (
     <section>
-      <div className="container mx-auto px-3 my-8">
+      <div className="container mx-auto px-3 my-8 pb-32">
         <h2 className="text-2xl font-[500] mb-3">Ranks</h2>
         <p className="text-sm leading-[1.7]">
           Consistently show up, climb up the ladder and unlock all the ranks! Your number of coins determine the rank

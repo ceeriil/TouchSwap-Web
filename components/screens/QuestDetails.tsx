@@ -40,7 +40,7 @@ export const socialQuestsLists: OpenQuestsList[] = [
 
 const SocialQuestDetail = () => {
   return (
-    <div className="grid gap-2">
+    <div className="grid gap-2 pb-32">
       {socialQuestsLists.map(({ title }, index) => {
         return (
           <div className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between" key={index}>
