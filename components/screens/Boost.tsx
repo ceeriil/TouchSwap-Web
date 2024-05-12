@@ -5,7 +5,7 @@ import { EnergyLimitIcon } from "../assets/EnergyLimitIcon";
 import { MultiTapIcon } from "../assets/MultiTapIcon";
 import { SpeedBoostIcon } from "../assets/SpeedBoostIcon";
 import { BoostCard } from "../touchswap/BoostCard";
-import { useUserBalance } from "@/context/userContext";
+import { useAppStore } from "@/services/store/store";
 
 type BoostCardList = {
   title: string;
@@ -42,7 +42,8 @@ export const boostCardLists: BoostCardList[] = [
 ];
 
 export const BoostScreen = () => {
-  const { balance } = useUserBalance();
+  const { balance } = useAppStore();
+
   return (
     <section>
       <div className="container mx-auto px-3 my-8 pb-32">

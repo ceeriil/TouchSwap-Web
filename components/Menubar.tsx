@@ -31,8 +31,8 @@ export const menuLinks: MenuLink[] = [
   {
     label: "Home",
     href: "/",
-    icon: <CoinIcon />,
-    activeIcon: <CoinIcon />,
+    icon: <CoinIcon active={false} />,
+    activeIcon: <CoinIcon active />,
   },
   {
     label: "Boost",

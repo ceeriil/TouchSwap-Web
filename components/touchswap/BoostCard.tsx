@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Balance } from "../Balance";
 import { Modal } from "../ModalBase";
 import { OpenBtnIcon } from "../assets/OpenBtnIcon";
+import { useAppStore } from "@/services/store/store";
 
 type BoostCardProps = {
   title: string;
@@ -12,6 +13,7 @@ type BoostCardProps = {
 
 export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, cost }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const { balance, updateBalance } = useAppStore();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -19,6 +21,15 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, cost })
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleBuyBoost = () => {
+    if (balance >= cost) {
+      updateBalance(balance - cost);
+      closeModal();
+    } else {
+      console.log("Insufficient balance to buy this boost.");
+    }
   };
 
   return (
@@ -34,7 +45,15 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, cost })
         </div>
       </div>
 
-      <Modal title={title} text={desc} onClose={closeModal} isOpen={isModalOpen} icon={icon}></Modal>
+      <Modal
+        title={title}
+        text={desc}
+        onClose={closeModal}
+        isOpen={isModalOpen}
+        icon={icon}
+        cost={cost}
+        onClick={handleBuyBoost}
+      ></Modal>
     </div>
   );
 };

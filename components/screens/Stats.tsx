@@ -43,14 +43,16 @@ export const StatsScreen = () => {
   return (
     <section>
       <div className="container mx-auto px-3 my-8">
-        <h2 className="text-2xl font-[500] ">Statistics</h2>
-        <p className="text-sm text-white my-3">
+        <h2 className="text-2xl font-[700] mb-3 tracking-[-0.41px]">Statistics</h2>
+        <p className="text-sm text-white my-3 text-[500]">
           You are among the top <span className="bg-[#6200DE] rounded-full px-2 py-1 text-[0.75rem]">20%</span> players!
         </p>
         <div className="text-[0.8rem] font-[500]">
           23,049/<span className="text-[#AFAFAF]">3,382,538</span>
         </div>
-        <div className="mt-8">
+
+        <div className="bg-[#182334] h-[1px] w-full my-5" />
+        <div className="mt-4">
           <div className="grid grid-cols-2 gap-2">
             {statsCardLists.map(({ title, icon, count }, index) => {
               return <StatsCard title={title} key={index} icon={icon} count={count} />;

@@ -1,18 +1,24 @@
 import React from "react";
 import Image from "next/image";
 import { CloseIcon } from "./assets/CloseIcon";
+import { DoubleCoin } from "./assets/DoubleCoin";
+import { useAppStore } from "@/services/store/store";
 import { AnimatePresence, motion } from "framer-motion";
 
 type ModalProps = {
   onClose?: () => void;
   title: string;
   text: string;
+  cost: number;
   children?: React.ReactNode;
   isOpen: boolean;
   icon?: React.ReactNode;
+  onClick?: () => void;
 };
 
-export const Modal: React.FC<ModalProps> = ({ title, text, onClose, children, isOpen, icon }) => {
+export const Modal: React.FC<ModalProps> = ({ title, text, cost, onClose, children, isOpen, icon, onClick }) => {
+  const { balance } = useAppStore();
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -27,6 +33,9 @@ export const Modal: React.FC<ModalProps> = ({ title, text, onClose, children, is
             }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
             className="fixed z-[20]  overflow-y-scroll bottom-0 min-h-[65%] w-full bg-[#18131FE5] px-3 py-6 text-center flex flex-col items-center justify-between  left-0"
+            style={{
+              backdropFilter: "blur(10px)",
+            }}
           >
             <div className="flex flex-col items-center">
               <div className="relative overflow-hidden ">
@@ -37,14 +46,45 @@ export const Modal: React.FC<ModalProps> = ({ title, text, onClose, children, is
               </div>
 
               <h3 className="text-2xl mb-2 mt-[-1.5rem] font-semibold">{title}</h3>
-              <p className="text-[#B0AEB5] text-[13px] pb-3">{text}</p>
-              <div className="font-bold my-3">Free</div>
+              <p className="text-[#B0AEB5] text-[13px] pb-1">{text}</p>
+
+              {cost && cost > 0 ? (
+                <div className="font-bold my-3 flex items-center">
+                  Cost
+                  <span className="ml-4 mr-1">
+                    <DoubleCoin />
+                  </span>
+                  {cost}
+                </div>
+              ) : (
+                <div className="font-bold my-3 flex items-center">
+                  <DoubleCoin />
+                  <span className="mx-2"> Free</span>
+                  <DoubleCoin />
+                </div>
+              )}
+
               <div className="text-[#B0AEB5] text-[0.8rem]">3/3 remaining</div>
 
               <div>{children}</div>
             </div>
 
-            <button className="btn bg-white w-full text-black py-4 font-bold rounded-lg align-baseline">Get</button>
+            {cost <= balance ? (
+              <button
+                className="btn bg-white w-full text-black py-4 font-bold rounded-lg align-baseline mt-12"
+                onClick={onClick}
+              >
+                Get
+              </button>
+            ) : (
+              <button
+                className="btn bg-[#A7A7A7] w-full text-black py-4 font-bold rounded-lg align-baseline mt-12"
+                disabled
+              >
+                Insufficient Funds
+              </button>
+            )}
+
             <button className="absolute top-3 right-3 py-2 px-4 mt-3" onClick={onClose}>
               <CloseIcon />
             </button>
