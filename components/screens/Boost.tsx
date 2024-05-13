@@ -54,7 +54,7 @@ export const BoostScreen = () => {
           <Balance count={balance} />
           <div className="grid grid-cols-2 gap-4 my-6">
             {boostCardLists.map(({ title, icon, desc, cost }) => {
-              return <BoostCard cost={cost} title={title} key={title} icon={icon} desc={desc} />;
+              return <BoostCard cost={cost} title={title} key={title} icon={icon} desc={desc} maxLevel={10} />;
             })}
           </div>
         </div>

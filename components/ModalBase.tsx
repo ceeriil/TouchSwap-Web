@@ -14,9 +14,22 @@ type ModalProps = {
   isOpen: boolean;
   icon?: React.ReactNode;
   onClick?: () => void;
+  level?: number;
+  maxLevel?: number;
 };
 
-export const Modal: React.FC<ModalProps> = ({ title, text, cost, onClose, children, isOpen, icon, onClick }) => {
+export const Modal: React.FC<ModalProps> = ({
+  title,
+  text,
+  cost,
+  onClose,
+  children,
+  isOpen,
+  icon,
+  onClick,
+  maxLevel,
+  level,
+}) => {
   const { balance } = useAppStore();
 
   return (
@@ -54,7 +67,7 @@ export const Modal: React.FC<ModalProps> = ({ title, text, cost, onClose, childr
                   <span className="ml-4 mr-1">
                     <DoubleCoin />
                   </span>
-                  {cost}
+                  {level ? cost * 2 ** level : cost}
                 </div>
               ) : (
                 <div className="font-bold my-3 flex items-center">
@@ -64,7 +77,11 @@ export const Modal: React.FC<ModalProps> = ({ title, text, cost, onClose, childr
                 </div>
               )}
 
-              <div className="text-[#B0AEB5] text-[0.8rem]">3/3 remaining</div>
+              {level && (
+                <div className="text-[#B0AEB5] text-[0.8rem]">
+                  Level {level}/ {maxLevel}
+                </div>
+              )}
 
               <div>{children}</div>
             </div>
