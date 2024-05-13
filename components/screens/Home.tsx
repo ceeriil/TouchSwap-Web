@@ -60,7 +60,15 @@ export const HomeScreen = () => {
       <div className="h-full flex flex-col items-center justify-center">
         <Balance count={balance} />
         <div className="relative mt-6 flex items-center justify-center">
-          <Image src={"/img/coin.png"} alt="Coin" width={335} height={300} className="" onClick={handleCoinTap} />
+          <Image
+            src={"/img/coin.png"}
+            alt="Coin"
+            width={335}
+            height={300}
+            className=""
+            onClick={handleCoinTap}
+            quality={100}
+          />
           {showCoinTapAnimation && (
             <span
               className="absolute silver-text text-[1.1rem] z-10 font-semibold"
