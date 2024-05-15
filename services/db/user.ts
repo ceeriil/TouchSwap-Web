@@ -15,6 +15,7 @@ export interface User {
   lang:string,
   first: string
   last:string
+  referedBy?:number; 
 }
 
 export interface SocialLinks {
@@ -22,23 +23,74 @@ export interface SocialLinks {
   discord: string;
 }
 
+export interface AllActiveUserCount {
+  count :number
+}
+
+export interface TotalTokenInCirclation {
+  total :number
+}
+
+export interface TotalTouchesByAllUser {
+  touches :number
+}
+
+export interface AllDailyUser {
+  dailyUsers :number
+}
+
 export type UserDoc = Schema["users"]["Doc"];
 export type UserResult = Result<User>;
+
+
+export async function getUserRefers(id: string): Promise<UserResult[]> {
+  const user= await findUser(id);
+  const referedUsers = (await db.users.query(($)=>$.field("referedBy").eq(user.id))).map(user =>toResult<User>(user));
+  return referedUsers;
+}
+
+
+export async function getAllTokensInCircluation(): Promise<TotalTokenInCirclation> {
+  const usersSnaphot = await db.users.all();
+  const totalBalance = usersSnaphot.reduce((total,user) => total + toResult<User>(user).balance,0);
+  return { total :totalBalance };
+}
+
+export async function getAllTouchesByAllUsers(): Promise<TotalTouchesByAllUser> {
+  const usersSnaphot = await db.users.all();
+  const totalTouches = usersSnaphot.reduce((total,user) => total + toResult<User>(user).touches, 0)
+  return { touches: totalTouches };
+}
+
+export async function getOnlineUserCount(): Promise<AllActiveUserCount> {
+  const usersSnaphot = await db.users.all();
+  const activeUserCount = usersSnaphot.filter(user => toResult<User>(user).online == true ).length;
+  return { count: activeUserCount };
+}
+
+export async function getDailyUsers(): Promise<AllDailyUser> {
+  const usersSnaphot = await db.users.all();
+  const todayDate = new Date().getDate()
+  const totalDailyUsers = usersSnaphot.reduce((total,user) =>  total + (toResult<User>(user).lastOnline.getDate() == todayDate ? 1 : 0 ), 0)
+  return { dailyUsers: totalDailyUsers };
+}
+
 
 export async function findAllUsers(): Promise<UserResult[]> {
   const usersSnaphot = await db.users.all();
   const users = usersSnaphot.map(user => toResult<User>(user));
   return users; 
 }
+
 export async function findUser(id:string): Promise<UserResult> {
-  const user = await db.users.get(db.users.id(id));
-  return toResult<User>(user); 
+  const user = await db.users.query(($)=> $.field("id").eq(Number(id)));
+  if(user.length > 0)  return toResult<User>(user[0])
+  return  toResult<User>(null)
 }
 
-export async function createUser(id:number, username:string|"", first: string|"" , last:string|"", lang:string|"en" ): Promise<UserResult> {
-  let userId = db.users.id(`${id}`);
+export async function createUser(id:number,referedBy:number|undefined, username:string|"", first: string|"" , last:string|"", lang:string|"en" ): Promise<UserResult> {
   const ref =    await db.users.add(($) => ({ 
-    id:id,
+    id,
     creationTimestamp: $.serverDate(),
     username,
     first, 
@@ -48,7 +100,8 @@ export async function createUser(id:number, username:string|"", first: string|""
     lastOnline: $.serverDate(),
     online:true,
     lang,
-    rank:0
+    rank:0,
+    referedBy
   }))
   const userSnapshot = await db.users.get(ref.id);
   return toResult<User>(userSnapshot);
@@ -63,32 +116,3 @@ export async function updateUser( id: string,socialLinks: SocialLinks): Promise<
   // }));
   return toResult<User>(userSnapshot);
 }
-
-
-
-// export async function findAllUsers(): Promise<UserResult[]> {
-//   const usersSnaphot = await db.users.all();
-//   const users = usersSnaphot.map(user => toResult<User>(user));
-//   return users;
-// }
-
-
-// export async function createUser(
-// ): Promise<UserResult> {
-
-// }
-
-// export async function updateUser(
-//   address: string,
-//   status: string,
-//   socialLinks: SocialLinks,
-//   skills: string[],
-// ): Promise<UserResult> {
-//   const userSnapshot = await db.users.get(db.users.id(address));
-//   await userSnapshot?.ref?.update(() => ({
-//     status: { text: status, timestamp: Date.now() },
-//     socialLinks,
-//     skills,
-//   }));
-//   return toResult<User>(userSnapshot);
-// }

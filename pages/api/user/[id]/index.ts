@@ -1,3 +1,4 @@
+
 import { NextApiRequest, NextApiResponse } from "next";
 import { findUser, updateUser } from "@/services/db/user";
 import "@/services/firebase";
@@ -15,12 +16,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (req.method === "PATCH") {
     try {
-      const { userId } = req.query;
+      const { id } = req.query;
       const { status, socialLinks } = req.body;
-      console.log(`EDIT /user/${userId}`, userId);
-      const user = await findUser(userId as string);
+      console.log(`EDIT /user/${id}`, id);
+      const user = await findUser(id as string);
       if (user.exist === false) return res.status(404).json({ message: "User not found." });
-      await updateUser(userId as string, socialLinks);
+      await updateUser(id as string, socialLinks);
       return res.status(200).end();
     } catch (error: any) {
       return res.status(500).json({ message: error.message });

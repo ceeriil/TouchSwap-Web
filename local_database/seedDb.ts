@@ -15,8 +15,8 @@ export async function seedDatabase() {
   const seedUsers = JSON.parse(fs.readFileSync(USER_SEED_DATA, "utf8")) as User[];
   
    seedUsers.forEach(async (userData)=> {
-        const { username,id, first,last, lang } = userData as User;
-         await createUser(id,username,first,last,lang);
+        const { username,id, first,last, lang, referedBy } = userData as User;
+         await createUser(id,referedBy,username,first,last,lang);
    })
 
 }

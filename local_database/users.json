@@ -1,6 +1,6 @@
 [
     {
-        "id": "1248734702",
+        "id": 1248734702,
         "username": "devdanhiel",
         "first": "Daniel",
         "last": "Ifechukwu",
@@ -8,10 +8,11 @@
         "balance": 0,
         "online": true,
         "lang": "en",
-        "rank": 0
+        "rank": 0,
+        "referedBy":null 
     },
     {
-        "id": "1278544551",
+        "id": 1278544551,
         "username": "ceeriil",
         "first": "Simon",
         "last": "Ceeriil",
@@ -19,6 +20,7 @@
         "balance": 0,
         "online": true,
         "lang": "en",
-        "rank": 0
+        "rank": 0,
+        "referedBy":1248734702
     }
 ]

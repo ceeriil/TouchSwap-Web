@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const { username, id, first , last, lang } = req.body;
+    const { username, id,referedBy, first , last, lang } = req.body;
     if (!id) {
       return res.status(400).json({ error: "Missing required fields." });
     }
@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return;
     }
 
-    const newUser = await createUser(id,username,first,last, lang);
+    const newUser = await createUser(id,referedBy,username,first,last, lang);
     // Respond with the new  user
     res.status(201).json(newUser);
   } catch (error: any) {
