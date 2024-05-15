@@ -14,9 +14,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const { username, id,referedBy, first , last, lang } = req.body;
-    if (!id) {
-      return res.status(400).json({ error: "Missing required fields." });
-    }
+    if (!id ) return res.status(400).json({ error: "Missing required fields." });
+    if(isNaN(id)) return res.status(400).json({ error: "Is Not A Number." });
 
     const user = await findUser(id);
 
