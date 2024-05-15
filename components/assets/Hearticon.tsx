@@ -2,13 +2,7 @@ import React from "react";
 
 export const Hearticon = () => {
   return (
-    <svg
-      width="19"
-      height="16"
-      viewBox="0 0 19 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M18.2129 4.92081C17.8512 0.814068 13.9979 -2.37278 9.36145 2.35766L9.12792 2.67093L8.89154 2.35766C4.25793 -2.36139 0.404659 0.82546 0.040122 4.92081C-0.703192 13.3536 9.12792 15.9965 9.12792 15.9965C9.12792 15.9965 18.9562 13.3536 18.2129 4.92081Z"
         fill="url(#paint0_linear_372_8191)"
@@ -27,8 +21,8 @@ export const Hearticon = () => {
           y2="12.4308"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#DD4747" />
-          <stop offset="1" stop-color="#C42626" />
+          <stop stopColor="#DD4747" />
+          <stop offset="1" stopColor="#C42626" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_372_8191"
@@ -38,8 +32,8 @@ export const Hearticon = () => {
           y2="24.7432"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="#9B1E1E" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="#9B1E1E" />
         </linearGradient>
       </defs>
     </svg>

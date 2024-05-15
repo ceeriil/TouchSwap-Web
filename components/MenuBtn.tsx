@@ -24,7 +24,7 @@ export const MenuBtn: React.FC<MenuLink> = ({ label, icon, isActive, activeIcon 
           isActive ? "text-white purple-gradient" : "text-[#AFAFAF] bg-[#262433]"
         }     " py-[2px] px-2 rounded-full mt-[-0.8rem] text-[0.8rem] border border-black font-[500] z-10 relative"`}
         style={{
-          boxShadow: `0.88px 2.63px 1.32px 0px #FFFFFF47 inset;
+          boxShadow: `0.88px 2.63px 1.32px 0px #FFFFFF47 inset
             `,
         }}
       >

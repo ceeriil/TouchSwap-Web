@@ -1,36 +1,8 @@
-@import url("https://fonts.cdnfonts.com/css/sf-mono");
+@import url("./font.css");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-  font-family: "PP Neue Montreal";
-  src: url("/fonts/PPNeueMontrealMono-Thin.otf") format("opentype");
-  font-display: swap;
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "PP Neue Montreal";
-  src: url("/fonts/PPNeueMontrealMono-Book.otf") format("opentype");
-  font-display: swap;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "PP Neue Montreal";
-  src: url("/fonts/PPNeueMontrealMono-Medium.otf") format("opentype");
-  font-display: swap;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "PP Neue Montreal";
-  src: url("/fonts/PPNeueMontrealMono-Bold.otf") format("truetype");
-  font-display: swap;
-  font-weight: 700;
-}
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -106,14 +78,24 @@ body {
   background: linear-gradient(51.99deg, rgba(34, 99, 105, 0.2) 8.22%, rgba(129, 219, 226, 0.2) 125.1%);
 }
 
+.green-gradient-shine {
+  background: linear-gradient(
+    51.99deg,
+    rgba(129, 219, 226, 0.2) 8.22%,
+    rgba(34, 99, 105, 0.2) 71.34%,
+    rgba(129, 219, 226, 0.2) 125.1%
+  );
+}
+
 .coin-glow {
   color: #111;
-  /*   box-shadow: 0 0 100px greenyellow;
- */
   filter: drop-shadow(0 0 40px #5130b5);
-  /*  filter: drop-shadow(10px 20px 10px #5130b520)
-    drop-shadow(-10px -10px 60px #5130b5c0)
-    drop-shadow(10px -10px 20px #5130b520); */
+}
+
+.silver-text {
+  background: linear-gradient(180deg, #cccccc 0%, #666666 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 p {
@@ -134,6 +116,21 @@ p {
   width: 100%;
   background: radial-gradient(40.91% 67.55% at 28.81% 50%, #9181f0 0%, #6752ef 100%);
   border-radius: 4px;
+}
+
+@keyframes numberAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
 }
 
 @layer utilities {

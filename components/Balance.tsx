@@ -8,7 +8,7 @@ type BalanceProps = {
 
 const coinSizeMap = {
   xs: 6,
-  sm: 11,
+  sm: 15,
   base: 20,
   lg: 22,
   xl: 25,
@@ -18,10 +18,8 @@ const coinSizeMap = {
 
 export const Balance: React.FC<BalanceProps> = ({ size = "2xl", count }) => {
   return (
-    <div className={`text-${size} font-[600] flex items-center`}>
-      <span>
-        <DoubleCoinIcon width={coinSizeMap[size]} height="29" />
-      </span>
+    <div className={`text-${size} font-[700] flex items-center`}>
+      <DoubleCoinIcon width={coinSizeMap[size]} height="29" />
       <span className="ml-1">{count.toLocaleString()}</span>
     </div>
   );

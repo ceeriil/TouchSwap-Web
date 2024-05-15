@@ -54,7 +54,7 @@ export const ReferralQuests = () => {
     <div className="grid gap-2">
       {referralQuestsLists.map(({ count, reward, claimed, completed }, index) => {
         return (
-          <div className="bg-[#293641] py-3 px-4 rounded h-full flex items-center justify-between" key={index}>
+          <div className="bg-[#293641] py-3 px-4 rounded-[6px] h-full flex items-center justify-between" key={index}>
             <div className="flex items-center">
               <Image src={"/img/ref.svg"} width={40} height={40} alt="Referal Icon" />
               <div className="ml-3">

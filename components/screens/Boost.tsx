@@ -5,6 +5,7 @@ import { EnergyLimitIcon } from "../assets/EnergyLimitIcon";
 import { MultiTapIcon } from "../assets/MultiTapIcon";
 import { SpeedBoostIcon } from "../assets/SpeedBoostIcon";
 import { BoostCard } from "../touchswap/BoostCard";
+import { useAppStore } from "@/services/store/store";
 
 type BoostCardList = {
   title: string;
@@ -41,17 +42,19 @@ export const boostCardLists: BoostCardList[] = [
 ];
 
 export const BoostScreen = () => {
+  const { balance } = useAppStore();
+
   return (
     <section>
-      <div className="container mx-auto px-3 my-8">
+      <div className="container mx-auto px-3 my-8 pb-32">
         <h2 className="text-2xl font-[500] mb-3">Boosters</h2>
         <p className="text-sm">Use these powerups to increase your ranking and the amount of coins you gain!</p>
         <div className="mt-8">
           <h3 className="text-sm mb-2 font-[500]">Balance</h3>
-          <Balance count={12394} />
+          <Balance count={balance} />
           <div className="grid grid-cols-2 gap-4 my-6">
             {boostCardLists.map(({ title, icon, desc, cost }) => {
-              return <BoostCard cost={cost} title={title} key={title} icon={icon} desc={desc} />;
+              return <BoostCard cost={cost} title={title} key={title} icon={icon} desc={desc} maxLevel={10} />;
             })}
           </div>
         </div>

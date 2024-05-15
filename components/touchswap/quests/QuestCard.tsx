@@ -17,7 +17,7 @@ export const QuestCard: React.FC<QuestCardProps> = ({ title, link }) => {
         <Image src={"/img/task-icon.svg"} width={25} height={26} alt="Task Icon" />
         <div className="ml-3">
           <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title}</h3>
-          <Balance size="sm" count={12394} />
+          <Balance size="sm" count={120000} />
         </div>
       </div>
 

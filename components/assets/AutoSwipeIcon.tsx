@@ -1,11 +1,7 @@
 import React from "react";
 import { IconProps } from "@/types/icontypes";
 
-export const AutoSwipeIcon: React.FC<IconProps> = ({
-  width,
-  height,
-  className,
-}) => {
+export const AutoSwipeIcon: React.FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       style={{
@@ -63,8 +59,8 @@ export const AutoSwipeIcon: React.FC<IconProps> = ({
           y2="8.28557"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#61B8BA" />
-          <stop offset="1" stop-color="#81DBE2" />
+          <stop stopColor="#61B8BA" />
+          <stop offset="1" stopColor="#81DBE2" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_255_3177"
@@ -74,8 +70,8 @@ export const AutoSwipeIcon: React.FC<IconProps> = ({
           y2="8.28557"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#61B8BA" />
-          <stop offset="1" stop-color="#81DBE2" />
+          <stop stopColor="#61B8BA" />
+          <stop offset="1" stopColor="#81DBE2" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_255_3177"
@@ -85,8 +81,8 @@ export const AutoSwipeIcon: React.FC<IconProps> = ({
           y2="7.99652"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#B9E6EA" />
-          <stop offset="1" stop-color="#81DBE2" />
+          <stop stopColor="#B9E6EA" />
+          <stop offset="1" stopColor="#81DBE2" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_255_3177"
@@ -96,8 +92,8 @@ export const AutoSwipeIcon: React.FC<IconProps> = ({
           y2="23.7098"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#61B8BA" />
-          <stop offset="1" stop-color="#298F91" />
+          <stop stopColor="#61B8BA" />
+          <stop offset="1" stopColor="#298F91" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_255_3177"
@@ -107,8 +103,8 @@ export const AutoSwipeIcon: React.FC<IconProps> = ({
           y2="23.9988"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#61B8BA" />
-          <stop offset="1" stop-color="#81DBE2" />
+          <stop stopColor="#61B8BA" />
+          <stop offset="1" stopColor="#81DBE2" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_255_3177"
@@ -118,8 +114,8 @@ export const AutoSwipeIcon: React.FC<IconProps> = ({
           y2="23.7097"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#61B8BA" />
-          <stop offset="1" stop-color="#298F91" />
+          <stop stopColor="#61B8BA" />
+          <stop offset="1" stopColor="#298F91" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_255_3177"
@@ -129,8 +125,8 @@ export const AutoSwipeIcon: React.FC<IconProps> = ({
           y2="15.9976"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#61B8BA" />
-          <stop offset="1" stop-color="#298F91" />
+          <stop stopColor="#61B8BA" />
+          <stop offset="1" stopColor="#298F91" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_255_3177"
@@ -140,8 +136,8 @@ export const AutoSwipeIcon: React.FC<IconProps> = ({
           y2="15.9977"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#B9E6EA" />
-          <stop offset="1" stop-color="#81DBE2" />
+          <stop stopColor="#B9E6EA" />
+          <stop offset="1" stopColor="#81DBE2" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_255_3177"
@@ -151,8 +147,8 @@ export const AutoSwipeIcon: React.FC<IconProps> = ({
           y2="-68.8957"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#272525" />
-          <stop offset="1" stop-color="#3FFFF6" />
+          <stop stopColor="#272525" />
+          <stop offset="1" stopColor="#3FFFF6" />
         </linearGradient>
       </defs>
     </svg>
