@@ -12,6 +12,7 @@ import { ExtraTap } from "../touchswap/ExtraTap";
 import { Refill } from "../touchswap/Refill";
 import { useAppStore } from "@/services/store/store";
 import { Header } from "../Header";
+import { socketInstance } from "@/services/socket";
 
 export const HomeScreen = () => {
   const [showModal, setShowModal] = useState(false);
@@ -30,6 +31,10 @@ export const HomeScreen = () => {
     setShowModal(true);
   };
 
+  const coinClick = (id:number) => {
+     socketInstance.emit('coin-click', id);
+  };
+
   const handleCoinTap = (e: MouseEvent) => {
     const { offsetX, offsetY } = e.nativeEvent;
     console.log(offsetX, offsetY);
@@ -40,6 +45,8 @@ export const HomeScreen = () => {
       navigator.vibrate(1000);
     }
     updateBalance(balance + currentTap);
+
+    coinClick(1278544551)
   };
 
   const handleCoinTapAnimationEnd = () => {
