@@ -7,11 +7,12 @@ type MenuLink = {
   icon?: React.ReactNode;
   activeIcon: React.ReactNode;
   isActive: boolean;
+  onClick:()=>void;
 };
 
-export const MenuBtn: React.FC<MenuLink> = ({ label, icon, isActive, activeIcon }) => {
+export const MenuBtn: React.FC<MenuLink> = ({ label, icon, isActive, activeIcon, onClick }) => {
   return (
-    <div className="flex flex-col items-center cursor-pointer">
+    <div className="flex flex-col items-center cursor-pointer" onClick={onClick} >
       <div className="relative">
         <div className="absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
           {isActive ? activeIcon : icon}

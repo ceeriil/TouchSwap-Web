@@ -11,6 +11,8 @@ import { DiamondIcon } from "../assets/DiamondIcon";
 import { ExtraTap } from "../touchswap/ExtraTap";
 import { Refill } from "../touchswap/Refill";
 import { useAppStore } from "@/services/store/store";
+import { Header } from "../Header";
+import { socketInstance } from "@/services/socket";
 
 export const HomeScreen = () => {
   const [showModal, setShowModal] = useState(false);
@@ -29,6 +31,10 @@ export const HomeScreen = () => {
     setShowModal(true);
   };
 
+  const coinClick = (id:number) => {
+     socketInstance.emit('coin-click', id);
+  };
+
   const handleCoinTap = (e: MouseEvent) => {
     const { offsetX, offsetY } = e.nativeEvent;
     console.log(offsetX, offsetY);
@@ -39,6 +45,8 @@ export const HomeScreen = () => {
       navigator.vibrate(1000);
     }
     updateBalance(balance + currentTap);
+
+    coinClick(1278544551)
   };
 
   const handleCoinTapAnimationEnd = () => {
@@ -56,6 +64,8 @@ export const HomeScreen = () => {
   };
 
   return (
+    <div>
+    <Header/>
     <section className="h-[65%]">
       <div className="h-full flex flex-col items-center justify-center">
         <Balance count={balance} />
@@ -138,5 +148,6 @@ export const HomeScreen = () => {
         text={"Refill your energy bar quickly."}
       ></Modal>
     </section>
+    </div>
   );
 };

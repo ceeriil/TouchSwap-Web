@@ -67,7 +67,6 @@ export const QuestDetailScreen = () => {
         </p>
         <div className="mt-8">
           <QuestTab activeTab={activeTab} setActiveTab={setActiveTab} />
-
           {activeTab === 0 ? <SocialQuestDetail /> : <ReferralQuests />}
         </div>
       </div>

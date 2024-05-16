@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "tsc-watch --onSuccess \"tsx ./server/index.ts\"",
+    "start": "tsc && tsx ./server/index.ts",
     "build": "next build",
-    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@grammyjs/web-app": "^1.3.0",
+    "@heroicons/react": "^2.1.3",
+    "@types/socket.io": "^3.0.2",
     "@types/telegram-web-app": "^7.2.1",
     "crypto": "^1.0.1",
     "eslint-plugin-prettier": "5.0.0",
@@ -20,7 +22,11 @@
     "react": "^18",
     "react-canvas-confetti": "^2.0.7",
     "react-dom": "^18",
+    "react-hot-toast": "^2.4.1",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5",
     "telegram-webapps-types": "^1.0.5",
+    "tsx": "^4.10.2",
     "typesaurus": "^10.7.0",
     "zod": "^3.23.6",
     "zustand": "^4.5.2"
@@ -46,6 +52,7 @@
     "react-dom": "^18",
     "tailwindcss": "^3.4.1",
     "telegram-webapps-types": "^1.0.5",
+    "tsc-watch": "^6.2.0",
     "typesaurus": "^10.7.0",
     "typescript": "~5.1.6",
     "zod": "^3.23.6"
