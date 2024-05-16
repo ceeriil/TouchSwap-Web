@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header";
 import { socketInstance } from "@/services/socket";
 import { useState, useEffect, SetStateAction } from "react";
 import {BadgesScreen, BoostScreen,HomeScreen,RefsScreen,StatsScreen,QuestScreen } from "@/components/screens"
@@ -30,6 +29,7 @@ export default function Home() {
     }
 
     function onConnect() {
+      console.log(socketInstance.id)
       setIsConnected(true);
       setTransport(socketInstance.io.engine.transport.name);
 
@@ -51,6 +51,7 @@ export default function Home() {
       socketInstance.off("disconnect", onDisconnect);
     };
   }, []);
+ 
 
 
   return (

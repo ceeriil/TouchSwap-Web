@@ -43,6 +43,34 @@ export type UserDoc = Schema["users"]["Doc"];
 export type UserResult = Result<User>;
 
 
+export async function login(id:string) {
+  console.log("login ", id)
+  const users = await db.users.query(($)=> $.field("id").eq(Number(id)));
+  const userRef = await users[0].ref.id
+  await db.users.update(userRef, ($)=> [
+    $.field("online").set(true),
+    $.field("lastOnline").set($.serverDate())
+  ])
+}
+
+
+export async function logout(id:string) {
+  const users = await db.users.query(($)=> $.field("id").eq(Number(id)));
+  const userRef = await users[0].ref.id
+  await db.users.update(userRef, ($)=> [
+    $.field("online").set(false),
+    $.field("lastOnline").set($.serverDate())
+  ])
+}
+
+export async function userClick(id: string) {
+  const users = await db.users.query(($)=> $.field("id").eq(Number(id)));
+  const userId = await users[0].ref.id ;
+  //await db.users.set(userId, )
+  //return referedUsers;
+}
+
+
 export async function getUserRefers(id: string): Promise<UserResult[]> {
   const user= await findUser(id);
   const referedUsers = (await db.users.query(($)=>$.field("referedBy").eq(user.id))).map(user =>toResult<User>(user));
