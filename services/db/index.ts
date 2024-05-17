@@ -6,17 +6,9 @@ import { Typesaurus, schema } from "typesaurus";
 //   await db.get(userId)
 export const db = schema($ => ({
       users: $.collection<User>(),
-//   notifications: $.collection<Notification>(),
-//   builds: $.collection<Build>(),
-//   bounties: $.collection<Bounty>().sub({
-//     submissions: $.collection<Submisssion>(),
-//   }),
-//   logs: $.collection<Log>(),
-//   poap: $.collection<Poap>(),
 }));
 
-// Infer schema type helper with shortcuts to types in your database:
-//   function getUser(id: Schema["users"]["Id"]): Schema["users"]["Result"]
+
 export type Schema = Typesaurus.Schema<typeof db>;
 
 export type SchemaKeys = keyof Schema;

@@ -16,8 +16,8 @@ if (!admin.apps.length) {
     console.log("using Firebase **emulator** DB");
 
     admin.initializeApp({
-      projectId: "builderegistry",
-      storageBucket: "builderegistry.appspot.com",
+      projectId: "",
+      storageBucket: "touch-swap.appspot.com",
     });
 
     seedDatabase();
@@ -25,11 +25,11 @@ if (!admin.apps.length) {
     console.log("using Firebase live DB");
     admin.initializeApp({
       credential: admin.credential.applicationDefault(),
-      storageBucket: "builderegistry.appspot.com",
+      storageBucket: "touch-swap.appspot.com",
     });
   } else {
     admin.initializeApp({
-      storageBucket: "builderegistry.appspot.com",
+      storageBucket: "touch-swap.appspot.com",
     });
   }
 }
