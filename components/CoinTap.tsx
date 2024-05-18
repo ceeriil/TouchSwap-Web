@@ -38,7 +38,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   return (
     <>
       <Balance count={balance} />
-      <div className="relative mt-6 flex items-center justify-center">
+      <div className="relative mt-5 flex items-center justify-center">
         <Image
           src={"/img/coin.svg"}
           alt="Coin"

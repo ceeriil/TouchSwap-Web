@@ -42,7 +42,7 @@ export const refsLists: RefsList[] = [
 export const RefsScreen = () => {
   return (
     <section>
-      <div className="container mx-auto px-3 my-8 pb-32">
+      <div className="container mx-auto px-4 my-8 pb-32">
         <h2 className="text-2xl font-bold mb-3">Referrals</h2>
         <p className="text-[0.8rem] text-white font-[500]">Refer a friend</p>
         <p className="text-[#AFAFAF] text-[0.8rem] my-3">{refsLists.length} referrals</p>

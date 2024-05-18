@@ -35,28 +35,28 @@
 
 @font-face {
   font-family: "SF Mono";
-  src: url("/fonts/SFMono-Light.otf") format("opentype");
+  src: url("/fonts/SFMono-Regular.otf") format("opentype");
   font-display: swap;
   font-weight: 400;
 }
 
 @font-face {
   font-family: "SF Mono";
-  src: url("/fonts/SFMono-Regular.otf") format("opentype");
+  src: url("/fonts/SFMono-Medium.otf") format("opentype");
   font-display: swap;
   font-weight: 500;
 }
 
 @font-face {
   font-family: "SF Mono";
-  src: url("/fonts/SFMono-Medium.otf") format("opentype");
+  src: url("/fonts/SFMono-Semibold.otf") format("opentype");
   font-display: swap;
   font-weight: 600;
 }
 
 @font-face {
   font-family: "SF Mono";
-  src: url("/fonts/SFMono-Semibold.otf") format("opentype");
+  src: url("/fonts/SFMono-Bold.otf") format("opentype");
   font-display: swap;
   font-weight: 700;
 }

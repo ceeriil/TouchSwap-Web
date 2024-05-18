@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tsc-watch --onSuccess \"tsx ./server/index.ts\"",
+    "dev": "tsc && tsx ./server/index.ts",
     "start": "tsc && tsx ./server/index.ts",
     "build": "next build",
     "lint": "next lint"
@@ -15,7 +15,8 @@
     "@types/telegram-web-app": "^7.2.1",
     "crypto": "^1.0.1",
     "eslint-plugin-prettier": "5.0.0",
-    "firebase-admin": "^12.1.0",
+    "firebase": "^10.8.0",
+    "firebase-admin": "^12.0.0",
     "framer-motion": "^11.1.7",
     "next": "14.2.3",
     "prettier": "2.8.0",
@@ -45,7 +46,6 @@
     "eslint-config-next": "^14.2.3",
     "eslint-config-prettier": "~8.5.0",
     "eslint-plugin-jsdoc": "^48.2.0",
-    "firebase-admin": "^12.1.0",
     "next": "14.2.3",
     "postcss": "^8",
     "react": "^18",

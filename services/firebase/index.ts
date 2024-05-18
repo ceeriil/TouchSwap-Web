@@ -1,6 +1,5 @@
-import * as admin from "firebase-admin";
 import { seedDatabase } from "@/local_database/seedDb";
-
+import * as admin from "firebase-admin";
 
 if (process.env.NODE_ENV === "test") {
   // We won't be using firebase for testing for now. At some point,
@@ -16,8 +15,8 @@ if (!admin.apps.length) {
     console.log("using Firebase **emulator** DB");
 
     admin.initializeApp({
-      projectId: "",
-      storageBucket: "touch-swap.appspot.com",
+      projectId: "touchswap",
+      storageBucket: "touchswap.appspot.com",
     });
 
     seedDatabase();
@@ -25,11 +24,11 @@ if (!admin.apps.length) {
     console.log("using Firebase live DB");
     admin.initializeApp({
       credential: admin.credential.applicationDefault(),
-      storageBucket: "touch-swap.appspot.com",
+      storageBucket: "touchswap.appspot.com",
     });
   } else {
     admin.initializeApp({
-      storageBucket: "touch-swap.appspot.com",
+      storageBucket: "touchswap.appspot.com",
     });
   }
 }
