@@ -1,10 +1,26 @@
 import React from "react";
 
-export const PlanktonBadge = ({ unlocked = false }: { unlocked: boolean }) => {
+export const PlanktonBadge = ({
+  unlocked = false,
+  width,
+  height,
+}: {
+  unlocked: boolean;
+  width?: string | number;
+  height?: string | number;
+}) => {
   return (
     <div>
       {!unlocked ? (
-        <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          viewBox="0 0 85 85"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{
+            width,
+            height,
+          }}
+        >
           <circle cx="42.5" cy="42.5" r="42.5" fill="url(#paint0_linear_251_2004)" />
           <g filter="url(#filter0_i_251_2004)">
             <circle cx="42.5" cy="42.5" r="27.625" fill="url(#paint1_radial_251_2004)" />

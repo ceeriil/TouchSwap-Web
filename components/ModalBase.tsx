@@ -45,9 +45,10 @@ export const Modal: React.FC<ModalProps> = ({
               y: "100%",
             }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-            className="fixed z-[20]  overflow-y-scroll bottom-0 min-h-[65%] w-full bg-[#18131FE5] px-3 py-6 text-center flex flex-col items-center justify-between  left-0"
+            className="fixed z-[20]  overflow-y-scroll bottom-0 w-full bg-[#18131FE5] px-3 py-6 pt-1 text-center flex flex-col items-center justify-between  left-0 rounded-t-2xl"
             style={{
               backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
             }}
           >
             <div className="flex flex-col items-center">

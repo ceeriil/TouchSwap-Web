@@ -46,13 +46,16 @@ export const BoostScreen = () => {
 
   return (
     <section>
-      <div className="container mx-auto px-3 my-8 pb-32">
+      <div className="container mx-auto px-4 my-4 pb-32">
         <h2 className="text-2xl font-[500] mb-3">Boosters</h2>
-        <p className="text-sm">Use these powerups to increase your ranking and the amount of coins you gain!</p>
-        <div className="mt-8">
+        <p className="text-sm sf-pro-medium">
+          Use these powerups to increase your ranking and the amount of coins you gain!
+        </p>
+        <div className="bg-[#182334] h-[1px] w-full my-4" />
+        <div className="mt-1">
           <h3 className="text-sm mb-2 font-[500]">Balance</h3>
           <Balance count={balance} />
-          <div className="grid grid-cols-2 gap-4 my-6">
+          <div className="grid grid-cols-2 gap-4 gap-x-[10px] my-6 overflow-y-auto">
             {boostCardLists.map(({ title, icon, desc, cost }) => {
               return <BoostCard cost={cost} title={title} key={title} icon={icon} desc={desc} maxLevel={10} />;
             })}
