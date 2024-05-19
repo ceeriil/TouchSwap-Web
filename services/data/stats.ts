@@ -1,0 +1,13 @@
+import axios from "axios";
+import { SERVER_URL as serverUrl } from "../../constants";
+import { Stat } from "@/pages/api/user/stats";
+
+export const getStats = async () :Promise<Stat>=> {
+  try {
+    let stats = (await axios.get(`${serverUrl}/api/user/stats`)).data as Stat;
+    return stats
+  } catch (error) {
+    console.error(error);
+    throw new Error("Could not get user refers ");
+  }
+};
