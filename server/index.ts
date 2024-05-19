@@ -3,7 +3,7 @@ import "@/services/firebase";
 import { createServer } from "node:http";
 import next from "next";
 import { Server } from "socket.io";
-import { login, logout } from "@/services/db/user";
+import { login, logout, userClick } from "@/services/db/user";
 
 const dev = process.env.NODE_ENV !== "production";
 const hostname = "localhost";
@@ -18,16 +18,29 @@ app.prepare().then(() => {
 
   const io = new Server(httpServer);
   io.on("connection",  async (socket) => {
-    await login("1278544551", socket.id);
 
-    socket.on('coin-click', (message) => {
-      console.log(message, socket.id)
-     // io.emit('coin-click', message);
+    socket.on("login", async(message)=>{
+        //await login("12", socket.id);
+    })
+
+    socket.on("coin-click", async (message) => {
+     // await userClick(message)
     });
 
-    // Clean up the socket on disconnect
+    socket.on("use-free-boost", async (message) => {
+      // await userClick(message)
+    });
+
+    socket.on("use-paid-boost", async (message) => {
+      // await userClick(message)
+    });
+
+    socket.on("use-paid-no-level-boost", async (message) => {
+      // await userClick(message)
+    });
+
     socket.on('disconnect', async() => {
-      await logout("1278544551");
+      await logout(socket.id);
       console.log(`Socket ${socket.id} disconnected.`);
     });
 
