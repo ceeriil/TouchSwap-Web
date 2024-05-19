@@ -102,7 +102,7 @@ export const BadgesScreen = () => {
   const { balance } = useAppStore();
 
   return (
-    <section>
+    <section className="flex flex-col h-screen overflow-hidden">
       <div className="container mx-auto px-4 my-8 pb-32">
         <h2 className="text-2xl font-[500] mb-3">Ranks</h2>
         <p className="text-sm leading-[1.7] sf-pro-medium">

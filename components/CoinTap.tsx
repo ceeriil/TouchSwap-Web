@@ -47,6 +47,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
           className=""
           onClick={handleCoinTap}
           quality={100}
+          unoptimized={true}
         />
         {showCoinTapAnimation && (
           <span
