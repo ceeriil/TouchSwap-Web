@@ -63,7 +63,7 @@ export async function login(id:string, connectionId:string) {
 
 
 export async function logout(id:string) {
-  const users = await db.users.query(($)=> $.field("id").eq(Number(id)));
+  const users = await db.users.query(($)=> $.field("connectionId").eq(id));
   const userRef = await users[0].ref.id
   await db.users.update(userRef, ($)=> [
     $.field("online").set(false),
@@ -73,10 +73,18 @@ export async function logout(id:string) {
 }
 
 export async function userClick(id: string) {
+  console.log(id)
   const users = await db.users.query(($)=> $.field("id").eq(Number(id)));
-  const userId = await users[0].ref.id ;
-  //await db.users.set(userId, )
-  //return referedUsers;
+  const user = users[0]
+  const userId = user.ref.id ;
+  const {touches, balance} = user.data;
+  if(user){
+    throw new Error("User Does not exist");
+  }
+  await db.users.update(userId , ($) =>[
+     $.field("touches").set(touches +1),
+     $.field("balance").set(balance +1)
+  ])
 }
 
 
@@ -89,7 +97,7 @@ export async function getUserRefers(id: string): Promise<UserResult[]> {
 export async function useTokens(id: string,amount:number) {
   const users = await db.users.query(($)=> $.field("id").eq(Number(id)));
   const user = users[0]
-  const userId = await user.ref.id ;
+  const userId =  user.ref.id ;
   if(user.data.balance < amount){
     throw new Error("User Does not have enough tokens");
   }
@@ -152,8 +160,8 @@ export async function createUser(id:number,referedBy:number|undefined, username:
     rank:0,
     referedBy,
     energy:{
-      maxEnergy:500,
-      energyLeft:0
+      maxEnergy:1000,
+      energyLeft:500
     },
   }))
   const userSnapshot = await db.users.get(ref.id);

@@ -17,6 +17,7 @@ type TapPosition = {
 const frames = ["/img/coin1.svg", "/img/coin2.svg"];
 
 export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boolean }) => {
+  const user = useAppStore(state => state.user);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [tapPositions, setTapPositions] = useState<TapPosition[]>([]);
   const [tapCounter, setTapCounter] = useState(0);
@@ -60,12 +61,14 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     setTapCounter(tapCounter + touches.length);
 
     const totalTapValue = tapValue * touches.length;
-    updateBalance(balance + totalTapValue);
-    useEnergy(touches.length);
-    coinClick(1278544551);
+
     if ("vibrate" in navigator) {
       navigator.vibrate(1000);
     }
+
+    updateBalance(balance + totalTapValue);
+    useEnergy(tapValue);
+    coinClick(user.id);
   };
 
   const handleAnimationEnd = (key: number) => {
