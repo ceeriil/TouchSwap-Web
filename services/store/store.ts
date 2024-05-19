@@ -1,5 +1,5 @@
-import { create } from "zustand";
 import { Energy } from "../db/user";
+import { create } from "zustand";
 
 export type TScreens = "badges" | "boost" | "home" | "refs" | "stats" | "quests";
 
@@ -15,49 +15,50 @@ type TUser = {
   touches: number;
   balance: number;
   rank: number;
-  energy:Energy,
-  connectionId:string
+  energy: Energy;
+  connectionId: string;
 };
-
 
 const emptyUser: TUser = {
   id: 0,
-  username: '',
-  first: '',
-  last: '',
+  username: "",
+  first: "",
+  last: "",
   touches: 0,
   balance: 1000,
   rank: 0,
   energy: {
     maxEnergy: 500,
-    energyLeft: 100
+    energyLeft: 400,
   },
-  connectionId: ''
+  connectionId: "",
 };
 
 type TAppStore = {
   boosts: { [title: string]: number };
   screen: TScreens;
-  user:TUser;
+  user: TUser;
   setScreen: (newValue: TScreens, payload?: TScreenPayload | null) => void;
   updateBalance: (newBalance: number) => void;
   updateBoostLevel: (title: string, newLevel: number) => void;
-  useEnergy: (amount: number) => void,
-  updateUser: (updatedFields: Partial<TUser>) => void,
+  useEnergy: (amount: number) => void;
+  updateUser: (updatedFields: Partial<TUser>) => void;
 };
 
 export const useAppStore = create<TAppStore>((set, get) => ({
   boosts: {},
   screen: "home",
-  user:emptyUser,
+  user: emptyUser,
   setScreen: (newValue: TScreens, payload: TScreenPayload | null | undefined): void =>
     set(() => ({ screen: newValue, screenPayload: payload })),
-  updateBalance: (newBalance: number): void => { 
-    const {user} = get()
-    set(() => ({user: {
-      ...user,
-      balance:newBalance
-    }}))
+  updateBalance: (newBalance: number): void => {
+    const { user } = get();
+    set(() => ({
+      user: {
+        ...user,
+        balance: newBalance,
+      },
+    }));
   },
   updateBoostLevel: (title: string, newLevel: number): void => {
     const { boosts } = get();
@@ -74,9 +75,9 @@ export const useAppStore = create<TAppStore>((set, get) => ({
         ...user,
         energy: {
           ...user.energy,
-          energyLeft: newCurrentEnergy
-        }
-      }
+          energyLeft: newCurrentEnergy,
+        },
+      },
     }));
   },
   updateUser: (updatedFields: Partial<TUser>): void => {
@@ -84,8 +85,8 @@ export const useAppStore = create<TAppStore>((set, get) => ({
     set(() => ({
       user: {
         ...user,
-        ...updatedFields
-      }
+        ...updatedFields,
+      },
     }));
-  }
+  },
 }));

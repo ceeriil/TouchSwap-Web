@@ -17,8 +17,8 @@ type TapPosition = {
 const frames = ["/img/coin1.svg", "/img/coin2.svg"];
 
 export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boolean }) => {
-  /*   const [currentFrame, setCurrentFrame] = useState(0);
-   */ const [tapPositions, setTapPositions] = useState<TapPosition[]>([]);
+  const [currentFrame, setCurrentFrame] = useState(0);
+  const [tapPositions, setTapPositions] = useState<TapPosition[]>([]);
   const [tapCounter, setTapCounter] = useState(0);
   const balance = useAppStore(state => state.user.balance);
   const energyLeft = useAppStore(state => state.user.energy.energyLeft);
@@ -44,7 +44,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
 
   const handleCoinTap = (e: TouchEvent) => {
     if (energyLeft < 1) return;
-    /*  setCurrentFrame(prevFrame => (prevFrame + 1) % frames.length); */
+    setCurrentFrame(prevFrame => (prevFrame + 1) % frames.length);
     const touches = e.touches;
     const newTaps: TapPosition[] = [];
 
@@ -75,23 +75,24 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   return (
     <>
       <Balance count={balance} />
-      <div className="relative mt-5 flex items-center justify-center">
-        <img src="/img/coin.svg" onTouchStart={handleCoinTap} className="coin-img z-20" />
+      <div className="relative mt-5 flex items-center justify-center h-[300px] w-[300px]">
+        {/*    <img src="/img/coin.svg" onTouchStart={handleCoinTap} className="coin-img z-20" /> */}
 
-        {/*  {frames.map((frame, index) => (
+        {/* Coin Animation: WIP */}
+        {frames.map((frame, index) => (
           <img
             key={index}
             src={frame}
             onTouchStart={handleCoinTap}
             alt={`Frame ${index + 1}`}
-            className="coin-img"
+            className="coin-img z-20"
             style={{
               opacity: index === currentFrame ? 1 : 0,
-              transition: "opacity 0.5s ease-in-out", // Smooth transition effect
+              transition: "opacity 0.1s ease-in-out", // Smooth transition effect
               position: "absolute", // Position images on top of each other
             }}
           />
-        ))} */}
+        ))}
 
         {tapPositions.map(({ key, x, y }) => (
           <span

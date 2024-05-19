@@ -7,12 +7,16 @@ import { BottleIcon } from "../assets/BottleIcon";
 import { DiamondIcon } from "../assets/DiamondIcon";
 import { ExtraTap } from "../touchswap/ExtraTap";
 import { Refill } from "../touchswap/Refill";
+import { useToggle, useVibrate } from "react-use";
 
 export const HomeScreen = () => {
   const [showModal, setShowModal] = useState(false);
   const [showRefillModal, setShowRefillModal] = useState(false);
   const [extraTap, setExtraTap] = useState(false);
   const [refill, setRefill] = useState(false);
+  const [vibrating, toggleVibrating] = useToggle(false);
+
+  useVibrate(vibrating, [300, 100, 200, 100, 1000, 300], false);
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -39,6 +43,7 @@ export const HomeScreen = () => {
             <button
               onClick={() => {
                 setShowModal(true);
+                toggleVibrating();
               }}
             >
               <ExtraTap />
