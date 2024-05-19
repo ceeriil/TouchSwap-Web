@@ -42,7 +42,7 @@ export const boostCardLists: BoostCardList[] = [
 ];
 
 export const BoostScreen = () => {
-  const { balance } = useAppStore();
+  const balance = useAppStore(state => state.user.balance);
 
   return (
     <section className="flex flex-col h-screen">

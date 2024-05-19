@@ -1,6 +1,6 @@
 import { seedDatabase } from "@/local_database/seedDb";
 import * as admin from "firebase-admin";
-
+console.log(process.env)
 if (process.env.NODE_ENV === "test") {
   // We won't be using firebase for testing for now. At some point,
   // we might want to run tests against the Staging firebase instance.
@@ -10,13 +10,13 @@ if (process.env.NODE_ENV === "test") {
   );
 }
 
-if (!admin.apps.length) {
+if (!admin.apps.length && process.env.NODE_ENV == "development") {
   if (process.env.FIRESTORE_EMULATOR_HOST) {
     console.log("using Firebase **emulator** DB");
 
     admin.initializeApp({
-      projectId: "touchswap",
-      storageBucket: "touchswap.appspot.com",
+      projectId: "touch-swap",
+      storageBucket: "touch-swap.appspot.com",
     });
 
     seedDatabase();
@@ -24,11 +24,11 @@ if (!admin.apps.length) {
     console.log("using Firebase live DB");
     admin.initializeApp({
       credential: admin.credential.applicationDefault(),
-      storageBucket: "touchswap.appspot.com",
+      storageBucket: "touch-swap.appspot.com",
     });
   } else {
     admin.initializeApp({
-      storageBucket: "touchswap.appspot.com",
+      storageBucket: "touch-swap.appspot.com",
     });
   }
 }

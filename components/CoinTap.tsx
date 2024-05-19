@@ -11,13 +11,18 @@ import { useAppStore } from "@/services/store/store";
 export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boolean }) => {
   const [coinTapPosition, setCoinTapPosition] = useState({ x: 0, y: 0 });
   const [showCoinTapAnimation, setShowCoinTapAnimation] = useState(false);
-  const { balance, updateBalance } = useAppStore();
+  
+  const balance = useAppStore(state => state.user.balance );
+  const energyLeft = useAppStore(state => state.user.energy.energyLeft );
+  const updateBalance = useAppStore(state=> state.updateBalance)
+  const useEnergy = useAppStore(state=> state.useEnergy)
 
   const coinClick = (id: number) => {
     socketInstance.emit("coin-click", id);
   };
 
   const handleCoinTap = (e: MouseEvent) => {
+    if(energyLeft < 1 ) return
     const { offsetX, offsetY } = e.nativeEvent;
     console.log(offsetX, offsetY);
     setCoinTapPosition({ x: offsetX, y: offsetY });
@@ -27,7 +32,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
       navigator.vibrate(1000);
     }
     updateBalance(balance + currentTap);
-
+    useEnergy(currentTap)
     coinClick(1278544551);
   };
 

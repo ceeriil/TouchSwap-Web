@@ -14,7 +14,8 @@ type BoostCardProps = {
 
 export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, cost, maxLevel }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const { balance, updateBalance, boosts, updateBoostLevel } = useAppStore();
+  const balance = useAppStore(state=> state.user.balance)
+  const {  updateBalance, boosts, updateBoostLevel } = useAppStore();
   const level = boosts[title] || 0;
 
   const openModal = () => {

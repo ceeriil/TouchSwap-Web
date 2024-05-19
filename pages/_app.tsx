@@ -3,7 +3,6 @@ import { Menubar } from "@/components/Menubar";
 import "@/styles/globals.css";
 import { WebApp } from "@grammyjs/web-app";
 import { Toaster } from "react-hot-toast";
-import "@/services/firebase";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
