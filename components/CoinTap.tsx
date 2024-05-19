@@ -68,8 +68,8 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     if ("vibrate" in navigator) {
       navigator.vibrate(1000);
     }
-    updateBalance(balance + currentTap);
-    useEnergy(currentTap)
+    updateBalance(balance + tapValue);
+    useEnergy(tapValue)
     coinClick(user.id);
   };
 
