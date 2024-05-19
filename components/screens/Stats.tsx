@@ -6,11 +6,12 @@ import { StatsCard } from "../touchswap/StatsCard";
 import { getStats } from "@/services/data/stats";
 import { Loader } from "../Loader";
 import { HeartIcon } from "../assets/Hearticon";
+import { RefeshInterval } from "@/constants";
 
 type StatsCardList = {
   title: string;
   icon?: React.ReactNode;
-  count: number | string;
+  count: string;
 };
 
 const initialStatsCardLists: StatsCardList[] = [
@@ -41,10 +42,11 @@ const initialStatsCardLists: StatsCardList[] = [
   },
 ];
 
-const updateData = async ()=> {
+
+const fetchStats = async (): Promise<StatsCardList[]> => {
   try {
     const stats = await getStats();
-    const data = [
+    return [
       {
         title: "Total Share Balance",
         icon: <DoubleCoinIcon width="17" height="16" />,
@@ -71,19 +73,28 @@ const updateData = async ()=> {
         count: stats.online.toLocaleString(),
       },
     ];
+  } catch {
+    return initialStatsCardLists;
   }
-  catch {
-    return initialStatsCardLists
-  }
-}
+};
 
 export const StatsScreen = () => {
   const [statsCardLists, setStatsCardLists] = useState<StatsCardList[]>(initialStatsCardLists);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setLoading(false)
+    const interval = setInterval(async () => setStatsCardLists( await fetchStats()),  RefeshInterval * 10);
+
+    if(loading){
+      setTimeout(async ()=>{
+        const statsData =  await fetchStats()
+        setLoading(false)
+        setStatsCardLists(statsData); 
+      },500)
+    }
+    return () => clearInterval(interval);
   }, []);
+
 
   if (loading) {
     return (

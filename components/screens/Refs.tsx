@@ -8,6 +8,21 @@ import { Loader } from "../Loader";
 import { RefeshInterval } from "@/constants";
 
 
+
+export const InviteComponent = ()=>{
+  return (
+   <div className="flex flex-col text-center items-center my-6 h-full justify-center mt-16">
+            <p className="text-[0.8rem]">You currently have zero referrals, Damn</p>
+            <div className="my-8">
+              <RefsIcon />
+            </div>
+            <button className="btn bg-white w-full text-black py-4 font-[500] rounded-lg align-baseline">
+              Invite a Friend!
+            </button>
+  </div>
+  )
+}
+
 export const RefsScreen: React.FC = () => {
   const [referredUsers, setReferredUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -56,15 +71,7 @@ export const RefsScreen: React.FC = () => {
         <p className="text-[#AFAFAF] text-[0.8rem] my-3">{refsList.length} referrals</p>
         <div className="bg-[#182334] h-[1px] w-full my-5" />
         {refsList.length === 0 ? (
-          <div className="flex flex-col text-center items-center my-6 h-full justify-center mt-16">
-            <p className="text-[0.8rem]">You currently have zero referrals, Damn</p>
-            <div className="my-8">
-              <RefsIcon />
-            </div>
-            <button className="btn bg-white w-full text-black py-4 font-[500] rounded-lg align-baseline">
-              Invite a Friend!
-            </button>
-          </div>
+         <InviteComponent/>
         ) : (
           <div className="grid gap-1 my-8 mt-1">
             {refsList.map(({ username}, index) => (
