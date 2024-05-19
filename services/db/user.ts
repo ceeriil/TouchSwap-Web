@@ -1,6 +1,6 @@
 import { Result, Schema, db, toResult } from "@/services/db";
 import { Typesaurus } from "typesaurus";
-import { createUserBoast } from "./boast";
+import { createUserBoost } from "./boost";
 
 export interface User {
   id:number,
@@ -67,7 +67,8 @@ export async function logout(id:string) {
   const userRef = await users[0].ref.id
   await db.users.update(userRef, ($)=> [
     $.field("online").set(false),
-    $.field("lastOnline").set($.serverDate())
+    $.field("lastOnline").set($.serverDate()),
+    $.field("connectionId").set($.remove())
   ])
 }
 
@@ -83,6 +84,18 @@ export async function getUserRefers(id: string): Promise<UserResult[]> {
   const user= await findUser(id);
   const referedUsers = (await db.users.query(($)=>$.field("referedBy").eq(user.id))).map(user =>toResult<User>(user));
   return referedUsers;
+}
+
+export async function useTokens(id: string,amount:number) {
+  const users = await db.users.query(($)=> $.field("id").eq(Number(id)));
+  const user = users[0]
+  const userId = await user.ref.id ;
+  if(user.data.balance < amount){
+    throw new Error("User Does not have enough tokens");
+  }
+  await db.users.update(userId, ($)=> [
+    $.field("balance").set(user.data.balance - amount),
+  ])
 }
 
 
@@ -144,7 +157,7 @@ export async function createUser(id:number,referedBy:number|undefined, username:
     },
   }))
   const userSnapshot = await db.users.get(ref.id);
-  createUserBoast(id)
+  createUserBoost(id)
   return toResult<User>(userSnapshot);
 }
 
