@@ -45,7 +45,7 @@ export const BoostScreen = () => {
   const balance = useAppStore(state => state.user.balance);
 
   return (
-    <section>
+    <section className="flex flex-col h-screen">
       <div className="container mx-auto px-4 my-4 pb-32">
         <h2 className="text-2xl font-[500] mb-3">Boosters</h2>
         <p className="text-sm sf-pro-medium">
@@ -55,7 +55,7 @@ export const BoostScreen = () => {
         <div className="mt-1">
           <h3 className="text-sm mb-2 font-[500]">Balance</h3>
           <Balance count={balance} />
-          <div className="grid grid-cols-2 gap-4 gap-x-[10px] my-6 overflow-y-auto">
+          <div className="grid grid-cols-2 gap-4 gap-x-[10px] my-6 overflow-y-scroll pb-32 max-h-full h-[100%]">
             {boostCardLists.map(({ title, icon, desc, cost }) => {
               return <BoostCard cost={cost} title={title} key={title} icon={icon} desc={desc} maxLevel={10} />;
             })}

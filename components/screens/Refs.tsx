@@ -41,8 +41,8 @@ export const refsLists: RefsList[] = [
 
 export const RefsScreen = () => {
   return (
-    <section>
-      <div className="container mx-auto px-4 my-8 pb-32">
+    <section className="flex flex-col h-screen overflow-hidden">
+      <div className="container mx-auto px-4 my-4 pb-16">
         <h2 className="text-2xl font-bold mb-3">Referrals</h2>
         <p className="text-[0.8rem] text-white font-[500]">Refer a friend</p>
         <p className="text-[#AFAFAF] text-[0.8rem] my-3">{refsLists.length} referrals</p>
@@ -63,7 +63,7 @@ export const RefsScreen = () => {
               return (
                 <div
                   key={index}
-                  className="bg-[#81DBE233] py-[14px] px-4 rounded text-[0.8rem] font-[500] flex items-center"
+                  className="bg-[#81DBE233] py-[14px] px-4 rounded text-[0.8rem] font-[500] flex items-center overflow-y-scroll h-full"
                 >
                   <span className="mr-3">{index + 1}.</span>
                   <Image src={"/img/defaultImg.png"} alt="default Profile Image" width={20} height={20} />
