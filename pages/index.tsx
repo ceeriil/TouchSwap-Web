@@ -1,8 +1,8 @@
-import { socketInstance } from "@/services/socket";
-import { useState, useEffect, SetStateAction } from "react";
-import {BadgesScreen, BoostScreen,HomeScreen,RefsScreen,StatsScreen,QuestScreen } from "@/components/screens"
-import { useAppStore } from "@/services/store/store";
+import { SetStateAction, useEffect, useState } from "react";
 import { Menubar } from "@/components/Menubar";
+import { BadgesScreen, BoostScreen, HomeScreen, QuestScreen, RefsScreen, StatsScreen } from "@/components/screens";
+import { socketInstance } from "@/services/socket";
+import { useAppStore } from "@/services/store/store";
 
 const screens = {
   badges: <BadgesScreen />,
@@ -12,7 +12,6 @@ const screens = {
   stats: <StatsScreen />,
   quests: <QuestScreen />,
 };
-
 
 export default function Home() {
   const [isConnected, setIsConnected] = useState(false);
@@ -44,11 +43,11 @@ export default function Home() {
     }
 
     function onConnect() {
-      console.log(socketInstance.id)
+      console.log(socketInstance.id);
       setIsConnected(true);
       setTransport(socketInstance.io.engine.transport.name);
 
-      socketInstance.io.engine.on("upgrade", (transport: { name: SetStateAction<string>; }) => {
+      socketInstance.io.engine.on("upgrade", (transport: { name: SetStateAction<string> }) => {
         setTransport(transport.name);
       });
     }
@@ -68,11 +67,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-full">
-      <div>{screenRender}</div>
+    <>
+      {screenRender}
       <div className="container mx-auto px-6">
         <Menubar />
-      </div>   
-    </div>
+      </div>
+    </>
   );
 }

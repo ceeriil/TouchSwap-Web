@@ -6,14 +6,13 @@ import { CoinIcon } from "./assets/CoinIcon";
 import { SpeakerIcon } from "./assets/SpeakerIcon";
 import { StatsIcon } from "./assets/StatsIcon";
 import { TaskIcon } from "./assets/TaskIcon";
-import {TScreens, TScreenPayload, useAppStore} from "@/services/store/store"
+import { TScreenPayload, TScreens, useAppStore } from "@/services/store/store";
 
 type MenuLink = {
   label: string;
   icon?: React.ReactNode;
   activeIcon?: React.ReactNode;
 };
-
 
 export const menuLinks: MenuLink[] = [
   {
@@ -56,12 +55,18 @@ export const Menubar = () => {
         width: "calc(100% - 2rem)",
       }}
     >
-      <div className="bg-[#0D2A28] py-1 px-3 md:px-6 rounded-3xl flex gap-x-[1px] md:gap-x-1 w-full items-center justify-center">
-        {menuLinks.map(({ label , icon, activeIcon }) => {
+      <div className="bg-[#0D2A28] py-1 px-3 md:px-6 rounded-3xl flex gap-x-[0px] md:gap-x-1 w-full items-center justify-center">
+        {menuLinks.map(({ label, icon, activeIcon }) => {
           const isActive = screen === label;
           return (
             <div key={label}>
-                <MenuBtn label={label} icon={icon} activeIcon={activeIcon} isActive={isActive} onClick={()=>setScreen(label as TScreens) } />
+              <MenuBtn
+                label={label}
+                icon={icon}
+                activeIcon={activeIcon}
+                isActive={isActive}
+                onClick={() => setScreen(label as TScreens)}
+              />
             </div>
           );
         })}
