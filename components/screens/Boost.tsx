@@ -11,7 +11,10 @@ type BoostCardList = {
   title: string;
   desc: string;
   icon?: React.ReactNode;
-  cost: number;
+  initalCost: number;
+  id:number,
+  level?: number,
+  maxLevel?:number
 };
 
 export const boostCardLists: BoostCardList[] = [
@@ -19,25 +22,29 @@ export const boostCardLists: BoostCardList[] = [
     title: "Recharge Speed boost",
     desc: "Increases the speed at which your energy regenerates by +1 every second.",
     icon: <SpeedBoostIcon width={"35"} height={"32"} />,
-    cost: 250,
+    initalCost: 250,
+    id:3,
   },
   {
     title: "Multi Tap",
     desc: "Increases the amount gained +5",
     icon: <MultiTapIcon width={"48"} height={"32"} />,
-    cost: 500,
+    initalCost: 500,
+    id:4,
   },
   {
     title: "Increase Energy Limit",
     desc: "Increases the speed at which your energy regenerates by +1 every second.",
     icon: <EnergyLimitIcon width={"31"} height={"32"} />,
-    cost: 250,
+    initalCost: 250,
+    id:5,
   },
   {
     title: "Auto swipe",
     desc: "Perform actions on your behalf without your direct input when your energy is full. Works for 12 hours.",
     icon: <AutoSwipeIcon width={"36"} height={"32"} />,
-    cost: 200000,
+    initalCost: 200000,
+    id:6,
   },
 ];
 
@@ -56,9 +63,9 @@ export const BoostScreen = () => {
           <h3 className="text-sm mb-2 font-[500]">Balance</h3>
           <Balance count={balance} />
           <div className="grid grid-cols-2 gap-4 gap-x-[10px] my-6 overflow-y-scroll pb-32 max-h-full h-[100%]">
-            {boostCardLists.map(({ title, icon, desc, cost }) => {
+            {/* {boostCardLists.map(({ title, icon, desc, cost }) => {
               return <BoostCard cost={cost} title={title} key={title} icon={icon} desc={desc} maxLevel={10} />;
-            })}
+            })} */}
           </div>
         </div>
       </div>

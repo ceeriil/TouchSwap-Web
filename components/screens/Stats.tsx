@@ -1,62 +1,115 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { CrownIcon } from "../assets/CrownIcon";
 import { DoubleCoinIcon } from "../assets/DoubleCoinIcon";
-import { Hearticon } from "../assets/Hearticon";
 import { TimerIcon } from "../assets/TimerIcon";
 import { StatsCard } from "../touchswap/StatsCard";
+import { getStats } from "@/services/data/stats";
+import { Loader } from "../Loader";
+import { HeartIcon } from "../assets/Hearticon";
 
 type StatsCardList = {
   title: string;
   icon?: React.ReactNode;
-  count: string;
+  count: number | string;
 };
 
-export const statsCardLists: StatsCardList[] = [
+const initialStatsCardLists: StatsCardList[] = [
   {
     title: "Total Share Balance",
     icon: <DoubleCoinIcon width="17" height="16" />,
-    count: "2.490T",
+    count: "Loading...",
   },
   {
     title: "Total Touches",
     icon: <TimerIcon />,
-    count: "5,642,282",
+    count: "Loading...",
   },
   {
     title: "Total Players",
     icon: <CrownIcon />,
-    count: "3,382,538",
+    count: "Loading...",
   },
   {
     title: "Daily Users",
-    icon: <Hearticon />,
-    count: "952,525",
+    icon: <HeartIcon />,
+    count: "Loading...",
   },
   {
     title: "Online Players",
-    icon: <Hearticon />,
-    count: "50,000",
+    icon: <HeartIcon />,
+    count: "Loading...",
   },
 ];
 
+const updateData = async ()=> {
+  try {
+    const stats = await getStats();
+    const data = [
+      {
+        title: "Total Share Balance",
+        icon: <DoubleCoinIcon width="17" height="16" />,
+        count: stats.totalTokens,
+      },
+      {
+        title: "Total Touches",
+        icon: <TimerIcon />,
+        count: stats.totalTouches,
+      },
+      {
+        title: "Total Players",
+        icon: <CrownIcon />,
+        count: stats.totalUsers,
+      },
+      {
+        title: "Daily Users",
+        icon: <HeartIcon />,
+        count: stats.totalDailyUsers,
+      },
+      {
+        title: "Online Players",
+        icon: <HeartIcon />,
+        count: stats.online,
+      },
+    ];
+  }
+  catch {
+    return initialStatsCardLists
+  }
+}
+
 export const StatsScreen = () => {
+  const [statsCardLists, setStatsCardLists] = useState<StatsCardList[]>(initialStatsCardLists);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setLoading(false)
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="flex flex-col h-screen justify-center items-center">
+        <Loader />
+      </section>
+    );
+  }
+
   return (
     <section className="flex flex-col h-screen overflow-hidden">
       <div className="container mx-auto px-4 my-5">
-        <h2 className="text-2xl font-[700] mb-3 tracking-[-0.41px]">Statistics</h2>
-        <p className="text-sm text-white my-3 text-[500]">
-          You are among the top <span className="bg-[#6200DE] rounded-full px-2 py-1 text-[0.75rem]">20%</span> players!
+        <h2 className="text-2xl font-bold mb-3 tracking-tight">Statistics</h2>
+        <p className="text-sm text-white my-3 font-medium">
+          You are among the top <span className="bg-purple-700 rounded-full px-2 py-1 text-xs">20%</span> players!
         </p>
-        <div className="text-[0.8rem] font-[500]">
-          23,049/<span className="text-[#AFAFAF]">3,382,538</span>
+        <div className="text-sm font-medium">
+          23,049/<span className="text-gray-400">3,382,538</span>
         </div>
 
-        <div className="bg-[#182334] h-[1px] w-full my-5" />
+        <div className="bg-gray-800 h-px w-full my-5" />
         <div className="mt-3">
-          <div className="grid grid-cols-2 gap-2 ">
-            {statsCardLists.map(({ title, icon, count }, index) => {
-              return <StatsCard title={title} key={index} icon={icon} count={count} />;
-            })}
+          <div className="grid grid-cols-2 gap-2">
+            {statsCardLists.map(({ title, icon, count }, index) => (
+              <StatsCard title={title} key={index} icon={icon} count={count} />
+            ))}
           </div>
         </div>
       </div>
