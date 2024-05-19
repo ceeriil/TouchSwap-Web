@@ -48,27 +48,27 @@ const updateData = async ()=> {
       {
         title: "Total Share Balance",
         icon: <DoubleCoinIcon width="17" height="16" />,
-        count: stats.totalTokens,
+        count: stats.totalTokens.toFixed(),
       },
       {
         title: "Total Touches",
         icon: <TimerIcon />,
-        count: stats.totalTouches,
+        count: stats.totalTouches.toLocaleString(),
       },
       {
         title: "Total Players",
         icon: <CrownIcon />,
-        count: stats.totalUsers,
+        count: stats.totalUsers.toLocaleString(),
       },
       {
         title: "Daily Users",
         icon: <HeartIcon />,
-        count: stats.totalDailyUsers,
+        count: stats.totalDailyUsers.toLocaleString(),
       },
       {
         title: "Online Players",
         icon: <HeartIcon />,
-        count: stats.online,
+        count: stats.online.toLocaleString(),
       },
     ];
   }
