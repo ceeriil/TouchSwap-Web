@@ -30,7 +30,7 @@ export const Modal: React.FC<ModalProps> = ({
   maxLevel,
   level,
 }) => {
-  const { balance } = useAppStore();
+  const balance  = useAppStore(state => state.user.balance);
 
   return (
     <AnimatePresence>

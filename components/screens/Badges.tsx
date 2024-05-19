@@ -99,7 +99,7 @@ export const badgesLists: BadgesList[] = [
 ];
 
 export const BadgesScreen = () => {
-  const { balance } = useAppStore();
+  const balance  = useAppStore(state => state.user.balance);
 
   return (
     <section>

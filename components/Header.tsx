@@ -9,6 +9,6 @@ export const Header = () => {
         <EnergyBar />
         <RankHeader />
       </div>
-    </header>
+    </header> 
   );
 };
