@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MouseEvent } from "react";
+import { TouchEvent } from "react";
 import Image from "next/image";
 import { Balance } from "./Balance";
 import { BgGlow } from "./assets/BgGlow";
@@ -17,7 +17,6 @@ type TapPosition = {
 export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boolean }) => {
   const [tapPositions, setTapPositions] = useState<TapPosition[]>([]);
   const [tapCounter, setTapCounter] = useState(0);
-
   const balance = useAppStore(state => state.user.balance);
   const energyLeft = useAppStore(state => state.user.energy.energyLeft);
   const updateBalance = useAppStore(state => state.updateBalance);
@@ -27,20 +26,42 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     socketInstance.emit("coin-click", id);
   };
 
-  const handleCoinTap = (e: MouseEvent) => {
+  const tapValue = 2;
+
+  /**
+   * @Simon
+   * Okay this is a realy giant function
+   * tapvalue - represent the value added on each tap. In the case of extra  tap boost value will be multipled by *5. current tap value is equal to multi tap level.
+   * if theres no energy. User can't tap.
+   *  New tap is an array of touch positions where the number animation (with the tap value) comes out from.
+   *  The for loop is used to loop through the touches to know the position of touch.
+   *  For each touch, energy is used (still don't know if the energy used should be per touch or per tapValue)
+   * Then the balance is updated based on the total tap value
+   **/
+
+  const handleCoinTap = (e: TouchEvent) => {
     if (energyLeft < 1) return;
-    const { offsetX, offsetY } = e.nativeEvent;
-    console.log(offsetX, offsetY);
-    const newTap = { key: tapCounter, x: offsetX, y: offsetY };
-    setTapPositions([...tapPositions, newTap]);
-    setTapCounter(tapCounter + 1);
-    const currentTap = 1;
+    const touches = e.touches;
+    const newTaps: TapPosition[] = [];
+
+    for (let i = 0; i < touches.length; i++) {
+      const { clientX, clientY } = touches[i];
+      const targetRect = (e.target as HTMLElement).getBoundingClientRect();
+      const offsetX = clientX - targetRect.left;
+      const offsetY = clientY - targetRect.top;
+      newTaps.push({ key: tapCounter + i, x: offsetX, y: offsetY });
+    }
+
+    setTapPositions([...tapPositions, ...newTaps]);
+    setTapCounter(tapCounter + touches.length);
+
+    const totalTapValue = tapValue * touches.length;
+    updateBalance(balance + totalTapValue);
+    useEnergy(touches.length);
+    coinClick(1278544551);
     if ("vibrate" in navigator) {
       navigator.vibrate(1000);
     }
-    updateBalance(balance + currentTap);
-    useEnergy(currentTap);
-    coinClick(1278544551);
   };
 
   const handleAnimationEnd = (key: number) => {
@@ -51,11 +72,11 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     <>
       <Balance count={balance} />
       <div className="relative mt-5 flex items-center justify-center">
-        <img src="/img/coin.svg" onClick={handleCoinTap} className="coin-img" />
+        <img src="/img/coin.svg" onTouchStart={handleCoinTap} className="coin-img z-20" />
         {tapPositions.map(({ key, x, y }) => (
           <span
             key={key}
-            className="absolute silver-text text-[1.5rem] z-10 font-semibold"
+            className="absolute silver-text text-[1.5rem] z-30 font-semibold"
             style={{
               top: y,
               left: x,
@@ -63,7 +84,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
             }}
             onAnimationEnd={() => handleAnimationEnd(key)}
           >
-            +1
+            +{tapValue}
           </span>
         ))}
         <BgGlow
