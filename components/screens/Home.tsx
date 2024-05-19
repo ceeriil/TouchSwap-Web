@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CoinTap } from "../CoinTap";
 import { Header } from "../Header";
+import { Loader } from "../Loader";
 import { Modal } from "../ModalBase";
 import { BottleIcon } from "../assets/BottleIcon";
 import { DiamondIcon } from "../assets/DiamondIcon";
@@ -29,6 +30,7 @@ export const HomeScreen = () => {
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
+      {/*     <Loader /> */}
       <Header />
       <section className="">
         <div className="h-full flex flex-col items-center justify-center">
