@@ -1,7 +1,10 @@
 import { create } from "zustand";
 import { Energy } from "../db/user";
+import { Boost } from "../db/boost";
 
 export type TScreens = "badges" | "boost" | "home" | "refs" | "stats" | "quests";
+
+export type TBoost = Boost
 
 export type TScreenPayload = {
   data?: string;
@@ -36,18 +39,20 @@ const emptyUser: TUser = {
 };
 
 type TAppStore = {
-  boosts: { [title: string]: number };
+  freeBoost:TBoost[];
+  paidBoosts: TBoost[];
   screen: TScreens;
   user:TUser;
   setScreen: (newValue: TScreens, payload?: TScreenPayload | null) => void;
   updateBalance: (newBalance: number) => void;
-  updateBoostLevel: (title: string, newLevel: number) => void;
+  updatePaidBoostLevel: (boostId:number, newLevel: number) => void;
   useEnergy: (amount: number) => void,
   updateUser: (updatedFields: Partial<TUser>) => void,
 };
 
 export const useAppStore = create<TAppStore>((set, get) => ({
-  boosts: {},
+  freeBoost:[],
+  paidBoosts:[],
   screen: "home",
   user:emptyUser,
   setScreen: (newValue: TScreens, payload: TScreenPayload | null | undefined): void =>
@@ -59,12 +64,13 @@ export const useAppStore = create<TAppStore>((set, get) => ({
       balance:newBalance
     }}))
   },
-  updateBoostLevel: (title: string, newLevel: number): void => {
-    const { boosts } = get();
-    const updatedBoosts = { ...boosts, [title]: newLevel };
-    set(() => ({
-      boosts: updatedBoosts,
-    }));
+  updatePaidBoostLevel: (boostId:number , newLevel: number): void => {
+    const { paidBoosts } = get();
+    let boostWithId = paidBoosts.filter(data=> data.boostId == boostId)
+    // const updatedBoosts = { ...boosts, [title]: newLevel };
+    // set(() => ({
+    //   boosts: updatedBoosts,
+    // }));
   },
   useEnergy: (amount: number): void => {
     const { user } = get();
