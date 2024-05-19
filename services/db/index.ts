@@ -1,4 +1,5 @@
 import { User } from "./user";
+import { Boost } from "./boast"
 import { Typesaurus, schema } from "typesaurus";
 
 // Generate the db object from given schem that you can use to access
@@ -6,6 +7,7 @@ import { Typesaurus, schema } from "typesaurus";
 //   await db.get(userId)
 export const db = schema($ => ({
       users: $.collection<User>(),
+      boast :$.collection<Boost>()
 }));
 
 

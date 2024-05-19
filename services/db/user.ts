@@ -1,5 +1,6 @@
 import { Result, Schema, db, toResult } from "@/services/db";
 import { Typesaurus } from "typesaurus";
+import { createUserBoast } from "./boast";
 
 export interface User {
   id:number,
@@ -16,6 +17,12 @@ export interface User {
   first: string
   last:string
   referedBy?:number; 
+  energy:Energy;
+  connectionId?:string;
+}
+export interface Energy {
+  maxEnergy:number,
+  energyLeft :number
 }
 
 export interface SocialLinks {
@@ -43,13 +50,14 @@ export type UserDoc = Schema["users"]["Doc"];
 export type UserResult = Result<User>;
 
 
-export async function login(id:string) {
+export async function login(id:string, connectionId:string) {
   console.log("login ", id)
   const users = await db.users.query(($)=> $.field("id").eq(Number(id)));
   const userRef = await users[0].ref.id
   await db.users.update(userRef, ($)=> [
     $.field("online").set(true),
-    $.field("lastOnline").set($.serverDate())
+    $.field("lastOnline").set($.serverDate()),
+    $.field("connectionId").set(connectionId)
   ])
 }
 
@@ -129,9 +137,14 @@ export async function createUser(id:number,referedBy:number|undefined, username:
     online:true,
     lang,
     rank:0,
-    referedBy
+    referedBy,
+    energy:{
+      maxEnergy:500,
+      energyLeft:0
+    },
   }))
   const userSnapshot = await db.users.get(ref.id);
+  createUserBoast(id)
   return toResult<User>(userSnapshot);
 }
 
