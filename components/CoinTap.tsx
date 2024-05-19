@@ -12,6 +12,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   const [coinTapPosition, setCoinTapPosition] = useState({ x: 0, y: 0 });
   const [showCoinTapAnimation, setShowCoinTapAnimation] = useState(false);
   
+  const user = useAppStore(state => state.user)
   const balance = useAppStore(state => state.user.balance );
   const energyLeft = useAppStore(state => state.user.energy.energyLeft );
   const updateBalance = useAppStore(state=> state.updateBalance)
@@ -33,7 +34,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     }
     updateBalance(balance + currentTap);
     useEnergy(currentTap)
-    coinClick(1278544551);
+    coinClick(user.id);
   };
 
   const handleCoinTapAnimationEnd = () => {

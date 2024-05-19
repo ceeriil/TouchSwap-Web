@@ -20,10 +20,25 @@ export default function Home() {
 
   const screen = useAppStore(state => state.screen);
   const setScreen = useAppStore(state => state.setScreen);
+  const setUser = useAppStore(state => state.updateUser)
 
   const screenRender = screens[screen];
 
   useEffect(() => {
+    let user = {
+      "id": 1278544551,
+      "username": "ceeriil",
+      "first": "Simon",
+      "last": "Ceeriil",
+      "touches": 0,
+      "balance": 0,
+      "rank": 0,
+      "energy": {
+          "maxEnergy": 1000,
+          "energyLeft": 500
+      },
+    }
+     setUser(user)
     if (socketInstance.connected) {
       onConnect();
     }
@@ -51,8 +66,6 @@ export default function Home() {
       socketInstance.off("disconnect", onDisconnect);
     };
   }, []);
- 
-
 
   return (
     <div className="h-full">
