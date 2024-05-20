@@ -15,18 +15,17 @@ export const HomeScreen = () => {
   const [extraTap, setExtraTap] = useState(false);
   const [refill, setRefill] = useState(false);
 
-
-  const extraTapActive = useAppStore(state=> state.extraTap)
-  const setExtraTapGlobalState = useAppStore(state=> state.setExtraTap)
+  const extraTapActive = useAppStore(state => state.extraTap);
+  const setExtraTapGlobalState = useAppStore(state => state.setExtraTap);
 
   useEffect(() => {
-    if(extraTapActive) console.log("Time Start")
+    if (extraTapActive) console.log("Time Start");
     const interval = setTimeout(() => {
-      console.log("Time End")
-     // setExtraTapGlobalState()
-    },  ONE_SECOND * 30);
+      console.log("Time End");
+      // setExtraTapGlobalState()
+    }, ONE_SECOND * 30);
     return () => clearTimeout(interval);
-  }, [extraTapActive,extraTap]); 
+  }, [extraTapActive, extraTap]);
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -42,18 +41,17 @@ export const HomeScreen = () => {
     setShowRefillModal(false);
   };
 
-  const handleExtraTapOpen = ()=>{
-     setShowModal(true)
-  }
+  const handleExtraTapOpen = () => {
+    setShowModal(true);
+  };
 
-  const handleRefillOpen = ()=>{
-    setShowRefillModal(true)
-  }
+  const handleRefillOpen = () => {
+    setShowRefillModal(true);
+  };
 
-  const handleRefillClose = ()=>{
-    setShowRefillModal(false)
-  }
-
+  const handleRefillClose = () => {
+    setShowRefillModal(false);
+  };
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
@@ -65,7 +63,7 @@ export const HomeScreen = () => {
             <button disabled={extraTapActive} onClick={handleExtraTapOpen}>
               <ExtraTap />
             </button>
-            <button onClick={handleRefillOpen} >
+            <button onClick={handleRefillOpen}>
               <Refill />
             </button>
           </div>
