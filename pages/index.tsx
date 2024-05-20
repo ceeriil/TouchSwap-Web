@@ -4,7 +4,7 @@ import { BadgesScreen, BoostScreen, HomeScreen, QuestScreen, RefsScreen, StatsSc
 import { ConnectQuestScreen } from "@/components/screens/ConnectQuest";
 import { SocialQuestScreen } from "@/components/screens/SocialQuest";
 import { socketInstance } from "@/services/socket";
-import { useAppStore } from "@/services/store/store";
+import { TBoost, useAppStore } from "@/services/store/store";
 // import { useClientMediaQuery } from '@/hooks/useClientMediaQuery'
 import Image from "next/image";
 // import { headers } from "next/headers"
@@ -89,22 +89,20 @@ export default function Home() {
       },
     ];
 
-  const freeBoost =  [
+  const freeBoost : TBoost[] =  [
     {
-        "id": "UaCrGHtb6cv7rRsTTNwE",
-        "type": "free",
-        "boostId": 1,
-        "totalPerDay": 3,
-        "userId": 1278544551,
-        "usedToday":0,
+      "type": "free",
+      "boostId": 1,
+      "totalPerDay": 3,
+      "userId": 1278544551,
+      "left": 3,
     },
     {
-        "id": "zmXoFnjCUcGWypuhltWE",
-        "type": "free",
-        "boostId": 2,
-        "totalPerDay": 3,
-        "userId": 1278544551,
-        "usedToday":0,
+      "type": "free",
+      "boostId": 2,
+      "totalPerDay": 3,
+      "userId": 1278544551,
+      "left": 3,
     }
   ]
 
