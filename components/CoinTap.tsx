@@ -23,7 +23,9 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
    */ const [tapPositions, setTapPositions] = useState<TapPosition[]>([]);
   const [tapCounter, setTapCounter] = useState(0);
   const balance = useAppStore(state => state.user.balance);
-  const energyLeft = useAppStore(state => state.user.energy.energyLeft);
+  const energyLeft = useAppStore(state => state.user.energy.energyLeft); 
+  const extraTapActive = useAppStore(state=> state.extraTap)
+  const tapValue = useAppStore(state => state.user.tapValue)
   const updateBalance = useAppStore(state => state.updateBalance);
   const useEnergy = useAppStore(state => state.useEnergy);
 
@@ -31,18 +33,6 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     socketInstance.emit("coin-click", id);
   };
 
-  const tapValue = 2;
-
-  /**
-   * @Simon
-   * Okay this is a realy giant function
-   * tapvalue - represent the value added on each tap. In the case of extra  tap boost value will be multipled by *5. current tap value is equal to multi tap level.
-   * if theres no energy. User can't tap.
-   *  New tap is an array of touch positions where the number animation (with the tap value) comes out from.
-   *  The for loop is used to loop through the touches to know the position of touch.
-   *  For each touch, energy is used (still don't know if the energy used should be per touch or per tapValue)
-   * Then the balance is updated based on the total tap value
-   **/
 
   const handleCoinTap = (e: TouchEvent) => {
     if (energyLeft < 1) return;
@@ -64,7 +54,6 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     const totalTapValue = tapValue * touches.length;
     updateBalance(balance + totalTapValue);
     useEnergy(touches.length);
-    coinClick(1278544551);
     if ("vibrate" in navigator) {
       navigator.vibrate(1000);
     }

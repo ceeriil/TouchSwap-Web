@@ -2,7 +2,7 @@ import { SetStateAction, useEffect, useState } from "react";
 import { Menubar } from "@/components/Menubar";
 import { BadgesScreen, BoostScreen, HomeScreen, QuestScreen, RefsScreen, StatsScreen } from "@/components/screens";
 import { socketInstance } from "@/services/socket";
-import { useAppStore } from "@/services/store/store";
+import { useAppStore, } from "@/services/store/store";
 
 const screens = {
   badges: <BadgesScreen />,
@@ -24,13 +24,15 @@ export default function Home() {
   const screenRender = screens[screen];
 
   useEffect(() => {
-    let user = {
+    let user  = {
+        
         "id": 1248734702,
         "username": "devdanhiel",
         "first": "Daniel",
         "last": "Ifechukwu",
         "touches": 0,
         "balance": 0,
+        "tapValue":1,
         "rank": 0,
         "referedBy": null,
         "energy": {
