@@ -6,7 +6,7 @@ import { CoinIcon } from "./assets/CoinIcon";
 import { SpeakerIcon } from "./assets/SpeakerIcon";
 import { StatsIcon } from "./assets/StatsIcon";
 import { TaskIcon } from "./assets/TaskIcon";
-import { TScreenPayload, TScreens, useAppStore } from "@/services/store/store";
+import {  TScreens, useAppStore } from "@/services/store/store";
 
 type MenuLink = {
   label: string;
@@ -57,7 +57,12 @@ export const Menubar = () => {
     >
       <div className="bg-[#0D2A28] py-1 px-3 md:px-6 rounded-3xl flex gap-x-[0px] md:gap-x-1 w-full items-center justify-center">
         {menuLinks.map(({ label, icon, activeIcon }) => {
-          const isActive = screen === label;
+        
+          let isActive = screen === label;
+          if(label == "quests" && (screen == "wallet" || screen =="social")) {
+            isActive = true
+          }
+
           return (
             <div key={label}>
               <MenuBtn
