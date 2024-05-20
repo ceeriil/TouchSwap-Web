@@ -2,8 +2,6 @@
 import { create } from "zustand";
 import { Energy } from "../db/user";
 import { Boost } from "../db/boost";
-import { Energy } from "../db/user";
-import { create } from "zustand";
 
 export type TScreens = "badges" | "boost" | "home" | "refs" | "stats" | "quests" | "social" | "wallet";
 

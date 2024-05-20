@@ -59,9 +59,7 @@ export const HomeScreen = () => {
     setShowRefillModal(true);
   };
 
-  const handleRefillClose = () => {
-    setShowRefillModal(false);
-  };
+
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
