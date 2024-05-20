@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { QuestTab } from "../touchswap/quests/QuestTab";
-import { ReferralQuests } from "../touchswap/quests/ReferralQuest";
 
 type Task = {
   title: string;
@@ -13,41 +11,11 @@ type QuestList = {
   tasks: Task[];
 };
 
-export const socialQuestsLists: QuestList = {
-  title: "Social Media Madness!",
-  desc: "  Our Social media accounts are amazing places! Check them out, follow us!",
-  tasks: [
-    {
-      title: "Join Our Telegram",
-      completed: false,
-    },
-    {
-      title: "Follow us on X!",
-      completed: false,
-    },
-    {
-      title: "Visit our website!",
-      completed: false,
-    },
-  ],
-};
-
-export const connectQuestsLists: QuestList = {
-  title: "Wallet Connect Fun",
-  desc: "Connect Touchswap to your solana wallet, be careful! Once connected, any rewards would be sent to the connected wallet.",
-  tasks: [
-    {
-      title: "Connect Wallet",
-      completed: false,
-    },
-  ],
-};
-
-const Tasks = () => {
+const Tasks = ({ tasks }: { tasks: Task[] }) => {
   return (
     <div>
-      <div className="grid gap-2 pb-32">
-        {socialQuestsLists.tasks.map(({ title }, index) => {
+      <div className="grid gap-2 pb-12">
+        {tasks.map(({ title }, index) => {
           return (
             <div className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between" key={index}>
               <div className="">
@@ -64,17 +32,14 @@ const Tasks = () => {
   );
 };
 
-export const OpenQuestDetailScreen = () => {
-  const [activeTab, setActiveTab] = useState<number>(0);
-
+export const OpenQuestDetailScreen: React.FC<QuestList> = QuestList => {
   return (
-    <section>
+    <section className="pb-32 overflow-y-auto">
       <div className="container mx-auto px-5 my-8">
-        <h2 className="text-2xl font-[500] mb-3">{socialQuestsLists.title}</h2>
-        <p className="text-[13px] text-white leading-[1.7]">{socialQuestsLists.desc}</p>
+        <h2 className="text-2xl font-[500] mb-3">{QuestList.title}</h2>
+        <p className="text-[13px] text-white leading-[1.7]">{QuestList.desc}</p>
         <div className="mt-8">
-          <QuestTab activeTab={activeTab} setActiveTab={setActiveTab} />
-          {activeTab === 0 ? <Tasks /> : <ReferralQuests />}
+          <Tasks tasks={QuestList.tasks} />
         </div>
       </div>
     </section>

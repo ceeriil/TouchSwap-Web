@@ -1,13 +1,16 @@
+
 import { create } from "zustand";
 import { Energy } from "../db/user";
 import { Boost } from "../db/boost";
+import { Energy } from "../db/user";
+import { create } from "zustand";
 
-export type TScreens = "badges" | "boost" | "home" | "refs" | "stats" | "quests";
+export type TScreens = "badges" | "boost" | "home" | "refs" | "stats" | "quests" | "social" | "wallet";
 
 export type TBoost = {
   type: string;
   boostId: number;
-  totalPerDay?: number; 
+  totalPerDay?: number;
   level?: number;
   maximumLevel?: number;
   cost?: number; 
@@ -33,18 +36,18 @@ export type TUser = {
 
 const emptyUser: TUser = {
   id: 0,
-  username: '',
-  first: '',
-  last: '',
+  username: "",
+  first: "",
+  last: "",
   touches: 0,
   balance: 1000,
   rank: 0,
   tapValue: 1,
   energy: {
     maxEnergy: 500,
-    energyLeft: 100
+    energyLeft: 100,
   },
-  connectionId: ''
+  connectionId: "",
 };
 
 type TAppStore = {
@@ -122,9 +125,9 @@ export const useAppStore = create<TAppStore>((set, get) => ({
         ...user,
         energy: {
           ...user.energy,
-          energyLeft: newCurrentEnergy
-        }
-      }
+          energyLeft: newCurrentEnergy,
+        },
+      },
     }));
   },
   updateUser: (updatedFields: Partial<TUser>): void => {
@@ -132,8 +135,8 @@ export const useAppStore = create<TAppStore>((set, get) => ({
     set(() => ({
       user: {
         ...user,
-        ...updatedFields
-      }
+        ...updatedFields,
+      },
     }));
   },
   setPaidBoosts: (boosts: TBoost[]): void => set(() => ({ paidBoosts: boosts })),

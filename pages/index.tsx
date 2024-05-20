@@ -1,8 +1,10 @@
 import { SetStateAction, useEffect, useState } from "react";
 import { Menubar } from "@/components/Menubar";
 import { BadgesScreen, BoostScreen, HomeScreen, QuestScreen, RefsScreen, StatsScreen } from "@/components/screens";
+import { ConnectQuestScreen } from "@/components/screens/ConnectQuest";
+import { SocialQuestScreen } from "@/components/screens/SocialQuest";
 import { socketInstance } from "@/services/socket";
-import { useAppStore,  } from "@/services/store/store";
+import { useAppStore } from "@/services/store/store";
 
 const screens = {
   badges: <BadgesScreen />,
@@ -11,6 +13,8 @@ const screens = {
   refs: <RefsScreen />,
   stats: <StatsScreen />,
   quests: <QuestScreen />,
+  social: <SocialQuestScreen />,
+  wallet: <ConnectQuestScreen />,
 };
 
 export default function Home() {
@@ -26,54 +30,54 @@ export default function Home() {
   const screenRender = screens[screen];
 
   useEffect(() => {
-    let user  = {
-        "id": 1248734702,
-        "username": "devdanhiel",
-        "first": "Daniel",
-        "last": "Ifechukwu",
-        "touches": 0,
-        "balance": 0,
-        "tapValue":1,
-        "rank": 0,
-        "referedBy": null,
-        "energy": {
-            "maxEnergy": 1000,
-            "energyLeft": 500
-        },
-    }
+    let user = {
+      id: 1248734702,
+      username: "devdanhiel",
+      first: "Daniel",
+      last: "Ifechukwu",
+      touches: 0,
+      balance: 0,
+      tapValue: 1,
+      rank: 0,
+      referedBy: null,
+      energy: {
+        maxEnergy: 1000,
+        energyLeft: 500,
+      },
+    };
 
     let paidBoost = [
       {
-          "type": "paid",
-          "boostId": 4,
-          "level": 0,
-          "cost": 1000,
-          "maximumLevel": 10,
-          "userId": user.id,
+        type: "paid",
+        boostId: 4,
+        level: 0,
+        cost: 1000,
+        maximumLevel: 10,
+        userId: user.id,
       },
       {
-          "type": "paid",
-          "boostId": 5,
-          "level": 0,
-          "cost": 500,
-          "maximumLevel": 5,
-          "userId": user.id,
+        type: "paid",
+        boostId: 5,
+        level: 0,
+        cost: 500,
+        maximumLevel: 5,
+        userId: user.id,
       },
       {
-          "type": "paid",
-          "boostId": 3,
-          "level": 0,
-          "cost": 250,
-          "maximumLevel": 10,
-          "userId": user.id,
+        type: "paid",
+        boostId: 3,
+        level: 0,
+        cost: 250,
+        maximumLevel: 10,
+        userId: user.id,
       },
       {
-        "type": "paid-no-levels",
-        "boostId": 6,
-        "cost": 200000,
-        "userId": 1278544551,
-    }
-  ]
+        type: "paid-no-levels",
+        boostId: 6,
+        cost: 200000,
+        userId: 1278544551,
+      },
+    ];
 
   const freeBoost =  [
     {

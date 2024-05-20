@@ -1,18 +1,27 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Balance } from "../../Balance";
 import { ArrowRight } from "@/components/assets/ArrowRight";
+import { TScreens, useAppStore } from "@/services/store/store";
 
 type QuestCardProps = {
   title: string;
   icon?: React.ReactNode;
-  link: string;
+  page: string;
 };
 
-export const QuestCard: React.FC<QuestCardProps> = ({ title, link }) => {
+export const QuestCard: React.FC<QuestCardProps> = ({ title, page }) => {
+  const setScreen = useAppStore(state => state.setScreen);
+
+  const handleQuestSelect = () => {
+    setScreen(page as TScreens);
+  };
+
   return (
-    <Link href={link} className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between">
+    <button
+      onClick={handleQuestSelect}
+      className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between"
+    >
       <div className="flex items-center">
         <Image src={"/img/task-icon.svg"} width={25} height={26} alt="Task Icon" />
         <div className="ml-3">
@@ -24,6 +33,6 @@ export const QuestCard: React.FC<QuestCardProps> = ({ title, link }) => {
       <div>
         <ArrowRight />
       </div>
-    </Link>
+    </button>
   );
 };
