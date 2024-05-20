@@ -64,12 +64,13 @@ export async function login(id:string, connectionId:string) {
 
 export async function logout(id:string) {
   const users = await db.users.query(($)=> $.field("connectionId").eq(id));
-  const userRef = await users[0].ref.id
-  await db.users.update(userRef, ($)=> [
-    $.field("online").set(false),
-    $.field("lastOnline").set($.serverDate()),
-    $.field("connectionId").set($.remove())
-  ])
+  console.log(users)
+  // const userRef =  users[0].ref.id
+  // await db.users.update(userRef, ($)=> [
+  //   $.field("online").set(false),
+  //   $.field("lastOnline").set($.serverDate()),
+  //   $.field("connectionId").set($.remove())
+  // ])
 }
 
 export async function userClick(id: string) {
