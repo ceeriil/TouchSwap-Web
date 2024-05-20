@@ -24,8 +24,8 @@ export default function Home() {
   const screen = useAppStore(state => state.screen);
   const setScreen = useAppStore(state => state.setScreen);
   const setUser = useAppStore(state => state.updateUser);
-  const setPaidBoost = useAppStore(state => state.setPayedBoost);
-  const setFreeBoost = useAppStore(state => state.setFreeBoost);
+  const setPaidBoosts = useAppStore(state => state.setPaidBoosts);
+  const setFreeBoosts = useAppStore(state => state.setFreeBoosts)
 
   const screenRender = screens[screen];
 
@@ -79,29 +79,29 @@ export default function Home() {
       },
     ];
 
-    const freeBoost = [
-      {
-        id: "UaCrGHtb6cv7rRsTTNwE",
-        type: "free",
-        boostId: 1,
-        totalPerDay: 3,
-        userId: 1278544551,
-        exist: true,
-      },
-      {
-        id: "zmXoFnjCUcGWypuhltWE",
-        type: "free",
-        boostId: 2,
-        totalPerDay: 3,
-        userId: 1278544551,
-        exist: true,
-      },
-    ];
+  const freeBoost =  [
+    {
+        "id": "UaCrGHtb6cv7rRsTTNwE",
+        "type": "free",
+        "boostId": 1,
+        "totalPerDay": 3,
+        "userId": 1278544551,
+        "usedToday":0,
+    },
+    {
+        "id": "zmXoFnjCUcGWypuhltWE",
+        "type": "free",
+        "boostId": 2,
+        "totalPerDay": 3,
+        "userId": 1278544551,
+        "usedToday":0,
+    }
+  ]
 
     setUser(user);
-    setPaidBoost(paidBoost);
-    setFreeBoost(freeBoost);
-
+    setPaidBoosts(paidBoost);
+    setFreeBoosts(freeBoost);
+    
     if (socketInstance.connected) {
       onConnect();
     }

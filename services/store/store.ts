@@ -1,10 +1,11 @@
+
+import { create } from "zustand";
+import { Energy } from "../db/user";
 import { Boost } from "../db/boost";
 import { Energy } from "../db/user";
 import { create } from "zustand";
 
 export type TScreens = "badges" | "boost" | "home" | "refs" | "stats" | "quests" | "social" | "wallet";
-
-// export type BoostTypeFree = "free" | "paid" | "paid-no-levels";
 
 export type TBoost = {
   type: string;
@@ -12,7 +13,7 @@ export type TBoost = {
   totalPerDay?: number;
   level?: number;
   maximumLevel?: number;
-  cost?: number;
+  cost?: number; 
   userId: number;
 };
 
@@ -51,7 +52,7 @@ const emptyUser: TUser = {
 
 type TAppStore = {
   extraTap: boolean;
-  freeBoost: TBoost[];
+  freeBoosts: TBoost[];
   paidBoosts: TBoost[];
   screen: TScreens;
   user: TUser;
@@ -61,27 +62,29 @@ type TAppStore = {
   useEnergy: (amount: number) => void;
   updateUser: (updatedFields: Partial<TUser>) => void;
   setExtraTap: (isTrue: boolean) => void;
-  setPayedBoost: (boostFields: TBoost[]) => void;
-  setFreeBoost: (boostFields: TBoost[]) => void;
+  setPaidBoosts: (boostFields: TBoost[]) => void;
+  setFreeBoosts: (boostFields: TBoost[]) => void;
+  useDailyRefill: () => void;
 };
 
 export const useAppStore = create<TAppStore>((set, get) => ({
   extraTap: false,
-  freeBoost: [],
+  freeBoosts: [],
   paidBoosts: [],
-  screen: "home",
+  screen: 'home',
   user: emptyUser,
   setScreen: (newValue: TScreens, payload: TScreenPayload | null | undefined): void =>
     set(() => ({ screen: newValue, screenPayload: payload })),
-  setExtraTap: (isTrue): void => {
-    console.log(isTrue, "User EXtra tap");
-    const { user } = get();
+  setExtraTap: (isTrue: boolean): void => {
+    const { user, freeBoosts } = get();
+    console.log(freeBoosts.find(boost=> boost.boostId == 1))
+    const touchValue = isTrue ? Math.floor(user.tapValue * 5) : Math.max(Math.floor(user.tapValue / 5), 1);
     set(() => ({
-      extraTap: isTrue,
+      extraTap: isTrue, 
       user: {
         ...user,
-        tapValue: isTrue ? user.tapValue * 5 : user.tapValue / 5,
-      },
+        tapValue: touchValue
+      }
     }));
   },
   updateBalance: (newBalance: number): void => {
@@ -89,21 +92,34 @@ export const useAppStore = create<TAppStore>((set, get) => ({
     set(() => ({
       user: {
         ...user,
-        balance: newBalance,
-      },
+        balance: newBalance
+      }
+    }));
+  },
+  useDailyRefill: (): void => {
+    const { user, freeBoosts } = get();
+    console.log(freeBoosts.find(boost=> boost.boostId == 2))
+    console.log(freeBoosts)
+    set(() => ({
+      user: {
+        ...user,
+        energy: {
+          ...user.energy,
+          energyLeft: user.energy.maxEnergy
+        }
+      }
     }));
   },
   updatePaidBoostLevel: (boostId: number, newLevel: number): void => {
     const { paidBoosts } = get();
-    let boostWithId = paidBoosts.filter(data => data.boostId == boostId);
-    // const updatedBoosts = { ...boosts, [title]: newLevel };
-    // set(() => ({
-    //   boosts: updatedBoosts,
-    // }));
+    const updatedBoosts = paidBoosts.map(boost => 
+      boost.boostId === boostId ? { ...boost, level: newLevel } : boost
+    );
+    set(() => ({ paidBoosts: updatedBoosts }));
   },
   useEnergy: (amount: number): void => {
-    const { user } = get();
-    const newCurrentEnergy = Math.max(user.energy.energyLeft - amount, 0); // Ensure energy doesn't go below 0
+    const { user, extraTap } = get();
+    const newCurrentEnergy = extraTap ?  Math.max(user.energy.energyLeft - 0, 0) :  Math.max(user.energy.energyLeft - amount, 0) ; // Ensure energy doesn't go below 0
     set(() => ({
       user: {
         ...user,
@@ -123,6 +139,6 @@ export const useAppStore = create<TAppStore>((set, get) => ({
       },
     }));
   },
-  setPayedBoost: (boost: TBoost[]): void => set(() => ({ paidBoosts: boost })),
-  setFreeBoost: (boost: TBoost[]): void => set(() => ({ freeBoost: boost })),
+  setPaidBoosts: (boosts: TBoost[]): void => set(() => ({ paidBoosts: boosts })),
+  setFreeBoosts: (boosts: TBoost[]): void => set(() => ({ freeBoosts: boosts })),
 }));

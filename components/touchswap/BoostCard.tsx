@@ -23,7 +23,6 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
 
   useEffect(() => {
     const foundBoost = boosts.find((boost) => boost.boostId === id);
-    console.log(foundBoost)
     setCurrentBoost(foundBoost || null);
   }, [boosts, id]);
 
@@ -80,8 +79,7 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
         cost={cost!}
         onClick={handleBuyBoost}
         maxLevel={maximumLevel}
-        level={level}
-      />
+        level={level} disabled={false}      />
     </div>
   );
 };
