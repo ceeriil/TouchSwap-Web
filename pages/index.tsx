@@ -11,6 +11,7 @@ const screens = {
   refs: <RefsScreen />,
   stats: <StatsScreen />,
   quests: <QuestScreen />,
+  socialQuestsLists: "",
 };
 
 export default function Home() {

@@ -1,5 +1,5 @@
-import { create } from "zustand";
 import { Energy } from "../db/user";
+import { create } from "zustand";
 import { Boost } from "../db/boost";
 
 export type TScreens = "badges" | "boost" | "home" | "refs" | "stats" | "quests";
@@ -19,25 +19,24 @@ export type TUser = {
   tapValue:number,
   balance: number;
   rank: number;
-  energy:Energy,
-  connectionId:string
+  energy: Energy;
+  connectionId: string;
 };
-
 
 const emptyUser: TUser = {
   id: 0,
-  username: '',
-  first: '',
-  last: '',
+  username: "",
+  first: "",
+  last: "",
   touches: 0,
   balance: 1000,
   rank: 0,
   tapValue:1,
   energy: {
     maxEnergy: 500,
-    energyLeft: 100
+    energyLeft: 400,
   },
-  connectionId: ''
+  connectionId: "",
 };
 
 type TAppStore = {
@@ -45,7 +44,7 @@ type TAppStore = {
   freeBoost:TBoost[];
   paidBoosts: TBoost[];
   screen: TScreens;
-  user:TUser;
+  user: TUser;
   setScreen: (newValue: TScreens, payload?: TScreenPayload | null) => void;
   updateBalance: (newBalance: number) => void;
   updatePaidBoostLevel: (boostId:number, newLevel: number) => void;
@@ -59,7 +58,7 @@ export const useAppStore = create<TAppStore>((set, get) => ({
   freeBoost:[],
   paidBoosts:[],
   screen: "home",
-  user:emptyUser,
+  user: emptyUser,
   setScreen: (newValue: TScreens, payload: TScreenPayload | null | undefined): void =>
     set(() => ({ screen: newValue, screenPayload: payload })),
   setExtraTap:(isTrue) :void  => {
@@ -93,9 +92,9 @@ export const useAppStore = create<TAppStore>((set, get) => ({
         ...user,
         energy: {
           ...user.energy,
-          energyLeft: newCurrentEnergy
-        }
-      }
+          energyLeft: newCurrentEnergy,
+        },
+      },
     }));
   },
   updateUser: (updatedFields: Partial<TUser>): void => {
@@ -103,8 +102,8 @@ export const useAppStore = create<TAppStore>((set, get) => ({
     set(() => ({
       user: {
         ...user,
-        ...updatedFields
-      }
+        ...updatedFields,
+      },
     }));
   },
 }));

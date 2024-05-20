@@ -23,6 +23,7 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
 
   useEffect(() => {
     const foundBoost = boosts.find((boost) => boost.boostId === id);
+    console.log(foundBoost)
     setCurrentBoost(foundBoost || null);
   }, [boosts, id]);
 
@@ -63,7 +64,7 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
       <div className="light-green-gradient py-7 px-4 rounded h-full relative" onClick={openModal}>
         <div className="mb-3">{icon}</div>
         <h3 className="text-[0.8rem] font-[500] mb-4 leading-[1.8]">{title}</h3>
-        <Balance size="base" count={cost || initialCost * Math.pow(2, level ||0)} />
+        <Balance size="base" count={cost || initialCost * Math.pow(2, level || 0)} />
         <p className="text-[0.8rem] mt-3">Level {level} / {maximumLevel}</p>
         <div className="absolute bottom-4 right-3">
           <OpenBtnIcon />

@@ -63,9 +63,9 @@ export const BoostScreen = () => {
           <h3 className="text-sm mb-2 font-[500]">Balance</h3>
           <Balance count={balance} />
           <div className="grid grid-cols-2 gap-4 gap-x-[10px] my-6 overflow-y-scroll pb-32 max-h-full h-[100%]">
-            {/* {boostCardLists.map(({ title, icon, desc, cost }) => {
-              return <BoostCard cost={cost} title={title} key={title} icon={icon} desc={desc} maxLevel={10} />;
-            })} */}
+            {boostCardLists.map(({ id, title, icon, desc, initalCost }) => {
+              return <BoostCard initialCost={initalCost} title={title} key={title} icon={icon} desc={desc} id={id}  />;
+            })}
           </div>
         </div>
       </div>
