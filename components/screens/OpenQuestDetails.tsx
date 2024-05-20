@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import {ChevronLeftIcon} from "@heroicons/react/24/solid"
+import { useAppStore } from "@/services/store/store";
 
 type Task = {
   title: string;
@@ -33,9 +35,20 @@ const Tasks = ({ tasks }: { tasks: Task[] }) => {
 };
 
 export const OpenQuestDetailScreen: React.FC<QuestList> = QuestList => {
+  const setScreen  = useAppStore(store=>store.setScreen)
+
+  const goBack = ()=>{
+    setScreen("quests");
+  }
+  
   return (
-    <section className="pb-32 overflow-y-auto">
+    <section className="pb-32 overflow-y-auto"> 
       <div className="container mx-auto px-5 my-8">
+        <div className="flex container h-10  mb-10">
+          <button onClick={goBack} className="p-3 hover:bg-[#182027] bg-[#293641] rounded-lg ">
+           <ChevronLeftIcon  width={20} />
+          </button>
+        </div>
         <h2 className="text-2xl font-[500] mb-3">{QuestList.title}</h2>
         <p className="text-[13px] text-white leading-[1.7]">{QuestList.desc}</p>
         <div className="mt-8">
