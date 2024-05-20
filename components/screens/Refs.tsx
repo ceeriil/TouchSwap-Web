@@ -63,12 +63,12 @@ export const RefsScreen: React.FC = () => {
     <section className="flex flex-col h-screen overflow-hidden">
       <div className="container mx-auto px-4 my-4 pb-16">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold mb-3">Referrals</h2>
-          <p className="text-[0.8rem] text-white font-[500]">Refer a friend</p>
-          <p className="text-[#AFAFAF] text-[0.8rem] my-3">{refsList.length} referrals</p>
-          <button className="btn bg-white px-3 text-black py-4 font-[500] rounded-lg align-baseline">
-            Invite a Friend!
-          </button>
+          <div>
+            <h2 className="text-2xl font-bold mb-3">Referrals</h2>
+            <p className="text-[0.8rem] text-white font-[500]">Refer a friend</p>
+            <p className="text-[#AFAFAF] text-[0.8rem] my-3">{refsList.length} referrals</p>
+          </div>
+          <button className="btn bg-white px-3 text-black py-3 font-[500] rounded text-[13px]">Invite a Friend!</button>
         </div>
 
         <div className="bg-[#182334] h-[1px] w-full my-5" />

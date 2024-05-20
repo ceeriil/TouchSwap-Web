@@ -1,6 +1,8 @@
 import { SetStateAction, useEffect, useState } from "react";
 import { Menubar } from "@/components/Menubar";
 import { BadgesScreen, BoostScreen, HomeScreen, QuestScreen, RefsScreen, StatsScreen } from "@/components/screens";
+import { ConnectQuestScreen } from "@/components/screens/ConnectQuest";
+import { SocialQuestScreen } from "@/components/screens/SocialQuest";
 import { socketInstance } from "@/services/socket";
 import { useAppStore } from "@/services/store/store";
 
@@ -11,6 +13,8 @@ const screens = {
   refs: <RefsScreen />,
   stats: <StatsScreen />,
   quests: <QuestScreen />,
+  social: <SocialQuestScreen />,
+  wallet: <ConnectQuestScreen />,
 };
 
 export default function Home() {

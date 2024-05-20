@@ -3,25 +3,25 @@ import { QuestCard } from "./QuestCard";
 
 type OpenQuestsList = {
   title: string;
-  link: string;
+  page: string;
 };
 
 export const openQuestsLists: OpenQuestsList[] = [
   {
     title: "Social Media Madness!",
-    link: "/quests/social",
+    page: "social",
   },
   {
     title: "Wallet Connect Fun",
-    link: "/quests/wallet",
+    page: "wallet",
   },
 ];
 
 export const OpenQuests = () => {
   return (
     <div className="grid gap-4">
-      {openQuestsLists.map(({ title, link }, index) => {
-        return <QuestCard title={title} key={index} link={link} />;
+      {openQuestsLists.map(({ title, page }, index) => {
+        return <QuestCard title={title} key={index} page={page} />;
       })}
     </div>
   );
