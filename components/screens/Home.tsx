@@ -18,14 +18,16 @@ export const HomeScreen = () => {
   const extraTapActive = useAppStore(state => state.extraTap);
   const setExtraTapGlobalState = useAppStore(state => state.setExtraTap);
 
+  const useDailyRefill = useAppStore(state=> state.useDailyRefill)
+  const energy = useAppStore(state=> state.user.energy)
+
   useEffect(() => {
-    if (extraTapActive) console.log("Time Start");
     const interval = setTimeout(() => {
-      console.log("Time End");
-      // setExtraTapGlobalState()
-    }, ONE_SECOND * 30);
+       setExtraTapGlobalState(false)
+    },  ONE_SECOND * 30);
     return () => clearTimeout(interval);
-  }, [extraTapActive, extraTap]);
+  }, [extraTapActive]); 
+
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -34,17 +36,25 @@ export const HomeScreen = () => {
   const handleExtraTap = () => {
     setExtraTap(true);
     setShowModal(false);
+    setExtraTapGlobalState(true)
   };
 
   const handleRefill = () => {
     setRefill(true);
     setShowRefillModal(false);
+    useDailyRefill()
   };
 
   const handleExtraTapOpen = () => {
     setShowModal(true);
   };
 
+  const handleRefillClose = ()=>{
+    setShowRefillModal(false)
+  }
+  
+  const useRefillDisabled = energy.energyLeft === energy.maxEnergy
+  
   const handleRefillOpen = () => {
     setShowRefillModal(true);
   };
@@ -60,10 +70,10 @@ export const HomeScreen = () => {
         <div className="h-full flex flex-col items-center justify-center">
           <CoinTap extraTap={extraTap} refill={refill} />
           <div className="w-full flex justify-between mt-10 fixed bottom-[24%]">
-            <button disabled={extraTapActive} onClick={handleExtraTapOpen}>
+            <button className={extraTapActive ? "opacity-60": "opacity-100"}  disabled={extraTapActive} onClick={handleExtraTapOpen}>
               <ExtraTap />
             </button>
-            <button onClick={handleRefillOpen}>
+            <button  className={useRefillDisabled ? "opacity-60": "opacity-100"}  disabled={useRefillDisabled}  onClick={handleRefillOpen} >
               <Refill />
             </button>
           </div>
@@ -74,6 +84,7 @@ export const HomeScreen = () => {
           onClose={handleCloseModal}
           onClick={handleExtraTap}
           icon={<DiamondIcon />}
+          disabled={extraTapActive}
           cost={0}
           text={"Increases the amount of coins gained by 5x for 30 seconds. Does not consume energy while in effect."}
         />
@@ -85,6 +96,7 @@ export const HomeScreen = () => {
           icon={<BottleIcon />}
           cost={0}
           text={"Refill your energy bar quickly."}
+          disabled= {energy.energyLeft === energy.maxEnergy}
         />
       </section>
     </div>
