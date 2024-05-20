@@ -9,6 +9,7 @@ export type TBoost = {
   type: string;
   boostId: number;
   totalPerDay?: number;
+  left?:number,
   level?: number;
   maximumLevel?: number;
   cost?: number; 
@@ -62,7 +63,7 @@ type TAppStore = {
   setExtraTap: (isTrue: boolean) => void;
   setPaidBoosts: (boostFields: TBoost[]) => void;
   setFreeBoosts: (boostFields: TBoost[]) => void;
-  useDailyRefill: () => void;
+  useRefill: () => void;
 };
 
 export const useAppStore = create<TAppStore>((set, get) => ({
@@ -75,7 +76,6 @@ export const useAppStore = create<TAppStore>((set, get) => ({
     set(() => ({ screen: newValue, screenPayload: payload })),
   setExtraTap: (isTrue: boolean): void => {
     const { user, freeBoosts } = get();
-    console.log(freeBoosts.find(boost=> boost.boostId == 1))
     const touchValue = isTrue ? Math.floor(user.tapValue * 5) : Math.max(Math.floor(user.tapValue / 5), 1);
     set(() => ({
       extraTap: isTrue, 
@@ -94,10 +94,8 @@ export const useAppStore = create<TAppStore>((set, get) => ({
       }
     }));
   },
-  useDailyRefill: (): void => {
-    const { user, freeBoosts } = get();
-    console.log(freeBoosts.find(boost=> boost.boostId == 2))
-    console.log(freeBoosts)
+  useRefill: (): void => {
+    const { user} = get();
     set(() => ({
       user: {
         ...user,

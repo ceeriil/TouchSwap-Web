@@ -1,7 +1,12 @@
 import React from "react";
 import { RefillIcon } from "../assets/Refill-Icon";
 
-export const Refill = () => {
+type Props = {
+  left:number,
+  total:number
+}
+
+export const Refill:React.FC <Props> = ({left = 0 , total = 3}) => {
   return (
     <div>
       <p className="text-[0.8rem] mb-1 text-white pr-2 text-right font-medium">
@@ -17,7 +22,7 @@ export const Refill = () => {
             `,
           }}
         >
-          <span>3/3</span>
+          <span>{left}/{total}</span>
         </div>
         <RefillIcon />
       </div>
