@@ -15,9 +15,8 @@ export const HomeScreen = () => {
   const [extraTap, setExtraTap] = useState(false);
   const [refill, setRefill] = useState(false);
 
-
-  const extraTapActive = useAppStore(state=> state.extraTap)
-  const setExtraTapGlobalState = useAppStore(state=> state.setExtraTap)
+  const extraTapActive = useAppStore(state => state.extraTap);
+  const setExtraTapGlobalState = useAppStore(state => state.setExtraTap);
 
   const useDailyRefill = useAppStore(state=> state.useDailyRefill)
   const energy = useAppStore(state=> state.user.energy)
@@ -28,6 +27,7 @@ export const HomeScreen = () => {
     },  ONE_SECOND * 30);
     return () => clearTimeout(interval);
   }, [extraTapActive]); 
+
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -45,19 +45,23 @@ export const HomeScreen = () => {
     useDailyRefill()
   };
 
-  const handleExtraTapOpen = ()=>{
-     setShowModal(true)
-  }
-
-  const handleRefillOpen = ()=>{
-    setShowRefillModal(true)
-  }
+  const handleExtraTapOpen = () => {
+    setShowModal(true);
+  };
 
   const handleRefillClose = ()=>{
     setShowRefillModal(false)
   }
   
   const useRefillDisabled = energy.energyLeft === energy.maxEnergy
+  
+  const handleRefillOpen = () => {
+    setShowRefillModal(true);
+  };
+
+  const handleRefillClose = () => {
+    setShowRefillModal(false);
+  };
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
