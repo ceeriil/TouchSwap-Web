@@ -1,4 +1,5 @@
-import { OpenQuestDetailScreen } from "@/components/screens/OpenQuestDetails";
+import React from "react";
+import { OpenQuestDetailScreen } from "./OpenQuestDetails";
 
 type Task = {
   title: string;
@@ -22,6 +23,6 @@ export const connectQuestsLists: QuestList = {
   ],
 };
 
-export default function QuestDetails() {
+export const ConnectQuestScreen = () => {
   return <OpenQuestDetailScreen {...connectQuestsLists} />;
-}
+};
