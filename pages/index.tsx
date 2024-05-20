@@ -46,7 +46,7 @@ export default function Home() {
       first: "Daniel",
       last: "Ifechukwu",
       touches: 0,
-      balance: 0,
+      balance: 2000,
       tapValue: 1,
       rank: 0,
       referedBy: null,
