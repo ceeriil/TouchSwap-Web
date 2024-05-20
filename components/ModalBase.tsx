@@ -16,6 +16,7 @@ type ModalProps = {
   onClick?: () => void;
   level?: number;
   maxLevel?: number;
+  disabled?:boolean;
 };
 
 export const Modal: React.FC<ModalProps> = ({
@@ -29,6 +30,7 @@ export const Modal: React.FC<ModalProps> = ({
   onClick,
   maxLevel,
   level,
+  disabled=false
 }) => {
   const balance  = useAppStore(state => state.user.balance);
 
@@ -90,6 +92,7 @@ export const Modal: React.FC<ModalProps> = ({
             {cost <= balance ? (
               <button
                 className="btn bg-white w-full text-black py-4 font-bold rounded-lg align-baseline mt-12"
+                disabled={disabled}
                 onClick={onClick}
               >
                 Get
