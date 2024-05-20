@@ -22,16 +22,15 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   const [tapPositions, setTapPositions] = useState<TapPosition[]>([]);
   const [tapCounter, setTapCounter] = useState(0);
   const balance = useAppStore(state => state.user.balance);
-  const energyLeft = useAppStore(state => state.user.energy.energyLeft); 
-  const extraTapActive = useAppStore(state=> state.extraTap)
-  const tapValue = useAppStore(state => state.user.tapValue)
+  const energyLeft = useAppStore(state => state.user.energy.energyLeft);
+  const extraTapActive = useAppStore(state => state.extraTap);
+  const tapValue = useAppStore(state => state.user.tapValue);
   const updateBalance = useAppStore(state => state.updateBalance);
   const useEnergy = useAppStore(state => state.useEnergy);
 
   const coinClick = (id: number) => {
     socketInstance.emit("coin-click", id);
   };
-
 
   const handleCoinTap = (e: TouchEvent) => {
     if (energyLeft < 1) return;
@@ -67,11 +66,11 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   return (
     <>
       <Balance count={balance} />
-      <div className="relative mt-5 flex items-center justify-center h-[300px] w-[300px]">
-        {/*    <img src="/img/coin.svg" onTouchStart={handleCoinTap} className="coin-img z-20" /> */}
+      <div className="relative mt-5 flex items-center justify-center">
+        <img src="/img/coin.svg" onTouchStart={handleCoinTap} className="coin-img z-20" />
 
         {/* Coin Animation: WIP */}
-        {frames.map((frame, index) => (
+        {/*  {frames.map((frame, index) => (
           <img
             key={index}
             src={frame}
@@ -80,20 +79,20 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
             className="coin-img z-20"
             style={{
               opacity: index === currentFrame ? 1 : 0,
-              transition: "opacity 0.1s ease-in-out", // Smooth transition effect
-              position: "absolute", // Position images on top of each other
+              transition: "opacity 0.1s ease-in-out", 
+              position: "absolute",
             }}
           />
-        ))}
+        ))} */}
 
         {tapPositions.map(({ key, x, y }) => (
           <span
             key={key}
             className="absolute silver-text text-[1.5rem] z-30 font-semibold"
             style={{
-              top: y,
-              left: x,
-              animation: "numberAnimation 1s forwards",
+              top: `${y}px`,
+              left: `${x}px`,
+              animation: "numberAnimation 1.5s forwards ease-out",
             }}
             onAnimationEnd={() => handleAnimationEnd(key)}
           >
@@ -102,12 +101,12 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
         ))}
         <BgGlow
           className={`${
-            extraTap || refill ? "opacity-0" : "opacity-100"
+            extraTapActive || refill ? "opacity-0" : "opacity-100"
           } absolute w-full top-[-30%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.3] transition-opacity duration-500 ease-in-out`}
         />
         <BgGlowGreen
           className={`${
-            extraTap ? "opacity-100" : "opacity-0"
+            extraTapActive ? "opacity-100" : "opacity-0"
           } absolute w-full top-[-70%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.5] transition-opacity duration-500 ease-in-out`}
         />
         <BgGlowPurple
