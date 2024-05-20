@@ -9,12 +9,14 @@ import { Refill } from "../touchswap/Refill";
 import { ONE_SECOND } from "@/constants";
 import { useAppStore } from "@/services/store/store";
 
-
 export const HomeScreen = () => {
   const [showModal, setShowModal] = useState(false);
   const [showRefillModal, setShowRefillModal] = useState(false);
   const [extraTap, setExtraTap] = useState(false);
   const [refill, setRefill] = useState(false);
+  const [vibrating, toggleVibrating] = useToggle(false);
+
+  useVibrate(vibrating, [300, 100, 200, 100, 1000, 300], false);
 
   const extraTapActive = useAppStore(state=> state.extraTap)
   const setExtraTapGlobalState = useAppStore(state=> state.setExtraTap)

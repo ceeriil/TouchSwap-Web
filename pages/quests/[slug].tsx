@@ -1,8 +1,6 @@
 import { Menubar } from "@/components/Menubar";
-import { QuestDetailScreen } from "@/components/screens/QuestDetails";
+import { OpenQuestDetailScreen } from "@/components/screens/OpenQuestDetails";
 
 export default function QuestDetails() {
-  return ( 
-        <QuestDetailScreen />
-  );
+  return <OpenQuestDetailScreen />;
 }
