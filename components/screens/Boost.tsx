@@ -14,7 +14,8 @@ type BoostCardList = {
   initalCost: number;
   id:number,
   level?: number,
-  maxLevel?:number
+  maxLevel?:number,
+  noLevel:boolean 
 };
 
 export const boostCardLists: BoostCardList[] = [
@@ -24,6 +25,7 @@ export const boostCardLists: BoostCardList[] = [
     icon: <SpeedBoostIcon width={"35"} height={"32"} />,
     initalCost: 250,
     id:3,
+    noLevel: false
   },
   {
     title: "Multi Tap",
@@ -31,6 +33,7 @@ export const boostCardLists: BoostCardList[] = [
     icon: <MultiTapIcon width={"48"} height={"32"} />,
     initalCost: 500,
     id:4,
+    noLevel: false
   },
   {
     title: "Increase Energy Limit",
@@ -38,6 +41,7 @@ export const boostCardLists: BoostCardList[] = [
     icon: <EnergyLimitIcon width={"31"} height={"32"} />,
     initalCost: 250,
     id:5,
+    noLevel: false
   },
   {
     title: "Auto swipe",
@@ -45,6 +49,7 @@ export const boostCardLists: BoostCardList[] = [
     icon: <AutoSwipeIcon width={"36"} height={"32"} />,
     initalCost: 200000,
     id:6,
+    noLevel: true
   },
 ];
 
@@ -63,8 +68,8 @@ export const BoostScreen = () => {
           <h3 className="text-sm mb-2 font-[500]">Balance</h3>
           <Balance count={balance} />
           <div className="grid grid-cols-2 gap-4 gap-x-[10px] my-6 overflow-y-scroll pb-32 max-h-full h-[100%]">
-            {boostCardLists.map(({ id, title, icon, desc, initalCost }) => {
-              return <BoostCard initialCost={initalCost} title={title} key={title} icon={icon} desc={desc} id={id}  />;
+            {boostCardLists.map(({ id, title, icon, desc, initalCost, noLevel }) => {
+              return <BoostCard initialCost={initalCost} title={title} key={title} icon={icon} desc={desc} id={id} noLevel={noLevel}  />;
             })}
           </div>
         </div>

@@ -10,9 +10,10 @@ type BoostCardProps = {
   icon?: React.ReactNode;
   initialCost: number;
   id: number;
+  noLevel : boolean
 };
 
-export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initialCost, id }) => {
+export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initialCost, id, noLevel= false }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [currentBoost, setCurrentBoost] = useState<TBoost | null>(null);
 
@@ -63,14 +64,13 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
       <div className="light-green-gradient py-7 px-4 rounded h-full relative" onClick={openModal}>
         <div className="mb-3">{icon}</div>
         <h3 className="text-[0.8rem] font-[500] mb-4 leading-[1.8]">{title}</h3>
-        <Balance size="base" count={cost || initialCost * Math.pow(2, level || 0)} />
+        <Balance size="base" count={(cost || initialCost) * (Math.pow(2, level || 0))} />
         <p className="text-[0.8rem] mt-3">Level {level} / {maximumLevel}</p>
         <div className="absolute bottom-4 right-3">
           <OpenBtnIcon />
         </div>
       </div>
-
-      <Modal
+      <Modal 
         title={title}
         text={desc}
         onClose={closeModal}
@@ -79,7 +79,8 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
         cost={cost!}
         onClick={handleBuyBoost}
         maxLevel={maximumLevel}
-        level={level} disabled={false}      />
+        level={level}
+      />
     </div>
   );
 };
