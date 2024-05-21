@@ -14,7 +14,7 @@ type TapPosition = {
   y: number;
 };
 
-const frames = ["/img/coin1.svg", "/img/coin2.svg"];
+const frames = ["/img/coin1.svg", "/img/coin2.svg", "/img/coin1.svg"];
 
 export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boolean }) => {
   const user = useAppStore(state => state.user);
@@ -32,9 +32,18 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     socketInstance.emit("coin-click", id);
   };
 
+  const coinAnimation = () => {
+    setCurrentFrame(1);
+    setTimeout(() => {
+      setCurrentFrame(0);
+    }, 200);
+  };
+
   const handleCoinTap = (e: TouchEvent) => {
     if (energyLeft < 1) return;
-    setCurrentFrame(prevFrame => (prevFrame + 1) % frames.length);
+
+    coinAnimation();
+
     const touches = e.touches;
     const newTaps: TapPosition[] = [];
 
@@ -66,24 +75,22 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   return (
     <>
       <Balance count={balance} />
-      <div className="relative mt-5 flex items-center justify-center">
-        <img src="/img/coin.svg" onTouchStart={handleCoinTap} className="coin-img z-20" />
-
+      <div className="relative mt-5 flex items-center justify-center w-[335px] h-[283px]">
         {/* Coin Animation: WIP */}
-        {/*  {frames.map((frame, index) => (
+        {frames.map((frame, index) => (
           <img
             key={index}
             src={frame}
             onTouchStart={handleCoinTap}
             alt={`Frame ${index + 1}`}
-            className="coin-img z-20"
+            className={`coin-img z-20 absolute transition-opacity duration-100 ease-in-out ${
+              currentFrame === index ? "opacity-100" : "opacity-0"
+            }`}
             style={{
-              opacity: index === currentFrame ? 1 : 0,
-              transition: "opacity 0.1s ease-in-out", 
               position: "absolute",
             }}
           />
-        ))} */}
+        ))}
 
         {tapPositions.map(({ key, x, y }) => (
           <span

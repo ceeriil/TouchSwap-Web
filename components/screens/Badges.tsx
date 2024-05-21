@@ -12,7 +12,7 @@ import { WhaleBadge } from "../assets/badges/WhaleBadge";
 import { BadgeCard } from "../touchswap/BadgeCard";
 import { BoostCard } from "../touchswap/BoostCard";
 import { useAppStore } from "@/services/store/store";
-import {ChevronLeftIcon} from "@heroicons/react/24/solid";
+import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 
 type BadgesList = {
   title: string;
@@ -100,26 +100,26 @@ export const badgesLists: BadgesList[] = [
 ];
 
 export const BadgesScreen = () => {
-  const balance  = useAppStore(state => state.user.balance);
-  const setScreen = useAppStore(state => state.setScreen)
+  const balance = useAppStore(state => state.user.balance);
+  const setScreen = useAppStore(state => state.setScreen);
 
-  const goBack = ()=>{
+  const goBack = () => {
     setScreen("home");
-  }
+  };
 
   return (
-    <section className="flex flex-col h-screen overflow-hidden"> 
+    <section className="flex flex-col h-screen overflow-y-scroll">
       <div className="container mx-auto px-4 my-8 pb-32">
-      <div className="flex container h-10  mb-5">
-       <button onClick={goBack} className="p-3 hover:bg-[#182027] bg-[#293641] rounded-lg ">
-          <ChevronLeftIcon  width={20} />
-        </button>
-      </div>
-      <h2 className="text-2xl font-[500] mb-3">Ranks</h2>
-       <p className="text-sm leading-[1.7] sf-pro-medium">
+        <div className="flex container h-10  mb-5">
+          <button onClick={goBack} className="p-3 hover:bg-[#182027] bg-[#293641] rounded-lg ">
+            <ChevronLeftIcon width={20} />
+          </button>
+        </div>
+        <h2 className="text-2xl font-[500] mb-3">Ranks</h2>
+        <p className="text-sm leading-[1.7] sf-pro-medium">
           Consistently show up, climb up the ladder and unlock all the ranks! Your number of coins determine the rank
           you are in.
-      </p>
+        </p>
         <div className="mt-8">
           <div className="grid grid-cols-3 gap-x-1 gap-y-10 my-6">
             {badgesLists.map(({ title, reward, unlockedIcon, lockedIcon, isUnlocked, requiredCoin }) => {

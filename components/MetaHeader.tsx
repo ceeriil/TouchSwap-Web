@@ -31,11 +31,7 @@ const MetaHeader = ({
     <Head>
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       <meta httpEquiv="content-language" content={locale} />
-      <meta
-        name="viewport"
-        id="viewporttag"
-        content="width=device-width, user-scalable=no, initial-scale=1"
-      />
+      <meta name="viewport" id="viewporttag" content="width=device-width, user-scalable=no, initial-scale=1" />
 
       <link rel="apple-touch-icon" sizes="57x57" href="/img/logo.png" />
       <link rel="apple-touch-icon" sizes="60x60" href="/img/logo.png" />
@@ -53,12 +49,9 @@ const MetaHeader = ({
       <link rel="manifest" href="/manifest.json" />
 
       <meta name="msapplication-TileColor" content={themeColor} />
-      <meta
-        name="msapplication-TileImage"
-        content="/static/img/favicons/ms-icon-144x144.png"
-      />
+      <meta name="msapplication-TileImage" content="/static/img/favicons/ms-icon-144x144.png" />
 
-      <meta name="theme-color" content={themeColor}></meta>
+      <meta name="theme-color" content="#ff5945" />
 
       <title>{title}</title>
       <meta name="description" content={description} />
