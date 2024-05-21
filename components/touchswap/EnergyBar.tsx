@@ -1,6 +1,7 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { EnergyBarHead } from "../assets/EnergyBarHead";
 import { useAppStore } from "@/services/store/store";
+import { ONE_SECOND } from "@/constants";
 
 interface EnergyBarProps {
   barWidth?: string;
@@ -15,8 +16,13 @@ export const EnergyBar: React.FC<EnergyBarProps> = ({
   headWidth = "35",
   headHeight = "35",
 }) => {
-  const energyLeft = useAppStore(state => state.user.energy.energyLeft);
-  const maxEnergy = useAppStore(state => state.user.energy.maxEnergy);
+   
+  const rechargeSpeed = useAppStore(state => state.rechargeSpeed)
+  const updateEnergyByTime = useAppStore(state => state.updateEnergyByTime)
+  const energyLeft = useAppStore(state => state.user!.energy.energyLeft || 0);
+  const maxEnergy = useAppStore(state => state.user!.energy.maxEnergy || 0);
+  
+  
   const energyPercentage = (energyLeft / maxEnergy) * 100;
 
   return (
