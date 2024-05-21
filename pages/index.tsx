@@ -1,14 +1,15 @@
 "use client";
 
 import { SetStateAction, useEffect, useState } from "react";
-// import { useClientMediaQuery } from '@/hooks/useClientMediaQuery'
 import Image from "next/image";
 import { Menubar } from "@/components/Menubar";
 import { BadgesScreen, BoostScreen, HomeScreen, QuestScreen, RefsScreen, StatsScreen } from "@/components/screens";
 import { ConnectQuestScreen } from "@/components/screens/ConnectQuest";
 import { SocialQuestScreen } from "@/components/screens/SocialQuest";
 import { isBrowser, socketInstance } from "@/services/socket";
-import { TBoost, useAppStore } from "@/services/store/store";
+import { emptyUser, STORE_NAME, TBoost, useAppStore } from "@/services/store/store";
+import { ONE_SECOND } from "@/constants";
+
 
 // import { headers } from "next/headers"
 // import { getSelectorsByUserAgent } from "react-device-detect"
@@ -31,83 +32,91 @@ export default function Home() {
   const [transport, setTransport] = useState("N/A");
 
   const screen = useAppStore(state => state.screen);
-  const setScreen = useAppStore(state => state.setScreen);
   const setUser = useAppStore(state => state.updateUser);
   const setPaidBoosts = useAppStore(state => state.setPaidBoosts);
   const setFreeBoosts = useAppStore(state => state.setFreeBoosts);
+  const updateEnergyByTime = useAppStore(state => state.updateEnergyByTime);
+
 
   const screenRender = screens[screen];
 
+  const setUpState =()=>{
+    let user = {
+      id: 1248734702,
+      username: "devdanhiel",
+      first: "Daniel",
+      last: "Ifechukwu",
+      touches: 0,
+      balance: 20000000,
+      tapValue: 1,
+      rank: 0,
+      referedBy: null,
+      energy: {
+        maxEnergy: 1000,
+        energyLeft: 990,
+      },
+    };
+    let paidBoost = [
+      {
+        type: "paid",
+        boostId: 4,
+        level: 0,
+        cost: 1000,
+        maximumLevel: 10,
+        userId: user.id,
+      },
+      {
+        type: "paid",
+        boostId: 5,
+        level: 0,
+        cost: 500,
+        maximumLevel: 20,
+        userId: user.id,
+      },
+      {
+        type: "paid",
+        boostId: 3,
+        level: 0,
+        cost: 250,
+        maximumLevel: 10,
+        userId: user.id,
+      },
+      {
+        type: "paid-no-levels",
+        boostId: 6,
+        cost: 200000,
+        userId: 1278544551,
+      },
+    ];
+    const freeBoost: TBoost[] = [
+      {
+        type: "free",
+        boostId: 1,
+        totalPerDay: 3,
+        userId: 1278544551,
+        left: 3,
+      },
+      {
+        type: "free",
+        boostId: 2,
+        totalPerDay: 3,
+        userId: 1278544551,
+        left: 3,
+      },
+    ];
+    setUser(user);
+    setPaidBoosts(paidBoost);
+    setFreeBoosts(freeBoost);
+  }
+
   useEffect(() => {
-    if (localStorage.getItem("AppStore") == null) {
-      let user = {
-        id: 1248734702,
-        username: "devdanhiel",
-        first: "Daniel",
-        last: "Ifechukwu",
-        touches: 0,
-        balance: 2000,
-        tapValue: 1,
-        rank: 0,
-        referedBy: null,
-        energy: {
-          maxEnergy: 1000,
-          energyLeft: 500,
-        },
-      };
-      let paidBoost = [
-        {
-          type: "paid",
-          boostId: 4,
-          level: 0,
-          cost: 1000,
-          maximumLevel: 10,
-          userId: user.id,
-        },
-        {
-          type: "paid",
-          boostId: 5,
-          level: 0,
-          cost: 500,
-          maximumLevel: 5,
-          userId: user.id,
-        },
-        {
-          type: "paid",
-          boostId: 3,
-          level: 0,
-          cost: 250,
-          maximumLevel: 10,
-          userId: user.id,
-        },
-        {
-          type: "paid-no-levels",
-          boostId: 6,
-          cost: 200000,
-          userId: 1278544551,
-        },
-      ];
-      const freeBoost: TBoost[] = [
-        {
-          type: "free",
-          boostId: 1,
-          totalPerDay: 3,
-          userId: 1278544551,
-          left: 3,
-        },
-        {
-          type: "free",
-          boostId: 2,
-          totalPerDay: 3,
-          userId: 1278544551,
-          left: 3,
-        },
-      ];
-      console.log("Use Effect is Up");
-      setUser(user);
-      setPaidBoosts(paidBoost);
-      setFreeBoosts(freeBoost);
+    let foundState = localStorage.getItem(STORE_NAME);
+    if (foundState == null) { setUpState()}
+    const currentState = JSON.parse(foundState!)
+    if(currentState.state.defaultData) {
+      setUpState()
     }
+
     if (socketInstance.connected) {
       onConnect();
     }
@@ -136,6 +145,15 @@ export default function Home() {
       socketInstance.off("disconnect", onDisconnect);
     };
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+       updateEnergyByTime()
+    }, ONE_SECOND*2);
+    return () => clearInterval(interval);
+  }, []);
+
+
 
   if (!isMobile) {
     return (
