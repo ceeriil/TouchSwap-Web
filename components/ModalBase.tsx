@@ -17,6 +17,7 @@ type ModalProps = {
   level?: number;
   maxLevel?: number;
   disabled?:boolean;
+  noLevel?:boolean;
 };
 
 export const Modal: React.FC<ModalProps> = ({
@@ -30,10 +31,12 @@ export const Modal: React.FC<ModalProps> = ({
   onClick,
   maxLevel,
   level,
-  disabled=false
+  disabled=false,
+  noLevel = false
 }) => {
-  const balance  = useAppStore(state => state.user.balance);
-
+  const balance  = useAppStore(state => state.user!.balance);
+  const isLevelCompleted = maxLevel! >0  && level == maxLevel;
+  const isDisabled = disabled || isLevelCompleted 
   return (
     <AnimatePresence>
       {isOpen && (
@@ -64,43 +67,43 @@ export const Modal: React.FC<ModalProps> = ({
               <h3 className="text-2xl mb-2 mt-[-1.5rem] font-semibold">{title}</h3>
               <p className="text-[#B0AEB5] text-[13px] pb-1">{text}</p>
 
-              {cost && cost > 0 ? (
+              {cost && cost > 0 && !isLevelCompleted ? (
                 <div className="font-bold my-3 flex items-center">
                   Cost
                   <span className="ml-4 mr-1">
                     <DoubleCoin />
                   </span>
-                  {level ? cost * 2 ** level : cost}
+                  {cost}
                 </div>
               ) : (
                 <div className="font-bold my-3 flex items-center">
                   <DoubleCoin />
-                  <span className="mx-2"> Free</span>
+                  <span className="mx-2"> {!isLevelCompleted ? "Free" :"∞"}</span>
                   <DoubleCoin />
                 </div>
               )}
 
-              {level && (
+              {noLevel && !isLevelCompleted ? (
                 <div className="text-[#B0AEB5] text-[0.8rem]">
                   Level {level}/ {maxLevel}
                 </div>
-              )}
+              ) : (<div/>)}
 
               <div>{children}</div>
             </div>
 
             {cost <= balance ? (
               <button
-                className="btn bg-white w-full text-black py-4 font-bold rounded-lg align-baseline mt-12"
-                disabled={disabled}
+                className={`btn bg-white w-full text-black py-4 font-bold rounded-lg align-baseline mt-12 ${!isDisabled  ? "opacity-100" :"opacity-50"}`}
+                disabled={isDisabled }
                 onClick={onClick}
               >
-                Get
+                 {!isLevelCompleted  ? "Get" :"You are at the last Level"} 
               </button>
             ) : (
               <button
-                className="btn bg-[#A7A7A7] w-full text-black py-4 font-bold rounded-lg align-baseline mt-12"
-                disabled
+                className={`btn bg-[#A7A7A7] w-full text-black py-4 font-bold rounded-lg align-baseline mt-12 ${!isDisabled  ? "opacity-100" :"opacity-50"}`}
+                disabled={isDisabled}
               >
                 Insufficient Funds
               </button>
