@@ -30,6 +30,7 @@ export const ClaimReward: React.FC<ModalProps> = ({ onClose, isOpen, reward }) =
             className="fixed z-[20]  overflow-y-scroll bottom-0 h-[100%] w-full bg-[#18131FE5] px-3 py-6 text-center flex flex-col  left-0"
             style={{
               backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
             }}
           >
             <div className="flex flex-col text-center my-6 h-full justify-center mt-16 items-center">

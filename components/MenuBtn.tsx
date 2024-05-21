@@ -1,5 +1,5 @@
 import React from "react";
-import { Bubble } from "./assets/Bubble";
+import Image from "next/image";
 
 type MenuLink = {
   label: string;
@@ -17,7 +17,7 @@ export const MenuBtn: React.FC<MenuLink> = ({ label, icon, isActive, activeIcon,
         <div className="absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
           {isActive ? activeIcon : icon}
         </div>
-        <Bubble active={isActive} />
+        <img src={`${isActive ? "/img/bubbleactive.png" : "/img/bubble.png"}`} alt="Bubble" width={64} height={64} />
       </div>
 
       <div
