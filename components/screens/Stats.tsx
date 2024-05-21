@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Loader } from "../Loader";
 import { CrownIcon } from "../assets/CrownIcon";
 import { DoubleCoinIcon } from "../assets/DoubleCoinIcon";
+import { HeartIcon } from "../assets/Hearticon";
 import { TimerIcon } from "../assets/TimerIcon";
 import { StatsCard } from "../touchswap/StatsCard";
-import { getStats } from "@/services/data/stats";
-import { Loader } from "../Loader";
-import { HeartIcon } from "../assets/Hearticon";
 import { RefeshInterval } from "@/constants";
+import { getStats } from "@/services/data/stats";
+import numeral from "numeral";
 
 type StatsCardList = {
   title: string;
@@ -42,7 +43,6 @@ const initialStatsCardLists: StatsCardList[] = [
   },
 ];
 
-
 const fetchStats = async (): Promise<StatsCardList[]> => {
   try {
     const stats = await getStats();
@@ -50,7 +50,7 @@ const fetchStats = async (): Promise<StatsCardList[]> => {
       {
         title: "Total Share Balance",
         icon: <DoubleCoinIcon width="17" height="16" />,
-        count: stats.totalTokens.toFixed(),
+        count: numeral(stats.totalTokens).format("O.Oa"),
       },
       {
         title: "Total Touches",
@@ -83,18 +83,17 @@ export const StatsScreen = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const interval = setInterval(async () => setStatsCardLists( await fetchStats()),  RefeshInterval * 10);
+    const interval = setInterval(async () => setStatsCardLists(await fetchStats()), RefeshInterval * 10);
 
-    if(loading){
-      setTimeout(async ()=>{
-        const statsData =  await fetchStats()
-        setLoading(false)
-        setStatsCardLists(statsData); 
-      },500)
+    if (loading) {
+      setTimeout(async () => {
+        const statsData = await fetchStats();
+        setLoading(false);
+        setStatsCardLists(statsData);
+      }, 500);
     }
     return () => clearInterval(interval);
   }, []);
-
 
   if (loading) {
     return (

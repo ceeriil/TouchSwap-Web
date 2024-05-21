@@ -1,15 +1,17 @@
+"use client";
+
 import { SetStateAction, useEffect, useState } from "react";
+// import { useClientMediaQuery } from '@/hooks/useClientMediaQuery'
+import Image from "next/image";
 import { Menubar } from "@/components/Menubar";
 import { BadgesScreen, BoostScreen, HomeScreen, QuestScreen, RefsScreen, StatsScreen } from "@/components/screens";
 import { ConnectQuestScreen } from "@/components/screens/ConnectQuest";
 import { SocialQuestScreen } from "@/components/screens/SocialQuest";
-import { socketInstance } from "@/services/socket";
+import { isBrowser, socketInstance } from "@/services/socket";
 import { TBoost, useAppStore } from "@/services/store/store";
-// import { useClientMediaQuery } from '@/hooks/useClientMediaQuery'
-import Image from "next/image";
+
 // import { headers } from "next/headers"
 // import { getSelectorsByUserAgent } from "react-device-detect"
-
 
 const screens = {
   badges: <BadgesScreen />,
@@ -22,11 +24,8 @@ const screens = {
   wallet: <ConnectQuestScreen />,
 };
 
-
-
 export default function Home() {
-
-  const isMobile  = true
+  const isMobile = true;
 
   const [isConnected, setIsConnected] = useState(false);
   const [transport, setTransport] = useState("N/A");
@@ -35,81 +34,80 @@ export default function Home() {
   const setScreen = useAppStore(state => state.setScreen);
   const setUser = useAppStore(state => state.updateUser);
   const setPaidBoosts = useAppStore(state => state.setPaidBoosts);
-  const setFreeBoosts = useAppStore(state => state.setFreeBoosts)
+  const setFreeBoosts = useAppStore(state => state.setFreeBoosts);
 
   const screenRender = screens[screen];
 
   useEffect(() => {
-    let user = {
-      id: 1248734702,
-      username: "devdanhiel",
-      first: "Daniel",
-      last: "Ifechukwu",
-      touches: 0,
-      balance: 2000,
-      tapValue: 1,
-      rank: 0,
-      referedBy: null,
-      energy: {
-        maxEnergy: 1000,
-        energyLeft: 500,
-      },
-    };
-
-    let paidBoost = [
-      {
-        type: "paid",
-        boostId: 4,
-        level: 0,
-        cost: 1000,
-        maximumLevel: 10,
-        userId: user.id,
-      },
-      {
-        type: "paid",
-        boostId: 5,
-        level: 0,
-        cost: 500,
-        maximumLevel: 5,
-        userId: user.id,
-      },
-      {
-        type: "paid",
-        boostId: 3,
-        level: 0,
-        cost: 250,
-        maximumLevel: 10,
-        userId: user.id,
-      },
-      {
-        type: "paid-no-levels",
-        boostId: 6,
-        cost: 200000,
-        userId: 1278544551,
-      },
-    ];
-
-  const freeBoost : TBoost[] =  [
-    {
-      "type": "free",
-      "boostId": 1,
-      "totalPerDay": 3,
-      "userId": 1278544551,
-      "left": 3,
-    },
-    {
-      "type": "free",
-      "boostId": 2,
-      "totalPerDay": 3,
-      "userId": 1278544551,
-      "left": 3,
+    if (localStorage.getItem("AppStore") == null) {
+      let user = {
+        id: 1248734702,
+        username: "devdanhiel",
+        first: "Daniel",
+        last: "Ifechukwu",
+        touches: 0,
+        balance: 2000,
+        tapValue: 1,
+        rank: 0,
+        referedBy: null,
+        energy: {
+          maxEnergy: 1000,
+          energyLeft: 500,
+        },
+      };
+      let paidBoost = [
+        {
+          type: "paid",
+          boostId: 4,
+          level: 0,
+          cost: 1000,
+          maximumLevel: 10,
+          userId: user.id,
+        },
+        {
+          type: "paid",
+          boostId: 5,
+          level: 0,
+          cost: 500,
+          maximumLevel: 5,
+          userId: user.id,
+        },
+        {
+          type: "paid",
+          boostId: 3,
+          level: 0,
+          cost: 250,
+          maximumLevel: 10,
+          userId: user.id,
+        },
+        {
+          type: "paid-no-levels",
+          boostId: 6,
+          cost: 200000,
+          userId: 1278544551,
+        },
+      ];
+      const freeBoost: TBoost[] = [
+        {
+          type: "free",
+          boostId: 1,
+          totalPerDay: 3,
+          userId: 1278544551,
+          left: 3,
+        },
+        {
+          type: "free",
+          boostId: 2,
+          totalPerDay: 3,
+          userId: 1278544551,
+          left: 3,
+        },
+      ];
+      console.log("Use Effect is Up");
+      setUser(user);
+      setPaidBoosts(paidBoost);
+      setFreeBoosts(freeBoost);
     }
-  ]
-
-    setUser(user);
-    setPaidBoosts(paidBoost);
-    setFreeBoosts(freeBoost);
-    
     if (socketInstance.connected) {
       onConnect();
     }
@@ -133,25 +131,26 @@ export default function Home() {
     socketInstance.on("disconnect", onDisconnect);
 
     return () => {
+      console.log("Use Effect is ");
       socketInstance.off("connect", onConnect);
       socketInstance.off("disconnect", onDisconnect);
     };
   }, []);
 
-  if(!isMobile) {
-    return(
-    <div className="flex justify-center items-center min-h-screen ">
-      <div className="flex flex-col w-3/5  m-auto  justify-center items-center">
-        <div className="text-center mb-10">
-          <p className="text-4xl text-white font-bold mt-2"> Leave The Destop.</p>
-          <p className="text-4xl text-white font-bold mt-2"> Mobile Gaming Rocks!  </p>
+  if (!isMobile) {
+    return (
+      <div className="flex justify-center items-center min-h-screen ">
+        <div className="flex flex-col w-3/5  m-auto  justify-center items-center">
+          <div className="text-center mb-10">
+            <p className="text-4xl text-white font-bold mt-2"> Leave The Destop.</p>
+            <p className="text-4xl text-white font-bold mt-2"> Mobile Gaming Rocks! </p>
+          </div>
+          <div>
+            <Image className="rounded-lg" src={"/img/qrCOde.png"} alt="diamond" width={300} height={300} />
+          </div>
         </div>
-        <div >
-            <Image className="rounded-lg"  src={"/img/qrCOde.png"} alt="diamond" width={300} height={300} />
-        </div>
-      </div> 
-    </div>
-    )
+      </div>
+    );
   }
   return (
     <>
