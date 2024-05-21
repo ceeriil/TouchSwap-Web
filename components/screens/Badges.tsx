@@ -100,7 +100,7 @@ export const badgesLists: BadgesList[] = [
 ];
 
 export const BadgesScreen = () => {
-  const balance = useAppStore(state => state.user.balance);
+  const balance = useAppStore(state => state.user!.balance);
   const setScreen = useAppStore(state => state.setScreen);
 
   const goBack = () => {

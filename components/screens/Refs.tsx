@@ -2,7 +2,7 @@ import React, { use, useEffect, useState } from "react";
 import Image from "next/image";
 import { Loader } from "../Loader";
 import { RefsIcon } from "../assets/RefsIcon";
-import { RefeshInterval } from "@/constants";
+import { ONE_SECOND, RefeshInterval } from "@/constants";
 import { getUserRefers } from "@/services/data/refers";
 import { User } from "@/services/db/user";
 import { useAppStore } from "@/services/store/store";
@@ -29,7 +29,7 @@ export const RefsScreen: React.FC = () => {
 
   const fetchReferredUsers = async () => {
     try {
-      const users = await getUserRefers(user.id.toString());
+      const users = await getUserRefers(user!.id.toString());
       setReferredUsers(users);
     } catch (error) {
       console.error("Failed to fetch referred users", error);
@@ -48,6 +48,7 @@ export const RefsScreen: React.FC = () => {
     }
     return () => clearInterval(interval);
   }, []);
+
 
   if (loading) {
     return (
