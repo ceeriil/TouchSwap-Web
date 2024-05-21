@@ -3,7 +3,20 @@ import { Html, Head, Main, NextScript } from "next/document";
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+       <meta name="viewport" content="user-scalable=no"/>
+       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+      </Head>
+       <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener('touchmove', function (event) {
+                if (event.scale !== 1) { event.preventDefault(); }
+              }, { passive: false });
+            `,
+          }}
+        />
       <body>
         <Main />
         <NextScript />
