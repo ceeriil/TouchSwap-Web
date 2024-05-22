@@ -10,10 +10,10 @@ type BoostCardProps = {
   icon?: React.ReactNode;
   initialCost: number;
   id: number;
-  noLevel : boolean
+  noLevel?: boolean; // Ensure noLevel is optional
 };
 
-export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initialCost, id, noLevel= false }) => {
+export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initialCost, id, noLevel = false }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [currentBoost, setCurrentBoost] = useState<TBoost | null>(null);
 
@@ -21,8 +21,9 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
   const boosts = useAppStore((state) => state.paidBoosts);
   const updateBalance = useAppStore((state) => state.updateBalance);
   const updateBoostLevel = useAppStore((state) => state.updatePaidBoostLevel);
-  const increaseMaxEnergy  = useAppStore((state)=> state.increaseMaxEnergy)
-  const increaseTap = useAppStore((state)=> state.increaseTap)
+  const increaseMaxEnergy = useAppStore((state) => state.increaseMaxEnergy);
+  const increaseTap = useAppStore((state) => state.increaseTap);
+  const activateAutoClick = useAppStore(state=>state.activateAutoClick)
 
   useEffect(() => {
     const foundBoost = boosts.find((boost) => boost.boostId === id);
@@ -39,30 +40,35 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
 
   const handleBuyBoost = () => {
     if (currentBoost) {
-      let { cost, level, maximumLevel, boostId } = currentBoost;
+      const { cost, level, maximumLevel, boostId } = currentBoost;
       const totalCost = cost!;
 
-      if(boostId == 6) {
+      if (boostId === 6) {
         updateBalance(balance - totalCost);
+        activateAutoClick()
         closeModal();
-        return
+        return;
       }
+
       if (cost !== undefined && level !== undefined && maximumLevel !== undefined) {
         if (balance >= totalCost && level < maximumLevel) {
           updateBalance(balance - totalCost);
           updateBoostLevel(boostId, level + 1);
-          if(boostId == 5) increaseMaxEnergy()
-          if(boostId == 4) increaseTap()
+          if (boostId === 5) increaseMaxEnergy();
+          if (boostId === 4) increaseTap();
           closeModal();
         }
       }
     }
   };
 
-
   if (!currentBoost) {
     return null;
   }
+
+  const { level, maximumLevel, cost } = currentBoost;
+  const levelEnded = level! === maximumLevel! ;
+
 
 
   return (
@@ -70,11 +76,10 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
       <div className="light-green-gradient py-7 px-4 rounded h-full relative" onClick={openModal}>
         <div className="mb-3">{icon}</div>
         <h3 className="text-[0.8rem] font-[500] mb-4 leading-[1.8]">{title}</h3>
-        <Balance size="base" count={(currentBoost.cost || initialCost)} />
-         {
-          noLevel ? (<p className="text-[0.8rem] mt-3">Level {currentBoost.level} / {currentBoost.maximumLevel}</p>) : (<div> </div>)
-          //maxLevel! >0  && level == maxLevel
-         }
+        <Balance size="base" count={cost || initialCost} noCost={levelEnded} singleCost={noLevel} />
+        {!levelEnded && cost && (
+          <p className="text-[0.8rem] mt-3">{`Level ${level} / ${maximumLevel}`}</p>
+        )}
         <div className="absolute bottom-4 right-3">
           <OpenBtnIcon />
         </div>

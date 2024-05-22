@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ClaimReward } from "./ClaimReward";
+import numeral from "numeral";
 
 type BadgeCardProps = {
   title: string;
@@ -8,7 +9,9 @@ type BadgeCardProps = {
   requiredCoin: number;
   unlockedIcon?: React.ReactNode;
   lockedIcon?: React.ReactNode;
-  balance: number;
+  tokenMinned: number;
+  cliamed:boolean;
+  onCliam: () => void
 };
 
 export const BadgeCard: React.FC<BadgeCardProps> = ({
@@ -18,33 +21,26 @@ export const BadgeCard: React.FC<BadgeCardProps> = ({
   lockedIcon,
   unlockedIcon,
   requiredCoin,
-  balance,
+  tokenMinned,
+  cliamed = false,
+  onCliam
 }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const openModal = () => {
     setIsModalOpen(true);
+    onCliam()
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
-  const formatNumber = (amount: number): string => {
-    if (amount >= 1000000) {
-      return (amount / 1000000).toFixed(1) + "M";
-    } else if (amount >= 1000) {
-      return (amount / 1000).toFixed(1) + "k";
-    } else {
-      return amount.toString();
-    }
-  };
-
   return (
     <div key={title} className="flex flex-col items-center justify-center">
       <div className="w-[85px] h-[85px] mb-4 flex justify-center items-center relative">
         {isUnlocked ? unlockedIcon : lockedIcon}
-        <button
+        {cliamed && <button
           className="text-[0.65rem] px-2 purple-gradient rounded-full  py-[2px] border border-black absolute bottom-0 font-[500]"
           onClick={openModal}
           style={{
@@ -54,17 +50,17 @@ export const BadgeCard: React.FC<BadgeCardProps> = ({
         >
           Claim
         </button>
+        }
       </div>
-      <h3 className="text-[0.8rem] sf-pro-medium">{title}</h3>
+      <h3 className="text-[0.8rem] sf-pro-medium"> {isUnlocked ? title :"???"}</h3>
 
       <p className="text-[0.72rem] text-center mt-1 text-[#B0AEB5] sf-pro-medium">
-        {formatNumber(balance)} of {formatNumber(requiredCoin)} coins
+        { isUnlocked  || !cliamed ?  `${numeral(requiredCoin).format("Oa")} of ${numeral(tokenMinned).format("0a")} coins` :"??"}
       </p>
 
-      <div className="w-[65px] rounded-xl h-[3px] mt-[10px] bg-white">
+      <div className="w-[100px] rounded-xl h-[3px] mt-[10px] bg-white">
         <div
-          className="font-medium text-white text-center h-full leading-none rounded-xl flex justify-center items-center bg-[#EAAD65] "
-          style={{ width: `${(balance / requiredCoin) * 100}%` }}
+          className="font-medium text-white text-center h-full leading-none rounded-xl flex justify-center items-center bg-[#EAAD65] " style={{ width: `100%` }}
         ></div>
       </div>
 
