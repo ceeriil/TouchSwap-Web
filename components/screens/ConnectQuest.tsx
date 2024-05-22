@@ -1,10 +1,6 @@
 import React from "react";
 import { OpenQuestDetailScreen } from "./OpenQuestDetails";
-
-type Task = {
-  title: string;
-  completed: boolean;
-};
+import {Task} from "@/types"
 
 type QuestList = {
   title: string;
@@ -19,6 +15,9 @@ export const connectQuestsLists: QuestList = {
     {
       title: "Connect Wallet",
       completed: false,
+      link:"",
+      reward:1000,
+      confimationLink:""
     },
   ],
 };

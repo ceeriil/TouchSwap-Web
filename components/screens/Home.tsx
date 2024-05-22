@@ -30,6 +30,7 @@ export const HomeScreen = () => {
   useEffect(() => {
     const interval = setTimeout(() => {
        setExtraTapGlobalState(false)
+       console.log(extraTapActive)
     },  ONE_SECOND * 30);
     return () => clearTimeout(interval);
   }, [extraTapActive]); 

@@ -35,7 +35,6 @@ export const QuestScreen = () => {
         <p className="text-sm text-white leading-[1.7]">Participate in quests and earn rewards for your efforts.</p>
         <div className="mt-8">
           <QuestTab activeTab={activeTab} setActiveTab={setActiveTab} />
-
           {activeTab === 0 ? <OpenQuests /> : <ReferralQuests />}
         </div>
       </div>

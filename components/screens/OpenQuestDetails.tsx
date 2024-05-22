@@ -1,11 +1,7 @@
 import React from "react";
 import {ChevronLeftIcon} from "@heroicons/react/24/solid";
 import { useAppStore } from "@/services/store/store";
-
-type Task = {
-  title: string;
-  completed: boolean;
-};
+import {Task} from "@/types"
 
 type QuestList = {
   title: string;
@@ -13,7 +9,7 @@ type QuestList = {
   tasks: Task[];
 };
 
-const Tasks = ({ tasks }: { tasks: Task[] }) => {
+const Tasks = ({ tasks, claimReward }: { tasks: Task[], claimReward:()=> void }) => {
   return (
     <div>
       <div className="grid gap-2 pb-12">
@@ -27,9 +23,8 @@ const Tasks = ({ tasks }: { tasks: Task[] }) => {
             </div>
           );
         })}
-        <p className="mt-3 text-[0.81rem]">Starts in 15h:40m:3sec</p>
       </div>
-      <button className="btn bg-white w-full text-black py-4 font-[500] rounded-lg align-baseline">Claim Reward</button>
+      <button onClick={claimReward} className="btn bg-white w-full text-black py-4 font-[500] rounded-lg align-baseline">Claim Reward</button>
     </div>
   );
 };
@@ -39,6 +34,11 @@ export const OpenQuestDetailScreen: React.FC<QuestList> = QuestList => {
 
   const goBack = ()=>{
     setScreen("quests");
+  }
+
+  const handleCliamReward = () =>{
+     let totalReward =  QuestList.tasks.reduce((total,task)=> total + task.reward ,0)
+     console.log(totalReward)
   }
   
   return (
@@ -52,7 +52,7 @@ export const OpenQuestDetailScreen: React.FC<QuestList> = QuestList => {
         <h2 className="text-2xl font-[500] mb-3">{QuestList.title}</h2>
         <p className="text-[13px] text-white leading-[1.7]">{QuestList.desc}</p>
         <div className="mt-8">
-          <Tasks tasks={QuestList.tasks} />
+          <Tasks tasks={QuestList.tasks} claimReward={handleCliamReward} />
         </div>
       </div>
     </section>

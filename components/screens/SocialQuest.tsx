@@ -1,10 +1,7 @@
 import React from "react";
 import { OpenQuestDetailScreen } from "./OpenQuestDetails";
+import {Task} from "@/types"
 
-type Task = {
-  title: string;
-  completed: boolean;
-};
 
 type QuestList = {
   title: string;
@@ -19,14 +16,23 @@ export const socialQuestsLists: QuestList = {
     {
       title: "Join Our Telegram",
       completed: false,
+      link:"https://t.me/zaarwe_bot",
+      reward:100,
+      confimationLink:""
     },
     {
       title: "Follow us on X!",
       completed: false,
+      link:"https://twitter.com/Touchswap",
+      reward:100,
+      confimationLink:""
     },
     {
       title: "Visit our website!",
       completed: false,
+      link:"https://www.touchswap.xyz/",
+      reward:400,
+      confimationLink:""
     },
   ],
 };
