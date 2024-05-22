@@ -25,19 +25,7 @@ app.prepare().then(() => {
 
     socket.on("coin-click", async (message) => {
      // await userClick(message)
-    });
-
-    socket.on("use-free-boost", async (message) => {
-      // await userClick(message)
-    });
-
-    socket.on("use-paid-boost", async (message) => {
-      // await userClick(message)
-    });
-
-    socket.on("use-paid-no-level-boost", async (message) => {
-      // await userClick(message)
-    });
+    }); 
 
     socket.on('disconnect', async() => {
       await logout(socket.id);
