@@ -31,6 +31,7 @@ export type TUser = {
   rank: number;
   energy: Energy;
   connectionId: string;
+  totalCoinsMined:number
 };
 
 export const STORE_NAME = "Touch_Swap_Store";
@@ -49,9 +50,16 @@ export const emptyUser: TUser = {
     energyLeft: 100,
   },
   connectionId: "",
+  totalCoinsMined:1000,
 };
 
+type AutoClick = {
+  active:boolean,
+  startedOn:Date
+}
+
 type TAppStore = {
+  autoClick:AutoClick | null ,
   rechargeSpeed: number;
   defaultData: boolean;
   extraTap: boolean;
@@ -72,12 +80,16 @@ type TAppStore = {
   increaseMaxEnergy: () => void;
   increaseTap: () => void;
   updateEnergyByTime: () => void;
+  activateAutoClick:() =>  void;
+  deActivateAutoClick:() =>  void,
+  cliamRank:(rankId:number)=> void
 };
 
 export const useAppStore = create<TAppStore>()(
   devtools(
     persist(
       (set, get) => ({
+        autoClick:null ,
         rechargeSpeed: 0,
         defaultData: true,
         extraTap: false,
@@ -88,8 +100,9 @@ export const useAppStore = create<TAppStore>()(
         setScreen: (newValue: TScreens, payload: TScreenPayload | null | undefined): void =>
           set(() => ({ screen: newValue, screenPayload: payload })),
         setExtraTap: (isTrue: boolean): void => {
-          const { user } = get();
-          const touchValue = isTrue ? Math.floor(user.tapValue * 5) : Math.max(Math.floor(user.tapValue / 5), 1);
+          const { user, paidBoosts } = get();
+          const touchLevel = (paidBoosts.find(boost => boost.boostId === 4)?.level!) + 1; 
+          const touchValue = isTrue ? Math.floor(touchLevel * 5) : touchLevel;
           set(() => ({
             extraTap: isTrue,
             user: {
@@ -123,7 +136,7 @@ export const useAppStore = create<TAppStore>()(
           const { paidBoosts } = get();
           const updatedBoosts = paidBoosts.map(boost => {
             if(boost.boostId == boostId){
-              return  {...boost, level: boost.level!+1, cost: Math.imul(boost.cost!,2)  }
+              return  {...boost, level: boost.level!+1, cost: Math.imul(boost.cost!,4)  }
             }
             return boost
         });
@@ -163,7 +176,7 @@ export const useAppStore = create<TAppStore>()(
               ...user,
               energy: {
                 ...user.energy,
-                maxEnergy: user.energy.maxEnergy + 500,
+                maxEnergy: Math.imul(user.energy.maxEnergy ,2),
               },
             },
           }));
@@ -173,7 +186,7 @@ export const useAppStore = create<TAppStore>()(
           set(() => ({
             user: {
               ...user,
-              tapValue: user.tapValue + 1,
+              tapValue: ++user.tapValue ,
             },
           }));
         },
@@ -198,6 +211,21 @@ export const useAppStore = create<TAppStore>()(
             },
           }));
         },
+        activateAutoClick:()=> {
+           set(()=> ({autoClick: { active:true, startedOn: new Date(Date.now())}}))
+        },
+        deActivateAutoClick: () => {
+          set(()=>({autoClick:null}))
+        },
+        cliamRank:(rankId:number) =>{
+          const {user } = get()
+          set(()=>({
+            user:{
+              ...user, 
+              rank:rankId
+            }
+          }))
+        }
       }),
       {
         name: STORE_NAME,
@@ -205,7 +233,7 @@ export const useAppStore = create<TAppStore>()(
         onRehydrateStorage: state => {
           let previousState = localStorage.getItem(STORE_NAME);
           let defaultStateString = JSON.stringify({ state, version: 0 });
-          return (state, error) => {
+          return (_, error) => {
             if (error) {
               localStorage.setItem(STORE_NAME, defaultStateString);
             } else {

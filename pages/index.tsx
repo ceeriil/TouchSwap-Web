@@ -46,15 +46,16 @@ export default function Home() {
       username: "devdanhiel",
       first: "Daniel",
       last: "Ifechukwu",
-      touches: 0,
+      touches: 200000,
       balance: 20000000,
       tapValue: 1,
-      rank: 0,
+      rank: -1,
       referedBy: null,
       energy: {
-        maxEnergy: 1000,
-        energyLeft: 990,
+        maxEnergy: 500,
+        energyLeft: 500,
       },
+      totalCoinsMined: 5000000
     };
     let paidBoost = [
       {
