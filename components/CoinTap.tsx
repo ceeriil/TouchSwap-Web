@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import { TouchEvent } from "react";
-import Image from "next/image";
+import React, { useState, useEffect } from "react";
 import { Balance } from "./Balance";
 import { BgGlow } from "./assets/BgGlow";
 import { BgGlowGreen } from "./assets/BgGlowGreen";
 import { BgGlowPurple } from "./assets/BgGlowPurple";
 import { socketInstance } from "@/services/socket";
 import { useAppStore } from "@/services/store/store";
+import { ONE_SECOND } from "@/constants";
 
 type TapPosition = {
   key: number;
@@ -25,16 +24,31 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   const energyLeft = useAppStore(state => state.user!.energy.energyLeft); 
   const extraTapActive = useAppStore(state=> state.extraTap)
   const tapValue = useAppStore(state => state.user!.tapValue)
+  const autoClick = useAppStore(state=>state.autoClick)
   const updateBalance = useAppStore(state => state.updateBalance);
   const useEnergy = useAppStore(state => state.useEnergy);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if(autoClick!== null){
+        console.log(autoClick.startedOn)
+        //const currentTime = new Date().getTime();
+        //const hoursDifference = (currentTime - autoClick.startedOn.getTime()) / (1000 * 60 * 60);
+        if(autoClick.startedOn ){
+
+        }
+         //touchCoin()
+      }
+    }, ONE_SECOND);
+    return () => clearInterval(interval);
+  }, []);
 
   const coinClick = (id: number) => {
     socketInstance.emit("coin-click", id);
   };
 
 
-  const handleCoinTap = (e: TouchEvent) => {
-    console.log(e)
+  const handleCoinTap = (e: any) => {
     if(!user) return;
     if (energyLeft < 1) return;
     setCurrentFrame(prevFrame => (prevFrame + 1) % frames.length);
@@ -67,47 +81,33 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   };
 
 
-// const touchCoin = ()=> {
-//   const coinImg: HTMLImageElement | null = document.querySelector("img.coin-img.z-20");
+const touchCoin = ()=> {
+  const coinImg = document.querySelector("img.coin-img.z-20");
 
-//   if (coinImg) {
+  if (coinImg) {
+    const touchEvent = new TouchEvent('touchstart', {
+      touches: [new Touch({
+        identifier: 0,
+        target: coinImg,
+        clientX: coinImg.getBoundingClientRect().left,
+        clientY: coinImg.getBoundingClientRect().top
+      })],
+      bubbles: true,
+      cancelable: true
+    });
 
-//     // If you want to simulate a touch event instead, you can use this:
-//     const touch = new Touch({
-//       identifier: 0,
-//       target: coinImg,
-//       clientX: coinImg.getBoundingClientRect().left,
-//       clientY: coinImg.getBoundingClientRect().top,
-//       pageX: coinImg.getBoundingClientRect().left,
-//       pageY: coinImg.getBoundingClientRect().top,
-//       radiusX: 1,
-//       radiusY: 1,
-//       rotationAngle: 0,
-//       force: 1
-//     });
+    // Dispatch the touch event on the image element
+    coinImg.dispatchEvent(touchEvent);
+  } else {
+    console.error("Element not found");
+  }
 
-//     const touchEvent: TouchEvent = new TouchEvent('touchstart', {
-//       touches: [touch],
-//       targetTouches: [touch],
-//       changedTouches: [touch],
-//       bubbles: true,
-//       cancelable: true,
-//     });
+}
 
-//     // Dispatch the touch event on the image element
-//     coinImg.dispatchEvent(touchEvent);
-//   } else {
-//     console.error("Element not found");
-//   }
-// }
-
-  return (
+return (
     <>
-      <Balance count={balance} />
+      <Balance count={balance}  />
       <div className="relative mt-5 flex items-center justify-center h-[300px] w-[300px]">
-        {/*    <img src="/img/coin.svg" onTouchStart={handleCoinTap} className="coin-img z-20" /> */}
-
-        {/* Coin Animation: WIP */}
         {frames.map((frame, index) => (
           <img
             key={index}
@@ -139,12 +139,12 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
         ))}
         <BgGlow
           className={`${
-            extraTap || refill ? "opacity-0" : "opacity-100"
+            extraTapActive || refill ? "opacity-0" : "opacity-100"
           } absolute w-full top-[-30%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.3] transition-opacity duration-500 ease-in-out`}
         />
         <BgGlowGreen
           className={`${
-            extraTap ? "opacity-100" : "opacity-0"
+            extraTapActive ? "opacity-100" : "opacity-0"
           } absolute w-full top-[-70%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.5] transition-opacity duration-500 ease-in-out`}
         />
         <BgGlowPurple

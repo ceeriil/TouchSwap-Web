@@ -63,6 +63,10 @@ export const Menubar = () => {
             isActive = true
           }
 
+          if(label == "home" && screen == "badges" ) {
+            isActive = true
+          }
+
           return (
             <div key={label}>
               <MenuBtn
