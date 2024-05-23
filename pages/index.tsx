@@ -6,10 +6,9 @@ import { Menubar } from "@/components/Menubar";
 import { BadgesScreen, BoostScreen, HomeScreen, QuestScreen, RefsScreen, StatsScreen } from "@/components/screens";
 import { ConnectQuestScreen } from "@/components/screens/ConnectQuest";
 import { SocialQuestScreen } from "@/components/screens/SocialQuest";
-import { isBrowser, socketInstance } from "@/services/socket";
-import { emptyUser, STORE_NAME, TBoost, useAppStore } from "@/services/store/store";
 import { ONE_SECOND } from "@/constants";
-
+import { isBrowser, socketInstance } from "@/services/socket";
+import { STORE_NAME, TBoost, TUser, emptyUser, useAppStore } from "@/services/store/store";
 
 // import { headers } from "next/headers"
 // import { getSelectorsByUserAgent } from "react-device-detect"
@@ -37,26 +36,28 @@ export default function Home() {
   const setFreeBoosts = useAppStore(state => state.setFreeBoosts);
   const updateEnergyByTime = useAppStore(state => state.updateEnergyByTime);
 
-
   const screenRender = screens[screen];
 
-  const setUpState =()=>{
-    let user = {
+  const setUpState = () => {
+    let user: TUser = {
       id: 1248734702,
       username: "devdanhiel",
       first: "Daniel",
       last: "Ifechukwu",
       touches: 200000,
-      balance: 20000000,
+      balance: 20000,
       tapValue: 1,
       rank: -1,
-      referedBy: null,
       energy: {
         maxEnergy: 500,
         energyLeft: 500,
       },
-      totalCoinsMined: 5000000
+      totalCoinsMined: 30000,
+      connectionId: "",
+      totalRefered: 2000,
+      totalReferedCliamed: 1,
     };
+
     let paidBoost = [
       {
         type: "paid",
@@ -108,14 +109,16 @@ export default function Home() {
     setUser(user);
     setPaidBoosts(paidBoost);
     setFreeBoosts(freeBoost);
-  }
+  };
 
   useEffect(() => {
     let foundState = localStorage.getItem(STORE_NAME);
-    if (foundState == null) { setUpState()}
-    const currentState = JSON.parse(foundState!)
-    if(currentState.state.defaultData) {
-      setUpState()
+    if (foundState == null) {
+      setUpState();
+    }
+    const currentState = JSON.parse(foundState!);
+    if (currentState.state.defaultData) {
+      setUpState();
     }
 
     if (socketInstance.connected) {
@@ -149,12 +152,10 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-       updateEnergyByTime()
-    }, ONE_SECOND*2);
+      updateEnergyByTime();
+    }, ONE_SECOND * 2);
     return () => clearInterval(interval);
   }, []);
-
-
 
   if (!isMobile) {
     return (
