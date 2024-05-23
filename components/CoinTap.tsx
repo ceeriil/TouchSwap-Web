@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Balance } from "./Balance";
 import { BgGlow } from "./assets/BgGlow";
 import { BgGlowGreen } from "./assets/BgGlowGreen";
 import { BgGlowPurple } from "./assets/BgGlowPurple";
+import { ONE_SECOND } from "@/constants";
 import { socketInstance } from "@/services/socket";
 import { useAppStore } from "@/services/store/store";
-import { ONE_SECOND } from "@/constants";
 
 type TapPosition = {
   key: number;
@@ -13,31 +13,30 @@ type TapPosition = {
   y: number;
 };
 
-const frames = ["/img/coin1.svg", "/img/coin2.svg"];
+const frame = "/img/coin1.svg";
 
 export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boolean }) => {
   const user = useAppStore(state => state.user);
-  const [currentFrame, setCurrentFrame] = useState(0);
+  const [rotation, setRotation] = useState(0);
   const [tapPositions, setTapPositions] = useState<TapPosition[]>([]);
   const [tapCounter, setTapCounter] = useState(0);
   const balance = useAppStore(state => state.user!.balance);
-  const energyLeft = useAppStore(state => state.user!.energy.energyLeft); 
-  const extraTapActive = useAppStore(state=> state.extraTap)
-  const tapValue = useAppStore(state => state.user!.tapValue)
-  const autoClick = useAppStore(state=>state.autoClick)
+  const energyLeft = useAppStore(state => state.user!.energy.energyLeft);
+  const extraTapActive = useAppStore(state => state.extraTap);
+  const tapValue = useAppStore(state => state.user!.tapValue);
+  const autoClick = useAppStore(state => state.autoClick);
   const updateBalance = useAppStore(state => state.updateBalance);
   const useEnergy = useAppStore(state => state.useEnergy);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if(autoClick!== null){
-        console.log(autoClick.startedOn)
+      if (autoClick !== null) {
+        console.log(autoClick.startedOn);
         //const currentTime = new Date().getTime();
         //const hoursDifference = (currentTime - autoClick.startedOn.getTime()) / (1000 * 60 * 60);
-        if(autoClick.startedOn ){
-
+        if (autoClick.startedOn) {
         }
-         //touchCoin()
+        //touchCoin()
       }
     }, ONE_SECOND);
     return () => clearInterval(interval);
@@ -47,11 +46,10 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     socketInstance.emit("coin-click", id);
   };
 
-
   const handleCoinTap = (e: any) => {
-    if(!user) return;
+    if (!user) return;
     if (energyLeft < 1) return;
-    setCurrentFrame(prevFrame => (prevFrame + 1) % frames.length);
+    setRotation(prevRotation => prevRotation - 105);
     const touches = e.touches;
     const newTaps: TapPosition[] = [];
 
@@ -80,48 +78,59 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     setTapPositions(tapPositions.filter(tap => tap.key !== key));
   };
 
+  const touchCoin = () => {
+    const coinImg = document.querySelector("img.coin-img.z-20");
 
-const touchCoin = ()=> {
-  const coinImg = document.querySelector("img.coin-img.z-20");
+    if (coinImg) {
+      const touchEvent = new TouchEvent("touchstart", {
+        touches: [
+          new Touch({
+            identifier: 0,
+            target: coinImg,
+            clientX: coinImg.getBoundingClientRect().left,
+            clientY: coinImg.getBoundingClientRect().top,
+          }),
+        ],
+        bubbles: true,
+        cancelable: true,
+      });
 
-  if (coinImg) {
-    const touchEvent = new TouchEvent('touchstart', {
-      touches: [new Touch({
-        identifier: 0,
-        target: coinImg,
-        clientX: coinImg.getBoundingClientRect().left,
-        clientY: coinImg.getBoundingClientRect().top
-      })],
-      bubbles: true,
-      cancelable: true
-    });
+      // Dispatch the touch event on the image element
+      coinImg.dispatchEvent(touchEvent);
+    } else {
+      console.error("Element not found");
+    }
+  };
 
-    // Dispatch the touch event on the image element
-    coinImg.dispatchEvent(touchEvent);
-  } else {
-    console.error("Element not found");
-  }
-
-}
-
-return (
+  return (
     <>
-      <Balance count={balance}  />
+      <Balance count={balance} />
       <div className="relative mt-5 flex items-center justify-center h-[300px] w-[300px]">
-        {frames.map((frame, index) => (
+        {/*    {frames.map((frame, index) => (
           <img
             key={index}
             src={frame}
             onTouchStart={handleCoinTap}
             alt={`Frame ${index + 1}`}
-            className="coin-img z-20"
+            className="coin-img z-20 rotate-[-100deg]"
             style={{
               opacity: index === currentFrame ? 1 : 0,
               transition: "opacity 0.1s ease-in-out", // Smooth transition effect
               position: "absolute", // Position images on top of each other
             }}
           />
-        ))}
+        ))} */}
+
+        <img
+          src={frame}
+          onTouchStart={handleCoinTap}
+          alt="Coin"
+          className="coin-img z-20 rounded-[500px]"
+          style={{
+            transform: `rotate(${rotation}deg)`,
+            transition: "transform 0.5s",
+          }}
+        />
 
         {tapPositions.map(({ key, x, y }) => (
           <span
