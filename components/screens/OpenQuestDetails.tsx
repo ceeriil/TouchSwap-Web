@@ -1,13 +1,14 @@
 import React from "react";
+import { ClaimReward } from "../touchswap/ClaimReward";
 import { useAppStore } from "@/services/store/store";
-import { Task } from "@/types";
+import { LinkTask, QuestList } from "@/types";
 import Countdown from "react-countdown";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 
-type QuestList = {
-  title: string;
-  desc: string;
-  tasks: Task[];
+type Props = {
+  quest: QuestList;
+  handleClaim: () => void;
+  handleTaskOpen: (index: number) => void;
 };
 
 const renderer = ({
@@ -34,7 +35,15 @@ const renderer = ({
   }
 };
 
-const Tasks = ({ tasks, claimReward }: { tasks: Task[]; claimReward: () => void }) => {
+const Tasks = ({
+  tasks,
+  onTaskOpen,
+  onClaim,
+}: {
+  tasks: LinkTask[];
+  onTaskOpen: (index: number) => void;
+  onClaim: () => void;
+}) => {
   return (
     <div>
       <div className="grid gap-2 pb-12">
@@ -44,17 +53,19 @@ const Tasks = ({ tasks, claimReward }: { tasks: Task[]; claimReward: () => void 
               <div className="">
                 <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title}</h3>
               </div>
-              <button className="text-sm bg-[#A7A7A7] text-black py-2 px-2 rounded-lg font-medium">Start</button>
+              <button
+                onClick={() => onTaskOpen(index)}
+                className="text-sm bg-[#A7A7A7] text-black py-2 px-2 rounded-lg font-medium"
+              >
+                Start
+              </button>
             </div>
           );
         })}
-        <p className="pt-2 text-[0.75rem]">
-          Starts in <Countdown date={"2024-05-31T00:00:00"} renderer={renderer} />
-        </p>
       </div>
 
       <button
-        onClick={claimReward}
+        onClick={onClaim}
         className="btn bg-[#A7A7A7] w-full text-black py-4 font-[500] rounded-lg align-baseline"
       >
         Claim Reward
@@ -63,18 +74,12 @@ const Tasks = ({ tasks, claimReward }: { tasks: Task[]; claimReward: () => void 
   );
 };
 
-export const OpenQuestDetailScreen: React.FC<QuestList> = QuestList => {
+export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, handleClaim }) => {
   const setScreen = useAppStore(store => store.setScreen);
 
   const goBack = () => {
     setScreen("quests");
   };
-
-  const handleCliamReward = () => {
-    let totalReward = QuestList.tasks.reduce((total, task) => total + task.reward, 0);
-    console.log(totalReward);
-  };
-
   return (
     <section className="pb-32 overflow-y-auto">
       <div className="container mx-auto px-5 my-8">
@@ -83,10 +88,10 @@ export const OpenQuestDetailScreen: React.FC<QuestList> = QuestList => {
             <ChevronLeftIcon width={20} />
           </button>
         </div>
-        <h2 className="text-2xl font-[500] mb-3">{QuestList.title}</h2>
-        <p className="text-[13px] text-white leading-[1.7]">{QuestList.desc}</p>
+        <h2 className="text-2xl font-[500] mb-3">{quest.title}</h2>
+        <p className="text-[13px] text-white leading-[1.7]">{quest.desc}</p>
         <div className="mt-8">
-          <Tasks tasks={QuestList.tasks} claimReward={handleCliamReward} />
+          <Tasks tasks={quest.tasks} onTaskOpen={handleTaskOpen} onClaim={handleClaim} />
         </div>
       </div>
     </section>
