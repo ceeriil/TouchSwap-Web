@@ -5,7 +5,7 @@ type BalanceProps = {
   size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl";
   count: number;
   noCost?: boolean;
-  singleCost?: boolean
+  singleCost?: boolean;
 };
 
 const coinSizeMap = {
@@ -17,11 +17,11 @@ const coinSizeMap = {
   "2xl": 30,
 };
 
-export const Balance: React.FC<BalanceProps> = ({ size = "2xl", count, noCost = false , singleCost=false}) => {
+export const Balance: React.FC<BalanceProps> = ({ size = "2xl", count, noCost = false, singleCost = false }) => {
   return (
-    <div className={`text-${size} font-[700] flex items-center`}>
+    <div className={`text-${size} font-[600] flex items-center`}>
       <DoubleCoinIcon width={coinSizeMap[size]} height="29" />
-      <span className="ml-1 text-${size}">{noCost && singleCost  ? "∞" : count.toLocaleString()}</span>
+      <span className="ml-1 text-${size}">{noCost && singleCost ? "∞" : count.toLocaleString()}</span>
     </div>
   );
 };
