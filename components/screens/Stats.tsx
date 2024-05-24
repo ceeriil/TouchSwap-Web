@@ -108,12 +108,8 @@ export const StatsScreen = () => {
       <div className="container mx-auto px-4 my-5">
         <h2 className="text-2xl font-bold mb-3 tracking-tight">Statistics</h2>
         <p className="text-sm text-white my-3 font-medium">
-          You are among the top <span className="bg-purple-700 rounded-full px-2 py-1 text-xs">20%</span> players!
+          This are our application stats
         </p>
-        <div className="text-sm font-medium">
-          23,049/<span className="text-gray-400">3,382,538</span>
-        </div>
-
         <div className="bg-gray-800 h-px w-full my-5" />
         <div className="mt-3">
           <div className="grid grid-cols-2 gap-2">
