@@ -233,7 +233,7 @@ p {
   }
   100% {
     opacity: 0;
-    transform: translateY(-300px);
+    transform: translateY(-250px);
   }
 }
 
