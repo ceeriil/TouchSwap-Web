@@ -16,8 +16,8 @@ type ModalProps = {
   onClick?: () => void;
   level?: number;
   maxLevel?: number;
-  disabled?:boolean;
-  noLevel?:boolean;
+  disabled?: boolean;
+  noLevel?: boolean;
 };
 
 export const Modal: React.FC<ModalProps> = ({
@@ -31,12 +31,12 @@ export const Modal: React.FC<ModalProps> = ({
   onClick,
   maxLevel,
   level,
-  disabled=false,
-  noLevel = false
+  disabled = false,
+  noLevel = false,
 }) => {
-  const balance  = useAppStore(state => state.user!.balance);
-  const isLevelCompleted = maxLevel! >0  && level == maxLevel;
-  const isDisabled = disabled || isLevelCompleted 
+  const balance = useAppStore(state => state.user!.balance);
+  const isLevelCompleted = maxLevel! > 0 && level == maxLevel;
+  const isDisabled = disabled || isLevelCompleted;
   return (
     <AnimatePresence>
       {isOpen && (
@@ -58,7 +58,7 @@ export const Modal: React.FC<ModalProps> = ({
           >
             <div className="flex flex-col items-center">
               <div className="relative overflow-hidden ">
-                <Image src={"/img/shine.svg"} alt="diamond" width={240} height={240} />
+                <Image src={"/img/shine.svg"} alt="diamond" width={240} height={240} priority={true} />
                 <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] scale-[2.5]">
                   {icon}
                 </div>
@@ -78,7 +78,7 @@ export const Modal: React.FC<ModalProps> = ({
               ) : (
                 <div className="font-bold my-3 flex items-center">
                   <DoubleCoin />
-                  <span className="mx-2"> {!isLevelCompleted ? "Free" :"∞"}</span>
+                  <span className="mx-2"> {!isLevelCompleted ? "Free" : "∞"}</span>
                   <DoubleCoin />
                 </div>
               )}
@@ -87,22 +87,28 @@ export const Modal: React.FC<ModalProps> = ({
                 <div className="text-[#B0AEB5] text-[0.8rem]">
                   Level {level}/ {maxLevel}
                 </div>
-              ) : (<div/>)}
+              ) : (
+                <div />
+              )}
 
               <div>{children}</div>
             </div>
 
             {cost <= balance ? (
               <button
-                className={`btn bg-white w-full text-black py-4 font-bold rounded-lg align-baseline mt-12 ${!isDisabled  ? "opacity-100" :"opacity-50"}`}
-                disabled={isDisabled }
+                className={`btn bg-white w-full text-black py-4 font-bold rounded-lg align-baseline mt-12 ${
+                  !isDisabled ? "opacity-100" : "opacity-50"
+                }`}
+                disabled={isDisabled}
                 onClick={onClick}
               >
-                 {!isLevelCompleted  ? "Get" :"You are at the last Level"} 
+                {!isLevelCompleted ? "Get" : "You are at the last Level"}
               </button>
             ) : (
               <button
-                className={`btn bg-[#A7A7A7] w-full text-black py-4 font-bold rounded-lg align-baseline mt-12 ${!isDisabled  ? "opacity-100" :"opacity-50"}`}
+                className={`btn bg-[#A7A7A7] w-full text-black py-4 font-bold rounded-lg align-baseline mt-12 ${
+                  !isDisabled ? "opacity-100" : "opacity-50"
+                }`}
                 disabled={isDisabled}
               >
                 Insufficient Funds

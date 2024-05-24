@@ -108,24 +108,33 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   return (
     <>
       <Balance count={balance} />
-      <div className="relative mt-8 flex items-center justify-center  rounded-full">
-        <button className="relative flex items-center justify-center h-[300px] w-[335px] rounded-full">
+      <div className="relative mt-5 flex items-center justify-center  rounded-full">
+        <button className="relative flex items-center justify-center h-[285px] w-[285px] rounded-full">
           <img
             src={frames[0]}
             alt={`Frame `}
-            className="coin-img w-full  z-20 rounded-full"
+            className="coin-img w-full  z-20 rounded-full absolute top-0 bottom-0 left-0 right-0"
             style={{
-              transition: "all 0.3s forwards ease-out",
-              rotate: `${rotation}`,
+              transition: "all 0.3s ease-in-out",
+              rotate: `${rotation}deg`,
             }}
-            onTouchStart={handleCoinTap}
           />
+          <img
+            src={frames[0]}
+            alt={`Frame `}
+            className="coin-img w-full  z-20 rounded-full opacity-0"
+            onTouchStart={handleCoinTap}
+            style={{
+              transition: "all 0.3s ease-in-out",
+            }}
+          />
+
           {tapPositions.map(({ key, x, y }) => (
             <span
               key={key}
               className="absolute silver-text text-[1.5rem] z-30 font-semibold"
               style={{
-                top: `${y - 35}px`,
+                top: `${y - 5}px`,
                 left: x,
                 animation: "numberAnimation 1.5s forwards ease-out",
               }}
@@ -139,18 +148,18 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
         <BgGlow
           className={`${
             extraTapActive || refill ? "opacity-0" : "opacity-100"
-          } absolute w-full top-[-30%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.3] transition-opacity duration-500 ease-in-out`}
+          } absolute w-full top-[-30%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.1] transition-opacity duration-500 ease-in-out`}
         />
-        {/*    <BgGlowGreen
+        <BgGlowGreen
           className={`${
             extraTapActive ? "opacity-100" : "opacity-0"
-          } absolute w-full top-[-70%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.5] transition-opacity duration-500 ease-in-out`}
+          } absolute w-full top-[-70%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.1] transition-opacity duration-500 ease-in-out`}
         />
         <BgGlowPurple
           className={`${
             refill ? "opacity-100" : "opacity-0"
-          } absolute w-full top-[-70%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.5] transition-opacity duration-500 ease-in-out`}
-        />  */}
+          } absolute w-full top-[-70%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.1] transition-opacity duration-500 ease-in-out`}
+        />
       </div>
     </>
   );
