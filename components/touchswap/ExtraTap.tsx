@@ -12,7 +12,7 @@ export const ExtraTap: React.FC<Props> = ({ left = 3, total = 3 }) => {
       <p className="text-[0.8rem] mb-1 text-white text-left pl-2 font-medium">
         Extra <br /> Taps
       </p>
-      <div className="relative z-20">
+      <div className="relative z-[40]">
         <div
           className="absolute purple-gradient bottom-0 left-[50%] px-2 rounded-2xl transform translate-x-[-60%] text-[0.8rem] translate-y-[50%]"
           style={{

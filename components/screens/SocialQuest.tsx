@@ -30,9 +30,13 @@ export const socialQuestsLists: QuestList = {
 };
 
 export const SocialQuestScreen = () => {
-  const handleCliam = () => {};
+  const handleClaim = () => {
+    console.log("ikddui");
+  };
 
-  const handleTaskOpen = (index: number) => {};
+  const handleTaskOpen = (index: number) => {
+    console.log(socialQuestsLists.tasks[index]);
+  };
 
-  return <OpenQuestDetailScreen quest={socialQuestsLists} handleClaim={handleCliam} handleTaskOpen={handleTaskOpen} />;
+  return <OpenQuestDetailScreen quest={socialQuestsLists} handleClaim={handleClaim} handleTaskOpen={handleTaskOpen} />;
 };

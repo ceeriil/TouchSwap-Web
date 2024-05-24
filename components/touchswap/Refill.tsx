@@ -14,7 +14,7 @@ export const Refill: React.FC<Props> = ({ left = 0, total = 3 }) => {
         <br />
         Refill
       </p>
-      <div className="relative z-20">
+      <div className="relative z-[40]">
         <div
           className="absolute purple-gradient bottom-0 left-[50%] px-2 rounded-2xl transform translate-x-[-50%] text-[0.8rem] translate-y-[50%]"
           style={{

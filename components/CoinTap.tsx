@@ -13,7 +13,7 @@ type TapPosition = {
   y: number;
 };
 
-const frames = ["/img/coin1.svg", "/img/coin2.svg"];
+const frames = ["/img/coin.png", "/img/coin.png"];
 
 export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boolean }) => {
   const user = useAppStore(state => state.user);
@@ -61,6 +61,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
       const offsetX = clientX - targetRect.left;
       const offsetY = clientY - targetRect.top;
       newTaps.push({ key: tapCounter + i, x: offsetX, y: offsetY });
+      console.log(offsetX, offsetY);
     }
 
     setTapPositions([...tapPositions, ...newTaps]);
@@ -107,33 +108,34 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   return (
     <>
       <Balance count={balance} />
-      <div className="relative mt-5 flex items-center justify-center h-[285px] w-[335px]">
-        <button onTouchStart={handleCoinTap} className="absolute z-20">
+      <div className="relative mt-8 flex items-center justify-center  rounded-full">
+        <button className="relative flex items-center justify-center h-[300px] w-[335px] rounded-full">
           <img
-            src={frames[1]}
+            src={frames[0]}
             alt={`Frame `}
-            className="coin-img"
+            className="coin-img w-full  z-20 rounded-full"
             style={{
-              transition: "all 0.3s ease-in-out",
+              transition: "all 0.3s forwards ease-out",
               rotate: `${rotation}`,
             }}
+            onTouchStart={handleCoinTap}
           />
+          {tapPositions.map(({ key, x, y }) => (
+            <span
+              key={key}
+              className="absolute silver-text text-[1.5rem] z-30 font-semibold"
+              style={{
+                top: `${y - 35}px`,
+                left: x,
+                animation: "numberAnimation 1.5s forwards ease-out",
+              }}
+              onAnimationEnd={() => handleAnimationEnd(key)}
+            >
+              +{tapValue}
+            </span>
+          ))}
         </button>
 
-        {tapPositions.map(({ key, x, y }) => (
-          <span
-            key={key}
-            className="absolute silver-text text-[1.5rem] z-30 font-semibold"
-            style={{
-              top: y,
-              left: x,
-              animation: "numberAnimation 2s forwards ease-out",
-            }}
-            onAnimationEnd={() => handleAnimationEnd(key)}
-          >
-            +{tapValue}
-          </span>
-        ))}
         <BgGlow
           className={`${
             extraTapActive || refill ? "opacity-0" : "opacity-100"

@@ -7,14 +7,14 @@ import { useAppStore } from "@/services/store/store";
 
 export const ReferralButton: React.FC<ReferralQuestsList> = ({ count, reward, completed, claimed }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const balannce = useAppStore(state => state.user.balance);
+  const balance = useAppStore(state => state.user.balance);
   const updateBalance = useAppStore(state => state.updateBalance);
   const updateTotalReferedCliamed = useAppStore(state => state.updateTotalReferedCliamed);
 
   const openModal = () => {
     if (claimed) return;
     setIsModalOpen(true);
-    updateBalance(balannce + reward);
+    updateBalance(balance + reward);
     updateTotalReferedCliamed(count);
   };
 
@@ -25,7 +25,7 @@ export const ReferralButton: React.FC<ReferralQuestsList> = ({ count, reward, co
   return (
     <div className="bg-[#293641] py-3 px-4 rounded-[6px] h-full flex items-center justify-between">
       <div className="flex items-center">
-        <Image src={"/img/ref.svg"} width={40} height={40} alt="Referal Icon" />
+        <Image src={"/img/ref.svg"} width={40} height={40} alt="Referral Icon" />
         <div className="ml-3">
           <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{count} Invite</h3>
           <div className="text-[0.75rem] font-medium flex items-center">
