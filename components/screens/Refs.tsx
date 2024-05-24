@@ -6,15 +6,16 @@ import { ONE_SECOND, RefeshInterval } from "@/constants";
 import { getUserRefers } from "@/services/data/refers";
 import { User } from "@/services/db/user";
 import { useAppStore } from "@/services/store/store";
+import { notification } from "@/utils/notifications";
 
-export const InviteComponent = () => {
+export const InviteComponent = ({copyInvite}:{copyInvite:()=>void}) => {
   return (
     <div className="flex flex-col text-center items-center my-6 h-[70%] justify-center mt-8 ">
       <p className="text-[0.8rem]">You currently have zero referrals, Damn</p>
       <div className="my-4">
         <RefsIcon />
       </div>
-      <button className="btn bg-white w-full text-black py-4 font-[500] rounded-lg align-baseline">
+      <button onClick={copyInvite} className="btn bg-white w-full text-black py-4 font-[500] rounded-lg align-baseline">
         Invite a Friend!
       </button>
     </div>
@@ -24,8 +25,15 @@ export const InviteComponent = () => {
 export const RefsScreen: React.FC = () => {
   const [referredUsers, setReferredUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const userId = useAppStore(state=>state.user.id)
 
   const user = useAppStore(state => state.user);
+
+  const copyInvite =()=>{
+    navigator.clipboard.writeText(`https://t.me/touchswap_bot?start=r_${userId}`);
+    notification.success("Copied Invite")
+  }
+  
 
   const fetchReferredUsers = async () => {
     try {
@@ -69,12 +77,12 @@ export const RefsScreen: React.FC = () => {
             <p className="text-[0.8rem] text-white font-[500]">Refer a friend</p>
             <p className="text-[#AFAFAF] text-[0.8rem] my-3">{refsList.length} referrals</p>
           </div>
-          <button className="btn bg-white px-3 text-black py-3 font-[500] rounded text-[13px]">Invite a Friend!</button>
+          <button onClick={copyInvite} className="btn bg-white px-3 text-black py-3 font-[500] rounded text-[13px]">Invite a Friend!</button>
         </div>
 
         <div className="bg-[#182334] h-[1px] w-full my-5" />
         {refsList.length === 0 ? (
-          <InviteComponent />
+          <InviteComponent copyInvite={copyInvite} />
         ) : (
           <div className="grid gap-1 my-8 mt-1">
             {refsList.map(({ username }, index) => (
