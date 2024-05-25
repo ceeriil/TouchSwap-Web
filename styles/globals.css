@@ -27,6 +27,11 @@ body {
   background: #08030d;
   overflow-y: hidden !important;
   width: 100%;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 main {
@@ -188,6 +193,10 @@ p {
   animation: spin 1s linear infinite;
 }
 
+.button-animation {
+  animation: buttonAnimation 1s infinite ease-in-out;
+}
+
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -232,6 +241,16 @@ p {
   100% {
     opacity: 0;
     transform: translateY(-250px);
+  }
+}
+
+@keyframes buttonAnimation {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
   }
 }
 

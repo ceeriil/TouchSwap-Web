@@ -6,7 +6,7 @@ import { BgGlowPurple } from "./assets/BgGlowPurple";
 import { ONE_SECOND } from "@/constants";
 import { socketInstance } from "@/services/socket";
 import { useAppStore } from "@/services/store/store";
-import { HapticFeedback, initHapticFeedback, isSSR, retrieveLaunchParams } from '@tma.js/sdk-react';
+import { HapticFeedback, initHapticFeedback, isSSR, retrieveLaunchParams } from "@tma.js/sdk-react";
 
 type TapPosition = {
   key: number;
@@ -32,15 +32,13 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && !isSSR()) {
+    if (typeof window !== "undefined" && !isSSR()) {
       setHapticFeedback(initHapticFeedback());
     }
   }, []);
-  
 
   useEffect(() => {
     const interval = setInterval(() => {
-     
       if (autoClick !== null) {
         console.log(autoClick.startedOn);
         //const currentTime = new Date().getTime();
@@ -60,7 +58,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   const handleCoinTap = (e: any) => {
     if (!user) return;
     if (energyLeft < 1) return;
-    if(typeof window !== 'undefined') hapticFeedback?.impactOccurred("heavy");
+    if (typeof window !== "undefined") hapticFeedback?.impactOccurred("heavy");
     setCurrentFrame(prevFrame => (prevFrame + 1) % frames.length);
     setRotation(prevRotation => prevRotation - 105);
     const touches = e.touches;
@@ -116,7 +114,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     <>
       <Balance count={balance} />
       <div className="relative mt-5 flex items-center justify-center  rounded-full">
-        <button className="relative flex items-center justify-center h-[285px] w-[285px] rounded-full">
+        <button className="relative flex items-center justify-center h-[285px] w-[285px] rounded-full coin-img">
           <img
             src={frames[0]}
             alt={`Frame `}
@@ -139,7 +137,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
           {tapPositions.map(({ key, x, y }) => (
             <span
               key={key}
-              className="absolute silver-text text-[1.5rem] z-30 font-semibold"
+              className="absolute text-white text-[1.5rem] z-30 font-semibold"
               style={{
                 top: `${y - 5}px`,
                 left: x,

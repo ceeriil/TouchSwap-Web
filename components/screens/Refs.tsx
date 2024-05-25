@@ -16,7 +16,10 @@ export const InviteComponent = ({ copyInvite }: { copyInvite: () => void }) => {
       <div className="my-4">
         <RefsIcon />
       </div>
-      <button onClick={copyInvite} className="btn bg-white w-full text-black py-4 font-[500] rounded-lg align-baseline">
+      <button
+        onClick={copyInvite}
+        className="btn bg-white w-full text-black py-4 font-[500] rounded-lg align-baseline button-animation"
+      >
         Invite a Friend!
       </button>
     </div>

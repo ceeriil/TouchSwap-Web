@@ -39,7 +39,7 @@ export const ReferralButton: React.FC<ReferralQuestsList> = ({ count, reward, co
         onClick={openModal}
         disabled={!completed}
         className={`${
-          !completed ? "bg-[#A7A7A7]" : "bg-[#FCFCFC]"
+          !completed || claimed ? "bg-[#A7A7A7]" : "bg-[#FCFCFC]"
         } text-sm  text-black py-2 px-2 rounded-lg font-medium `}
       >
         {claimed ? "claimed" : "claim"}
