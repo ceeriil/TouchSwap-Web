@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Balance } from "./Balance";
 import { BgGlow } from "./assets/BgGlow";
 import { BgGlowGreen } from "./assets/BgGlowGreen";
@@ -6,6 +6,7 @@ import { BgGlowPurple } from "./assets/BgGlowPurple";
 import { ONE_SECOND } from "@/constants";
 import { socketInstance } from "@/services/socket";
 import { useAppStore } from "@/services/store/store";
+import { HapticFeedback, initHapticFeedback, isSSR, retrieveLaunchParams } from '@tma.js/sdk-react';
 
 type TapPosition = {
   key: number;
@@ -28,9 +29,18 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   const updateBalance = useAppStore(state => state.updateBalance);
   const useEnergy = useAppStore(state => state.useEnergy);
   const [rotation, setRotation] = useState(0);
+  const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !isSSR()) {
+      setHapticFeedback(initHapticFeedback());
+    }
+  }, []);
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
+     
       if (autoClick !== null) {
         console.log(autoClick.startedOn);
         //const currentTime = new Date().getTime();
@@ -50,6 +60,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   const handleCoinTap = (e: any) => {
     if (!user) return;
     if (energyLeft < 1) return;
+    if(typeof window !== 'undefined') hapticFeedback?.impactOccurred("heavy");
     setCurrentFrame(prevFrame => (prevFrame + 1) % frames.length);
     setRotation(prevRotation => prevRotation - 105);
     const touches = e.touches;
@@ -68,10 +79,6 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     setTapCounter(tapCounter + touches.length);
 
     const totalTapValue = tapValue * touches.length;
-    if ("vibrate" in navigator) {
-      navigator.vibrate(1000);
-    }
-
     updateBalance(balance + totalTapValue);
     useEnergy(tapValue);
     coinClick(user!.id);
