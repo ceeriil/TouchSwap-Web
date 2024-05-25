@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { usePathname } from "next/navigation";
 import { MenuBtn } from "./MenuBtn";
 import { BoostIcon } from "./assets/BoostIcon";
@@ -7,6 +7,7 @@ import { SpeakerIcon } from "./assets/SpeakerIcon";
 import { StatsIcon } from "./assets/StatsIcon";
 import { TaskIcon } from "./assets/TaskIcon";
 import {  TScreens, useAppStore } from "@/services/store/store";
+import { isSSR , initHapticFeedback, HapticFeedback} from "@tma.js/sdk-react";
 
 type MenuLink = {
   label: string;
@@ -43,10 +44,24 @@ export const menuLinks: MenuLink[] = [
 ];
 
 export const Menubar = () => {
-  const pathname = usePathname();
+
+  const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !isSSR()) {
+      setHapticFeedback(initHapticFeedback());
+    }
+  }, []);
+
+
 
   const screen = useAppStore(state => state.screen);
   const setScreen = useAppStore(state => state.setScreen);
+
+  const handleMenuClick=(label:string) => {
+    setScreen(label as TScreens)
+    hapticFeedback?.impactOccurred("light")
+  }
 
   return (
     <div
@@ -74,7 +89,7 @@ export const Menubar = () => {
                 icon={icon}
                 activeIcon={activeIcon}
                 isActive={isActive}
-                onClick={() => setScreen(label as TScreens)}
+                onClick={() => handleMenuClick(label)}
               />
             </div>
           );

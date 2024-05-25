@@ -8,6 +8,9 @@ import { ExtraTap } from "../touchswap/ExtraTap";
 import { Refill } from "../touchswap/Refill";
 import { ONE_SECOND } from "@/constants";
 import { TBoost, useAppStore } from "@/services/store/store";
+import { isSSR, initHapticFeedback, HapticFeedback } from "@tma.js/sdk-react";
+//import { useHapticFeedback } from '@zakarliuka/react-telegram-web-tools'
+
 
 export const HomeScreen = () => {
   const [showModal, setShowModal] = useState(false);
@@ -26,6 +29,7 @@ export const HomeScreen = () => {
 
   const freeBoosts = useAppStore(state=> state.freeBoosts);
   const setFreeBoosts = useAppStore(state=> state.setFreeBoosts)
+  // const [tap] = useHapticFeedback()
 
   useEffect(() => {
     const interval = setTimeout(() => {
@@ -39,7 +43,15 @@ export const HomeScreen = () => {
     setExtraTapBoost(freeBoosts[0])
     setFreeRefillBoost(freeBoosts[1])
   }, [freeBoosts,freeRefillBoost, extraTapBoost]); 
+  
+  const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !isSSR()) {
+      setHapticFeedback(initHapticFeedback());
+    }
+  }, []);
+  
   const handleCloseModal = () => {
     setShowModal(false);
   };
@@ -47,6 +59,7 @@ export const HomeScreen = () => {
   const handleExtraTap = () => {
     if(!extraTapBoost)  return
     if((extraTapBoost.left || 0)  < 1) return
+    hapticFeedback?.impactOccurred("rigid")
     setExtraTap(true);
     setShowModal(false);
     setExtraTapGlobalState(true)
@@ -58,6 +71,7 @@ export const HomeScreen = () => {
   const handleRefill = () => {
     if(!freeRefillBoost)  return
     if((freeRefillBoost.left || 0)  < 1) return
+    hapticFeedback?.impactOccurred("rigid")
     setRefill(true);
     setShowRefillModal(false);
     useRefill()
@@ -68,6 +82,7 @@ export const HomeScreen = () => {
 
   const handleExtraTapOpen = () => {
     setShowModal(true);
+    hapticFeedback?.impactOccurred("medium");
   };
 
   const handleRefillClose = ()=>{
@@ -80,6 +95,7 @@ export const HomeScreen = () => {
   
   const handleRefillOpen = () => {
     setShowRefillModal(true);
+    hapticFeedback?.impactOccurred("medium")
   };
 
   return (
