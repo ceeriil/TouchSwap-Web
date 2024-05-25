@@ -41,7 +41,7 @@ export const RefsScreen: React.FC = () => {
   const copyInvite = () => {
     navigator.clipboard.writeText(`https://t.me/touchswap_bot?start=r_${userId}`);
     hapticFeedback?.impactOccurred("heavy");
-    notification.success("Copied Invite");
+    notification.success("link copied");
   };
 
   const fetchReferredUsers = async () => {
