@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import { AutoSwipeIcon } from "../assets/AutoSwipeIcon";
 import { DolphinBadge } from "../assets/badges/DolphinBadge";
 import { KrakenBadge } from "../assets/badges/KrakenBadge";
@@ -13,6 +13,8 @@ import { BadgeCard } from "../touchswap/BadgeCard";
 import { BoostCard } from "../touchswap/BoostCard";
 import { useAppStore } from "@/services/store/store";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
+import { isSSR, initHapticFeedback, HapticFeedback } from "@tma.js/sdk-react";
+
 
 type BadgesList = {
   title: string;
@@ -124,13 +126,24 @@ export const BadgesScreen = () => {
     return { ...badge,isUnlocked, claimed:hasNotClaimed}
   })
 
+  const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !isSSR()) {
+      setHapticFeedback(initHapticFeedback());
+    }
+  }, []);
+
+
   const goBack = () => {
     setScreen("home");
+    hapticFeedback?.impactOccurred("soft")
   };
 
   const handleClaim = (id:number, reward:number) =>{
-    cliamRank(id)
-    updateBalance(balance + reward)
+    cliamRank(id);
+    updateBalance(balance + reward);
+    hapticFeedback?.impactOccurred("heavy");
   }
 
   return (

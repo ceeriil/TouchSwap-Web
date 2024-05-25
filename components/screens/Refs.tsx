@@ -7,6 +7,7 @@ import { getUserRefers } from "@/services/data/refers";
 import { User } from "@/services/db/user";
 import { useAppStore } from "@/services/store/store";
 import { notification } from "@/utils/notifications";
+import { isSSR, initHapticFeedback, HapticFeedback } from "@tma.js/sdk-react";
 
 export const InviteComponent = ({copyInvite}:{copyInvite:()=>void}) => {
   return (
@@ -29,8 +30,18 @@ export const RefsScreen: React.FC = () => {
 
   const user = useAppStore(state => state.user);
 
+  const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !isSSR()) {
+      setHapticFeedback(initHapticFeedback());
+    }
+  }, []);
+  
+
   const copyInvite =()=>{
     navigator.clipboard.writeText(`https://t.me/touchswap_bot?start=r_${userId}`);
+    hapticFeedback?.impactOccurred("heavy")
     notification.success("Copied Invite")
   }
   
