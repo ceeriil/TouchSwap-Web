@@ -25,9 +25,7 @@ body {
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
   font-family: "SF Mono", sans-serif;
   background: #08030d;
-
   overflow-y: hidden !important;
-
   width: 100%;
 }
 

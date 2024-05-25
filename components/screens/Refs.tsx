@@ -7,9 +7,9 @@ import { getUserRefers } from "@/services/data/refers";
 import { User } from "@/services/db/user";
 import { useAppStore } from "@/services/store/store";
 import { notification } from "@/utils/notifications";
-import { isSSR, initHapticFeedback, HapticFeedback } from "@tma.js/sdk-react";
+import { HapticFeedback, initHapticFeedback, isSSR } from "@tma.js/sdk-react";
 
-export const InviteComponent = ({copyInvite}:{copyInvite:()=>void}) => {
+export const InviteComponent = ({ copyInvite }: { copyInvite: () => void }) => {
   return (
     <div className="flex flex-col text-center items-center my-6 h-[70%] justify-center mt-8 ">
       <p className="text-[0.8rem]">You currently have zero referrals, Damn</p>
@@ -26,25 +26,23 @@ export const InviteComponent = ({copyInvite}:{copyInvite:()=>void}) => {
 export const RefsScreen: React.FC = () => {
   const [referredUsers, setReferredUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const userId = useAppStore(state=>state.user.id)
+  const userId = useAppStore(state => state.user.id);
 
   const user = useAppStore(state => state.user);
 
   const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && !isSSR()) {
+    if (typeof window !== "undefined" && !isSSR()) {
       setHapticFeedback(initHapticFeedback());
     }
   }, []);
-  
 
-  const copyInvite =()=>{
+  const copyInvite = () => {
     navigator.clipboard.writeText(`https://t.me/touchswap_bot?start=r_${userId}`);
-    hapticFeedback?.impactOccurred("heavy")
-    notification.success("Copied Invite")
-  }
-  
+    hapticFeedback?.impactOccurred("heavy");
+    notification.success("Copied Invite");
+  };
 
   const fetchReferredUsers = async () => {
     try {
@@ -68,7 +66,6 @@ export const RefsScreen: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-
   if (loading) {
     return (
       <section className="flex flex-col h-screen justify-center items-center">
@@ -88,7 +85,9 @@ export const RefsScreen: React.FC = () => {
             <p className="text-[0.8rem] text-white font-[500]">Refer a friend</p>
             <p className="text-[#AFAFAF] text-[0.8rem] my-3">{refsList.length} referrals</p>
           </div>
-          <button onClick={copyInvite} className="btn bg-white px-3 text-black py-3 font-[500] rounded text-[13px]">Invite a Friend!</button>
+          <button onClick={copyInvite} className="btn bg-white px-3 text-black py-3 font-[500] rounded text-[13px]">
+            Invite a Friend!
+          </button>
         </div>
 
         <div className="bg-[#182334] h-[1px] w-full my-5" />
