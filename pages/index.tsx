@@ -3,11 +3,15 @@
 import { SetStateAction, useEffect, useState } from "react";
 import Image from "next/image";
 import { Menubar } from "@/components/Menubar";
-import { 
-  BadgesScreen, BoostScreen, HomeScreen, QuestScreen, 
-  RefsScreen, StatsScreen,
+import {
+  BadgesScreen,
+  BoostScreen,
   ConnectQuestScreen,
-  SocialQuestScreen 
+  HomeScreen,
+  QuestScreen,
+  RefsScreen,
+  SocialQuestScreen,
+  StatsScreen,
 } from "@/components/screens";
 import { ONE_SECOND } from "@/constants";
 import { socketInstance } from "@/services/socket";
@@ -22,11 +26,11 @@ const screens = {
   stats: <StatsScreen />,
   quests: <QuestScreen />,
   social: <SocialQuestScreen />,
-  wallet: <ConnectQuestScreen/>,
+  wallet: <ConnectQuestScreen />,
 };
 
 export default function Home({ deviceType }: { deviceType: string }) {
-  const isMobile = deviceType === 'mobile';
+  const isMobile = deviceType === "mobile";
   const [isConnected, setIsConnected] = useState(false);
   const [transport, setTransport] = useState("N/A");
 
@@ -45,16 +49,16 @@ export default function Home({ deviceType }: { deviceType: string }) {
       first: "Daniel",
       last: "Ifechukwu",
       touches: 200000,
-      balance: 20000,
+      balance: 800000,
       tapValue: 1,
       rank: -1,
       energy: {
         maxEnergy: 500,
         energyLeft: 500,
       },
-      totalCoinsMined: 30000,
+      totalCoinsMined: 300000,
       connectionId: "",
-      totalRefered: 2000,
+      totalRefered: 100,
       totalReferedCliamed: 1,
     };
 
@@ -137,12 +141,12 @@ export default function Home({ deviceType }: { deviceType: string }) {
 }
 
 export async function getServerSideProps(context: NextPageContext) {
-  const UA = context.req?.headers['user-agent'] || "";
+  const UA = context.req?.headers["user-agent"] || "";
   const isMobile = Boolean(UA.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i));
-  
+
   return {
     props: {
-      deviceType: isMobile ? 'mobile' : 'desktop'
-    }
+      deviceType: isMobile ? "mobile" : "desktop",
+    },
   };
 }

@@ -28,6 +28,8 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   const autoClick = useAppStore(state => state.autoClick);
   const updateBalance = useAppStore(state => state.updateBalance);
   const useEnergy = useAppStore(state => state.useEnergy);
+  const deActivateAutoClick = useAppStore(state => state.deActivateAutoClick);
+
   const [rotation, setRotation] = useState(0);
   const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
 
@@ -39,17 +41,19 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (autoClick !== null) {
+      if (autoClick == null) return;
+      if (autoClick.startedOn) {
         console.log(autoClick.startedOn);
-        //const currentTime = new Date().getTime();
-        //const hoursDifference = (currentTime - autoClick.startedOn.getTime()) / (1000 * 60 * 60);
-        if (autoClick.startedOn) {
-        }
-        //touchCoin()
+        const currentTime = new Date().getTime();
+        const hoursDifference = Math.floor(Math.abs(currentTime - new Date(autoClick.startedOn).getTime()) / 3600000);
+        if (hoursDifference < 12) {
+          touchCoin();
+        } else deActivateAutoClick();
       }
-    }, ONE_SECOND);
+    }, ONE_SECOND / 3);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [autoClick]);
 
   const coinClick = (id: number) => {
     socketInstance.emit("coin-click", id);
@@ -87,8 +91,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   };
 
   const touchCoin = () => {
-    const coinImg = document.querySelector("img.coin-img.z-20");
-
+    const coinImg = document.getElementById("coinImage");
     if (coinImg) {
       const touchEvent = new TouchEvent("touchstart", {
         touches: [
@@ -105,6 +108,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
 
       // Dispatch the touch event on the image element
       coinImg.dispatchEvent(touchEvent);
+      //alert(coinImg !== null);
     } else {
       console.error("Element not found");
     }
@@ -127,7 +131,8 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
           <img
             src={frames[0]}
             alt={`Frame `}
-            className="coin-img w-full  z-20 rounded-full opacity-0"
+            id="coinImage"
+            className="coin-img  w-full  z-20 rounded-full opacity-0"
             onTouchStart={handleCoinTap}
             style={{
               transition: "all 0.3s ease-in-out",
@@ -150,21 +155,29 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
           ))}
         </button>
 
-        <BgGlow
-          className={`${
-            extraTapActive || refill ? "opacity-0" : "opacity-100"
-          } absolute w-full top-[-30%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.1] transition-opacity duration-500 ease-in-out`}
-        />
-        <BgGlowGreen
-          className={`${
-            extraTapActive ? "opacity-100" : "opacity-0"
-          } absolute w-full top-[-70%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.1] transition-opacity duration-500 ease-in-out`}
-        />
-        <BgGlowPurple
-          className={`${
-            refill ? "opacity-100" : "opacity-0"
-          } absolute w-full top-[-70%] left-0 right-0 bottom-0 z-[-1] overflow-visible scale-[1.1] transition-opacity duration-500 ease-in-out`}
-        />
+        <div className="absolute left-0 right-0 bottom-0 overflow-visible top-[-30%] ">
+          <BgGlow
+            className={`${
+              extraTapActive ? "opacity-0" : "opacity-100"
+            }  w-full z-[-1]  scale-[1.4] transition-opacity duration-500 ease-in-out`}
+          />
+        </div>
+
+        {/*        <div className="absolute right-0 top-[-70%]  left-0 bottom-0 z-[-1]  overflow-visible  ">
+          <BgGlowGreen
+            className={`${
+              extraTapActive ? "opacity-100" : "opacity-0"
+            } scale-[1.7] transition-opacity duration-500 ease-in-out`}
+          />
+        </div>
+
+        <div className="absolute right-0  left-0  bottom-0  top-[-70%] z-[-1]">
+          <BgGlowPurple
+            className={`${
+              refill ? "opacity-100" : "opacity-0"
+            }   overflow-visible scale-[1.7] transition-opacity duration-500 ease-in-out`}
+          />
+        </div> */}
       </div>
     </>
   );
