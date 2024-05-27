@@ -17,10 +17,18 @@ export const connectQuestsLists: QuestList = {
   claimed: false,
 };
 
-const handleCliam = () => {};
+const handleClaim = () => {};
 
 const handleTaskOpen = (index: number) => {};
 
 export const ConnectQuestScreen = () => {
-  return <OpenQuestDetailScreen quest={connectQuestsLists} handleClaim={handleCliam} handleTaskOpen={handleTaskOpen} />;
+  return (
+    <OpenQuestDetailScreen
+      quest={connectQuestsLists}
+      handleClaim={handleClaim}
+      handleTaskOpen={handleTaskOpen}
+      reward={1222}
+      claimed={connectQuestsLists.claimed}
+    />
+  );
 };

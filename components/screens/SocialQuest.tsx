@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { OpenQuestDetailScreen } from "./OpenQuestDetails";
 import { LinkTask, QuestList } from "@/types";
 
@@ -9,34 +9,57 @@ export const socialQuestsLists: QuestList = {
   tasks: [
     {
       title: "Join Our Telegram",
-      completed: false,
+      completed: true,
       link: "https://t.me/zaarwe_bot",
-      reward: 100,
+      reward: 40000,
     },
     {
       title: "Follow us on X!",
-      completed: false,
+      completed: true,
       link: "https://twitter.com/Touchswap",
-      reward: 100,
+      reward: 40000,
     },
     {
       title: "Visit our website!",
-      completed: false,
+      completed: true,
       link: "https://www.touchswap.xyz/",
-      reward: 400,
+      reward: 40000,
     },
   ],
   claimed: false,
 };
 
+const calculateTotalReward = () => {
+  let totalReward = 0;
+  for (const task of socialQuestsLists.tasks) {
+    totalReward += task.reward;
+  }
+  return totalReward;
+};
+
+const totalReward = calculateTotalReward();
+
 export const SocialQuestScreen = () => {
+  const [claimed, setClaimed] = useState(socialQuestsLists.claimed);
+
   const handleClaim = () => {
-    console.log("ikddui");
+    const tasksCompleted = socialQuestsLists.tasks.every(task => task.completed);
+    if (tasksCompleted) {
+      setClaimed(true);
+    }
   };
 
   const handleTaskOpen = (index: number) => {
     console.log(socialQuestsLists.tasks[index]);
   };
 
-  return <OpenQuestDetailScreen quest={socialQuestsLists} handleClaim={handleClaim} handleTaskOpen={handleTaskOpen} />;
+  return (
+    <OpenQuestDetailScreen
+      quest={socialQuestsLists}
+      handleClaim={handleClaim}
+      handleTaskOpen={handleTaskOpen}
+      claimed={claimed}
+      reward={totalReward}
+    />
+  );
 };

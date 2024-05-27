@@ -6,7 +6,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
   touch-action: pan-x pan-y;
   height: 100%;
@@ -21,16 +21,28 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: white;
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
   font-family: "SF Mono", sans-serif;
   background: #08030d;
-
   overflow-y: hidden !important;
-  position: fixed !important;
   width: 100%;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
+/* p,
+div,
+span {
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+} */
 main {
   height: 100vh;
 }
@@ -190,6 +202,14 @@ p {
   animation: spin 1s linear infinite;
 }
 
+.button-animation {
+  animation: buttonAnimation 1s infinite ease-in-out;
+}
+/* 
+.coin-glow {
+  backdrop-filter: drop-shadow(100px -10px 200px pink);
+} */
+
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -234,6 +254,16 @@ p {
   100% {
     opacity: 0;
     transform: translateY(-250px);
+  }
+}
+
+@keyframes buttonAnimation {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
   }
 }
 
