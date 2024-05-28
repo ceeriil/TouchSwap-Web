@@ -6,7 +6,7 @@
         "last": "Ifechukwu",
         "touches": 0,
         "balance": 0,
-        "online": true,
+        "online": false,
         "lang": "en",
         "rank": 0,
         "referedBy":null 
@@ -18,7 +18,7 @@
         "last": "Ceeriil",
         "touches": 0,
         "balance": 0,
-        "online": true,
+        "online": false,
         "lang": "en",
         "rank": 0,
         "referedBy":1248734702
