@@ -159,7 +159,7 @@ export async function createUser(
     touches: 0,
     balance: 1000,
     lastOnline: $.serverDate(),
-    online: true,
+    online: false,
     lang,
     rank: 0,
     referedBy,

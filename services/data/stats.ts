@@ -1,5 +1,4 @@
 import axios from "axios";
-import { SERVER_URL as serverUrl } from "../../constants";
 import { Stat } from "@/pages/api/user/stats";
 
 export const getStats = async () :Promise<Stat>=> {
