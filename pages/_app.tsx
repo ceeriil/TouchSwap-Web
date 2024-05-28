@@ -1,8 +1,7 @@
 import type { AppProps } from "next/app";
 import "@/styles/globals.css";
 import { Toaster } from "react-hot-toast";
-import { useEffect, type FC, useMemo} from 'react';
-import axios from 'axios';
+import { useEffect, type FC, useMemo, Suspense} from 'react';
 import {
   SDKProvider,
   retrieveLaunchParams,
@@ -14,10 +13,14 @@ import {
   bindThemeParamsCSSVars,
   bindViewportCSSVars,
   isSSR,
+  initMiniApp,
 } from '@tma.js/sdk-react';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { useRouter } from 'next/router';
 import { useRouter as useNavigationRouter } from 'next/navigation';
+import { Loader } from "@/components/Loader";
+
+
 
 const ErrorBoundaryError: FC<{ error: unknown }> = ({ error }) => (
   <div>
@@ -75,8 +78,10 @@ const App: FC<AppProps> = ({ pageProps, Component }) => {
     return viewport && bindViewportCSSVars(viewport);
   }, [viewport]);
 
-  return (
+
+  return ( 
     <>
+    <Suspense fallback={<Loader/>}>
       <BackButtonManipulator/>
       <>
         <main className="relative bgcover overflowxhidden" style={{ background: `url('/img/stars.svg')` }}>
@@ -84,13 +89,14 @@ const App: FC<AppProps> = ({ pageProps, Component }) => {
         </main>
         <Toaster />
       </>
+    </Suspense>
     </>
   );
 };
 
 const Inner: FC<AppProps> = (props) => {
   const debug = useMemo(() => {
-    return isSSR() ? false : retrieveLaunchParams().startParam === 'debug';
+    return true
   }, []);
   
   useEffect(() => {
@@ -98,9 +104,9 @@ const Inner: FC<AppProps> = (props) => {
       import('eruda').then(lib => lib.default.init());
     }
   }, [debug]);
-
+   
   return (
-      <SDKProvider acceptCustomStyles debug={debug}>
+      <SDKProvider  acceptCustomStyles debug={debug}>
         <App {...props}/>
       </SDKProvider>
   );
@@ -109,21 +115,6 @@ const Inner: FC<AppProps> = (props) => {
 
 
 export default function CustomApp(props: AppProps) {
-  //const [isHashValid, setIsHashValid] = useState(false);
-  // // const initData = useTelegramInitData();
-  // useEffect(() => {
-  //   //console.log(window)
-  //   // if(initData.user !== null){
-  //   //   axios
-  //   //     .post('/api/validateHash', { hash: window.Telegram.WebApp.initData })
-  //   //     .then(response => setIsHashValid(response.status === 200))
-  //   //     .catch(()=>setIsHashValid(false) );
-  //   //   }
-  // }, []);
-
-  // // if (!isHashValid) {
-  // //   return null;
-  // // }
   return (
     <ErrorBoundary fallback={ErrorBoundaryError}>
       <Inner {...props}/>
