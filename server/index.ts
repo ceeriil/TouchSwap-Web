@@ -7,7 +7,7 @@ import { login, logout, userClick } from "@/services/db/user";
 
 const dev = process.env.NODE_ENV !== "production";
 const hostname = "localhost";
-const port = 3001;
+const port =  dev ? 3001 : 3000;
 // when using middleware `hostname` and `port` must be provided below
 const app = next({ dev, hostname, port });
 
