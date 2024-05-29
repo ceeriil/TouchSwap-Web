@@ -1,5 +1,6 @@
 import { db, toResult } from "@/services/db";
 import { findUser, useTokens } from "./user";
+import { getPreviousDay } from "@/utils";
 
 export type BoostType = "free" | "paid" | "paid-no-levels";
 
@@ -7,7 +8,7 @@ export interface Boost {
   type: BoostType;
   boostId: number;
   totalPerDay?: number;
-  usedToday?:number; 
+  left?:number; 
   lastUsed ?:Date
   level?: number;
   maximumLevel?:number 
@@ -17,8 +18,8 @@ export interface Boost {
 
 export async function createUserBoost(userId: number): Promise<void> {
   const boosts: Boost[] = [
-    { type: "free", boostId: 1, totalPerDay: 3, usedToday:0,  userId },
-    { type: "free", boostId: 2, totalPerDay: 3, usedToday:0, userId },
+    { type: "free", boostId: 1, totalPerDay: 3, left:3, lastUsed:getPreviousDay() ,userId },
+    { type: "free", boostId: 2, totalPerDay: 3, left:3, lastUsed: getPreviousDay(), userId },
     { type: "paid", boostId: 3, level: 0, cost: 250, maximumLevel:10, userId },
     { type: "paid", boostId: 4, level: 0, cost: 1000, maximumLevel:10, userId },
     { type: "paid", boostId: 5, level: 0, cost: 500, maximumLevel:5, userId },

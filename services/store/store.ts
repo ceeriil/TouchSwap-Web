@@ -1,4 +1,4 @@
-import { isSSR } from "@tma.js/sdk-react";
+import { boolean, isSSR } from "@tma.js/sdk-react";
 import { Energy } from "../db/user";
 import { mountStoreDevtool } from "simple-zustand-devtools";
 import { create } from "zustand";
@@ -15,6 +15,7 @@ export type TBoost = {
   maximumLevel?: number;
   cost?: number;
   userId: number;
+  lastUsed ?:Date
 };
 
 export type TScreenPayload = {
@@ -97,8 +98,7 @@ export type TAppStore = {
   cliamRank: (rankId: number) => void;
   updateTotalReferedCliamed: (refer: number) => void;
   resetState: () => void;
-  setLastExtraTap: () => void;
-  setRefillTap: () => void;
+  updateBoostLeft: (left: number, boostId: number) => void;
 };
 
 export const initialState = {
@@ -123,9 +123,16 @@ export const useAppStore = create<TAppStore>()(
         setScreen: (newValue: TScreens, payload: TScreenPayload | null | undefined): void =>
           set(() => ({ screen: newValue, screenPayload: payload })),
         setExtraTap: (isTrue: boolean): void => {
-          const { user, paidBoosts } = get();
+          const { user, paidBoosts, freeBoosts } = get();
           const touchLevel = (paidBoosts.find(boost => boost.boostId === 4)?.level ?? 0) + 1;
           const touchValue = isTrue ? Math.floor(touchLevel * 5) : touchLevel;
+          const newFreeBoosts = freeBoosts.map(boost => {
+            if ( isTrue && boost.boostId === 1 && boost.left !== undefined ) {
+              return { ...boost, left: boost.left - 1 , lastUsed:new Date() };
+            }
+            return boost;
+          });
+
           set(() => ({
             extraTap: isTrue,
             user: {
@@ -133,6 +140,7 @@ export const useAppStore = create<TAppStore>()(
               tapValue: touchValue,
             },
             lastExtraTap: isTrue ? new Date() : null,
+            freeBoosts: newFreeBoosts,
           }));
         },
         updateBalance: (newBalance: number): void => {
@@ -145,7 +153,14 @@ export const useAppStore = create<TAppStore>()(
           }));
         },
         useRefill: (): void => {
-          const { user } = get();
+          const { user, freeBoosts } = get();
+          const newFreeBoosts = freeBoosts.map(boost => {
+            if (boost.boostId === 2 && boost.left !== undefined) {
+              return { ...boost, left: boost.left - 1, lastUsed: new Date() };
+            }
+            return boost;
+          });
+
           set(() => ({
             lastRefillTap: new Date(),
             user: {
@@ -155,13 +170,14 @@ export const useAppStore = create<TAppStore>()(
                 energyLeft: user.energy.maxEnergy,
               },
             },
+            freeBoosts: newFreeBoosts,
           }));
         },
         updatePaidBoostLevel: (boostId: number, newLevel: number): void => {
           const { paidBoosts } = get();
           const updatedBoosts = paidBoosts.map(boost => {
             if (boost.boostId === boostId) {
-              return { ...boost, level: newLevel, cost: Math.imul(boost.cost ?? 0, 4) };
+              return { ...boost, level: newLevel, cost: (boost.cost ?? 0) * 4 };
             }
             return boost;
           });
@@ -201,7 +217,7 @@ export const useAppStore = create<TAppStore>()(
               ...user,
               energy: {
                 ...user.energy,
-                maxEnergy: Math.imul(user.energy.maxEnergy, 2),
+                maxEnergy: user.energy.maxEnergy * 2,
               },
             },
           }));
@@ -265,23 +281,23 @@ export const useAppStore = create<TAppStore>()(
             ...initialState,
           }));
         },
-        setLastExtraTap: () => {
-          set(() => ({
-            lastExtraTap: new Date(),
-          }));
-        },
-        setRefillTap: () => {
-          set(() => ({
-            lastRefillTap: new Date(),
-          }));
-        },
+        updateBoostLeft: (left: number, boostId: number) => {
+          const { freeBoosts } = get();
+          const updatedBoosts = freeBoosts.map(boost => {
+            if (boost.boostId === boostId) {
+              return { ...boost, left };
+            }
+            return boost;
+          });
+          set(() => ({ freeBoosts: updatedBoosts }));
+        }
       }),
       {
         name: STORE_NAME,
         storage: createJSONStorage(() => localStorage),
         onRehydrateStorage: state => {
-          let previousState = localStorage.getItem(STORE_NAME);
-          let defaultStateString = JSON.stringify({ state, version: 0 });
+          const previousState = localStorage.getItem(STORE_NAME);
+          const defaultStateString = JSON.stringify({ state, version: 0 });
           return (_, error) => {
             if (error) {
               localStorage.setItem(STORE_NAME, defaultStateString);
