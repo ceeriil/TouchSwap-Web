@@ -1,3 +1,4 @@
+import { boolean, isSSR } from "@tma.js/sdk-react";
 import { Energy } from "../db/user";
 import { mountStoreDevtool } from "simple-zustand-devtools";
 import { create } from "zustand";
@@ -14,6 +15,7 @@ export type TBoost = {
   maximumLevel?: number;
   cost?: number;
   userId: number;
+  lastUsed ?:Date
 };
 
 export type TScreenPayload = {
@@ -37,6 +39,10 @@ export type TUser = {
 };
 
 export const STORE_NAME = "Touch_Swap_Store";
+
+export const hasState = () => {
+  return isSSR() ? false : localStorage.getItem(STORE_NAME) !== null;
+};
 
 export const emptyUser: TUser = {
   id: -1,
@@ -62,7 +68,8 @@ type AutoClick = {
   startedOn: Date;
 };
 
-type TAppStore = {
+export type TAppStore = {
+  hasData: boolean;
   autoClick: AutoClick | null;
   rechargeSpeed: number;
   defaultData: boolean;
@@ -71,6 +78,8 @@ type TAppStore = {
   paidBoosts: TBoost[];
   screen: TScreens;
   user: TUser;
+  lastExtraTap: Date | null;
+  lastRefillTap: Date | null;
   setScreen: (newValue: TScreens, payload?: TScreenPayload | null) => void;
   updateBalance: (newBalance: number) => void;
   updatePaidBoostLevel: (boostId: number, newLevel: number) => void;
@@ -88,32 +97,50 @@ type TAppStore = {
   deActivateAutoClick: () => void;
   cliamRank: (rankId: number) => void;
   updateTotalReferedCliamed: (refer: number) => void;
+  resetState: () => void;
+  updateBoostLeft: (left: number, boostId: number) => void;
+};
+
+export const initialState = {
+  hasData: false,
+  autoClick: null,
+  rechargeSpeed: 0,
+  defaultData: true,
+  extraTap: false,
+  freeBoosts: [],
+  paidBoosts: [],
+  screen: "home" as TScreens,
+  user: emptyUser,
+  lastExtraTap: null,
+  lastRefillTap: null,
 };
 
 export const useAppStore = create<TAppStore>()(
   devtools(
     persist(
       (set, get) => ({
-        autoClick: null,
-        rechargeSpeed: 0,
-        defaultData: true,
-        extraTap: false,
-        freeBoosts: [],
-        paidBoosts: [],
-        screen: "home",
-        user: emptyUser,
+        ...initialState,
         setScreen: (newValue: TScreens, payload: TScreenPayload | null | undefined): void =>
           set(() => ({ screen: newValue, screenPayload: payload })),
         setExtraTap: (isTrue: boolean): void => {
-          const { user, paidBoosts } = get();
-          const touchLevel = paidBoosts.find(boost => boost.boostId === 4)?.level! + 1;
+          const { user, paidBoosts, freeBoosts } = get();
+          const touchLevel = (paidBoosts.find(boost => boost.boostId === 4)?.level ?? 0) + 1;
           const touchValue = isTrue ? Math.floor(touchLevel * 5) : touchLevel;
+          const newFreeBoosts = freeBoosts.map(boost => {
+            if ( isTrue && boost.boostId === 1 && boost.left !== undefined ) {
+              return { ...boost, left: boost.left - 1 , lastUsed:new Date() };
+            }
+            return boost;
+          });
+
           set(() => ({
             extraTap: isTrue,
             user: {
               ...user,
               tapValue: touchValue,
             },
+            lastExtraTap: isTrue ? new Date() : null,
+            freeBoosts: newFreeBoosts,
           }));
         },
         updateBalance: (newBalance: number): void => {
@@ -126,22 +153,31 @@ export const useAppStore = create<TAppStore>()(
           }));
         },
         useRefill: (): void => {
-          const { user } = get();
+          const { user, freeBoosts } = get();
+          const newFreeBoosts = freeBoosts.map(boost => {
+            if (boost.boostId === 2 && boost.left !== undefined) {
+              return { ...boost, left: boost.left - 1, lastUsed: new Date() };
+            }
+            return boost;
+          });
+
           set(() => ({
+            lastRefillTap: new Date(),
             user: {
               ...user,
               energy: {
                 ...user.energy,
-                energyLeft: user.energy.maxEnergy, // Reset current energy to new max energy
+                energyLeft: user.energy.maxEnergy,
               },
             },
+            freeBoosts: newFreeBoosts,
           }));
         },
-        updatePaidBoostLevel: (boostId: number): void => {
+        updatePaidBoostLevel: (boostId: number, newLevel: number): void => {
           const { paidBoosts } = get();
           const updatedBoosts = paidBoosts.map(boost => {
-            if (boost.boostId == boostId) {
-              return { ...boost, level: boost.level! + 1, cost: Math.imul(boost.cost!, 4) };
+            if (boost.boostId === boostId) {
+              return { ...boost, level: newLevel, cost: (boost.cost ?? 0) * 4 };
             }
             return boost;
           });
@@ -150,8 +186,8 @@ export const useAppStore = create<TAppStore>()(
         useEnergy: (amount: number): void => {
           const { user, extraTap } = get();
           const newCurrentEnergy = extraTap
-            ? Math.max(user.energy.energyLeft - 0, 0)
-            : Math.max(user.energy.energyLeft - amount, 0); // Ensure energy doesn't go below 0
+            ? Math.max(user.energy.energyLeft, 0)
+            : Math.max(user.energy.energyLeft - amount, 0);
           set(() => ({
             user: {
               ...user,
@@ -181,7 +217,7 @@ export const useAppStore = create<TAppStore>()(
               ...user,
               energy: {
                 ...user.energy,
-                maxEnergy: Math.imul(user.energy.maxEnergy, 2),
+                maxEnergy: user.energy.maxEnergy * 2,
               },
             },
           }));
@@ -191,7 +227,7 @@ export const useAppStore = create<TAppStore>()(
           set(() => ({
             user: {
               ...user,
-              tapValue: ++user.tapValue,
+              tapValue: user.tapValue + 1,
             },
           }));
         },
@@ -199,7 +235,7 @@ export const useAppStore = create<TAppStore>()(
           const { user, paidBoosts } = get();
 
           if (user.energy.energyLeft === user.energy.maxEnergy) return;
-          const boostLevel = paidBoosts.find(boost => boost.boostId === 3)?.level! + 1;
+          const boostLevel = (paidBoosts.find(boost => boost.boostId === 3)?.level ?? 0) + 1;
           let newEnergyLeft = user.energy.energyLeft + boostLevel;
 
           if (newEnergyLeft > user.energy.maxEnergy) {
@@ -217,7 +253,7 @@ export const useAppStore = create<TAppStore>()(
           }));
         },
         activateAutoClick: () => {
-          set(() => ({ autoClick: { active: true, startedOn: new Date(Date.now()) } }));
+          set(() => ({ autoClick: { active: true, startedOn: new Date() } }));
         },
         deActivateAutoClick: () => {
           set(() => ({ autoClick: null }));
@@ -240,13 +276,28 @@ export const useAppStore = create<TAppStore>()(
             },
           }));
         },
+        resetState: () => {
+          set(() => ({
+            ...initialState,
+          }));
+        },
+        updateBoostLeft: (left: number, boostId: number) => {
+          const { freeBoosts } = get();
+          const updatedBoosts = freeBoosts.map(boost => {
+            if (boost.boostId === boostId) {
+              return { ...boost, left };
+            }
+            return boost;
+          });
+          set(() => ({ freeBoosts: updatedBoosts }));
+        }
       }),
       {
         name: STORE_NAME,
         storage: createJSONStorage(() => localStorage),
         onRehydrateStorage: state => {
-          let previousState = localStorage.getItem(STORE_NAME);
-          let defaultStateString = JSON.stringify({ state, version: 0 });
+          const previousState = localStorage.getItem(STORE_NAME);
+          const defaultStateString = JSON.stringify({ state, version: 0 });
           return (_, error) => {
             if (error) {
               localStorage.setItem(STORE_NAME, defaultStateString);
@@ -255,9 +306,9 @@ export const useAppStore = create<TAppStore>()(
             }
           };
         },
-      },
-    ),
-  ),
+      }
+    )
+  )
 );
 
 if (process.env.NODE_ENV === "development") {

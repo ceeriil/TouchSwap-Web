@@ -19,8 +19,10 @@ app.prepare().then(() => {
   const io = new Server(httpServer);
   io.on("connection",  async (socket) => {
 
-    socket.on("login", async(message)=>{
-        //await login("12", socket.id);
+    socket.on("login", async(userId)=>{
+     if(userId == -1) return 
+      // console.log(userId, "Login")
+       await login(userId, socket.id);
     })
 
     socket.on("coin-click", async (message) => {
