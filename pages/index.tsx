@@ -31,6 +31,7 @@ import {
 } from "@/services/data/boost";
 import { getUser } from "@/services/data/user";
 import { notification } from "@/utils/notifications";
+import { checkIfMoreThanADay } from "@/utils";
 
 const screens = {
   badges: <BadgesScreen />,
@@ -47,7 +48,6 @@ export default function Home({ deviceType }: { deviceType: string }) {
   const isMobile = deviceType === "mobile";
   const [isConnected, setIsConnected] = useState(false);
   const [transport, setTransport] = useState("N/A");
-
   const screen = useAppStore((state) => state.screen);
   const setUser = useAppStore((state) => state.updateUser);
   const setPaidBoosts = useAppStore((state) => state.setPaidBoosts);
@@ -55,7 +55,7 @@ export default function Home({ deviceType }: { deviceType: string }) {
   const updateEnergyByTime = useAppStore((state) => state.updateEnergyByTime);
   const [foundState, setFoundState] = useState(false);
   const state = useAppStore(state=>state);
-  const resetState = useAppStore(state => state.resetState);
+  const freeBoost = useAppStore(state=> state.freeBoosts);
 
   const screenRender = screens[screen];
 
@@ -76,16 +76,30 @@ export default function Home({ deviceType }: { deviceType: string }) {
         notification.info("Error occured")
       });
   }; 
+  
+
+  useEffect(() => {
+    if(freeBoost.length > 0){
+        const boostData = freeBoost.map((boost) => {
+        if(checkIfMoreThanADay(boost.lastUsed!)){
+          return { ...boost, left: boost.totalPerDay };
+        }
+        return boost;
+      });
+      setFreeBoosts(boostData);
+    }
+  }, []);
+
 
   useEffect(() => {
     if (!isSSR()) {
-      //resetState()
       if (state.hasData) setFoundState(true);
       else {
         let user = initInitData()?.user;
         if (user) setUpState(user.id);
       }
     }
+
 
     const handleConnect = () => {
       setIsConnected(true);

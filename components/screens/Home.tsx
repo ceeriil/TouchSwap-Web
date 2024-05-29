@@ -29,12 +29,11 @@ export const HomeScreen = () => {
 
   const freeBoosts = useAppStore(state=> state.freeBoosts);
   const setFreeBoosts = useAppStore(state=> state.setFreeBoosts)
-  // const [tap] = useHapticFeedback()
+
 
   useEffect(() => {
     const interval = setTimeout(() => {
        setExtraTapGlobalState(false)
-       console.log(extraTapActive)
     },  ONE_SECOND * 30);
     return () => clearTimeout(interval);
   }, [extraTapActive]); 
