@@ -3,8 +3,7 @@ import { Balance } from "../Balance";
 import { Modal } from "../ModalBase";
 import { OpenBtnIcon } from "../assets/OpenBtnIcon";
 import { TBoost, useAppStore } from "@/services/store/store";
-import { HapticFeedback , initHapticFeedback, isSSR} from "@tma.js/sdk-react";
-
+import { HapticFeedback, initHapticFeedback, isSSR } from "@tma.js/sdk-react";
 
 type BoostCardProps = {
   title: string;
@@ -19,30 +18,29 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [currentBoost, setCurrentBoost] = useState<TBoost | null>(null);
 
-  const balance = useAppStore((state) => state.user!.balance);
-  const boosts = useAppStore((state) => state.paidBoosts);
-  const updateBalance = useAppStore((state) => state.updateBalance);
-  const updateBoostLevel = useAppStore((state) => state.updatePaidBoostLevel);
-  const increaseMaxEnergy = useAppStore((state) => state.increaseMaxEnergy);
-  const increaseTap = useAppStore((state) => state.increaseTap);
-  const activateAutoClick = useAppStore(state=>state.activateAutoClick)
+  const balance = useAppStore(state => state.user!.balance);
+  const boosts = useAppStore(state => state.paidBoosts);
+  const updateBalance = useAppStore(state => state.updateBalance);
+  const updateBoostLevel = useAppStore(state => state.updatePaidBoostLevel);
+  const increaseMaxEnergy = useAppStore(state => state.increaseMaxEnergy);
+  const increaseTap = useAppStore(state => state.increaseTap);
+  const activateAutoClick = useAppStore(state => state.activateAutoClick);
 
   const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && !isSSR()) {
+    if (typeof window !== "undefined" && !isSSR()) {
       setHapticFeedback(initHapticFeedback());
     }
   }, []);
-  
-  
+
   useEffect(() => {
-    const foundBoost = boosts.find((boost) => boost.boostId === id);
+    const foundBoost = boosts.find(boost => boost.boostId === id);
     setCurrentBoost(foundBoost || null);
   }, [boosts, id]);
 
   const openModal = () => {
-    hapticFeedback?.impactOccurred("heavy")
+    hapticFeedback?.impactOccurred("heavy");
     setIsModalOpen(true);
   };
 
@@ -57,8 +55,8 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
 
       if (boostId === 6) {
         updateBalance(balance - totalCost);
-        activateAutoClick()
-        hapticFeedback?.impactOccurred("rigid")
+        activateAutoClick();
+        hapticFeedback?.impactOccurred("rigid");
         closeModal();
         return;
       }
@@ -69,7 +67,7 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
           updateBoostLevel(boostId, level + 1);
           if (boostId === 5) increaseMaxEnergy();
           if (boostId === 4) increaseTap();
-          hapticFeedback?.impactOccurred("rigid")
+          hapticFeedback?.impactOccurred("rigid");
           closeModal();
         }
       }
@@ -81,24 +79,20 @@ export const BoostCard: React.FC<BoostCardProps> = ({ title, icon, desc, initial
   }
 
   const { level, maximumLevel, cost } = currentBoost;
-  const levelEnded = level! === maximumLevel! ;
-
-
+  const levelEnded = level! === maximumLevel!;
 
   return (
-    <div className="border-[0.5px] border-[#49485C] p-[4px] rounded-lg dark-blue-gradient">
-      <div className="light-green-gradient py-7 px-4 rounded h-full relative" onClick={openModal}>
+    <div className="border-[0.5px] border-[#49485C] p-[4px] rounded-lg dark-blue-gradient h-full">
+      <div className="light-green-gradient py-7 px-4 rounded h-full relative pb-12" onClick={openModal}>
         <div className="mb-3">{icon}</div>
-        <h3 className="text-[0.8rem] font-[500] mb-4 leading-[1.8]">{title}</h3>
+        <h3 className="text-[0.8rem] font-[500] mb-2 leading-[1.6]">{title}</h3>
         <Balance size="base" count={cost || initialCost} noCost={levelEnded} singleCost={noLevel} />
-        {!levelEnded && cost && (
-          <p className="text-[0.8rem] mt-3">{`Level ${level} / ${maximumLevel}`}</p>
-        )}
-        <div className="absolute bottom-4 right-3">
+        {!levelEnded && cost && <p className="text-[0.8rem] mt-3 font-[500]">{`Level ${level}/${maximumLevel}`}</p>}
+        <div className="absolute bottom-5 right-3">
           <OpenBtnIcon />
         </div>
       </div>
-      <Modal 
+      <Modal
         title={title}
         text={desc}
         onClose={closeModal}

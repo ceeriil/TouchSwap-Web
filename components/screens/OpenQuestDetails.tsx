@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ClaimReward } from "../touchswap/ClaimReward";
 import { useAppStore } from "@/services/store/store";
 import { LinkTask, QuestList } from "@/types";
@@ -9,6 +9,8 @@ type Props = {
   quest: QuestList;
   handleClaim: () => void;
   handleTaskOpen: (index: number) => void;
+  claimed: boolean;
+  reward: number;
 };
 
 const renderer = ({
@@ -39,42 +41,77 @@ const Tasks = ({
   tasks,
   onTaskOpen,
   onClaim,
+  claimed,
+  reward,
 }: {
   tasks: LinkTask[];
   onTaskOpen: (index: number) => void;
   onClaim: () => void;
+  claimed: boolean;
+  reward: number;
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const balance = useAppStore(state => state.user.balance);
+  const updateBalance = useAppStore(state => state.updateBalance);
+
+  const openModal = () => {
+    if (claimed) return;
+    setIsModalOpen(true);
+    updateBalance(balance + reward);
+    onClaim();
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const allTasksCompleted = tasks.every(task => task.completed);
+
   return (
     <div>
       <div className="grid gap-2 pb-12">
-        {tasks.map(({ title }, index) => {
+        {tasks.map(({ title, completed }, index) => {
           return (
             <div className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between" key={index}>
               <div className="">
                 <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title}</h3>
               </div>
-              <button
-                onClick={() => onTaskOpen(index)}
-                className="text-sm bg-[#A7A7A7] text-black py-2 px-2 rounded-lg font-medium"
-              >
-                Start
-              </button>
+
+              {completed ? (
+                <p className="text-[0.8rem] font-bold ">done</p>
+              ) : (
+                <button
+                  onClick={() => onTaskOpen(index)}
+                  className="text-sm bg-white text-black py-2 px-2 rounded-lg font-medium"
+                >
+                  Start
+                </button>
+              )}
             </div>
           );
         })}
       </div>
 
-      <button
-        onClick={onClaim}
-        className="btn bg-[#A7A7A7] w-full text-black py-4 font-[500] rounded-lg align-baseline"
-      >
-        Claim Reward
-      </button>
+      <ClaimReward onClose={closeModal} isOpen={isModalOpen} reward={reward} />
+
+      {/* Check if all tasks are completed */}
+      {allTasksCompleted && claimed == false ? (
+        <button
+          onClick={openModal}
+          className="btn bg-white w-full text-black py-4 font-[500] rounded-lg align-baseline"
+        >
+          Claim Reward
+        </button>
+      ) : (
+        <button disabled className="btn bg-[#A7A7A7] w-full text-black py-4 font-[500] rounded-lg align-baseline">
+          Claim Reward
+        </button>
+      )}
     </div>
   );
 };
 
-export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, handleClaim }) => {
+export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, handleClaim, claimed, reward }) => {
   const setScreen = useAppStore(store => store.setScreen);
 
   const goBack = () => {
@@ -91,7 +128,13 @@ export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, 
         <h2 className="text-2xl font-[500] mb-3">{quest.title}</h2>
         <p className="text-[13px] text-white leading-[1.7]">{quest.desc}</p>
         <div className="mt-8">
-          <Tasks tasks={quest.tasks} onTaskOpen={handleTaskOpen} onClaim={handleClaim} />
+          <Tasks
+            tasks={quest.tasks}
+            onTaskOpen={handleTaskOpen}
+            onClaim={handleClaim}
+            claimed={claimed}
+            reward={reward}
+          />
         </div>
       </div>
     </section>

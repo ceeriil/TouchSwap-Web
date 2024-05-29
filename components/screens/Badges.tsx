@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import { AutoSwipeIcon } from "../assets/AutoSwipeIcon";
 import { DolphinBadge } from "../assets/badges/DolphinBadge";
 import { KrakenBadge } from "../assets/badges/KrakenBadge";
@@ -12,14 +12,13 @@ import { WhaleBadge } from "../assets/badges/WhaleBadge";
 import { BadgeCard } from "../touchswap/BadgeCard";
 import { BoostCard } from "../touchswap/BoostCard";
 import { useAppStore } from "@/services/store/store";
+import { HapticFeedback, initHapticFeedback, isSSR } from "@tma.js/sdk-react";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
-import { isSSR, initHapticFeedback, HapticFeedback } from "@tma.js/sdk-react";
-
 
 type BadgesList = {
   title: string;
   reward: number;
-  claimed:boolean;
+  claimed: boolean;
   requiredCoin: number;
   icon?: React.ReactNode;
   isUnlocked: boolean;
@@ -111,75 +110,74 @@ export const badgesLists: BadgesList[] = [
   },
 ];
 
-
-
 export const BadgesScreen = () => {
   const totalCoinsMined = useAppStore(state => state.user!.totalCoinsMined);
   const setScreen = useAppStore(state => state.setScreen);
-  const user = useAppStore(state => state.user)
-  const balance = useAppStore(state => state.user.balance)
-  const cliamRank = useAppStore(state => state.cliamRank)
-  const updateBalance = useAppStore(state=> state.updateBalance)
-  const badgeUserData = badgesLists.map((badge, index)=> {
+  const user = useAppStore(state => state.user);
+  const balance = useAppStore(state => state.user.balance);
+  const cliamRank = useAppStore(state => state.cliamRank);
+  const updateBalance = useAppStore(state => state.updateBalance);
+  const badgeUserData = badgesLists.map((badge, index) => {
     const isUnlocked = user.totalCoinsMined >= badge.requiredCoin;
-    const hasNotClaimed = !(index <= user.rank ) && isUnlocked
-    return { ...badge,isUnlocked, claimed:hasNotClaimed}
-  })
+    const hasNotClaimed = !(index <= user.rank) && isUnlocked;
+    return { ...badge, isUnlocked, claimed: hasNotClaimed };
+  });
 
   const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && !isSSR()) {
+    if (typeof window !== "undefined" && !isSSR()) {
       setHapticFeedback(initHapticFeedback());
     }
   }, []);
 
-
   const goBack = () => {
     setScreen("home");
-    hapticFeedback?.impactOccurred("soft")
+    hapticFeedback?.impactOccurred("soft");
   };
 
-  const handleClaim = (id:number, reward:number) =>{
+  const handleClaim = (id: number, reward: number) => {
     cliamRank(id);
     updateBalance(balance + reward);
     hapticFeedback?.impactOccurred("heavy");
-  }
+  };
 
   return (
     <section className="flex flex-col h-screen overflow-y">
-    <div className="container mx-auto px-4 my-8 pb-32">
-      <div className="flex container h-20  mb-5   fixed top-0 left-0 right-0 p-5 z-40">
+      <div className="container mx-auto px-4 my-8 pb-32">
+        <div className="flex container h-20  mb-5   fixed top-0 left-0 right-0 p-5 z-40">
           <button onClick={goBack} className="p-3 hover:bg-[#182027] bg-[#293641] rounded-lg ">
             <ChevronLeftIcon width={20} />
           </button>
-      </div>
-      <div className="mt-10">
-        <h2 className="text-2xl font-[500] mb-3">Ranks</h2>
-        <p className="text-sm leading-[1.7] sf-pro-medium">
-          Consistently show up, climb up the ladder and unlock all the ranks! Your number of coins determine the rank
-          you are in.
-        </p>
-        <div className="mt-8">
-          <div className="grid grid-cols-3 gap-x-1 gap-y-10 my-6">
-            {badgeUserData.map(({ title, reward, unlockedIcon, lockedIcon, isUnlocked, requiredCoin, claimed }, index) => 
-                <BadgeCard
-                  title={title}
-                  unlockedIcon={unlockedIcon}
-                  lockedIcon={lockedIcon}
-                  isUnlocked={isUnlocked}
-                  tokenMinned={totalCoinsMined}
-                  key={title}
-                  reward={reward}
-                  requiredCoin={requiredCoin}
-                  cliamed={claimed}
-                  onCliam={()=>handleClaim(index, reward)}
-                />
-               )}
+        </div>
+        <div className="mt-10">
+          <h2 className="text-2xl font-[500] mb-3">Ranks</h2>
+          <p className="text-sm leading-[1.7] sf-pro-medium">
+            Consistently show up, climb up the ladder and unlock all the ranks! Your number of coins determine the rank
+            you are in.
+          </p>
+          <div className="mt-8">
+            <div className="grid grid-cols-3 gap-x-1 gap-y-10 my-6">
+              {badgeUserData.map(
+                ({ title, reward, unlockedIcon, lockedIcon, isUnlocked, requiredCoin, claimed }, index) => (
+                  <BadgeCard
+                    title={title}
+                    unlockedIcon={unlockedIcon}
+                    lockedIcon={lockedIcon}
+                    isUnlocked={isUnlocked}
+                    tokenMinned={totalCoinsMined}
+                    key={title}
+                    reward={reward}
+                    requiredCoin={requiredCoin}
+                    cliamed={claimed}
+                    onCliam={() => handleClaim(index, reward)}
+                  />
+                ),
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 };

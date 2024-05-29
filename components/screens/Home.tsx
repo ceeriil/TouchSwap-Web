@@ -9,7 +9,6 @@ import { Refill } from "../touchswap/Refill";
 import { ONE_SECOND } from "@/constants";
 import { TBoost, useAppStore } from "@/services/store/store";
 import { isSSR, initHapticFeedback, HapticFeedback } from "@tma.js/sdk-react";
-//import { useHapticFeedback } from '@zakarliuka/react-telegram-web-tools'
 
 
 export const HomeScreen = () => {

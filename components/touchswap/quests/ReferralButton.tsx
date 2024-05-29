@@ -25,7 +25,7 @@ export const ReferralButton: React.FC<ReferralQuestsList> = ({ count, reward, co
   return (
     <div className="bg-[#293641] py-3 px-4 rounded-[6px] h-full flex items-center justify-between">
       <div className="flex items-center">
-        <Image src={"/img/ref.svg"} width={40} height={40} alt="Referral Icon" />
+        <Image src={"/img/ref.svg"} width={40} height={40} alt="Referral Icon" priority={true} />
         <div className="ml-3">
           <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{count} Invite</h3>
           <div className="text-[0.75rem] font-medium flex items-center">
@@ -39,7 +39,7 @@ export const ReferralButton: React.FC<ReferralQuestsList> = ({ count, reward, co
         onClick={openModal}
         disabled={!completed}
         className={`${
-          !completed ? "bg-[#A7A7A7]" : "bg-[#FCFCFC]"
+          !completed || claimed ? "bg-[#A7A7A7]" : "bg-[#FCFCFC]"
         } text-sm  text-black py-2 px-2 rounded-lg font-medium `}
       >
         {claimed ? "claimed" : "claim"}

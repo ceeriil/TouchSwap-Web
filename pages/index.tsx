@@ -54,8 +54,8 @@ export default function Home({ deviceType }: { deviceType: string }) {
   const setFreeBoosts = useAppStore((state) => state.setFreeBoosts);
   const updateEnergyByTime = useAppStore((state) => state.updateEnergyByTime);
   const [foundState, setFoundState] = useState(false);
-  const state = useAppStore(state=>state);
-  const freeBoost = useAppStore(state=> state.freeBoosts);
+  const state = useAppStore((state) => state);
+  const freeBoost = useAppStore((state) => state.freeBoosts);
 
   const screenRender = screens[screen];
 
@@ -73,15 +73,14 @@ export default function Home({ deviceType }: { deviceType: string }) {
         setFoundState(true);
       })
       .catch((err) => {
-        notification.info("Error occured")
+        notification.info("Error occurred");
       });
-  }; 
-  
+  };
 
   useEffect(() => {
-    if(freeBoost.length > 0){
-        const boostData = freeBoost.map((boost) => {
-        if(checkIfMoreThanADay(boost.lastUsed!)){
+    if (freeBoost.length > 0) {
+      const boostData = freeBoost.map((boost) => {
+        if (checkIfMoreThanADay(boost.lastUsed!)) {
           return { ...boost, left: boost.totalPerDay };
         }
         return boost;
@@ -89,7 +88,6 @@ export default function Home({ deviceType }: { deviceType: string }) {
       setFreeBoosts(boostData);
     }
   }, []);
-
 
   useEffect(() => {
     if (!isSSR()) {
@@ -99,7 +97,6 @@ export default function Home({ deviceType }: { deviceType: string }) {
         if (user) setUpState(user.id);
       }
     }
-
 
     const handleConnect = () => {
       setIsConnected(true);
@@ -182,3 +179,4 @@ export async function getServerSideProps(context: NextPageContext) {
     },
   };
 }
+
