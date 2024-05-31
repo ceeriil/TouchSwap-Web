@@ -138,7 +138,7 @@ export default function Home({ deviceType }: { deviceType: string }) {
           <div>
             <Image
               className="rounded-lg"
-              src="/img/qrCOde.png"
+              src="/img/qrCode.png"
               alt="QR Code"
               width={300}
               height={300}
