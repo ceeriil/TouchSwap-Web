@@ -9,7 +9,6 @@ if (process.env.NODE_ENV === "test") {
       Make sure db/firebase.ts is updated before testing against Firebase`,
   );
 }
-console.log(process.env)
 if (!admin.apps.length && process.env.NODE_ENV == "development") {
   if (process.env.FIRESTORE_EMULATOR_HOST) {
     console.log("using Firebase **emulator** DB");
@@ -27,7 +26,7 @@ if (!admin.apps.length && process.env.NODE_ENV == "development") {
   }
 }
 else {
-   if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+   if (!admin.apps.length && process.env.GOOGLE_APPLICATION_CREDENTIALS) {
     console.log("using Firebase live DB");
     admin.initializeApp({
       credential: admin.credential.applicationDefault(),
