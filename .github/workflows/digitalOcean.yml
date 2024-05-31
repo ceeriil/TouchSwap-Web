@@ -1,0 +1,32 @@
+name: DigitalOcean
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.8.1
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy application
+      env:
+        DIGITALOCEAN_HOST: ${{ secrets.DIGITALOCEAN_HOST }}
+        DIGITALOCEAN_SSH_USER: ${{ secrets.DIGITALOCEAN_SSH_USER }}
+      run: |
+        ssh -o StrictHostKeyChecking=no $DIGITALOCEAN_SSH_USER@$DIGITALOCEAN_HOST << 'EOF'
+          cd /var/www/Web-App
+          git pull origin main
+          yarn install
+          yarn build
+          pm2 restart nextjs
+        EOF
