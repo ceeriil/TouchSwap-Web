@@ -1,5 +1,5 @@
-import { boolean, isSSR } from "@tma.js/sdk-react";
 import { Energy } from "../db/user";
+import { boolean, isSSR } from "@tma.js/sdk-react";
 import { mountStoreDevtool } from "simple-zustand-devtools";
 import { create } from "zustand";
 import { createJSONStorage, devtools, persist } from "zustand/middleware";
@@ -15,7 +15,7 @@ export type TBoost = {
   maximumLevel?: number;
   cost?: number;
   userId: number;
-  lastUsed ?:Date
+  lastUsed?: Date;
 };
 
 export type TScreenPayload = {
@@ -127,8 +127,8 @@ export const useAppStore = create<TAppStore>()(
           const touchLevel = (paidBoosts.find(boost => boost.boostId === 4)?.level ?? 0) + 1;
           const touchValue = isTrue ? Math.floor(touchLevel * 5) : touchLevel;
           const newFreeBoosts = freeBoosts.map(boost => {
-            if ( isTrue && boost.boostId === 1 && boost.left !== undefined ) {
-              return { ...boost, left: boost.left - 1 , lastUsed:new Date() };
+            if (isTrue && boost.boostId === 1 && boost.left !== undefined) {
+              return { ...boost, left: boost.left - 1, lastUsed: new Date() };
             }
             return boost;
           });
@@ -149,6 +149,7 @@ export const useAppStore = create<TAppStore>()(
             user: {
               ...user,
               balance: newBalance,
+              totalCoinsMined: user.totalCoinsMined + newBalance,
             },
           }));
         },
@@ -290,7 +291,7 @@ export const useAppStore = create<TAppStore>()(
             return boost;
           });
           set(() => ({ freeBoosts: updatedBoosts }));
-        }
+        },
       }),
       {
         name: STORE_NAME,
@@ -306,9 +307,9 @@ export const useAppStore = create<TAppStore>()(
             }
           };
         },
-      }
-    )
-  )
+      },
+    ),
+  ),
 );
 
 if (process.env.NODE_ENV === "development") {
