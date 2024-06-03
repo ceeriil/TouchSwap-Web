@@ -29,6 +29,7 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   const updateBalance = useAppStore(state => state.updateBalance);
   const useEnergy = useAppStore(state => state.useEnergy);
   const deActivateAutoClick = useAppStore(state => state.deActivateAutoClick);
+  const latestState = useAppStore(state=> state)
 
   const [rotation, setRotation] = useState(0);
   const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
@@ -56,7 +57,18 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
   }, [autoClick]);
 
   const coinClick = (id: number) => {
-    socketInstance.emit("coin-click", id);
+    const data = JSON.stringify({
+      id:id,
+      user:latestState.user, 
+      freeBoosts:latestState.freeBoosts, 
+      paidBoosts:latestState.paidBoosts,
+      lastExtraTap:latestState.lastExtraTap,
+      lastRefillTap: latestState.lastRefillTap,
+      extraTap:latestState.extraTap,
+      autoClick:latestState.autoClick,
+      rechargeSpeed:latestState.rechargeSpeed,
+     })
+     socketInstance.emit("state-update", data );
   };
 
   const handleCoinTap = (e: any) => {
