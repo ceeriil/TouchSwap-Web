@@ -3,7 +3,8 @@ import "@/services/firebase";
 import { createServer } from "node:http";
 import next from "next";
 import { Server } from "socket.io";
-import { login, logout, userClick } from "@/services/db/user";
+import { login, logout, updateUser, userClick } from "@/services/db/user";
+import { updateFreeUserBoost, updatePaidUserBoost } from '@/services/db/boost';
 
 const dev = process.env.NODE_ENV !== "production";
 const hostname = "localhost";
@@ -20,13 +21,24 @@ app.prepare().then(() => {
   io.on("connection",  async (socket) => {
 
     socket.on("login", async(userId)=>{
+     if(userId === undefined) return
      if(userId == -1) return 
       // console.log(userId, "Login")
        await login(userId, socket.id);
     })
 
-    socket.on("coin-click", async (message) => {
-     // await userClick(message)
+    socket.on("state-update", async (message) => {
+      const data =  JSON.parse(message)
+      if(data.id == undefined) return
+      if(data.user) updateUser(data.user)
+      if(data.freeBoosts) updateFreeUserBoost(data.id,data.freeBoosts)
+      if(data.paidBoosts) updatePaidUserBoost(data.id,data.paidBoosts)
+      // console.log(data.lastExtraTap)
+      // console.log(data.lastRefillTap)
+      // console.log(data.extraTap)
+      // console.log(data.autoClick)
+      // console.log(data.rechargeSpeed)
+
     }); 
 
     socket.on('disconnect', async() => {
