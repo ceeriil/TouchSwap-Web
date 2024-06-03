@@ -85,6 +85,14 @@ export default function Home({ deviceType }: { deviceType: string }) {
   }
 
   useEffect(() => {
+     console.log(state)
+    return () => {
+      
+    };
+  }, [state]);
+
+
+  useEffect(() => {
     if (freeBoost.length > 0) {
       const boostData = freeBoost.map((boost) => {
         if (checkIfMoreThanADay(boost.lastUsed!)) {
@@ -111,12 +119,13 @@ export default function Home({ deviceType }: { deviceType: string }) {
       socketInstance.io.engine.on("upgrade", (transport: { name: SetStateAction<string> }) => {
         setTransport(transport.name);
       });
-     // handleLogin(state.user.id)
+     
     };
 
     const handleDisconnect = () => {
       setIsConnected(false);
       setTransport("N/A");
+      notification.error('Disconnected',{duration:30000})
     };
 
     if (socketInstance.connected) handleConnect();
