@@ -1,3 +1,7 @@
+import {QuestList} from "@/types";
+import { useCallback } from "react";
+
+
 export const checkIfMoreThanADay = (date:Date) => {
     if (!date) return false;
     const now = new Date();
@@ -13,4 +17,27 @@ export  const getPreviousDay = () => {
     date.setDate(date.getDate() - 1);
     return date;
   };
-  
+
+export const calculateTotalReward = (quest:QuestList) => {
+    let totalReward = 0;
+    for (const task of quest.tasks) {
+      totalReward += task.reward;
+    }
+    return totalReward;
+};
+
+
+export  function useGuardedCallback<TArgs extends Array<any>, TReturn>(
+  cb: (...args: TArgs) => TReturn,
+  dependencies?: Array<any>,
+) {
+  return useCallback(
+      async (...args: TArgs) => {
+          try {
+              return await cb(...args);
+          } catch {}
+      },
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      [...(dependencies || [])],
+  ) as (...args: TArgs) => Promise<Awaited<TReturn> | void>;
+}

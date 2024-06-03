@@ -193,6 +193,7 @@ export const useAppStore = create<TAppStore>()(
           set(() => ({
             user: {
               ...user,
+              touches:user.touches+1,
               energy: {
                 ...user.energy,
                 energyLeft: newCurrentEnergy,
@@ -316,3 +317,4 @@ export const useAppStore = create<TAppStore>()(
 if (process.env.NODE_ENV === "development") {
   mountStoreDevtool(STORE_NAME, useAppStore);
 }
+

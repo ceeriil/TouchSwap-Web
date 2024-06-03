@@ -157,3 +157,32 @@ export async function getAllUserPaidNoLevelsBoosts(userId: number): Promise<Boos
   const boosts: Boost[] = boostSnapshot.map((boostDoc) => toResult<Boost>(boostDoc));
   return boosts;
 }
+
+
+export async function updateFreeUserBoost(userId:number, boosts:any[]) {
+  let user = await findUser(userId.toString())
+
+  if(!user){
+    throw new Error("Paid boost not found for the user");
+  }
+
+  for (let i = 0; i < boosts.length; i++) {
+    let id =  db.boost.id(boosts[i]!.id);
+     await db.boost.update(id,{...boosts[i]})
+  }
+}
+
+export async function updatePaidUserBoost(userId:number, boosts:any[]) {
+  let user = await findUser(userId.toString())
+
+  if(!user){
+    throw new Error("Paid boost not found for the user");
+  }
+
+  for (let i = 0; i < boosts.length; i++) {
+    let id = db.boost.id(boosts[i]!.id);
+    await db.boost.update(id,{...boosts[i]})
+  }
+}
+
+
