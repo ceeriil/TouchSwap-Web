@@ -53,7 +53,7 @@ export type UserDoc = Schema["users"]["Doc"];
 export type UserResult = Result<User>;
 
 export async function login(id: string, connectionId: string) {
-  console.log("login ", id);
+  console.log("login", id);
   const users = await db.users.query($ => $.field("id").eq(Number(id)));
   const userRef = await users[0].ref.id;
   await db.users.update(userRef, $ => [
@@ -65,7 +65,8 @@ export async function login(id: string, connectionId: string) {
 
 export async function logout(id: string) {
   const users = await db.users.query($ => $.field("connectionId").eq(id));
-  console.log(users);
+  if(users.length < 0) return
+  console.log(users)
   // const userRef =  users[0].ref.id
   // await db.users.update(userRef, ($)=> [
   //   $.field("online").set(false),
@@ -124,9 +125,12 @@ export async function getDailyUsers(): Promise<AllDailyUser> {
   const usersSnaphot = await db.users.all();
   const todayDate = new Date().getDate();
   const totalDailyUsers = usersSnaphot.reduce(
-    (total, user) => total + (toResult<User>(user).lastOnline.getDate() == todayDate ? 1 : 0),
-    0,
+    (total, user) => {
+      return total + new Date(toResult<User>(user).lastOnline).getDate(), todayDate
+     }, 
+     0,
   );
+
   return { dailyUsers: totalDailyUsers };
 }
 
@@ -176,12 +180,8 @@ export async function createUser(
   return toResult<User>(userSnapshot);
 }
 
-export async function updateUser(id: string, socialLinks: SocialLinks): Promise<UserResult> {
-  const userSnapshot = await db.users.get(db.users.id(id));
-  // await userSnapshot?.ref?.(() => ({
-  //   status: { text: status, timestamp: Date.now() },
-  //   socialLinks,
-  //   skills,
-  // }));
-  return toResult<User>(userSnapshot);
+export async function updateUser(user:any) {
+  const userFound = await db.users.query(($)=> $.field("id").eq(user.id));
+  if(userFound.length < 0) return
+  userFound[0].update({...user})
 }
