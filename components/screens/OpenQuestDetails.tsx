@@ -70,15 +70,16 @@ const Tasks = ({
   return (
     <div>
       <div className="grid gap-2 pb-12">
-        {tasks.map(({ title, completed }, index) => {
+        {tasks.map(({ title, completed,button }, index) => {
           return (
             <div className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between" key={index}>
               <div className="">
                 <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title}</h3>
               </div>
-
-              {completed ? (
-                <p className="text-[0.8rem] font-bold ">done</p>
+               
+              {  button !== null ? (button) :  completed ? (
+                <p className="text-
+                [0.8rem] font-bold ">Done</p>
               ) : (
                 <button
                   onClick={() => onTaskOpen(index)}
@@ -93,8 +94,6 @@ const Tasks = ({
       </div>
 
       <ClaimReward onClose={closeModal} isOpen={isModalOpen} reward={reward} />
-
-      {/* Check if all tasks are completed */}
       {allTasksCompleted && claimed == false ? (
         <button
           onClick={openModal}
@@ -104,7 +103,7 @@ const Tasks = ({
         </button>
       ) : (
         <button disabled className="btn bg-[#A7A7A7] w-full text-black py-4 font-[500] rounded-lg align-baseline">
-          Claim Reward
+           All Cliamed
         </button>
       )}
     </div>

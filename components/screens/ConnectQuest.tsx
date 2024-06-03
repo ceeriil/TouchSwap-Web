@@ -1,6 +1,9 @@
 import React from "react";
 import { OpenQuestDetailScreen } from "./OpenQuestDetails";
 import { QuestList } from "@/types";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { calculateTotalReward } from "@/utils";
+
 
 export const connectQuestsLists: QuestList = {
   id: "wallet",
@@ -12,22 +15,28 @@ export const connectQuestsLists: QuestList = {
       completed: false,
       link: "",
       reward: 1000,
+      button:( <WalletMultiButton className="text-sm bg-white text-black py-2 px-2 rounded-lg font-medium" style={{}}  />),
     },
   ],
   claimed: false,
 };
 
-const handleClaim = () => {};
-
-const handleTaskOpen = (index: number) => {};
 
 export const ConnectQuestScreen = () => {
+
+  const totalReward = calculateTotalReward(connectQuestsLists);
+  const handleClaim = () => {};
+
+  const handleTaskOpen = (index: number) => {
+    
+  };
+
   return (
     <OpenQuestDetailScreen
       quest={connectQuestsLists}
       handleClaim={handleClaim}
       handleTaskOpen={handleTaskOpen}
-      reward={1222}
+      reward={totalReward}
       claimed={connectQuestsLists.claimed}
     />
   );

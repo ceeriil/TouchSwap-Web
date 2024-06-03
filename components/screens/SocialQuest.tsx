@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { OpenQuestDetailScreen } from "./OpenQuestDetails";
 import { LinkTask, QuestList } from "@/types";
+import { calculateTotalReward } from "@/utils";
+
 
 export const socialQuestsLists: QuestList = {
   id: "social",
@@ -29,15 +31,6 @@ export const socialQuestsLists: QuestList = {
   claimed: false,
 };
 
-const calculateTotalReward = () => {
-  let totalReward = 0;
-  for (const task of socialQuestsLists.tasks) {
-    totalReward += task.reward;
-  }
-  return totalReward;
-};
-
-const totalReward = calculateTotalReward();
 
 export const SocialQuestScreen = () => {
   const [claimed, setClaimed] = useState(socialQuestsLists.claimed);
@@ -48,6 +41,8 @@ export const SocialQuestScreen = () => {
       setClaimed(true);
     }
   };
+
+  const totalReward = calculateTotalReward(socialQuestsLists);
 
   const handleTaskOpen = (index: number) => {
     console.log(socialQuestsLists.tasks[index]);

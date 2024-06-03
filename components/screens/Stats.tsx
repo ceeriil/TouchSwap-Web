@@ -66,12 +66,7 @@ const fetchStats = async (): Promise<StatsCardList[]> => {
         title: "Daily Users",
         icon: <HeartIcon />,
         count: stats.totalDailyUsers.toLocaleString(),
-      },
-      {
-        title: "Online Players",
-        icon: <HeartIcon />,
-        count: stats.online.toLocaleString(),
-      },
+      }, 
     ];
   } catch {
     return initialStatsCardLists;
