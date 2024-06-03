@@ -146,11 +146,12 @@ export const useAppStore = create<TAppStore>()(
         updateBalance: (newBalance: number): void => {
           const { user } = get();
           const balanceDifference = newBalance - user.balance;
+          const additionalCoinsMined = balanceDifference > 0 ? balanceDifference : 0;
           set(() => ({
             user: {
               ...user,
               balance: newBalance,
-              totalCoinsMined: user.totalCoinsMined + balanceDifference,
+              totalCoinsMined: user.totalCoinsMined + additionalCoinsMined,
             },
           }));
         },

@@ -177,6 +177,15 @@ export async function createUser(
   }));
   const userSnapshot = await db.users.get(ref.id);
   createUserBoost(id);
+  if(referedBy !== null) {
+    let refedUser =  (await db.users.query(($)=> $.field("id").gte(referedBy!))).at(0)
+     if(!refedUser){
+      return toResult<User>(userSnapshot);
+     }
+     else {
+      await db.users.update(refedUser.ref.id,{totalRefered:refedUser.data.totalRefered +1})
+     }
+  }
   return toResult<User>(userSnapshot);
 }
 
