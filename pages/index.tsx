@@ -75,7 +75,14 @@ export default function Home({ deviceType }: { deviceType: string }) {
       .catch((err) => {
         notification.info("Error occurred");
       });
+      socketInstance.emit("state-update", id );
   };
+
+  const handleLogin = (id:number) => {
+    Promise.all([ getUser(id)]).then(([user])=>{
+      console.log(user)
+    })
+  }
 
   useEffect(() => {
     if (freeBoost.length > 0) {
@@ -98,12 +105,13 @@ export default function Home({ deviceType }: { deviceType: string }) {
       }
     }
 
-    const handleConnect = () => {
+    const handleConnect = () => { 
       setIsConnected(true);
       setTransport(socketInstance.io.engine.transport.name);
       socketInstance.io.engine.on("upgrade", (transport: { name: SetStateAction<string> }) => {
         setTransport(transport.name);
       });
+     // handleLogin(state.user.id)
     };
 
     const handleDisconnect = () => {

@@ -19,7 +19,7 @@ import {
   useViewport,
   initMiniApp,
 } from "@tma.js/sdk-react";
-import axios from "axios";
+import AppWalletProvider from "@/components/provider/AppWalletProvider";
 
 const ErrorBoundaryError: FC<{ error: unknown }> = ({ error }) => (
   <div>
@@ -80,15 +80,15 @@ const App: FC<AppProps> = ({ pageProps, Component }) => {
     <>
       <Suspense fallback={<Loader />}>
         <BackButtonManipulator />
-        <>
+        <AppWalletProvider>
           <main
             className="relative bgcover overflowxhidden"
             style={{ background: `url('/img/stars.svg')` }}
           >
             <Component {...pageProps} />
           </main>
-          <Toaster />
-        </>
+        </AppWalletProvider>
+        <Toaster />
       </Suspense>
     </>
   );
