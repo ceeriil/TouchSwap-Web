@@ -1,8 +1,14 @@
 import React from "react";
 import { OpenQuestDetailScreen } from "./OpenQuestDetails";
 import { QuestList } from "@/types";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { calculateTotalReward } from "@/utils";
+import {
+  WalletActionButton,
+  WalletConnectButton,
+  WalletDisconnectButton,
+  WalletModalProvider,
+  WalletSelectButton,
+} from '@tronweb3/tronwallet-adapter-react-ui';
 
 
 export const connectQuestsLists: QuestList = {
@@ -15,7 +21,7 @@ export const connectQuestsLists: QuestList = {
       completed: false,
       link: "",
       reward: 1000,
-      button:( <WalletMultiButton className="text-sm bg-white text-black py-2 px-2 rounded-lg font-medium" style={{}}  />),
+      button:( <WalletActionButton className="text-sm bg-white text-black py-2 px-2 rounded-lg font-medium"   />),
     },
   ],
   claimed: false,
