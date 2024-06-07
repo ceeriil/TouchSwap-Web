@@ -32,6 +32,7 @@ import {
 import { getUser } from "@/services/data/user";
 import { notification } from "@/utils/notifications";
 import { checkIfMoreThanADay } from "@/utils";
+import toost from "react-hot-toast"
 
 const screens = {
   badges: <BadgesScreen />,
@@ -57,9 +58,11 @@ export default function Home({ deviceType }: { deviceType: string }) {
   const state = useAppStore((state) => state);
   const freeBoost = useAppStore((state) => state.freeBoosts);
 
+
   const screenRender = screens[screen];
 
   const setUpState = (id: number) => {
+    socketInstance.emit("login",id)
     Promise.all([
       getUser(id),
       getFreeBoost(id),
@@ -73,14 +76,13 @@ export default function Home({ deviceType }: { deviceType: string }) {
         setFoundState(true);
       })
       .catch((err) => {
-        notification.info("Error occurred");
+        toost.error("Error occurred");
       });
-      socketInstance.emit("state-update", id );
   };
 
   const handleLogin = (id:number) => {
     Promise.all([ getUser(id)]).then(([user])=>{
-      console.log(user)
+      setUser(user);
     })
   }
 

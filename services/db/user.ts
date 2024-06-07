@@ -53,7 +53,6 @@ export type UserDoc = Schema["users"]["Doc"];
 export type UserResult = Result<User>;
 
 export async function login(id: string, connectionId: string) {
-  console.log("login", id);
   const users = await db.users.query($ => $.field("id").eq(Number(id)));
   const userRef = await users[0].ref.id;
   await db.users.update(userRef, $ => [
@@ -65,14 +64,14 @@ export async function login(id: string, connectionId: string) {
 
 export async function logout(id: string) {
   const users = await db.users.query($ => $.field("connectionId").eq(id));
-  if(users.length < 0) return
-  console.log(users)
-  // const userRef =  users[0].ref.id
-  // await db.users.update(userRef, ($)=> [
-  //   $.field("online").set(false),
-  //   $.field("lastOnline").set($.serverDate()),
-  //   $.field("connectionId").set($.remove())
-  // ])
+  if(users.length <= 0) return
+  const userRef =  users[0].ref.id
+  console.log(userRef)
+  await db.users.update(userRef, ($)=> [
+    $.field("online").set(false),
+    $.field("lastOnline").set($.serverDate()),
+    $.field("connectionId").set($.remove())
+  ])
 }
 
 export async function userClick(id: string) {
@@ -123,13 +122,22 @@ export async function getOnlineUserCount(): Promise<AllActiveUserCount> {
 
 export async function getDailyUsers(): Promise<AllDailyUser> {
   const usersSnaphot = await db.users.all();
-  const todayDate = new Date().getDate();
-  const totalDailyUsers = usersSnaphot.reduce(
-    (total, user) => {
-      return total + new Date(toResult<User>(user).lastOnline).getDate(), todayDate
-     }, 
-     0,
-  );
+  const today = new Date();
+  const todayYear = today.getFullYear();
+  const todayMonth = today.getMonth();
+  const todayDate = today.getDate();
+
+  const totalDailyUsers = usersSnaphot.reduce((total, user) => {
+      let lastOnlineDate = new Date(toResult<User>(user).lastOnline);
+      console.log(lastOnlineDate, today)
+      let lastSeenYear = lastOnlineDate.getFullYear();
+      let lastSeenMonth = lastOnlineDate.getMonth();
+      let lastSeenDay = lastOnlineDate.getDate();
+
+      return total + (lastSeenYear === todayYear && lastSeenMonth === todayMonth && lastSeenDay === todayDate ? 1 : 0);
+  }, 0);
+
+  console.log(totalDailyUsers);
 
   return { dailyUsers: totalDailyUsers };
 }
