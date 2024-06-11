@@ -22,6 +22,7 @@ export interface User {
   totalCoinsMined: number;
   totalRefered: number;
   totalReferedCliamed: number;
+  taskesCompleted:number[]
 }
 export interface Energy {
   maxEnergy: number;
@@ -66,7 +67,6 @@ export async function logout(id: string) {
   const users = await db.users.query($ => $.field("connectionId").eq(id));
   if(users.length <= 0) return
   const userRef =  users[0].ref.id
-  console.log(userRef)
   await db.users.update(userRef, ($)=> [
     $.field("online").set(false),
     $.field("lastOnline").set($.serverDate()),
@@ -182,6 +182,7 @@ export async function createUser(
     totalCoinsMined: 1000,
     totalRefered: 0,
     totalReferedCliamed: 0,
+    taskesCompleted:[]
   }));
   const userSnapshot = await db.users.get(ref.id);
   createUserBoost(id);
@@ -201,4 +202,12 @@ export async function updateUser(user:any) {
   const userFound = await db.users.query(($)=> $.field("id").eq(user.id));
   if(userFound.length < 0) return
   userFound[0].update({...user})
+}
+
+export async function updateTaskes(userId:number, ids:number[]) {
+  const userFound = await db.users.query(($)=> $.field("id").eq(userId));
+  if(userFound.length < 0) return
+  const user = userFound[0]
+  ids = Array.from(new Set(ids))
+  user.update({taskesCompleted:ids})
 }
