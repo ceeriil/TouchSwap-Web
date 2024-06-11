@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CoinTap } from "../CoinTap";
 import { Header } from "../Header";
 import { Modal } from "../ModalBase";

@@ -46,9 +46,9 @@ export async function useFreeBoost(userId: number, boostId: number): Promise<voi
   }
 
   const boostData = toResult<Boost>(boostDoc)
-
-  if (boostData.totalPerDay === 0) {
-    // User has already used all available boosts for the day
+  
+   
+  if (boostData.totalPerDay === 0) { 
     throw new Error("No available boosts remaining for the day");
   }
 

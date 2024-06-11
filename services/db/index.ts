@@ -1,13 +1,12 @@
 import { User } from "./user";
 import { Boost } from "./boost"
 import { Typesaurus, schema } from "typesaurus";
+import { Task } from "./task";
 
-// Generate the db object from given schem that you can use to access
-// Firestore, i.e.:
-//   await db.get(userId)
 export const db = schema($ => ({
       users: $.collection<User>(),
-      boost :$.collection<Boost>()
+      boost :$.collection<Boost>(),
+      tasks :$.collection<Task>()
 }));
 
 

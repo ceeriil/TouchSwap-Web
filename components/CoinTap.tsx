@@ -60,13 +60,13 @@ export const CoinTap = ({ extraTap, refill }: { extraTap: boolean; refill: boole
     const data = JSON.stringify({
       id:id,
       user:latestState.user, 
-      freeBoosts:latestState.freeBoosts, 
-      paidBoosts:latestState.paidBoosts,
-      lastExtraTap:latestState.lastExtraTap,
-      lastRefillTap: latestState.lastRefillTap,
-      extraTap:latestState.extraTap,
-      autoClick:latestState.autoClick,
-      rechargeSpeed:latestState.rechargeSpeed,
+      // freeBoosts:latestState.freeBoosts, 
+      // paidBoosts:latestState.paidBoosts,
+      // lastExtraTap:latestState.lastExtraTap,
+      // lastRefillTap: latestState.lastRefillTap,
+      // extraTap:latestState.extraTap,
+      // autoClick:latestState.autoClick,
+      // rechargeSpeed:latestState.rechargeSpeed,
      })
      socketInstance.emit("state-update", data );
   };

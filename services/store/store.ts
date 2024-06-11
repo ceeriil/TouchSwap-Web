@@ -36,6 +36,8 @@ export type TUser = {
   totalCoinsMined: number;
   totalRefered: number;
   totalReferedCliamed: number;
+  lastExtraTap: Date | null;
+  lastRefillTap: Date | null;
 };
 
 export const STORE_NAME = "Touch_Swap_Store";
@@ -61,6 +63,8 @@ export const emptyUser: TUser = {
   totalCoinsMined: 1000,
   totalRefered: 150,
   totalReferedCliamed: 100,
+  lastExtraTap: null,
+  lastRefillTap: null,
 };
 
 type AutoClick = {
@@ -78,8 +82,6 @@ export type TAppStore = {
   paidBoosts: TBoost[];
   screen: TScreens;
   user: TUser;
-  lastExtraTap: Date | null;
-  lastRefillTap: Date | null;
   setScreen: (newValue: TScreens, payload?: TScreenPayload | null) => void;
   updateBalance: (newBalance: number) => void;
   updatePaidBoostLevel: (boostId: number, newLevel: number) => void;
@@ -111,8 +113,6 @@ export const initialState = {
   paidBoosts: [],
   screen: "home" as TScreens,
   user: emptyUser,
-  lastExtraTap: null,
-  lastRefillTap: null,
 };
 
 export const useAppStore = create<TAppStore>()(
@@ -138,8 +138,8 @@ export const useAppStore = create<TAppStore>()(
             user: {
               ...user,
               tapValue: touchValue,
+              lastExtraTap: isTrue ? new Date() : null,
             },
-            lastExtraTap: isTrue ? new Date() : null,
             freeBoosts: newFreeBoosts,
           }));
         },
@@ -165,9 +165,9 @@ export const useAppStore = create<TAppStore>()(
           });
 
           set(() => ({
-            lastRefillTap: new Date(),
             user: {
               ...user,
+              lastRefillTap: new Date(),
               energy: {
                 ...user.energy,
                 energyLeft: user.energy.maxEnergy,

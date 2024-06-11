@@ -18,5 +18,5 @@ export async function seedDatabase() {
         const { username,id, first,last, lang, referedBy } = userData as User;
          await createUser(id,referedBy,username,first,last,lang);
    })
-
+   
 }
