@@ -22,7 +22,9 @@ export interface User {
   totalCoinsMined: number;
   totalRefered: number;
   totalReferedCliamed: number;
-  taskesCompleted:number[]
+  taskesCompleted:number[],
+  lastExtraTap: Date | null;
+  lastRefillTap: Date | null;
 }
 export interface Energy {
   maxEnergy: number;
@@ -182,7 +184,9 @@ export async function createUser(
     totalCoinsMined: 1000,
     totalRefered: 0,
     totalReferedCliamed: 0,
-    taskesCompleted:[]
+    taskesCompleted:[],
+    lastExtraTap:  null,
+    lastRefillTap:null,
   }));
   const userSnapshot = await db.users.get(ref.id);
   createUserBoost(id);
