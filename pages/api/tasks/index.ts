@@ -2,14 +2,7 @@ import { getAllTasks  } from "@/services/db/task";
 import { findUser, updateTaskes } from "@/services/db/user";
 import "@/services/firebase";
 import { NextApiRequest, NextApiResponse } from "next";
-
-export type UserTask = {
-  id:number,
-  title: string;
-  link: string;
-  reward:number;
-  completed:boolean 
-}
+import {UserTask} from '@/types'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {

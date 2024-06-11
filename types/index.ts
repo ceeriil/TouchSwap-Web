@@ -15,3 +15,12 @@ export type QuestList = {
   id: string;
   claimed: boolean;
 };
+
+
+export type UserTask = {
+  id:number,
+  title: string;
+  link: string;
+  reward:number;
+  completed:boolean 
+}
