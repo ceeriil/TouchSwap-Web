@@ -46,6 +46,30 @@ export const referralQuestsLists: ReferralQuestsList[] = [
     claimed: false,
     completed: false,
   },
+  {
+    count: 500,
+    reward: 250000,
+    claimed:false,
+    completed:false
+  },
+  {
+    count:1000,
+    reward: 500000,
+    claimed:false,
+    completed:false
+  },
+  {
+    count: 100000,
+    reward: 5000000,
+    claimed:false,
+    completed:false
+  },
+  {
+    count:250000,
+    reward: 25000000,
+    claimed:false,
+    completed:false
+  }
 ];
 
 export const ReferralQuests = () => {
