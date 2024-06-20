@@ -1,6 +1,6 @@
 import { db, toResult } from "@/services/db";
 import { findUser, useTokens } from "./user";
-import { getPreviousDay } from "@/utils";
+import { checkIfMoreThanADay, getPreviousDay } from "@/utils";
 
 export type BoostType = "free" | "paid" | "paid-no-levels";
 
@@ -122,10 +122,21 @@ export async function getAllUserFreeBoosts(userId: number): Promise<Boost[]> {
     throw new Error("Paid boost not found for the user");
   }
   // Query the database for all free boosts associated with the user ID
-  const boostSnapshot = await db.boost.query(
+
+  let boostSnapshot = await db.boost.query(
     ($) => [$.field("userId").eq(userId), $.field("type").eq("free")]
   );
-  const boosts: Boost[] = boostSnapshot.map((boostDoc) => toResult<Boost>(boostDoc));
+  let boosts: Boost[] = boostSnapshot.map((boostDoc) => toResult<Boost>(boostDoc));
+  boosts.map(async (boost)=>{
+    if(checkIfMoreThanADay(boost.lastUsed!)) {
+     await updateFreeBoostsCount( userId, boost.boostId,boost)
+    }
+  })
+  
+  boostSnapshot = await db.boost.query(
+    ($) => [$.field("userId").eq(userId), $.field("type").eq("free")]
+  );
+  boosts = boostSnapshot.map((boostDoc) => toResult<Boost>(boostDoc));
 
   return boosts;
 }
@@ -142,6 +153,16 @@ export async function getAllUserPaidBoosts(userId: number): Promise<Boost[]> {
   );
   const boosts: Boost[] = boostSnapshot.map((boostDoc) => toResult<Boost>(boostDoc));
   return boosts;
+}
+
+export async function updateFreeBoostsCount(userId: number, boostId: number, boost:Boost) {
+  let user = await findUser(userId.toString())
+
+  if(!user){
+    throw new Error("Paid boost not found for the user");
+  }
+  let id = db.boost.id(boostId.toString());
+  await db.boost.update(id,{...boost, left:3})
 }
 
 export async function getAllUserPaidNoLevelsBoosts(userId: number): Promise<Boost[]> {

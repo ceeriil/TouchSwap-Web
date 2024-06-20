@@ -32,13 +32,7 @@ app.prepare().then(() => {
       if(data.id == undefined) return
       if(data.user) updateUser(data.user)
       if(data.freeBoosts) updateFreeUserBoost(data.id,data.freeBoosts)
-      if(data.paidBoosts) updatePaidUserBoost(data.id,data.paidBoosts)
-      // console.log(data.lastExtraTap)
-      // console.log(data.lastRefillTap)
-      // console.log(data.extraTap)
-      // console.log(data.autoClick)
-      // console.log(data.rechargeSpeed)
-
+      if(data.paidBoosts) updatePaidUserBoost(data.id,data.paidBoosts) 
     }); 
 
     socket.on('disconnect', async() => {
