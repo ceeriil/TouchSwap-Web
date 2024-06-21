@@ -34,20 +34,19 @@ export default function AppWalletProvider({
                 TronLinkAdapter,
                 WalletConnectAdapter
             } = res;
-                const tronLinkAdapter = new TronLinkAdapter();
+            const tronLinkAdapter = new TronLinkAdapter();
             const ledger = new LedgerAdapter({
                 accountNumber: 2,
             });
             const walletConnectAdapter = new WalletConnectAdapter({
                 network: 'Nile',
                 options: {
-                    relayUrl: 'wss://relay.walletconnect.com',
-                    // example WC app project ID
+                    relayUrl: 'https://relay.walletconnect.com/?projectId=cea33aaa4be55d92e6c9f3752d377bd',
                     projectId: 'cea33aaa4be55d92e6c9f3752d377bd6',
                     metadata: {
                         name: 'TouchSwap',
                         description: 'Touch Swap Auth',
-                        url: 'https://web3modal.com', // origin must match your domain & subdomain
+                        url: 'https://app.touchswap.xyz', // origin must match your domain & subdomain
                         icons: ['https://avatars.githubusercontent.com/u/37784886']
                     },
                 },
