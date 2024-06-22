@@ -16,14 +16,7 @@ export const RankHeader = () => {
       setHapticFeedback(initHapticFeedback());
     }
   }, []);
-
-  /*  useEffect(() => {
-    const rankBadge = badgesLists.find(badge => badge.requiredCoin > totalCoinsMined);
-    if (rankBadge) {
-      const userRankIndex = badgesLists.indexOf(rankBadge);
-      setUserRank(badgesLists[2].title);
-    }
-  }, [totalCoinsMined]); */
+ 
 
   const goToBadges = () => {
     setScreen("badges");
