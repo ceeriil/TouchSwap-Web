@@ -1,13 +1,7 @@
 "use client";
  
-import React, { useMemo, useState, useEffect } from "react";
-import { WalletProvider } from '@tronweb3/tronwallet-adapter-react-hooks';
-import { WalletModalProvider } from '@tronweb3/tronwallet-adapter-react-ui';
-import '@tronweb3/tronwallet-adapter-react-ui/style.css';
-import { LedgerAdapter } from '@tronweb3/tronwallet-adapter-ledger';
-import type { Adapter, WalletError } from '@tronweb3/tronwallet-abstract-adapter';
-import { WalletDisconnectedError, WalletNotFoundError } from '@tronweb3/tronwallet-abstract-adapter';
-import toast from "react-hot-toast";
+import React from "react";
+import {THEME, TonConnectUIProvider} from "@tonconnect/ui-react";
 
 
 export default function AppWalletProvider({
@@ -15,60 +9,53 @@ export default function AppWalletProvider({
   }: {
     children: React.ReactNode;
   }) {
-
-    function onError(e: WalletError) {
-      if (e instanceof WalletNotFoundError) {
-          toast.error(e.message);
-      } else if (e instanceof WalletDisconnectedError) {
-          toast.error(e.message);
-      } else toast.error(e.message);
-
-    }
-    const [adapters, setAdapters] = useState<Adapter[]>([]);
-    useEffect(() => {
-        import('@tronweb3/tronwallet-adapters').then((res) => {
-            const {
-                BitKeepAdapter,
-                OkxWalletAdapter,
-                TokenPocketAdapter,
-                TronLinkAdapter,
-                WalletConnectAdapter
-            } = res;
-            const tronLinkAdapter = new TronLinkAdapter();
-            const ledger = new LedgerAdapter({
-                accountNumber: 2,
-            });
-            const walletConnectAdapter = new WalletConnectAdapter({
-                network: 'Nile',
-                options: {
-                    relayUrl: 'https://relay.walletconnect.com/?projectId=cea33aaa4be55d92e6c9f3752d377bd',
-                    projectId: 'cea33aaa4be55d92e6c9f3752d377bd6',
-                    metadata: {
-                        name: 'TouchSwap',
-                        description: 'Touch Swap Auth',
-                        url: 'https://app.touchswap.xyz', // origin must match your domain & subdomain
-                        icons: ['https://avatars.githubusercontent.com/u/37784886']
-                    },
-                },
-                web3ModalConfig: {
-                    themeMode: 'dark',
-                    themeVariables: {
-                        '--w3m-z-index': '1000',
-                    },
-                },
-            });
-            const bitKeepAdapter = new BitKeepAdapter();
-            const tokenPocketAdapter = new TokenPocketAdapter();
-            const okxwalletAdapter = new OkxWalletAdapter();
-            setAdapters([tronLinkAdapter, bitKeepAdapter, tokenPocketAdapter, okxwalletAdapter, walletConnectAdapter, ledger])
-        });
-    }, [setAdapters])
    
     return (
-      <WalletProvider onError={onError} adapters={adapters} disableAutoConnectOnLoad={true}>
-        <WalletModalProvider>
+        <TonConnectUIProvider
+            manifestUrl="https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json"
+            uiPreferences={{ theme: THEME.DARK }}
+            walletsListConfiguration={{
+            includeWallets: [
+                {
+                appName: "safepalwallet",
+                name: "SafePal",
+                imageUrl: "https://s.pvcliping.com/web/public_image/SafePal_x288.png",
+                tondns: "",
+                aboutUrl: "https://www.safepal.com",
+                universalLink: "https://link.safepal.io/ton-connect",
+                deepLink: "safepal-tc://",
+                jsBridgeKey: "safepalwallet",
+                bridgeUrl: "https://ton-bridge.safepal.com/tonbridge/v1/bridge",
+                platforms: ["ios", "android", "chrome", "firefox"]
+                },
+                {
+                appName: "bitgetTonWallet",
+                name: "Bitget Wallet",
+                imageUrl: "https://raw.githubusercontent.com/bitkeepwallet/download/main/logo/png/bitget%20wallet_logo_iOS.png",
+                aboutUrl: "https://web3.bitget.com",
+                deepLink: "bitkeep://",
+                jsBridgeKey: "bitgetTonWallet",
+                bridgeUrl: "https://bridge.tonapi.io/bridge",
+                platforms: ["ios", "android", "chrome"],
+                universalLink: "https://bkcode.vip/ton-connect"
+                },
+                {
+                appName: "tonwallet",
+                name: "TON Wallet",
+                imageUrl: "https://wallet.ton.org/assets/ui/qr-logo.png",
+                aboutUrl: "https://chrome.google.com/webstore/detail/ton-wallet/nphplpgoakhhjchkkhmiggakijnkhfnd",
+                universalLink: "https://wallet.ton.org/ton-connect",
+                jsBridgeKey: "tonwallet",
+                bridgeUrl: "https://bridge.tonapi.io/bridge",
+                platforms: ["chrome", "android"]
+                }
+            ]
+            }}
+            actionsConfiguration={{
+                twaReturnUrl: 'https://t.me/Touchswap/'
+            }}
+        >
           {children}
-        </WalletModalProvider>
-     </WalletProvider>
+        </TonConnectUIProvider>
     );
   }
