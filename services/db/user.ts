@@ -1,5 +1,6 @@
 import { createUserBoost } from "./boost";
 import { Result, Schema, db, toResult } from "@/services/db";
+//import { secondsDiffrence } from "@/utils";
 import { Typesaurus } from "typesaurus";
 
 export interface User {
@@ -77,7 +78,6 @@ export async function logout(id: string) {
 }
 
 export async function userClick(id: string) {
-  console.log(id);
   const users = await db.users.query($ => $.field("id").eq(Number(id)));
   const user = users[0];
   const userId = user.ref.id;
@@ -131,15 +131,12 @@ export async function getDailyUsers(): Promise<AllDailyUser> {
 
   const totalDailyUsers = usersSnaphot.reduce((total, user) => {
       let lastOnlineDate = new Date(toResult<User>(user).lastOnline);
-      console.log(lastOnlineDate, today)
       let lastSeenYear = lastOnlineDate.getFullYear();
       let lastSeenMonth = lastOnlineDate.getMonth();
       let lastSeenDay = lastOnlineDate.getDate();
 
       return total + (lastSeenYear === todayYear && lastSeenMonth === todayMonth && lastSeenDay === todayDate ? 1 : 0);
   }, 0);
-
-  console.log(totalDailyUsers);
 
   return { dailyUsers: totalDailyUsers };
 }
@@ -151,9 +148,16 @@ export async function findAllUsers(): Promise<UserResult[]> {
 }
 
 export async function findUser(id: string): Promise<UserResult> {
-  const user = await db.users.query($ => $.field("id").eq(Number(id)));
-  if (user.length > 0) return toResult<User>(user[0]);
-  return toResult<User>(null);
+  let userQuery = await db.users.query($ => $.field("id").eq(Number(id)));
+  if(userQuery.length < 0) return toResult<User>(null);
+  let userData = toResult<User>(userQuery[0])
+  // if (userData.exist) { 
+  //   if(userData.lastOnline) {
+  //       const timePassed = secondsDiffrence(userData.lastOnline!, userData.energy.maxEnergy)
+  //       console.log(timePassed)
+  //   }
+  // }
+  return userData
 }
 
 export async function createUser(

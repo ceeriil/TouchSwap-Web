@@ -82,6 +82,8 @@ export type TAppStore = {
   paidBoosts: TBoost[];
   screen: TScreens;
   user: TUser;
+  wallet:string;
+  walletCliamed:boolean;
   setScreen: (newValue: TScreens, payload?: TScreenPayload | null) => void;
   updateBalance: (newBalance: number) => void;
   updatePaidBoostLevel: (boostId: number, newLevel: number) => void;
@@ -113,6 +115,8 @@ export const initialState = {
   paidBoosts: [],
   screen: "home" as TScreens,
   user: emptyUser,
+  wallet:"",
+  walletCliamed:false
 };
 
 export const useAppStore = create<TAppStore>()(
@@ -295,6 +299,9 @@ export const useAppStore = create<TAppStore>()(
           });
           set(() => ({ freeBoosts: updatedBoosts }));
         },
+        setWallet:(wallet:string) => {
+           set(()=> ({wallet, walletCliamed:true}))
+        }
       }),
       {
         name: STORE_NAME,

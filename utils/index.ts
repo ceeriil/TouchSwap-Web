@@ -9,8 +9,15 @@ export const checkIfMoreThanADay = (date:Date) => {
     const diffTime = Math.abs(now.getTime() - lastDate.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays > 1;
-  };
+};
 
+export const secondsDiffrence = (date:Date, target:number) => {
+  if (!date) return false;
+  const lastDate = new Date(date); 
+  const now = new Date();
+  const seconds =  ((now.getTime() - lastDate.getTime() ) / 1000 ) as number ;
+  return seconds > target;
+};
 
 export  const getPreviousDay = () => {
     const date = new Date();
