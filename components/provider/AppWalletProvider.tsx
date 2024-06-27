@@ -12,7 +12,7 @@ export default function AppWalletProvider({
    
     return (
         <TonConnectUIProvider
-            manifestUrl="https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json"
+            manifestUrl="https://app.touchswap.xyz/tonconnect-manifest.json"
             uiPreferences={{ theme: THEME.DARK }}
             walletsListConfiguration={{
             includeWallets: [
@@ -52,7 +52,7 @@ export default function AppWalletProvider({
             ]
             }}
             actionsConfiguration={{
-                twaReturnUrl: 'https://t.me/Touchswap/'
+                twaReturnUrl: 'https://t.me/touchswap_bot'
             }}
         >
           {children}
