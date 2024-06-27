@@ -3,6 +3,7 @@ import { OpenQuestDetailScreen } from "./OpenQuestDetails";
 import { QuestList } from "@/types";
 import { calculateTotalReward } from "@/utils";
 import {TonConnectButton} from "@tonconnect/ui-react";
+import { useAppStore } from "@/services/store/store";
 
 
 export const connectQuestsLists: QuestList = {
@@ -14,7 +15,7 @@ export const connectQuestsLists: QuestList = {
       title: "Connect Wallet",
       completed: false,
       link: "",
-      reward: 1000,
+      reward: 10000,
       button:( <TonConnectButton  className="text-sm text-black py-2 px-2 rounded-lg font-medium"   />),
     },
   ],
@@ -23,6 +24,9 @@ export const connectQuestsLists: QuestList = {
 
 
 export const ConnectQuestScreen = () => {
+  const walletCliamed = useAppStore(state=>state.walletCliamed) 
+  
+
 
   const totalReward = calculateTotalReward(connectQuestsLists);
   const handleClaim = () => {};
@@ -37,7 +41,7 @@ export const ConnectQuestScreen = () => {
       handleClaim={handleClaim}
       handleTaskOpen={handleTaskOpen}
       reward={totalReward}
-      claimed={connectQuestsLists.claimed}
+      claimed={walletCliamed}
     />
   );
 };
