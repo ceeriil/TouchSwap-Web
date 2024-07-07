@@ -9,6 +9,7 @@ export const getUserTasks = async (
     const tasks = (await axios.get(`/api/tasks?userId=${userId}`)).data as UserTask[];
     return tasks
   } catch (error) {
+    console.log(error)
     throw new Error("Could not get user tasks ");
   }
 };
