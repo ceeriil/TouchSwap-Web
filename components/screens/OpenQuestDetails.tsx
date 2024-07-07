@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { ClaimReward } from "../touchswap/ClaimReward";
 import { useAppStore } from "@/services/store/store";
 import { LinkTask, QuestList } from "@/types";
@@ -65,6 +65,26 @@ const Tasks = ({
     setIsModalOpen(false);
   };
 
+  function renderButtonOrStatus(button:ReactNode, completed:boolean, onTaskOpen:(index:number)=>void, index:number) {
+    if (button !== null) {
+      return button;
+    }
+  
+    if (completed) {
+      return <button className="text-[0.8rem] font-bold">Done</button>;
+    }
+  
+    return (
+      <button
+        onClick={() => onTaskOpen(index)}
+        className="text-sm bg-white text-black py-2 px-2 rounded-lg font-medium"
+      >
+        Start
+      </button>
+    );
+  }
+  
+
   const allTasksCompleted = tasks.every(task => task.completed);
 
   return (
@@ -76,18 +96,7 @@ const Tasks = ({
               <div className="">
                 <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title}</h3>
               </div>
-               
-              {  button !== null ? (button) :  completed ? (
-                <p className="text-
-                [0.8rem] font-bold ">Done</p>
-              ) : (
-                <button
-                  onClick={() => onTaskOpen(index)}
-                  className="text-sm bg-white text-black py-2 px-2 rounded-lg font-medium"
-                >
-                  Start
-                </button>
-              )}
+               {renderButtonOrStatus(button,completed,(index)=>onTaskOpen(index),index)}
             </div>
           );
         })}
