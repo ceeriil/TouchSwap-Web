@@ -10,7 +10,7 @@ type Props = {
   handleTaskOpen: (index: number) => void;
   claimed: boolean;
   reward: number;
-  wallet:ReactNode
+  wallet?:ReactNode
 };
 
 const renderer = ({
@@ -50,7 +50,7 @@ const Tasks = ({
   onClaim: () => void;
   claimed: boolean;
   reward: number;
-  wallet:ReactNode
+  wallet?:ReactNode 
 }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const balance = useAppStore(state => state.user.balance);
@@ -93,8 +93,11 @@ const Tasks = ({
             <div className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between" key={index}>
               <div className="">
                 <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title}</h3>
-              </div>
-               { wallet ? wallet : renderButtonOrStatus(completed,(index)=>onTaskOpen(index),index)}
+              </div>  
+              {
+                
+              }
+               {/* {renderButtonOrStatus(completed,(index)=>onTaskOpen(index),index)} */}
             </div>
           );
         })}
