@@ -106,11 +106,13 @@ const [tonConnectUI] = useTonConnectUI();
             <div className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between" key={index}>
               <div className="">
                 <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title}</h3>
-                { walletTask ? 
-                  ( <TonConnectButton className="text-sm text-black py-2 px-2 rounded-lg font-medium" />)
-                 :
-                  renderButtonOrStatus(completed,(index)=>onTaskOpen(index),index)
-                }
+                <div>
+                  { walletTask ? 
+                    ( <TonConnectButton className="text-sm text-black py-2 px-2 rounded-lg font-medium" />)
+                  :
+                    renderButtonOrStatus(completed,(index)=>onTaskOpen(index),index)
+                  }
+                </div>
               </div>  
             </div>
           );
