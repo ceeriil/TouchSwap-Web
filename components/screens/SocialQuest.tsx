@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { OpenQuestDetailScreen } from "./OpenQuestDetails";
-import { LinkTask, QuestList } from "@/types";
+import {  QuestList } from "@/types";
 import { calculateTotalReward } from "@/utils";
 import { getUserTasks, postUserTasks } from "@/services/data/task";
 import { useAppStore } from "@/services/store/store";
@@ -70,7 +70,6 @@ export const SocialQuestScreen = () => {
       handleTaskOpen={handleTaskOpen}
       claimed={claimed}
       reward={totalReward}
-      wallet={null}
     />
   );
 };

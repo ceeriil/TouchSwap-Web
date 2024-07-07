@@ -10,7 +10,6 @@ type Props = {
   handleTaskOpen: (index: number) => void;
   claimed: boolean;
   reward: number;
-  wallet?:ReactNode
 };
 
 const renderer = ({
@@ -43,14 +42,12 @@ const Tasks = ({
   onClaim,
   claimed,
   reward,
-  wallet
 }: {
   tasks: LinkTask[];
   onTaskOpen: (index: number) => void;
   onClaim: () => void;
   claimed: boolean;
   reward: number;
-  wallet?:ReactNode 
 }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const balance = useAppStore(state => state.user.balance);
@@ -116,7 +113,7 @@ const Tasks = ({
   );
 };
 
-export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, handleClaim, claimed, reward, wallet}) => {
+export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, handleClaim, claimed, reward}) => {
   const setScreen = useAppStore(store => store.setScreen);
 
   const goBack = () => {
@@ -139,7 +136,6 @@ export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, 
             onClaim={handleClaim}
             claimed={claimed}
             reward={reward}
-            wallet={wallet}
           />
         </div>
       </div>
