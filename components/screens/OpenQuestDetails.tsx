@@ -89,7 +89,7 @@ const Tasks = ({
           return (
             <div className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between" key={index}>
               <div className="">
-                <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title}</h3>
+                <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title} jjdjd</h3>
               </div>  
             </div>
           );
