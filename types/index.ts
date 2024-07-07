@@ -23,4 +23,5 @@ export type UserTask = {
   link: string;
   reward:number;
   completed:boolean 
+  button:null
 }
