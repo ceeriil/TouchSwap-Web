@@ -66,6 +66,7 @@ const Tasks = ({
   };
 
   function renderButtonOrStatus(button:ReactNode, completed:boolean, onTaskOpen:(index:number)=>void, index:number) {
+    console.log(button, completed, onTaskOpen, index)
     if (button !== null) {
       return button;
     }
