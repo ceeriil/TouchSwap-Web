@@ -5,7 +5,6 @@ import { calculateTotalReward } from "@/utils";
 import { getUserTasks, postUserTasks } from "@/services/data/task";
 import { useAppStore } from "@/services/store/store";
 import { Loader } from "../Loader";
-import { tree } from "next/dist/build/templates/app-page";
 
 
 

@@ -5,7 +5,6 @@ export type LinkTask = {
   completed: boolean;
   reward: number;
   link: string;
-  button:React.ReactNode | null;
 };
 
 export type QuestList = {
@@ -23,5 +22,4 @@ export type UserTask = {
   link: string;
   reward:number;
   completed:boolean 
-  button:null
 }

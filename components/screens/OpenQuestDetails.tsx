@@ -2,7 +2,6 @@ import React, { ReactNode, useState } from "react";
 import { ClaimReward } from "../touchswap/ClaimReward";
 import { useAppStore } from "@/services/store/store";
 import { LinkTask, QuestList } from "@/types";
-import Countdown from "react-countdown";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 
 type Props = {
@@ -11,6 +10,7 @@ type Props = {
   handleTaskOpen: (index: number) => void;
   claimed: boolean;
   reward: number;
+  wallet:ReactNode
 };
 
 const renderer = ({
@@ -43,12 +43,14 @@ const Tasks = ({
   onClaim,
   claimed,
   reward,
+  wallet
 }: {
   tasks: LinkTask[];
   onTaskOpen: (index: number) => void;
   onClaim: () => void;
   claimed: boolean;
   reward: number;
+  wallet:ReactNode
 }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const balance = useAppStore(state => state.user.balance);
@@ -65,12 +67,7 @@ const Tasks = ({
     setIsModalOpen(false);
   };
 
-  function renderButtonOrStatus(button:ReactNode|null, completed:boolean, onTaskOpen:(index:number)=>void, index:number) {
-    console.log(button, completed, onTaskOpen, index)
-    if (button != null) {
-      return button;
-    }
-  
+  function renderButtonOrStatus( completed:boolean, onTaskOpen:(index:number)=>void, index:number) {
     if (completed) {
       return <button className="text-[0.8rem] font-bold">Done</button>;
     }
@@ -91,13 +88,13 @@ const Tasks = ({
   return (
     <div>
       <div className="grid gap-2 pb-12">
-        {tasks.map(({ title, completed,button }, index) => {
+        {tasks.map(({ title, completed}, index) => {
           return (
             <div className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between" key={index}>
               <div className="">
                 <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title}</h3>
               </div>
-               {renderButtonOrStatus(button,completed,(index)=>onTaskOpen(index),index)}
+               { wallet ? wallet : renderButtonOrStatus(completed,(index)=>onTaskOpen(index),index)}
             </div>
           );
         })}
@@ -120,7 +117,7 @@ const Tasks = ({
   );
 };
 
-export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, handleClaim, claimed, reward }) => {
+export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, handleClaim, claimed, reward, wallet}) => {
   const setScreen = useAppStore(store => store.setScreen);
 
   const goBack = () => {
@@ -143,6 +140,7 @@ export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, 
             onClaim={handleClaim}
             claimed={claimed}
             reward={reward}
+            wallet={wallet}
           />
         </div>
       </div>

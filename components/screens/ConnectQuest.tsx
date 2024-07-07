@@ -16,7 +16,6 @@ export const connectQuestsLists: QuestList = {
       completed: false,
       link: "",
       reward: 10000,
-      button:( <TonConnectButton  className="text-sm text-black py-2 px-2 rounded-lg font-medium"   />),
     },
   ],
   claimed: false,
@@ -42,6 +41,7 @@ export const ConnectQuestScreen = () => {
       handleTaskOpen={handleTaskOpen}
       reward={totalReward}
       claimed={walletCliamed}
+      wallet={  <TonConnectButton  className="text-sm text-black py-2 px-2 rounded-lg font-medium"   />}
     />
   );
 };
