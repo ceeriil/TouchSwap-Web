@@ -94,10 +94,6 @@ const Tasks = ({
               <div className="">
                 <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title}</h3>
               </div>  
-              {
-                
-              }
-               {/* {renderButtonOrStatus(completed,(index)=>onTaskOpen(index),index)} */}
             </div>
           );
         })}
