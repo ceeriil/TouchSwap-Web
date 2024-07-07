@@ -22,6 +22,8 @@ export const SocialQuestScreen = () => {
   const user = useAppStore(state=> state.user)
   const [claimed, setClaimed] = useState(socialQuestsLists.claimed);
   const [loading, setLoading] = useState(true);
+  const balance = useAppStore(state=> state.user!.balance)
+  const updateBalance = useAppStore(state=> state.updateBalance)
 
   const handleClaim = () => {
     const tasksCompleted = socialQuestsLists.tasks.every(task => task.completed);
@@ -70,6 +72,7 @@ export const SocialQuestScreen = () => {
       handleTaskOpen={handleTaskOpen}
       claimed={claimed}
       reward={totalReward}
+      walletTask={false}
     />
   );
 };

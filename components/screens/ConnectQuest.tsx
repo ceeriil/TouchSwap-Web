@@ -23,9 +23,10 @@ export const connectQuestsLists: QuestList = {
 
 
 export const ConnectQuestScreen = () => {
+  const balance = useAppStore(state=> state.user!.balance)
+  const updateBalance = useAppStore(state=> state.updateBalance)
   const walletCliamed = useAppStore(state=>state.walletCliamed) 
   
-
 
   const totalReward = calculateTotalReward(connectQuestsLists);
   const handleClaim = () => {};
@@ -41,6 +42,7 @@ export const ConnectQuestScreen = () => {
       handleTaskOpen={handleTaskOpen}
       reward={totalReward}
       claimed={walletCliamed}
+      walletTask={true}
     />
   );
 };

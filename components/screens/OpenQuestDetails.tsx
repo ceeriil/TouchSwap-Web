@@ -1,8 +1,9 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 import { ClaimReward } from "../touchswap/ClaimReward";
 import { useAppStore } from "@/services/store/store";
 import { LinkTask, QuestList } from "@/types";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
+import { TonConnectButton, useTonConnectUI } from "@tonconnect/ui-react";
 
 type Props = {
   quest: QuestList;
@@ -10,6 +11,7 @@ type Props = {
   handleTaskOpen: (index: number) => void;
   claimed: boolean;
   reward: number;
+  walletTask:boolean;
 };
 
 const renderer = ({
@@ -42,16 +44,30 @@ const Tasks = ({
   onClaim,
   claimed,
   reward,
+  walletTask
 }: {
   tasks: LinkTask[];
   onTaskOpen: (index: number) => void;
   onClaim: () => void;
   claimed: boolean;
   reward: number;
+  walletTask:boolean
 }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const balance = useAppStore(state => state.user.balance);
   const updateBalance = useAppStore(state => state.updateBalance);
+
+
+const [tonConnectUI] = useTonConnectUI();
+
+  useEffect(() =>
+    tonConnectUI.onStatusChange(wallet => {
+        if(wallet)  return alert("connected")
+        else return alert("disconnected")
+        // if (wallet.connectItems?.tonProof && 'proof' in wallet.connectItems.tonProof) {
+        //     checkProofInYourBackend(wallet.connectItems.tonProof.proof, wallet.account);
+        // }
+  }), []);
 
   const openModal = () => {
     if (claimed) return;
@@ -89,7 +105,12 @@ const Tasks = ({
           return (
             <div className="bg-[#293641] py-3 px-4 rounded-lg h-full flex items-center justify-between" key={index}>
               <div className="">
-                <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title} jjdjd</h3>
+                <h3 className="text-[0.8rem] font-[500] leading-[1.8] text-[#AFAFAF]">{title}</h3>
+                { walletTask ? 
+                  ( <TonConnectButton className="text-sm text-black py-2 px-2 rounded-lg font-medium" />)
+                 :
+                  renderButtonOrStatus(completed,(index)=>onTaskOpen(index),index)
+                }
               </div>  
             </div>
           );
@@ -113,7 +134,7 @@ const Tasks = ({
   );
 };
 
-export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, handleClaim, claimed, reward}) => {
+export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, handleClaim, claimed, reward, walletTask}) => {
   const setScreen = useAppStore(store => store.setScreen);
 
   const goBack = () => {
@@ -136,6 +157,7 @@ export const OpenQuestDetailScreen: React.FC<Props> = ({ quest, handleTaskOpen, 
             onClaim={handleClaim}
             claimed={claimed}
             reward={reward}
+            walletTask={walletTask}
           />
         </div>
       </div>
