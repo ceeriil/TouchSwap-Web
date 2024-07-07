@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { OpenQuestDetailScreen } from "./OpenQuestDetails";
 import { LinkTask, QuestList } from "@/types";
 import { calculateTotalReward } from "@/utils";
-import { getUserTasks } from "@/services/data/task";
+import { getUserTasks, postUserTasks } from "@/services/data/task";
 import { useAppStore } from "@/services/store/store";
 import { Loader } from "../Loader";
 import { tree } from "next/dist/build/templates/app-page";
@@ -48,10 +48,11 @@ export const SocialQuestScreen = () => {
 
   const totalReward = calculateTotalReward(socialQuestsLists);
 
-  const handleTaskOpen = (index: number) => {
+  const handleTaskOpen = async (index: number) => {
     if(window !== null) {
       window.open(socialQuestsLists.tasks[index].link,"_blank");
       socialQuestsLists.tasks[index].completed = true
+      await postUserTasks(user.id,index)
     }
   };
 

@@ -14,3 +14,13 @@ export const getUserTasks = async (
   }
 };
 
+
+
+export const postUserTasks = async ( userId:number, taskId:number) => {
+  const data = JSON.stringify({userId,taskId});
+  try {
+      await axios.post("/api/tasks",data) 
+  } catch (error) {
+      throw new Error("Could not post data");
+  }
+}
