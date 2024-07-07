@@ -19,7 +19,6 @@ export const socialQuestsLists: QuestList = {
 
 
 export const SocialQuestScreen = () => {
-  
   const user = useAppStore(state=> state.user)
   const [claimed, setClaimed] = useState(socialQuestsLists.claimed);
   const [loading, setLoading] = useState(true);
@@ -49,7 +48,7 @@ export const SocialQuestScreen = () => {
   const totalReward = calculateTotalReward(socialQuestsLists);
 
   const handleTaskOpen = (index: number) => {
-    console.log(socialQuestsLists.tasks[index]);
+    if(window !== null) window.open(socialQuestsLists.tasks[index].link,"_blank");
   };
 
   if(loading) {
@@ -67,7 +66,6 @@ export const SocialQuestScreen = () => {
       handleTaskOpen={handleTaskOpen}
       claimed={claimed}
       reward={totalReward}
-
     />
   );
 };
