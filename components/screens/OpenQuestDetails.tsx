@@ -65,9 +65,9 @@ const Tasks = ({
     setIsModalOpen(false);
   };
 
-  function renderButtonOrStatus(button:ReactNode, completed:boolean, onTaskOpen:(index:number)=>void, index:number) {
+  function renderButtonOrStatus(button:ReactNode|null, completed:boolean, onTaskOpen:(index:number)=>void, index:number) {
     console.log(button, completed, onTaskOpen, index)
-    if (button !== null) {
+    if (button != null) {
       return button;
     }
   

@@ -5,7 +5,7 @@ export type LinkTask = {
   completed: boolean;
   reward: number;
   link: string;
-  button?:React.ReactNode;
+  button:React.ReactNode | null;
 };
 
 export type QuestList = {
