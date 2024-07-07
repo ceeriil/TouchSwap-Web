@@ -70,6 +70,7 @@ export const SocialQuestScreen = () => {
       handleTaskOpen={handleTaskOpen}
       claimed={claimed}
       reward={totalReward}
+      wallet={null}
     />
   );
 };
