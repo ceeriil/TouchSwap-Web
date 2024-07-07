@@ -11,15 +11,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const user =  await findUser(userId as string);
       if(!user)  return res.status(500).json({ message: "Invalid Parmeter" });
       const taskes = await getAllTasks();
-      // const foundTaskObject = user.taskesCompleted.reduce((a, v) => ({ ...a, [v]: true}), {});
-      // let parsedData: UserTask[] =  taskes.map(task=>{
-      //   if(foundTaskObject[task.id]) return {...task, reward:task.reward , completed:true}
-      //   return { ...task, completed:false}
-      // }) 
+      const foundTaskObject = user.taskesCompleted.reduce((a, v) => ({ ...a, [v]: true}), {});
+      let parsedData: UserTask[] =  taskes.map(task=>{
+        if(foundTaskObject[task.id]) return {...task, reward:task.reward , completed:true}
+        return { ...task, completed:false}
+      }) 
 
-      return res.status(200).json(taskes);
+      return res.status(200).json(parsedData);
     } catch (error: any) {
-
       return res.status(500).json({ message: "Method not allowed" });
     }
   }
