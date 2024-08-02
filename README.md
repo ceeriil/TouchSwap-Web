@@ -1,75 +1,74 @@
 # Touch Swap Web App
 
-This is the Telegram Web Apps for touch swap   using [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/).
+This is the Telegram Web App for Touch Swap, built using [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/).
 
-### Why Next.js?
+## Prerequisites
 
-Next.js is easy and powerful, it also allows creating API routes without the need for another server and any troubles, For example, it's ideal for validating the incoming web app's request hash.
+- **Node.js (v16 LTS)**
+- **Yarn**
 
+## Project Setup
 
-Now, clone the [`.env.example`](.env.example) file and rename it to `.env.local` and fill the variables with your data.
+1. **Clone the Next.js app repository:**
+   ```sh
+   git clone https://github.com/Touch-Swap/Web-App.git
+   cd Web-App
+   ```
 
-- `BOT_TOKEN`: Your Telegram Bot Token (used for validating the incoming requests, see [Request Validation](#request-validation) for more info)
+2. **Install dependencies:**
+   ```sh
+   yarn install
+   ```
 
-```bash
-pnpm dev
-```
+3. **Run the app with ngrok:**
+   ```sh
+   yarn dev
+   ngrok http 3000
+   ```
 
-### Testing locally w/ [ngrok](https://ngrok.com/)
+4. **Copy the ngrok URL:**
+   The ngrok command will generate a URL like `https://abcd1234.ngrok.io`. Copy this URL.
 
-Since Telegram only accepts HTTPS links, you'll need to use a tunneling service like [ngrok](https://ngrok.com/) to test your bot locally.
+## Connecting to Local Firebase Instance
 
-```bash
-# Copy the HTTPS URL given by ngrok and use it as main URL for your bot.
-# If the port differs from 3000, change it accordingly.
-ngrok http 3000
-```
+To connect to a local Firebase instance in your Next.js project, follow these steps:
 
-### Bundle Analyzer
+1. **Install Firebase CLI:**
+   Ensure you have the Firebase CLI installed on your local machine.
 
-This template is already configured to use [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer), which is a plugin for Next.js that analyzes the bundle size of your application (useful when you want to replace a library with another smaller one). The following command will generate a report in the `.next/analyze` folder and open it in your browser.
+2. **Configure Firebase Environment Variables:**
+   Set `FIRESTORE_EMULATOR_HOST=localhost:8080` in `packages/nextjs/.env` to connect your Next.js application to the local Firebase instance.
 
-```bash
-pnpm analyze
-```
+3. **Seed Local Firebase Data:**
+   - Data is stored in `packages/nextjs/local_database/`
+   - Schema is in `packages/nextjs/service/db/`—customize according to your needs.
+   - Clean up and re-import data via the Firestore UI if needed by stopping and running `yarn start` again.
+
+## Deploying the Next.js App
+
+1. **Connect to Live Firebase Instance:**
+   - Download `serviceAccountKey.json` from the Firebase UI.
+   - Comment out `FIRESTORE_EMULATOR_HOST` in `.env`.
+   - Set `GOOGLE_APPLICATION_CREDENTIALS` to the path of `serviceAccountKey.json`.
+
+2. **Deploy to Vercel:**
+   - Connect your GitHub repo to Vercel for automatic deployment.
+   - Or deploy directly from CLI:
+     ```sh
+     yarn vercel
+     ```
 
 ## Request Hash Validation
 
-All the requests are validated using an API route that checks if the request is coming from Telegram. [Telegram's documentation](https://core.telegram.org/bots/webapps#validating-data-received-via-the-web-app) explains how it works.
+All requests are validated using an API route that checks if the request is coming from Telegram.
 
-### Disabling the validation
+### Disabling Validation
 
-To disable this feature, delete the [`pages/api/validate-hash.ts`](pages/api/validate-hash.ts) file and remove the `useEffect` hook from [`pages/_app.tsx`](pages/_app.tsx) and it's dependencies.
+To disable validation, delete `pages/api/validate-hash.ts` and remove the `useEffect` hook from `pages/_app.tsx`.
 
-```diff
-# src/pages/_app.tsx
-import type { AppProps } from 'next/app';
-- import { useEffect, useState } from 'react';
-- import axios from 'axios';
+### Using `initData`
 
-function MyApp({ Component, pageProps }: AppProps) {
--  const [isHashValid, setIsHashValid] = useState(false);
-
--  // Wait for validation to complete before rendering the page and stop the
--  // rendering if the hash is invalid. Comment out the following useEffect
--  // hook to see the page render without the hash validation.
--  useEffect(() => {
--    axios
--      .post('/api/validate-hash', { hash: window.Telegram.WebApp.initData })
--      .then(response => setIsHashValid(response.status === 200));
--  }, []);
-
--  if (!isHashValid) {
--    return null;
--  }
-
-  return <Component {...pageProps} />;
-}
-```
-
-### Using [`initData`](https://core.telegram.org/bots/webapps#webappinitdata)
-
-You can use it in the `window.Telegram.WebApp.initDataUnsafe` but it's not recommended by Telegram. There's the hook [`useTelegramInitData`](src/hooks/useTelegramInitData.ts) that parses the data and returns an object.
+Use `window.Telegram.WebApp.initDataUnsafe` or the hook `useTelegramInitData` for handling initialization data.
 
 ```tsx
 // src/pages/init-data.tsx
@@ -86,3 +85,7 @@ export default function InitData() {
   );
 }
 ```
+
+---
+
+Feel free to modify this README as needed for your specific project setup.
