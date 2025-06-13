@@ -2,21 +2,14 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { badgesLists } from "@/services/data/badgeData";
 import { useAppStore } from "@/services/store/store";
-import { HapticFeedback, initHapticFeedback, isSSR } from "@tma.js/sdk-react";
-
+/* import { HapticFeedback, initHapticFeedback, isSSR } from "@tma.js/sdk-react";
+ */
 export const RankHeader = () => {
   const setScreen = useAppStore(state => state.setScreen);
   const totalCoinsMined = useAppStore(state => state.user!.totalCoinsMined);
   const rank = useAppStore(state => state.user.rank);
 
   const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && !isSSR()) {
-      setHapticFeedback(initHapticFeedback());
-    }
-  }, []);
- 
 
   const goToBadges = () => {
     setScreen("badges");
