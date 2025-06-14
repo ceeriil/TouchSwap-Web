@@ -7,6 +7,7 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { Loader } from "@/components/Loader";
 import "@/styles/globals.css";
 import AppWalletProvider from "@/components/provider/AppWalletProvider";
+import { FrameProvider } from "@/components/provider/FrameContext";
 
 const ErrorBoundaryError: FC<{ error: unknown }> = ({ error }) => (
   <div>
@@ -29,15 +30,17 @@ const BackButtonManipulator: FC = () => {
 const App: FC<AppProps> = ({ pageProps, Component }) => {
   return (
     <>
-      <Suspense fallback={<Loader />}>
-        <BackButtonManipulator />
-        <AppWalletProvider>
-          <main className="relative bgcover overflowxhidden" style={{ background: `url('/img/stars.svg')` }}>
-            <Component {...pageProps} />
-          </main>
-        </AppWalletProvider>
-        <Toaster />
-      </Suspense>
+      <FrameProvider>
+        <Suspense fallback={<Loader />}>
+          <BackButtonManipulator />
+          <AppWalletProvider>
+            <main className="relative bgcover overflowxhidden" style={{ background: `url('/img/stars.svg')` }}>
+              <Component {...pageProps} />
+            </main>
+          </AppWalletProvider>
+          <Toaster />
+        </Suspense>
+      </FrameProvider>
     </>
   );
 };

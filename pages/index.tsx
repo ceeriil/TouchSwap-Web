@@ -123,7 +123,7 @@ export default function Home({ deviceType }: { deviceType: string }) {
     return () => clearInterval(interval);
   }, [updateEnergyByTime]);
 
-  if (!isMobile) {
+  /*   if (!isMobile) {
     return (
       <div className="flex justify-center items-center min-h-screen">
         <div className="flex flex-col w-full m-auto justify-center items-center">
@@ -137,7 +137,7 @@ export default function Home({ deviceType }: { deviceType: string }) {
         </div>
       </div>
     );
-  }
+  } */
 
   if (!foundState) {
     return (
@@ -157,7 +157,7 @@ export default function Home({ deviceType }: { deviceType: string }) {
   );
 }
 
-export async function getServerSideProps(context: NextPageContext) {
+/* export async function getServerSideProps(context: NextPageContext) {
   const UA = context.req?.headers["user-agent"] || "";
   const isMobile = Boolean(UA.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i));
 
@@ -167,3 +167,4 @@ export async function getServerSideProps(context: NextPageContext) {
     },
   };
 }
+ */

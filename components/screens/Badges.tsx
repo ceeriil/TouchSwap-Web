@@ -12,7 +12,6 @@ import { WhaleBadge } from "../assets/badges/WhaleBadge";
 import { BadgeCard } from "../touchswap/BadgeCard";
 import { BoostCard } from "../touchswap/BoostCard";
 import { useAppStore } from "@/services/store/store";
-import { HapticFeedback, initHapticFeedback, isSSR } from "@tma.js/sdk-react";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 
 type BadgesList = {
@@ -123,23 +122,21 @@ export const BadgesScreen = () => {
     return { ...badge, isUnlocked, claimed: hasNotClaimed };
   });
 
-  const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
-
-  useEffect(() => {
+  /*   const [hapticFeedback, setHapticFeedback] = useState<HapticFeedback | null>(null);
+   */
+  /*  useEffect(() => {
     if (typeof window !== "undefined" && !isSSR()) {
       setHapticFeedback(initHapticFeedback());
     }
-  }, []);
+  }, []); */
 
   const goBack = () => {
     setScreen("home");
-    hapticFeedback?.impactOccurred("soft");
   };
 
   const handleClaim = (id: number, reward: number) => {
     cliamRank(id);
     updateBalance(balance + reward);
-    hapticFeedback?.impactOccurred("heavy");
   };
 
   return (
